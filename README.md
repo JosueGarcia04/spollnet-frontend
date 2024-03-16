@@ -11,3 +11,8 @@ de cada uno de los partidos por lo cual tendríamos una mayor comodidad a la hor
 junto a esto un proceso de conteo de voto mucho más fácil y rentable que el método tradicional y gracias a esto 
 evitar las pesadas jornadas de las personas encargadas de dicho evento.
 # Herramientas
+1- Como diseño de Frontend hemos decidido utilizar hmt para maquetacion y css para diseño
+2- JavaScript para acompañar el funcionamiento del Frontend
+3- Para las conexiones y el backend utilizaremos php
+4- Manejo de base de datos utilizares mysql
+5- Para el desarrollo de la app se utiliza c# como lenguaje principal 
