@@ -29,7 +29,7 @@ desconocidas
 3. Instale el apk y listo
 listo
 
-#Autores
+# Autores
 
 * **Christian Daniel Alfarado Renderos**
 * **Leonel Alejandro Cruz Jeronimo**
