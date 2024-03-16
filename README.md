@@ -10,9 +10,29 @@ seria por medio de su carnet de estudiante emitir el voto y se sumaria al contad
 de cada uno de los partidos por lo cual tendríamos una mayor comodidad a la hora de votar y mayor agilidad 
 junto a esto un proceso de conteo de voto mucho más fácil y rentable que el método tradicional y gracias a esto 
 evitar las pesadas jornadas de las personas encargadas de dicho evento.
+
 # Herramientas
 1. Como diseño de Frontend hemos decidido utilizar hmt para maquetacion y css para diseño
 2. JavaScript para acompañar el funcionamiento del Frontend
 3. Para las conexiones y el backend utilizaremos php
 4. Manejo de base de datos utilizares mysql
 5. Para el desarrollo de la app se utiliza c# como lenguaje principal 
+
+# Como se instalar la aplicacion
+
+1. De clic al apartado que dice descarga nuestra app en nuestra página web
+web
+
+2. Cuando le de clic se empezará a descargar el apk cuando este termine de descargarse, entre a ajustes > Aplicaciones > Chrome > Active instalar aplicaciones desconocidas
+desconocidas
+
+3. Instale el apk y listo
+listo
+
+#Autores
+
+* **Christian Daniel Alfarado Renderos**
+* **Leonel Alejandro Cruz Jeronimo**
+* **Carlos Alberto Escobar Flores**
+* **Josue Adrian Garcia Juarez**
+* **Ricardo Amilcar Guevags Alvarado**
