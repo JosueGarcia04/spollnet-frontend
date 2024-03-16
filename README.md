@@ -9,4 +9,5 @@ y cuando el papel ingrese a la urna contará como voto para dicho partido y la o
 seria por medio de su carnet de estudiante emitir el voto y se sumaria al contador global
 de cada uno de los partidos por lo cual tendríamos una mayor comodidad a la hora de votar y mayor agilidad 
 junto a esto un proceso de conteo de voto mucho más fácil y rentable que el método tradicional y gracias a esto 
-evitar las pesadas jornadas de las personas encargadas de dicho evento
+evitar las pesadas jornadas de las personas encargadas de dicho evento.
+# Herramientas
