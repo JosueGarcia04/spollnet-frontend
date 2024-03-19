@@ -31,7 +31,7 @@ listo
 
 # Organizadores de Actividades
 
-* **https://trello.com/u/ricardoamilcarguevaraalvarado/boards**
+* **https://trello.com/invite/spollnet/ATTIcd94de3af60d3ab84f47bb66a34f9d85A3D21D16**
 
 # Autores
 
