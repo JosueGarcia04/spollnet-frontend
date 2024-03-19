@@ -29,6 +29,11 @@ desconocidas
 3. Instale el apk y listo
 listo
 
+#Organizador de Actividades
+Actividades
+
+* **https://trello.com/u/ricardoamilcarguevaraalvarado/boards**
+
 # Autores
 
 * **Christian Daniel Alfarado Renderos**
