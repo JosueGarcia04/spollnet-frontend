@@ -15,7 +15,7 @@ evitar las pesadas jornadas de las personas encargadas de dicho evento.
 1. Como diseño de Frontend hemos decidido utilizar hmt para maquetacion y css para diseño
 2. JavaScript para acompañar el funcionamiento del Frontend
 3. Para las conexiones y el backend utilizaremos php
-4. Manejo de base de datos utilizares mysql
+4. Manejo de base de datos utilizares mongoDB
 5. Para el desarrollo de la app se utiliza c# como lenguaje principal 
 
 # Como se instalar la aplicacion
@@ -35,4 +35,4 @@ listo
 * **Leonel Alejandro Cruz Jeronimo**
 * **Carlos Alberto Escobar Flores**
 * **Josue Adrian Garcia Juarez**
-* **Ricardo Amilcar Guevags Alvarado**
+* **Ricardo Amilcar Guevara Alvarado**
