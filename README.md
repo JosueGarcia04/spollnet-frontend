@@ -1,5 +1,5 @@
 # SPOLLNET
-Buscamos agilizar y automarizar el proceso de votación en el centro educativo mediante una aplicación web
+Se busca agilizar y automarizar el proceso de votación en el centro educativo mediante una aplicación web
 en la cual buscamos que cada estudiante dentro de la institucion pueda participar en el proceso de votación
 de una manera más cómoda, rápida y efectiva junto una mayor facilidad a la hora de contar los votos
 en el proceso de elección para cada partido también queremos evitar la dificultad de este proceso en el centro educativo 
@@ -33,10 +33,18 @@ listo
 
 * **https://trello.com/invite/spollnet/ATTIcd94de3af60d3ab84f47bb66a34f9d85A3D21D16**
 
-# Autores
+# Mockups 
+
+* https://www.figma.com/file/LYSqGwmlsNheiFXmDTjBOg/App-Mobile-(Community)?type=design&node-id=2%3A0&mode=design&t=yT2dz2j2k0slLvJo-1
+
+# Diagramas
+
+* https://app.diagrams.net/#G1VyuIOC_vt2RXtVw_tWNoHy7QH0aMx8xF#%7B%22pageId%22%3A%226-WXzx9mxk2itoo6lPSH%22%7D
+ 
+# Integrantes de SpollNet
 
 * **Christian Daniel Alfarado Renderos**
 * **Leonel Alejandro Cruz Jeronimo**
 * **Carlos Alberto Escobar Flores**
-* **Josue Adrian Garcia Juarez**
+* **Josué Adrián García Juárez**
 * **Ricardo Amilcar Guevara Alvarado**
