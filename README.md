@@ -28,10 +28,11 @@ desconocidas
 
 # ℹ️ Información de interés ℹ️
 
-*<Organizador de actividades a realizar>https://trello.com/invite/spollnet/ATTIcd94de3af60d3ab84f47bb66a34f9d85A3D21D16
+*<Organizador de actividades a realizar> https://trello.com/invite/spollnet/ATTIcd94de3af60d3ab84f47bb66a34f9d85A3D21D16
 
-*<Diseño UX/UI o Mockpus>https://www.figma.com/file/LYSqGwmlsNheiFXmDTjBOg/App-Mobile-(Community)?type=design&node-id=2%3A0&mode=design&t=yT2dz2j2k0slLvJo-1
- *<Diagramas>https://app.diagrams.net/#G1VyuIOC_vt2RXtVw_tWNoHy7QH0aMx8xF#%7B%22pageId%22%3A%226-WXzx9mxk2itoo6lPSH%22%7D
+*<Diseño UX/UI o Mockpus> https://www.figma.com/file/LYSqGwmlsNheiFXmDTjBOg/App-Mobile-(Community)?type=design&node-id=2%3A0&mode=design&t=yT2dz2j2k0slLvJo-1
+
+ *<Diagramas> https://app.diagrams.net/#G1VyuIOC_vt2RXtVw_tWNoHy7QH0aMx8xF#%7B%22pageId%22%3A%226-WXzx9mxk2itoo6lPSH%22%7D
  
 # 🧑‍💻 Integrantes de SpollNet 🧑‍💻
 
