@@ -4,17 +4,31 @@
 
 "Cada salesiano que forma parte del Colegio Don Bosco podrá realizar el proceso de elección de cada nuevo Consejo Estudiantil del Colegio Don Bosco de una manera más fácil, cómoda y rápida"
 
-
 # 🔧 Tecnologías a utilizar ⚙️
 
+* Trello
+* Figma 
+* GitHub
+* Visual Studio Code
 * NodeJS
 * JavaScript
 * Vite
 * Tailwind 
 * React 
-* Php
 * MongoDB
 
+# 📃 Licencia del Proyecto 📃
+
+En nuestro equipo, hemos decidido incorporar las Licencias Creative Commons a nuestro sistema de  votaciones estudiantiles para garantizar la protección de los derechos de autor y promover el uso justo y 
+abierto de los recursos creados. Para lograr esto, hemos diseñado un proceso sencillo y efectivo para integrar estas licencias en nuestra plataforma.
+
+<> Atribución (CC BY)
+
+<> Atribución-CompartirIgual (CC BY-SA)
+
+<> Atribución-NoComercial (CC BY-NC)
+
+<> Atribución-NoComercial-CompartirIgual (CC BY-NC-SA)
 
 # 📱 Instalación ⬇️
 
