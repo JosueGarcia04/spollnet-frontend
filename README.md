@@ -15,6 +15,7 @@
 * Vite
 * Tailwind 
 * React 
+* Express JS
 * MongoDB
 
 ## 📃 Licencia del Proyecto 📃
