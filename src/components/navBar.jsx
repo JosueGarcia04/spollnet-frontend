@@ -19,24 +19,24 @@ const Navbar = () => {
           aria-controls="navbar-default"
           aria-expanded={isOpen ? "true" : "false"}
         >
-          <span className="sr-only">Open main menu</span>
-          <svg className="w-5 text-[#E41FAE]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <span className="sr-only">open</span>
+          <svg className="w-15 text-[#E41FAE]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
           </svg>
         </button>
         <div className={`w-full md:block md:w-auto ${isOpen ? 'block' : 'hidden'}`} id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li className="bg-black"> {/* Agregar clase bg-black */}
-              <a href="#" className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-[#E41FAE] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-center">Inicio</a>
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:dark:hover:text-[#E41FAE]">
+            <li> 
+              <a href="#" className=" block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Inicio</a>
             </li>
-            <li className="bg-black"> {/* Agregar clase bg-black */}
-              <a href="#" className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-[#E41FAE] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-center">Sobre nosotros</a>
+            <li> 
+              <a href="#" className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Sobre nosotros</a>
             </li>
-            <li className="bg-black"> {/* Agregar clase bg-black */}
-              <a href="#" className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-[#E41FAE] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-center">Proceso de voto</a>
+            <li> 
+              <a href="#" className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Proceso de voto</a>
             </li>
-            <li className="bg-black"> {/* Agregar clase bg-black */}
-              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-[#E41FAE] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-center">Notificaciones</Link>
+            <li> 
+              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Notificaciones</Link>
             </li>
           </ul>
         </div>
@@ -44,5 +44,4 @@ const Navbar = () => {
     </nav>
   );
 }
-
 export default Navbar;

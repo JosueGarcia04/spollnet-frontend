@@ -1,41 +1,69 @@
 import React from "react";
+import Navbar from "../components/navBar";
+import Footer from "../components/footer";
 
 export default function Example() {
-    // Array de personas
-    const people = [
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      },
-      // Más personas...
-    ];
   
+    const developers = [
+      {
+        name: 'Leonel Alejandro',
+        role: 'Full Stack',
+        imageUrl:
+          'http://sys.cdb.edu.sv/icons/2023//20220045.jpg',
+      },
+      {
+        name: 'Leonel Alejandro',
+        role: 'Full Stack',
+        imageUrl:
+          'http://sys.cdb.edu.sv/icons/2023//20220308.jpg',
+      },
+      {
+        name: 'Carlos ALberto',
+        role: 'Full Stack',
+        imageUrl:
+          'http://sys.cdb.edu.sv/icons/2023//20220307.jpg',
+      },
+      {
+        name: 'Josue Adrian',
+        role: 'Full Stack',
+        imageUrl:
+          'http://sys.cdb.edu.sv/icons/2023//20150359.jpg',
+      },
+      {
+        name: 'Ricardo Amilcar',
+        role: 'Full Stack',
+        imageUrl:
+          'http://sys.cdb.edu.sv/icons/2023//20220420.jpg',
+      },
+    ];
     return (
-      <div className="bg-white py-24 sm:py-32">
+      <div>
+        <Navbar/>
+
+      <div className="bg-black py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper
-              suspendisse.
+            <h2 className="text-3xl font-bold tracking-tight text-[#E31FAE] sm:text-4xl">Desarrolladores</h2>
+            <p className="mt-6 text-lg leading-8 text-white">
+              Gracias por el esfuerzo de cada uno de los desarrolladores, Spollnet es capaz para realizar las votaciones del consejo, ¡muchas gracias!
             </p>
           </div>
           <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-            {people.map((person) => (
+            {developers.map((person) => (
               <li key={person.name}>
                 <div className="flex items-center gap-x-6">
-                  <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
+                  <img className="h-20 w-16 rounded-full" src={person.imageUrl} alt="" />
                   <div>
-                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
-                    <p className="text-sm font-semibold leading-6 text-indigo-600">{person.role}</p>
+                    <h3 className="text-base font-semibold leading-7 tracking-tight text-[#E31FAE]">{person.name}</h3>
+                    <p className="text-sm font-semibold leading-6 text-white">{person.role}</p>
                   </div>
                 </div>
               </li>
             ))}
           </ul>
         </div>
+      </div>
+      <Footer/>
       </div>
     );
   }
