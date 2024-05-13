@@ -1,11 +1,8 @@
 import React from 'react';
-import Navbar from "../components/navBar";
-import Footer from "../components/footer";
 
 const NotFound = () => {
   return (
     <>
-      <Navbar />
       <main className="text-white h-screen grid place-items-center bg-black px-6 py-24 sm:py-32 lg:px-8">
         <div className="text-center">
           <p className="text-base font-semibold text-[#E31FAE]">404</p>
@@ -16,7 +13,6 @@ const NotFound = () => {
           </div>
         </div>
       </main>
-      <Footer />  
     </>
   );
 };

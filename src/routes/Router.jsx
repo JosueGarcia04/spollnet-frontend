@@ -6,7 +6,8 @@ import NavBar from "../components/navBar";
 import NotFound from "../pages/404";
 import Footer from "../components/footer";
 import Example from "../pages/developers";
-
+import MenuLogued from "../components/menu-logued";
+import NoNotifications from '../pages/no-notifications';
 
 export const Router = createBrowserRouter([
     {
@@ -32,6 +33,14 @@ export const Router = createBrowserRouter([
             {
                 path:"/developers",
                 element:<Example/>
+            },
+            {
+                path:"/menu-logued",
+                element:<MenuLogued/>
+            },
+            {
+                path:"/no-notifications",
+                element:<NoNotifications/>
             }
         ]
     }

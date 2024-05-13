@@ -5,7 +5,7 @@ const Footer = () => {
   return(
     <div className="min-h-screen flex flex-col bg-black">
       <main className="flex-1 pb-16">
-    <footer className="fixed bottom-0 w-full bg-black p-8">
+    <footer style={{ position: "relative", marginTop: "50px" }}>
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-black text-center md:justify-between">
         <img src="src\assets\logo.jpg" className="w-40" />
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
