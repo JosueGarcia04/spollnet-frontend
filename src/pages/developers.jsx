@@ -6,7 +6,7 @@ export default function Example() {
   
     const developers = [
       {
-        name: 'Leonel Alejandro',
+        name: 'Christian Daniel',
         role: 'Full Stack',
         imageUrl:
           'http://sys.cdb.edu.sv/icons/2023//20220045.jpg',

@@ -27,16 +27,16 @@ const Navbar = () => {
         <div className={`w-full md:block md:w-auto ${isOpen ? 'block' : 'hidden'}`} id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:dark:hover:text-[#E41FAE]">
             <li> 
-              <a href="#" className=" block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Inicio</a>
+              <Link to={"/"} className=" block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Inicio</Link>
             </li>
             <li> 
-              <a href="#" className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Sobre nosotros</a>
+              <Link to={"/about us"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Sobre nosotros</Link>
             </li>
             <li> 
-              <a href="#" className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Proceso de voto</a>
+              <Link to={"/process"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Proceso de voto</Link>
             </li>
             <li> 
-              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Notificaciones</Link>
+              <Link to={"/no-notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Notificaciones</Link>
             </li>
           </ul>
         </div>

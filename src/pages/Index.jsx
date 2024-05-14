@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from "../components/navBar";
-
 import Footer from "../components/footer";
 
 export const Index = () => {

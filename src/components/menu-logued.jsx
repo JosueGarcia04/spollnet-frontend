@@ -27,25 +27,25 @@ const MenuLogued = () => {
         <div className={`w-full md:block md:w-auto ${isOpen ? 'block' : 'hidden'}`} id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:dark:hover:text-[#E41FAE]">
             <li> 
-              <a href="#" className=" block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Inicio</a>
+              <Link to={"/"} className=" block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Inicio</Link>
             </li>
             <li> 
-              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Ver perfil</Link>
+              <Link to={"/"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Ver perfil</Link>
             </li>
             <li> 
-              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Candidaturas</Link>
+              <Link to={"/"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Candidaturas</Link>
             </li>
             <li> 
-              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Ver partidos</Link>
+              <Link to={"/"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Ver partidos</Link>
             </li>
             <li> 
-              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Ver estadisticas</Link>
+              <Link to={"/"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Ver estadisticas</Link>
             </li>
             <li> 
-              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Notificaciones</Link>
+              <Link to={"/"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Notificaciones</Link>
             </li>
             <li> 
-              <Link to={"/notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#F90303] text-center">Cerrar sesión</Link>
+              <Link to={"/"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#F90303] text-center">Cerrar sesión</Link>
             </li>
           </ul>
         </div>

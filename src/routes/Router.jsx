@@ -2,12 +2,11 @@ import React from 'react';
 import { createBrowserRouter } from "react-router-dom";
 import { Index } from "../pages/Index";
 import { Root } from "../pages/Root";
-import NavBar from "../components/navBar";
 import NotFound from "../pages/404";
-import Footer from "../components/footer";
 import Example from "../pages/developers";
-import MenuLogued from "../components/menu-logued";
 import NoNotifications from '../pages/no-notifications';
+import Faq from '../pages/faq';
+import AboutUs from '../pages/about us';
 
 export const Router = createBrowserRouter([
     {
@@ -19,28 +18,24 @@ export const Router = createBrowserRouter([
                 element: <Index />
             },
             {
-                path: "/navBar",
-                element: <NavBar/>
-            },
-            {
                 path: "/404",
                 element:<NotFound/>
-            },
-            {
-                path:"/footer",
-                element:<Footer/>
             },
             {
                 path:"/developers",
                 element:<Example/>
             },
             {
-                path:"/menu-logued",
-                element:<MenuLogued/>
-            },
-            {
                 path:"/no-notifications",
                 element:<NoNotifications/>
+            },
+            {
+                path:"/faq",
+                element:<Faq/>
+            },
+            {
+                path:"/about us",
+                element:<AboutUs/>
             }
         ]
     }
