@@ -7,6 +7,8 @@ import Example from "../pages/developers";
 import NoNotifications from '../pages/no-notifications';
 import Faq from '../pages/faq';
 import AboutUs from '../pages/about us';
+import SignIn from '../pages/forms/Sign-in'
+import Profile from '../pages/profile'
 
 export const Router = createBrowserRouter([
     {
@@ -36,6 +38,14 @@ export const Router = createBrowserRouter([
             {
                 path:"/about us",
                 element:<AboutUs/>
+            },
+            {
+                path:"Sign-in",
+                element:<SignIn/>
+            },
+            {
+                path:"profile",
+                element:<Profile/>
             }
         ]
     }
