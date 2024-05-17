@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, useHistory, useLocation, Link} from 'react-router-dom';
+import { BrowserRouter as Router, useLocation, Link} from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
-import LoadingAnimation from '../components/loadingAnimation'
+import LoadingAnimation from './components/loadingAnimation';
 
 const App = ({children}) => {
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
   const location =useLocation();
 
   useEffect(() => {
