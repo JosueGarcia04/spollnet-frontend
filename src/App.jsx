@@ -13,7 +13,10 @@ const App = ({children}) => {
 
   const handleNavigation = (path) => {
     setLoading(true);
-    history.push(path);
+    setTimeout(() => {
+      history.push(path);
+      setLoading(false);
+    }, 1000); 
 
   };
   return(
