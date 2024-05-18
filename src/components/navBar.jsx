@@ -36,7 +36,7 @@ const Navbar = () => {
               <Link to={"/processVote"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Proceso de voto</Link>
             </button>
             <button> 
-              <Link to={"/no-notifications"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Notificaciones</Link>
+              <Link to={"/notificationsCenter"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Notificaciones</Link>
             </button>
           </ul>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { ShieldCheckIcon, WindowIcon, ChartPieIcon, HandThumbUpIcon } from '@heroicons/react/24/outline'
-import Footer from '../components/footer'   
+import Footer from '../components/footer' 
+import Navbar  from '../components/navBar';  
 export default function AboutUs() {
     const features =[
         {
@@ -26,6 +27,9 @@ export default function AboutUs() {
        
     ];
     return(
+      <div>
+              <Navbar/>
+     
         <div className="bg-black py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
@@ -106,7 +110,8 @@ export default function AboutUs() {
     </div>
   </div>
 </section>
-<Footer/>
+    </div>
+    <Footer/>
     </div>
     );
 }

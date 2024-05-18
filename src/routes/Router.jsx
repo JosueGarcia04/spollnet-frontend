@@ -1,11 +1,9 @@
 import React from 'react';
 import { createBrowserRouter } from "react-router-dom";
-import App from '../App';
 import { Index } from "../pages/Index";
 import { Root } from "../pages/Root";
 import NotFound from "../pages/404";
 import Example from "../pages/developers";
-import NoNotifications from '../pages/no-notifications';
 import Faq from '../pages/faq';
 import AboutUs from '../pages/about us';
 import SignIn from '../pages/forms/Sign-in'
@@ -30,10 +28,6 @@ export const Router = createBrowserRouter([
                 element:<Example/>
             },
             {
-                path:"/no-notifications",
-                element:<NoNotifications/>
-            },
-            {
                 path:"/faq",
                 element:<Faq/>
             },
@@ -52,7 +46,7 @@ export const Router = createBrowserRouter([
             {
                 path:"processVote",
                 element: <Process/>
-            }
+            },
         ]
     }
 ])

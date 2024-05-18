@@ -1,47 +1,28 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 
 const Footer = () => {
   return(
-    <div className="flex flex-col bg-black">
-      <main className="flex-1 pb-16">
-    <footer style={{ position: "relative", marginTop: "50px" }}>
-      <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-black text-center md:justify-between">
-        <img src="src\assets\logo.jpg" className="w-40 ml-5" />
-        <ul className="flex flex-wrap items-center gap-y-4 gap-x-10 mr-5">
-          
-          <li>
-            <Link  to={"/about us"} className="font-semibold text-white hover:text-[#E31FAE]">Sobre nosotros
-            </Link>
-          </li>
-          <li>
-            <Link to={"#"} className="font-semibold text-white hover:text-[#E31FAE]">Terminos de privacidad
-            </Link>
-          </li>
-          <li>
-            <Link to={"#"} className="font-semibold text-white hover:text-[#E31FAE]">Terminos y condiciones
-            </Link>
-          </li>
-          <li>
-            <Link to={"#"} className="font-semibold text-white hover:text-[#E31FAE]">Licencias de uso
-            </Link>
-          </li>
-          <li>
-            <Link to={"/faq"} className="font-semibold text-white hover:text-[#E31FAE]">FAQ
-            </Link>
-          </li>
-          <li>
-            <Link to={"#"} className="font-semibold text-white hover:text-[#E31FAE]">Contactanos
-            </Link>
-          </li>
-        </ul>
+    <footer className="bg-black text-white py-6">
+    <div className="container mx-auto px-4">
+      <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="mb-4 md:mb-0">
+          <img src="src\assets\logo.jpg" alt="Logo" className="w-60" />
+        </div>
+        <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+          <Link to={"/about us"}  className="font-bold hover:text-[#E31FAE]">Sobre Nosotros</Link>
+          <Link to={"#"} className="font-bold hover:text-[#E31FAE]">Términos de Privacidad</Link>
+          <Link to={"#"} className="font-bold hover:text-[#E31FAE]">Términos y Condiciones</Link>
+          <Link to={"/faq"} className="font-bold hover:text-[#E31FAE]">FAQ</Link>
+          <Link to={"#"} className="font-bold hover:text-[#E31FAE]">Licencia de Uso</Link>
+          <Link to={"#"} className="font-bold hover:text-[#E31FAE]">Contáctanos</Link>
+        </div>
       </div>
-      <hr className="my-8 border-[#380B99] border-solid border-t-4" />
-      <div color="blue-gray" className="text-center text-white font-semibold text-2xl">&copy; Crea J 2024 Spollnet - Todos los derechos reservados.
+      <div className="mt-4 text-[#380B99] text-center font-bold text-2xl">
+        2024 Spollnet - Todos los derechos reservados.
       </div>
-    </footer>
-    </main>
-  </div>
+    </div>
+  </footer>
   );  
 }
 export default Footer;

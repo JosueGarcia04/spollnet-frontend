@@ -57,8 +57,8 @@ const Process = () => {
                         </div>
                     </div>
                 </main>
-                <Footer />
             </div>
+            <Footer />
         </>
     );
 };
