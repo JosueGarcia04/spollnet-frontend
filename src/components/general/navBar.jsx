@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,17 +26,23 @@ const Navbar = () => {
         </button>
         <div className={`w-full md:block md:w-auto ${isOpen ? 'block' : 'hidden'}`} id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:dark:hover:text-[#E41FAE]">
-            <button onClick={() => handleNavigation('/')}> 
-              <Link to={"/"} className=" block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Inicio</Link>
+          <button> 
+              <Link to={"/"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Inicio</Link>
             </button>
-            <button  onClick={() => handleNavigation('/about us')}> 
+            <button> 
               <Link to={"/about us"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Sobre nosotros</Link>
             </button>
             <button> 
               <Link to={"/processVote"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Proceso de voto</Link>
             </button>
             <button> 
-              <Link to={"/notificationsCenter"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Notificaciones</Link>
+              <Link to={"#"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Candidatos</Link>
+            </button>
+            <button> 
+              <Link to={"#"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Ver Partidos</Link>
+            </button>
+            <button> 
+              <Link to={"#"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Noticias</Link>
             </button>
           </ul>
         </div>

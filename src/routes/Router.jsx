@@ -1,14 +1,14 @@
 import React from 'react';
-import { createBrowserRouter } from "react-router-dom";
-import { Index } from "../pages/Index";
-import { Root } from "../pages/Root";
-import NotFound from "../pages/404";
-import Example from "../pages/developers";
-import Faq from '../pages/faq';
-import AboutUs from '../pages/about us';
+import { createBrowserRouter } from 'react-router-dom'
+import { Index } from '../pages/by us/Index'
+import { Root } from '../pages/Root'
+import NotFound from '../pages/errors/404'
+import Example from '../pages/by us/developers'
+import Faq from '../pages/by us/faq'
+import AboutUs from '../pages/by us/about us'
 import SignIn from '../pages/forms/Sign-in'
-import Profile from '../pages/profile'
-import Process from '../pages/processVote'  
+import Profile from '../pages/user/profile'
+import Process from '../pages/votes/processVote'  
 
 export const Router = createBrowserRouter([
     {

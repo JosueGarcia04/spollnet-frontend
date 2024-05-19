@@ -1,7 +1,7 @@
 import React from 'react'
 import { ShieldCheckIcon, WindowIcon, ChartPieIcon, HandThumbUpIcon } from '@heroicons/react/24/outline'
-import Footer from '../components/footer' 
-import Navbar  from '../components/navBar';  
+import Footer from '../../components/general/footer' 
+import Navbar  from '../../components/general/navBar'
 export default function AboutUs() {
     const features =[
         {

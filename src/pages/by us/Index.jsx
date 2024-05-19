@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from "../components/navBar";
-import Footer from "../components/footer";
+import Navbar from '../../components/general/navBar'
+import Footer from '../../components/general/footer'
 
 export const Index = () => {
     return(
