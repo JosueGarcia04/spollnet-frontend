@@ -7,9 +7,10 @@ Una de las características clave es su enfoque en la transparencia y la integri
 
 El sistema utiliza tecnologías avanzadas de seguridad y encriptación para garantizar la protección de los datos y la legitimidad de los votos emitidos. Además, ofrece funciones de seguimiento que permiten a los estudiantes verificar el estado de sus votos y acceder a información detallada sobre los candidatos y las propuestas en cuestión.
 
-## 🔧 Tecnologías⚙️
+## 🔧 Tecnologías ⚙️
 
 * NodeJS
+* Express
 * JavaScript
 * Vite
 * Tailwind 
