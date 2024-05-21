@@ -9,6 +9,7 @@ import AboutUs from '../pages/by us/about us'
 import SignIn from '../pages/forms/Sign-in'
 import Profile from '../pages/user/profile'
 import Process from '../pages/votes/processVote'  
+import Login from '../pages/forms/login'
 
 export const Router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ export const Router = createBrowserRouter([
             {
                 path:"processVote",
                 element: <Process/>
+            },
+            {
+                path: "login",
+                element: <Login/>
             },
         ]
     }

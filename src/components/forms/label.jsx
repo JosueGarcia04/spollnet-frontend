@@ -17,5 +17,5 @@ export const Label = (props) => {
         <label className="text-[#E31FAE]" htmlFor="completeName"{...props}>{props.children}</label>
     );
 }
-
+ 
 export default Label;

@@ -11,6 +11,7 @@ const SignIn = () => {
     <Navbar/>
     <div className="bg-black h-screen">
         <section className="max-w-4xl p-6 mx-auto rounded-md shadow-md">
+        <h2 class="mb-12 text-center text-5xl font-extrabold text-[#E31FAE]">Bienvenido.</h2>
             <form className="mt-10 border border-white p-10 rounded-lg">
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <div className="text-center font-bold">
@@ -56,9 +57,17 @@ const SignIn = () => {
                             name='identify'
                             type='text'
                             required
+                        /> 
+                    </div>
+                    <div className='text-center font-bold'>
+                    <Label htmlFor="password">Contraseña </Label>
+                        <Input
+                            id='password'
+                            name='password'
+                            type='password'
+                            required
                         />  
                     </div>
-                    <Input/>
                 </div>
                 <RegisterButton/>
             </form>
