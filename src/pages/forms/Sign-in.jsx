@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Navbar from '../../components/general/navBar'
 import Footer from '../../components/general/footer'
 import {Input} from '../../components/forms/input'
@@ -6,6 +6,35 @@ import {Label} from '../../components/forms/label'
 import RegisterButton from '../../components/forms/registerButton'
 
 const SignIn = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        level: '',
+        speciality: '',
+        identify: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch('http://localhost:5000/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        const data = await response.json();
+        console.log(data);
+    };
+
     return(
         <>
     <Navbar/>
@@ -21,6 +50,8 @@ const SignIn = () => {
                             name='name'
                             type='text'
                             required
+                            value={formData.name}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="text-center font-bold">
@@ -30,6 +61,8 @@ const SignIn = () => {
                             name='email'
                             type='email'
                             required
+                            value={formData.email}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="text-center font-bold">
@@ -39,6 +72,8 @@ const SignIn = () => {
                             name='level'
                             type='text'
                             required
+                            value={formData.level}
+                            onChange={handleChange}
                         />  
                     </div>
                     <div className="text-center font-bold">
@@ -48,6 +83,8 @@ const SignIn = () => {
                             name='speciality'
                             type='text'
                             required
+                            value={formData.speciality}
+                            onChange={handleChange}
                         />  
                     </div>
                     <div className="text-center font-bold">
@@ -57,6 +94,8 @@ const SignIn = () => {
                             name='identify'
                             type='text'
                             required
+                            value={formData.identify}
+                            onChange={handleChange}
                         /> 
                     </div>
                     <div className='text-center font-bold'>
@@ -66,6 +105,8 @@ const SignIn = () => {
                             name='password'
                             type='password'
                             required
+                            value={formData.password}
+                            onChange={handleChange}
                         />  
                     </div>
                 </div>

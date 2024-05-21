@@ -8,6 +8,21 @@ import {LinkRegister} from '../../components/forms/linkForRegister'
 import RegisterButton from '../../components/forms/registerButton'
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch('http://localhost:5000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        });
+        const data = await response.json();
+        console.log(data);
+    };
     return (
         <>
         <Navbar/>
@@ -22,6 +37,8 @@ const Login = () => {
             name='email'
             type='email'
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
         /> 
       </div>
       <div class="mb-4 text-center font-bold">
@@ -31,6 +48,8 @@ const Login = () => {
             name='password'
             type='password'
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
         /> 
       </div>
       <div class="mt-6 flex items-center justify-between">
