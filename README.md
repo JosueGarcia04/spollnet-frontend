@@ -7,8 +7,9 @@ Una de las características clave es su enfoque en la transparencia y la integri
 
 El sistema utiliza tecnologías avanzadas de seguridad y encriptación para garantizar la protección de los datos y la legitimidad de los votos emitidos. Además, ofrece funciones de seguimiento que permiten a los estudiantes verificar el estado de sus votos y acceder a información detallada sobre los candidatos y las propuestas en cuestión.
 
-## 🔧 Tecnologías⚙️
+## 🔧 Tecnologías ⚙️
 
+* Express
 * NodeJS
 * JavaScript
 * Vite
@@ -57,6 +58,8 @@ Realizando todos los pasos anteriores, solo necesitas ejecutar
 * [Mockups] => https://www.figma.com/file/LYSqGwmlsNheiFXmDTjBOg/App-Mobile-(Community)?type=design&node-id=2%3A0&mode=design&t=yT2dz2j2k0slLvJo-1
  
 * [Diagramas] => https://app.diagrams.net/#G1VyuIOC_vt2RXtVw_tWNoHy7QH0aMx8xF#%7B%22pageId%22%3A%226-WXzx9mxk2itoo6lPSH%22%7D
+
+* [Presentacion proyecto de catedra] => https://www.canva.com/design/DAGF9oAkUKc/WGXu3ZaA3_NrfWWg3ZmaZA/edit
  
 ## 🧑‍💻 Developers 🧑‍💻
 
