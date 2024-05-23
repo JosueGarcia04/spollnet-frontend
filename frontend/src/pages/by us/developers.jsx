@@ -45,7 +45,7 @@ export default function Example() {
           <div className="max-w-2xl">
             <h2 className="text-3xl font-bold tracking-tight text-[#E31FAE] sm:text-4xl">Desarrolladores</h2>
             <p className="mt-6 text-lg leading-8 text-white">
-              Gracias por el esfuerzo de cada uno de los desarrolladores, Spollnet es capaz para realizar las votaciones del consejo, ¡muchas gracias!
+              Gracias por el esfuerzo de cada uno de los desarrolladores, Spollnet es capaz para realizar las votaciones para el nuevo consejo estudiantil
             </p>
           </div>
           <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">

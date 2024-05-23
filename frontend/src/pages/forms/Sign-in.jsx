@@ -8,17 +8,18 @@ import axios from 'axios'
 
 const SignIn = () => {
 
-    const [nombre, setNombre] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [name, setNombre] = useState('');
+    const [mail, setEmail] = useState('');
+    const [contra, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(name, mail, contra)
         try {
         const response = await axios.post('http://localhost:5000/register', {
-            nombre,
-            email,
-            password
+            nombre: name,
+            email: mail,
+            password: contra
         });
         console.log(response.data);
         } catch (error) {
@@ -41,7 +42,7 @@ const SignIn = () => {
                             name='name'
                             type='text'
                             required
-                            value={nombre} onChange={(e) => setNombre(e.target.value)}
+                            value={name} onChange={(e) => setNombre(e.target.value)}
                         />
                     </div>
                     <div className="text-center font-bold">
@@ -51,7 +52,7 @@ const SignIn = () => {
                             name='email'
                             type='email'
                             required
-                            value={email} onChange={(e) => setEmail(e.target.value)}
+                            value={mail} onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className="text-center font-bold">
@@ -91,7 +92,7 @@ const SignIn = () => {
                             name='password'
                             type='password'
                             required
-                            
+                            value={contra} onChange={(e) => setPassword(e.target.value)}
                         />  
                     </div>
                 </div>
