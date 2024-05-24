@@ -1,27 +1,27 @@
 import mongoose from 'mongoose'
 import db from '../../index.mjs'
-import {studentSchema} from '../../models/student.mjs'
+import {Student} from '../../models/student.mjs'
 
-export const creentials = async (req, res)=>{
-    const {mail, password} = req.body
+export const credentials = async (req, res)=>{
+    const {mail, password} = req.body;
     await db();
     try{
-        const email = await studentSchema.findOne(mail);
+        const email = await Student.findOne(mail);
         if(email){
-            console.log('correo encontrado');
+            console.log('correo encontrado', email);
         }else{
             res.status(400).json({ msg: 'correo no encontrado' });
         }
-        const findPassword = await studentSchema.findOne(password);
+        const findPassword = await Student.findOne(password);
         if(findPassword){
-            console.log('contraseña encontrada');
+            console.log('contraseña correcta');
         }else{
-            res.status(400).json({ msg: 'contraseña no encontrado' });
+            res.status(400).json({ msg: 'contraseña no encontrada' });
         }
         return res.status(200).json({msg: 'logueado exitosamente'});
     }catch (err){
         console.error('error a encontrar el usuario:', err);
-        return null;
+        return res.status(500).json({ msg: 'Error del servidor' });;
     }finally{
         mongoose.connection.close();
     }

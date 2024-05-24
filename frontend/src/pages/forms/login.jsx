@@ -9,12 +9,22 @@ import RegisterButton from '../../components/forms/registerButton'
 import axios from 'axios'
 
 const Login = () => {
-
-    const handleSubmit = (e) => {
+    const [mail, setEmail] = useState('');
+    const [contra, setPassword] = useState('');
+    const handleSubmit =  async (e) => {
       e.preventDefault();
-      const response = axios.get("http://localhost:5000/rutaFuncion");
+      console.log(mail,contra)
 
-      console.log(response);
+      try{
+        const responde = await axios.post('http://localhost:5000/login',{
+          email: mail,
+          password: contra 
+        });
+        console.log(response.data);
+
+      }catch(error){
+        console.error('Error al iniciar sesion:', error);
+      }
     }
     return (
         <>
@@ -30,6 +40,7 @@ const Login = () => {
             name='email'
             type='email'
             required
+            value={mail} onChange={(e) => setEmail(e.target.value)}
         /> 
       </div>
       <div class="mb-4 text-center font-bold">
@@ -39,7 +50,7 @@ const Login = () => {
             name='password'
             type='password'
             required
-            
+            value={contra} onChange={(e) => setPassword(e.target.value)}
         /> 
       </div>
       <div class="mt-6 text-center">
