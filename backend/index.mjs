@@ -18,12 +18,15 @@ app.use(spollnetRouter);
 const port = process.env.APP_PORT || 5000;
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';
 
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db)
   .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.log(err));
+
 
 app.listen(port, () => {
     console.log("corriendo en el puerto", port);
 })
+export default db; 
+
 
 

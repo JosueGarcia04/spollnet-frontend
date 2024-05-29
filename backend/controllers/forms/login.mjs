@@ -1,27 +1,28 @@
 import mongoose from 'mongoose'
 import db from '../../index.mjs'
 import {Student} from '../../models/student.mjs'
+import bcrypt from 'bcrypt'
 
 export const credentials = async (req, res)=>{
-    const {mail, password} = req.body;
-    await db();
+    const {email, password} = req.body;
     try{
-        const email = await Student.findOne(mail);
-        if(email){
-            console.log('correo encontrado', email);
-        }else{
-            res.status(400).json({ msg: 'correo no encontrado' });
+        await mongoose.connect(db);
+
+        const student = await Student.findOne({ email });
+        if (!student) {
+            return res.status(400).json({ msg: 'Correo no encontrado' });
         }
-        const findPassword = await Student.findOne(password);
-        if(findPassword){
-            console.log('contraseña correcta');
-        }else{
-            res.status(400).json({ msg: 'contraseña no encontrada' });
+
+        const findPassword = await bcrypt.compare (password, student.password)
+        if(!findPassword){
+            return res.status(400).json({ msg: 'contraseña incorrecta' });
         }
+
+
         return res.status(200).json({msg: 'logueado exitosamente'});
     }catch (err){
         console.error('error a encontrar el usuario:', err);
-        return res.status(500).json({ msg: 'Error del servidor' });;
+        res.status(500).json({ msg: 'Error interno del servidor' });
     }finally{
         mongoose.connection.close();
     }

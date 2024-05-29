@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Navbar from '../../components/general/navBar'
 import Footer from '../../components/general/footer'
 import {Input} from '../../components/forms/input'
@@ -16,14 +16,19 @@ const Login = () => {
       console.log(mail,contra)
 
       try{
-        const responde = await axios.post('http://localhost:5000/login',{
+        const response = await axios.post('http://localhost:5000/login',{
           email: mail,
           password: contra 
         });
         console.log(response.data);
-
+        if (response.data.msg === 'Logueado exitosamente') {
+          alert('Inicio de sesión exitoso');
+        } else {
+          alert(response.data.msg);
+        }
       }catch(error){
         console.error('Error al iniciar sesion:', error);
+        alert('Error al iniciar sesión');
       }
     }
     return (
