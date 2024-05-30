@@ -14,18 +14,34 @@ const SignIn = () => {
     const [level, setEducationlevel] = useState('');
     const [specialty, setEspecialty] = useState('');
     const [identifier, setIdentifier] = useState('');
+    const [errors, setErrors] = useState({});
+
+    const validations = () =>{
+        const newErrors = {};
+
+        if(!name, !contra, !level, !specialty, !identifier) newErrors.name= 'Todos los campos son obligatorios';
+        if (!mail) newErrors.mail = 'El correo electrónico es obligatorio.';
+        else if (!/\S+@\S+\.\S+/.test(mail)) newErrors.mail = 'El correo electrónico no es válido.';
+        return newErrors;
+    };
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(name, mail, contra, level, specialty, identifier)
+
+        const validationErrors = validations();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+       
         try {
-        const response = await axios.post('http://localhost:5000/register', {
-            nombre: name,
-            email: mail,
-            nivel: level,
-            especialidad: specialty,
-            identificador: identifier,
-            password: contra
+            const response = await axios.post('http://localhost:5000/register', {
+                nombre: name,
+                email: mail,
+                nivel: level,
+                especialidad: specialty,
+                identificador: identifier,
+                password: contra
         });
         console.log(response.data);
         } catch (error) {
@@ -47,7 +63,6 @@ const SignIn = () => {
                             id='name'
                             name='name'
                             type='text'
-                            required
                             value={name} onChange={(e) => setNombre(e.target.value)}
                         />
                     </div>
@@ -57,7 +72,6 @@ const SignIn = () => {
                             id='emailAdress'
                             name='email'
                             type='email'
-                            required
                             value={mail} onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
@@ -67,7 +81,6 @@ const SignIn = () => {
                             id='level'
                             name='level'
                             type='text'
-                            required
                             value={level} onChange={(e) => setEducationlevel(e.target.value)}
                         />  
                     </div>
@@ -77,7 +90,6 @@ const SignIn = () => {
                             id='speciality'
                             name='speciality'
                             type='text'
-                            required
                             value={specialty} onChange={(e) => setEspecialty(e.target.value)}
                         />  
                     </div>
@@ -87,7 +99,6 @@ const SignIn = () => {
                             id='identify'
                             name='identify'
                             type='text'
-                            required
                             value={identifier} onChange={(e) => setIdentifier(e.target.value)}
                         /> 
                     </div>
@@ -97,7 +108,6 @@ const SignIn = () => {
                             id='password'
                             name='password'
                             type='password'
-                            required
                             value={contra} onChange={(e) => setPassword(e.target.value)}
                         />  
                     </div>
