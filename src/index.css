@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
+<<<<<<< Updated upstream
 @tailwind utilities;
+=======
+@tailwind utilities;
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #E41FAE, 0 0 10px #E41FAE, 0 0 20px #E41FAE, 0 0 30px #E41FAE, 0 0 40px #E41FAE;
+  }
+  50% {
+    text-shadow: 0 0 10px #E41FAE, 0 0 20px #E41FAE, 0 0 30px #E41FAE, 0 0 40px #E41FAE, 0 0 50px #E41FAE;
+  }
+}
+
+.glow-text {
+  animation: glow 1.5s infinite;
+  color: #fff;
+ 
+}
+>>>>>>> Stashed changes
