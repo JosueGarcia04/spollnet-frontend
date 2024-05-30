@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        customBlack: '#090909', 
+      },
       fontFamily: {
         ubuntu: ['Ubuntu', 'sans-serif'],
       },
