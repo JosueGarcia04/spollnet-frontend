@@ -5,6 +5,7 @@ import {Input} from '../../components/forms/input'
 import {Label} from '../../components/forms/label'
 import RegisterButton from '../../components/forms/registerButton'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const SignIn = () => {
 
@@ -43,9 +44,24 @@ const SignIn = () => {
                 identificador: identifier,
                 password: contra
         });
-        console.log(response.data);
+            Swal.fire({
+                title: 'Registrado exitosamente',
+                text: `El usuario ha sido registrado correctamente. Respuesta del servidor: ${response.data}`,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+         setName(''); setEmail(''); setPassword(''); setLevel(''); setEspecialty(''); setIdentifier(''); setErrors({});
         } catch (error) {
-        console.error('Error al registrar el usuario:', error);
+            let errorMessage = 'Error al registrar el usuario';
+            if (error.response && error.response.data) {
+                errorMessage = error.response.data.message || errorMessage;
+            }
+    
+            Swal.fire({
+                icon: "error",
+                title: "Algo salió mal",    
+                text: errorMessage,
+            });
         }
     };
 

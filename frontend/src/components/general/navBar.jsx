@@ -41,6 +41,7 @@ const Navbar = () => {
             <button> 
               <Link to={"#"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Ver Partidos</Link>
             </button>
+            <Link to={"/statistics"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Estadisticas</Link>
             <button> 
               <Link to={"#"} className="block py-2 px-3 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-[#E41FAE] text-center">Noticias</Link>
             </button>

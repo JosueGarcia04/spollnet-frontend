@@ -10,6 +10,7 @@ import SignIn from '../pages/forms/Sign-in'
 import Profile from '../pages/user/profile'
 import Process from '../pages/votes/processVote'  
 import Login from '../pages/forms/login'
+import { Statistics } from '../pages/processVotes/statistics'
 
 export const Router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ export const Router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login/>
+            },
+            {
+                path: "statistics",
+                element:<Statistics/>
             },
             {
                 path: "*",
