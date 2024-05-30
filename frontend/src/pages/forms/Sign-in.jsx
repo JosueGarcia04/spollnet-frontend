@@ -11,14 +11,20 @@ const SignIn = () => {
     const [name, setNombre] = useState('');
     const [mail, setEmail] = useState('');
     const [contra, setPassword] = useState('');
-
+    const [level, setEducationlevel] = useState('');
+    const [specialty, setEspecialty] = useState('');
+    const [identifier, setIdentifier] = useState('');
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(name, mail, contra)
+        console.log(name, mail, contra, level, specialty, identifier)
         try {
         const response = await axios.post('http://localhost:5000/register', {
             nombre: name,
             email: mail,
+            nivel: level,
+            especialidad: specialty,
+            identificador: identifier,
             password: contra
         });
         console.log(response.data);
@@ -62,7 +68,7 @@ const SignIn = () => {
                             name='level'
                             type='text'
                             required
-                            
+                            value={level} onChange={(e) => setEducationlevel(e.target.value)}
                         />  
                     </div>
                     <div className="text-center font-bold">
@@ -72,7 +78,7 @@ const SignIn = () => {
                             name='speciality'
                             type='text'
                             required
-                           
+                            value={specialty} onChange={(e) => setEspecialty(e.target.value)}
                         />  
                     </div>
                     <div className="text-center font-bold">
@@ -82,7 +88,7 @@ const SignIn = () => {
                             name='identify'
                             type='text'
                             required
-                            
+                            value={identifier} onChange={(e) => setIdentifier(e.target.value)}
                         /> 
                     </div>
                     <div className='text-center font-bold'>

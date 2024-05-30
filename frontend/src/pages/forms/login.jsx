@@ -7,6 +7,7 @@ import {Forgot} from '../../components/forms/forgotPassword'
 import {LinkRegister} from '../../components/forms/linkForRegister'
 import RegisterButton from '../../components/forms/registerButton'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [mail, setEmail] = useState('');
@@ -21,16 +22,23 @@ const Login = () => {
           password: contra 
         });
         console.log(response.data);
-        if (response.data.msg === 'Logueado exitosamente') {
-          alert('Inicio de sesión exitoso');
+        if (response.data.msg) {
+          Swal.fire({
+            title: "¡Bien!",
+            text: "Haz iniciado sesión",
+            icon: "success"
+          })
         } else {
           alert(response.data.msg);
         }
       }catch(error){
-        console.error('Error al iniciar sesion:', error);
-        alert('Error al iniciar sesión');
+        Swal.fire({
+          icon: "error",
+          title: "Algo salio mal",
+          text: 'Error al iniciar sesion', error,
+        });
       }
-    }
+    } 
     return (
         <>
         <Navbar/>
