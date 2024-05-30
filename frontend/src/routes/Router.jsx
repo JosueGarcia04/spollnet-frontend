@@ -21,10 +21,6 @@ export const Router = createBrowserRouter([
                 element: <Index />
             },
             {
-                path: "/404",
-                element:<NotFound/>
-            },
-            {
                 path:"/developers",
                 element:<Example/>
             },
@@ -52,6 +48,10 @@ export const Router = createBrowserRouter([
                 path: "login",
                 element: <Login/>
             },
+            {
+                path: "*",
+                element: <NotFound/>
+            }
         ]
     }
 ])
