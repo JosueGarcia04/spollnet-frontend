@@ -11,7 +11,7 @@ const Footer = () => {
                 <img src="src\assets\logo.jpg" className="w-40" alt="spollnet" />
               </Link>
           </div>
-          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div class="grid grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
                   <h2 class="mb-6 text-xl font-bold text-[#E31FAE]">Recursos</h2>
                   <ul class="text-white font-medium">
@@ -39,6 +39,10 @@ const Footer = () => {
                       </li>
                       <li>
                           <Link to={"#"}>Terminos y condiciones</Link>
+                      </li>
+                      <br></br>
+                      <li>
+                        <Link to={"/faq"}>Faq</Link>
                       </li>
                   </ul>
               </div>
