@@ -1,5 +1,3 @@
-![image](https://github.com/RAmilG2006/SPOLLNET/assets/105886890/0bc6fa2d-d5dc-4a19-89d0-77db15c98c95)
-
 💙App web de elección del Consejo Estudiantil del Colegio Don Bosco💛
 
 El sistema de votaciones SpollNet ofrece una plataforma moderna y accesible que permite a los estudiantes participar en procesos de votación de manera fácil y segura. Con una interfaz intuitiva y amigable, los estudiantes pueden acceder a la plataforma desde sus dispositivos móviles o computadoras y emitir sus votos de manera rápida y conveniente.
