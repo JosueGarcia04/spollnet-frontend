@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faSignOutAlt, faQuestionCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faInbox  , faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,7 +98,6 @@ const Navbar = () => {
           </ul>
 
           <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-between">
-            <FontAwesomeIcon icon={faQuestionCircle} className="text-[#E41FAE] w-7 h-7" />
             <FontAwesomeIcon icon={faSignOutAlt} className="text-[#E41FAE] w-7 h-7" />
           </div>
         </div>
@@ -108,7 +107,7 @@ const Navbar = () => {
             <img src="../../../public/logo2.png" className="w-40" />  
 
             <div className="flex items-center md:order-2">
-              <FontAwesomeIcon icon={faBell} className="text-[#E41FAE] w-6 h-6 mr-2" />
+              <FontAwesomeIcon icon={faInbox} className="text-[#E41FAE] w-6 h-6 mr-2" />
               <button
                 onClick={toggleNavbar}
                 className="inline-flex items-center p-2 w-12 h-12 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"

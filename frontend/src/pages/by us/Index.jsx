@@ -54,9 +54,9 @@ export const Index = () => {
           </header>
           <main className="container mx-auto mt-0 p-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="border border-[#E31FAE] p-6 rounded-lg shadow-lg">
+              <div className="border-4 border-[#E31FAE] p-6 rounded-lg shadow-lg">
                 <div className="flex items-center mb-4">
-                  <div className="bg-[#E31FAE] text-white  rounded-full h-12 w-16 flex items-center justify-center font-bold text-xl">
+                  <div className="bg-[#E31FAE] text-white  rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl">
                     1
                   </div>
                   <h2 className="text-3xl font-semibold ml-4 text-white">
@@ -70,9 +70,9 @@ export const Index = () => {
                 </p>
               </div>
 
-              <div className="border border-[#E31FAE] p-6 rounded-lg shadow-lg">
+              <div className="border-4 border-[#E31FAE] p-6 rounded-lg shadow-lg">
                 <div className="flex items-center mb-4">
-                  <div className="bg-[#E31FAE] text-white rounded-full h-12 w-16 flex items-center justify-center font-bold text-xl">
+                  <div className="bg-[#E31FAE] text-white rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl">
                     2
                   </div>
                   <h2 className="text-3xl font-semibold ml-4 text-white">
@@ -86,7 +86,7 @@ export const Index = () => {
                 </p>
               </div>
 
-              <div className=" border border-[#E31FAE] p-6 rounded-lg shadow-lg">
+              <div className=" border-4 border-[#E31FAE] p-6 rounded-lg shadow-lg">
                 <div className="flex items-center mb-4">
                   <div className="bg-[#E31FAE] text-white rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl">
                     3
@@ -102,9 +102,9 @@ export const Index = () => {
                 </p>
               </div>
 
-              <div className="border border-[#E31FAE] p-6 rounded-lg shadow-lg">
+              <div className="border-4 border-[#E31FAE] p-6 rounded-lg shadow-lg">
                 <div className="flex items-center mb-4">
-                  <div className="bg-[#E31FAE] text-white rounded-full h-12 w-16 flex items-center justify-center font-bold text-xl">
+                  <div className="bg-[#E31FAE] text-white rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl">
                     4
                   </div>
                   <h2 className="text-3xl font-semibold ml-4 text-white">
