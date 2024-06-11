@@ -1,5 +1,6 @@
 import React from 'react'
-import { ShieldCheckIcon, WindowIcon, ChartPieIcon, HandThumbUpIcon } from '@heroicons/react/24/outline'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faPager, faThumbsUp, faShieldHalved , faChartSimple } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../../components/general/footer' 
 import Navbar  from '../../components/general/navBar'
 export default function AboutUs() {
@@ -7,22 +8,22 @@ export default function AboutUs() {
         {
             name: 'Interfaz intuitiva',
             description:'¡Bienvenido a una experiencia sin complicaciones! Nuestra interfaz intuitiva te permite navegar y utilizar todas las funciones de manera fácil y natural desde el primer momento.',
-            icon: WindowIcon,
+            icon: faPager,
         },
         {
             name: 'Emite tu voto mas fácil',
             description:'¡Emite tu voto sin complicaciones! Nuestra interfaz intuitiva te permite votar de manera fácil y rápida desde el primer momento.',
-            icon: HandThumbUpIcon,
+            icon: faThumbsUp,
         },
         {
             name: 'Metodos de seguridad verificados',
             description: '¡Relájate, tu seguridad está comprobada! Nuestros métodos verificados garantizan una experiencia sin preocupaciones.',
-            icon: ShieldCheckIcon,
+            icon: faShieldHalved,
         },
         {
             name: 'Integrando resultados',
             description: '¡Compruebalo! Nosotros integramos los resultados en graficas para que puedas ver resultados de las votaciones',
-            icon: ChartPieIcon,
+            icon: faChartSimple,
         }
        
     ];
@@ -46,7 +47,7 @@ export default function AboutUs() {
               <div key={feature.name} className="relative pl-16">
                 <dt className="text-base font-semibold leading-7 text-[#380B99]">
                   <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-[#E31FAE] ">
-                    <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                    <FontAwesomeIcon icon={feature.icon} className="h-6 w-6 text-white" aria-hidden="true" />
                   </div>
                   {feature.name}
                 </dt>
