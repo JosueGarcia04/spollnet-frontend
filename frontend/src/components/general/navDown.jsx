@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faCog, faChartBar, faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUsers, faAddressCard, faHandshake, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 const Navdown = () => {
   const [isAtBottom, setIsAtBottom] = useState(false);
@@ -31,14 +31,14 @@ const Navdown = () => {
       <Link to="/statistics" className="text-white hover:text-gray-400">
         <div className="flex items-center">
           <div className="w-12 h-12 flex justify-center items-center">
-            <FontAwesomeIcon icon={faChartBar} className="w-6 h-6 text-white" />
+            <FontAwesomeIcon icon={faHandshake} className="w-6 h-6 text-white" />
           </div>
         </div>
       </Link>
-      <Link to="/news" className="text-white hover:text-gray-400">
+      <Link to="/Sign-in" className="text-white hover:text-gray-400">
         <div className="flex items-center">
           <div className="w-12 h-12 flex justify-center items-center">
-            <FontAwesomeIcon icon={faNewspaper} className="w-6 h-6 text-white" />
+            <FontAwesomeIcon icon={faAddressCard} className="w-6 h-6 text-white" />
           </div>
         </div>
       </Link>
@@ -49,17 +49,17 @@ const Navdown = () => {
           </div>
         </div>
       </Link>
-      <Link to="/profile" className="text-white hover:text-gray-400">
+      <Link to="/about us" className="text-white hover:text-gray-400">
         <div className="flex items-center">
           <div className="w-12 h-12 flex justify-center items-center">
-            <FontAwesomeIcon icon={faUser} className="w-6 h-6 text-white" />
+            <FontAwesomeIcon icon={faUsers} className="w-6 h-6 text-white" />
           </div>
         </div>
       </Link>
-      <Link to="/settings" className="text-white hover:text-gray-400">
+      <Link to="/" className="text-white hover:text-gray-400">
         <div className="flex items-center">
           <div className="w-12 h-12 flex justify-center items-center">
-            <FontAwesomeIcon icon={faCog} className="w-6 h-6 text-white" />
+            <FontAwesomeIcon icon={faNewspaper} className="w-6 h-6 text-white" />
           </div>
         </div>
       </Link>

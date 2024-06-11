@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom'
 import { Index } from '../pages/by us/Index'
 import { Root } from '../pages/Root'
 import NotFound from '../pages/errors/404'
-import Example from '../pages/by us/developers'
 import Faq from '../pages/by us/faq'
 import AboutUs from '../pages/by us/about us'
 import SignIn from '../pages/forms/Sign-in'
@@ -21,10 +20,6 @@ export const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Index />
-            },
-            {
-                path:"/developers",
-                element:<Example/>
             },
             {
                 path:"/faq",

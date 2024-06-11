@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInbox  , faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faInbox , faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,8 +61,8 @@ const Navbar = () => {
             <div className="flex items-center px-4 mb-5">
               <FontAwesomeIcon icon={faUser} className="text-[#E41FAE] w-7 h-12 mr-3" />
               <div>
-                <p className="text-white font-bold">Nombre de Usuario</p>
-                <p className="text-gray-400">usuario@example.com</p>
+                <p className="text-white font-bold">Nombre:</p>
+                <p className="text-gray-400">nombre</p>
               </div>
             </div>
             <Link to={"/"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
@@ -77,15 +77,21 @@ const Navbar = () => {
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
+            <Link to={"/contact"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
               <button className="text-lg">
-                Candidatos
+                Contacto
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
+            <Link to={"/Sign-in"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
               <button className="text-lg">
-                Ver Partidos
+                Registro
+              </button>
+              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
+            </Link>
+            <Link to={"/login"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
+              <button className="text-lg">
+                Inicio de sesión
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
@@ -95,11 +101,12 @@ const Navbar = () => {
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
+            <Link to={"#"} className="flex items-center py-3 px-4 bg-red-700 rounded-md">
+              <button className="text-lg">
+                Cerrar sesión
+              </button>
+            </Link>
           </ul>
-
-          <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-between">
-            <FontAwesomeIcon icon={faSignOutAlt} className="text-[#E41FAE] w-7 h-7" />
-          </div>
         </div>
 
         <nav ref={navbarRef} className={`bg-black fixed top-0 left-0 w-full z-10 py-1 px-3 md:px-0 transition-all duration-300 ${scrolling ? 'border-b-2 border-[#E41FAE] shadow-lg rounded-b-3xl' : 'border-b-2 border-transparent transform translate-y-0'} ${scrolling ? 'translate-y-0' : '-translate-y-20'}`}>
@@ -126,13 +133,16 @@ const Navbar = () => {
               </Link>
               <Link to={"/about us"} className="text-lg text-white hover:text-[#E41FAE]">
                 Sobre nosotros
-              </Link>
-              <Link to={"#"} className="text-lg text-white hover:text-[#E41FAE]">
-                Candidatos
-              </Link>
-              <Link to={"#"} className="text-lg text-white hover:text-[#E41FAE]">
-                Ver Partidos
-              </Link>
+              </Link> 
+              <Link to={"/contact"} className="text-lg text-white hover:text-[#E41FAE]">
+                Contacto
+              </Link> 
+              <Link to={"/Sing-in"} className="text-lg text-white hover:text-[#E41FAE]">
+                Registro
+              </Link> 
+              <Link to={"/login"} className="text-lg text-white hover:text-[#E41FAE]">
+                Inicio de sesión
+              </Link> 
               <Link to={"#"} className="text-lg text-white hover:text-[#E41FAE]">
                 Noticias
               </Link>
