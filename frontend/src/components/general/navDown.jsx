@@ -28,7 +28,7 @@ const Navdown = () => {
 
   return (
     <nav className={`fixed bottom-0 left-0 right-0 border-2 border-[#E41FAE] bg-black py-2 flex justify-around items-center md:hidden rounded-t-3xl transition-all duration-500 ${isAtBottom && isScrolled ? 'rounded-t-none' : ''}`} style={{position: '-webkit-sticky', position: 'sticky', zIndex: 5}}>
-      <Link to="/statistics" className="text-white hover:text-gray-400">
+      <Link to="/contact" className="text-white hover:text-gray-400">
         <div className="flex items-center">
           <div className="w-12 h-12 flex justify-center items-center">
             <FontAwesomeIcon icon={faHandshake} className="w-6 h-6 text-white" />

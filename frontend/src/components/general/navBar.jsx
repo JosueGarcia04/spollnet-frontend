@@ -111,8 +111,9 @@ const Navbar = () => {
 
         <nav ref={navbarRef} className={`bg-black fixed top-0 left-0 w-full z-10 py-1 px-3 md:px-0 transition-all duration-300 ${scrolling ? 'border-b-2 border-[#E41FAE] shadow-lg rounded-b-3xl' : 'border-b-2 border-transparent transform translate-y-0'} ${scrolling ? 'translate-y-0' : '-translate-y-20'}`}>
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-            <img src="../../../public/logo2.png" className="w-40" />  
-
+          <Link to={"/"} class="flex items-center">
+                <img src="../../../public/logo2.png" className="w-40" alt="spollnet" />
+              </Link>
             <div className="flex items-center md:order-2">
               <FontAwesomeIcon icon={faInbox} className="text-[#E41FAE] w-6 h-6 mr-2" />
               <button
@@ -137,7 +138,7 @@ const Navbar = () => {
               <Link to={"/contact"} className="text-lg text-white hover:text-[#E41FAE]">
                 Contacto
               </Link> 
-              <Link to={"/Sing-in"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/Sign-in"} className="text-lg text-white hover:text-[#E41FAE]">
                 Registro
               </Link> 
               <Link to={"/login"} className="text-lg text-white hover:text-[#E41FAE]">

@@ -4,7 +4,7 @@ import {Link}  from 'react-router-dom'
 import Footer from "../../components/general/footer"
 import Countdown from '../countdown/timer'
 import NavDown from "../../components/general/navDown"
-import Id from '../../components/index/id_card'
+import Id from '../../components/index/credentials'
 import "../../components/general/scrollbar.css"
 
 export const Index = () => {

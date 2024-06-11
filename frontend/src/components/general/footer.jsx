@@ -8,7 +8,7 @@ const Footer = () => {
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
               <Link to={"/"} class="flex items-center">
-                <img src="src\assets\logo.jpg" className="w-40" alt="spollnet" />
+                <img src="../../../public/logo2.png" className="w-40" alt="spollnet" />
               </Link>
           </div>
           <div class="grid grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3">
