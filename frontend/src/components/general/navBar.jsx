@@ -95,7 +95,7 @@ const Navbar = () => {
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
+            <Link to={"/news"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
               <button className="text-lg">
                 Noticias
               </button>
@@ -144,7 +144,7 @@ const Navbar = () => {
               <Link to={"/login"} className="text-lg text-white hover:text-[#E41FAE]">
                 Inicio de sesión
               </Link> 
-              <Link to={"#"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/news"} className="text-lg text-white hover:text-[#E41FAE]">
                 Noticias
               </Link>
             </div>

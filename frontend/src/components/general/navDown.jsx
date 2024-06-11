@@ -56,7 +56,7 @@ const Navdown = () => {
           </div>
         </div>
       </Link>
-      <Link to="/" className="text-white hover:text-gray-400">
+      <Link to="/news" className="text-white hover:text-gray-400">
         <div className="flex items-center">
           <div className="w-12 h-12 flex justify-center items-center">
             <FontAwesomeIcon icon={faNewspaper} className="w-6 h-6 text-white" />
