@@ -12,10 +12,10 @@ const Footer = () => {
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
-              <Link to={"/"} class="flex items-center ">
+              <Link to={"/"} class="flex flex-col items-center ">
                 <img src="../../../public/logo2.png" className="w-40" alt="spollnet" />
               </Link>
-              <p className='text-white'>💙Sistema de votaciones Colegio Don Bosco - Crea J 2024💛</p>
+              <p className='text-white text-center'>💙Sistema de votaciones Colegio Don Bosco - Crea J 2024💛</p>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
               <div>
@@ -44,10 +44,10 @@ const Footer = () => {
       </div>
       <hr className="my-8 border-[#380B99] border-solid border-t-4" />
       <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-xl text-[#E32FAE] sm:text-center font-bold">
+          <span className=" text-[#E32FAE] text-center">
             © 2024 Spollnet. Todos los derechos reservados.
           </span>
-          <div className="flex mt-4 sm:justify-center sm:mt-0">
+          <div className="flex mt-5 sm:justify-center">
             <Link to={"https://github.com/JosueGarcia04/spollnet-crea-J-2024"} className="text-white ms-5">
                 <LogoGithub></LogoGithub>
             </Link>

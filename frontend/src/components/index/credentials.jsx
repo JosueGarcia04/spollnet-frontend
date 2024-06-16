@@ -1,7 +1,6 @@
-import React from 'react'
-
 export default function Id (){
     return(
+        <div className='bg-black'>
         <div class="flex flex-col md:flex-row justify-center items-center gap-4 my-8">
             <div class="flex flex-col items-center max-w-sm">
             <div class=" [background-image:url('src/assets/id.png')] bg-cover bg-center
@@ -23,6 +22,7 @@ export default function Id (){
                 </div>
             </div>
             </div>
+        </div>
         </div>
     );
 }
