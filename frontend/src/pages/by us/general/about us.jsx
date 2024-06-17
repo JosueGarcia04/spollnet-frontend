@@ -1,9 +1,9 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faPager, faThumbsUp, faShieldHalved , faChartSimple } from '@fortawesome/free-solid-svg-icons'
-import Footer from '../../components/general/footer' 
-import Navbar  from '../../components/general/navBar'
-import NavDown from "../../components/general/navDown"
+import Footer from '../../../components/general/footer' 
+import Navbar  from '../../../components/general/navBar'
+import NavDown from "../../../components/general/navDown"
 export default function AboutUs() {
     const features =[
         {

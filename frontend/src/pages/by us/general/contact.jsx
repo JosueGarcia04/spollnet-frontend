@@ -1,7 +1,7 @@
-import Footer from '../../components/general/footer' 
-import Navbar  from '../../components/general/navBar'
-import NavDown from '../../components/general/navDown'
-import InfoContact from '../../components/contact/infoMediaContact'
+import Footer from '../../../components/general/footer'
+import Navbar  from '../../../components/general/navBar'
+import NavDown from '../../../components/general/navDown'
+import InfoContact from '../../../components/contact/infoMediaContact'
 
 export default function Contact(){
     return(

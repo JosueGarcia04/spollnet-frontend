@@ -1,12 +1,12 @@
-import Navbar from '../../components/general/navBar'
-import Footer from '../../components/general/footer'
-import Countdown from '../../components/index/countdown/timer'
-import NavDown from '../../components/general/navDown'
-import Id from '../../components/index/credentials'
-import Steps from '../../components/index/steps_vote'
-import TitleAnimated from '../../components/index/animationTitleWelcome'
-import Emitir from '../../components/index/buttonVoteIndex'
-import "../../components/general/scrollbar.css"
+import Navbar from '../../../components/general/navBar'
+import Footer from '../../../components/general/footer'
+import Countdown from '../../../components/index/countdown/timer'
+import NavDown from '../../../components/general/navDown'
+import Id from '../../../components/index/credentials'
+import Steps from '../../../components/index/steps_vote'
+import TitleAnimated from '../../../components/index/animationTitleWelcome'
+import Emitir from '../../../components/index/buttonVoteIndex'
+import "../../../components/general/scrollbar.css"
 
 export const Index = () => {
   return (
