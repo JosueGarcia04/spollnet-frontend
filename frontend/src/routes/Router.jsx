@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom'
-import { Index } from '../pages/by us/Index'
+import { Index } from '../pages/by us/no logued/Index'
 import { Root } from '../pages/Root'
-import NotFound from '../pages/errors/404'
+import NotFound from '../pages/not found/404'
 import Faq from '../pages/by us/faq'
 import AboutUs from '../pages/by us/about us'
 import SignIn from '../pages/forms/Sign-in'
