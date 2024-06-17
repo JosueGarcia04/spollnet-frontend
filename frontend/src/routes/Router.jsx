@@ -6,12 +6,10 @@ import NotFound from '../pages/errors/404'
 import Faq from '../pages/by us/faq'
 import AboutUs from '../pages/by us/about us'
 import SignIn from '../pages/forms/Sign-in'
-import Profile from '../pages/user/profile'
-import Process from '../pages/votes/processVote'  
+import Profile from '../pages/user/profile' 
 import Login from '../pages/forms/login'
-import { Statistics } from '../pages/processVotes/statistics'
+import { Statistics } from '../pages/statistics/statistics'
 import Contact  from '../pages/by us/contact'
-import News from '../pages/by us/news'
 
 
 export const Router = createBrowserRouter([
@@ -40,16 +38,8 @@ export const Router = createBrowserRouter([
                 element:<Profile/>
             },
             {
-                path:"processVote",
-                element: <Process/>
-            },
-            {
                 path: "login",
                 element: <Login/>
-            },
-            {
-                path: "news",
-                element: <News/>
             },
             {
                 path: "statistics",

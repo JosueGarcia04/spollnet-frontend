@@ -129,22 +129,22 @@ const Navbar = () => {
               </button>
             </div>
             <div className="hidden md:flex md:items-center md:space-x-8">
-              <Link to={"/"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/"} className="text-lg text-white py-2 px-3 hover:bg-gray-700 rounded-md">
                 Inicio
               </Link>
-              <Link to={"/about us"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/about us"} className="text-lg text-white py-2 px-3  hover:bg-gray-700 rounded-md">
                 Sobre nosotros
               </Link> 
-              <Link to={"/contact"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/contact"} className="text-lg text-white py-2 px-3  hover:bg-gray-700 rounded-md">
                 Contacto
               </Link> 
-              <Link to={"/Sign-in"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/Sign-in"} className="text-lg text-white py-2 px-3  hover:bg-gray-700 rounded-md">
                 Registro
               </Link> 
-              <Link to={"/login"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/login"} className="text-lg text-white py-2 px-3  hover:bg-gray-700 rounded-md">
                 Inicio de sesión
               </Link> 
-              <Link to={"/news"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/news"} className="text-lg text-white py-2 px-3  hover:bg-gray-700 rounded-md">
                 Noticias
               </Link>
             </div>
