@@ -8,7 +8,7 @@ export default function ProfileCoordinatorDashboard(){
                     <img class="rounded-full w-10 h-10 relative object-cover" src="https://i.pinimg.com/originals/ad/73/1c/ad731cd0da0641bb16090f25778ef0fd.jpg" alt=""/> 
                 </div>
                 <div>
-                    <p class="font-medium group-hover:text-[#E31FAE] leading-4">Joshue</p>
+                    <p class="font-medium leading-4">Joshue</p>
                     <span class="text-xs text-white">Colegio Don Bosco</span>
                 </div>
             </a>
