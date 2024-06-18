@@ -1,9 +1,9 @@
-export default function ManuCoordinatorDashboard(){
+export default function MenuCoordinatorDashboard(){
     return(
         <div>
-            <div id="menu" class="flex flex-col space-y-2 my-5">
-                <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
-                    <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+            <div id="menu" class="flex flex-col space-y-2 w-full ">
+                <a href="#" class="hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                    <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 space-x-2">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:text-indigo-400">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
@@ -11,13 +11,13 @@ export default function ManuCoordinatorDashboard(){
                               
                         </div>
                         <div>
-                            <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Dashboard</p>
-                        <p class="text-slate-400 text-sm hidden md:block">Data overview</p>
+                            <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400 text-center">Inicio</p>
+                        
                         </div>
                         
                     </div>
                 </a>
-                <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg  group w-full  py-3 px-2 ">
                     <div class="relative flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:text-indigo-400">
@@ -26,7 +26,7 @@ export default function ManuCoordinatorDashboard(){
                         </div>
                         <div>
                             <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Invoices</p>
-                        <p class="text-slate-400 text-sm hidden md:block">Manage invoices</p>
+                       
                         </div>
                         
                     </div>
@@ -40,7 +40,7 @@ export default function ManuCoordinatorDashboard(){
                         </div>
                         <div>
                             <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Users</p>
-                        <p class="text-slate-400 text-sm hidden md:block">Manage users</p>
+                        
                         </div>
                         
                     </div>
@@ -56,13 +56,12 @@ export default function ManuCoordinatorDashboard(){
                         </div>
                         <div>
                             <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Settings</p>
-                        <p class="text-slate-400 text-sm hidden md:block">Edit settings</p>
+                        
                         </div>
                         
                     </div>
                 </a>
             </div>
-            <p class="text-sm text-center text-gray-600">v2.0.0.3 | &copy; 2022 Pantazi Soft</p>
         </div>
         
     );
