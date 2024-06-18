@@ -40,12 +40,12 @@ export default function UsersTableCoordinatorDashboard(){
                         <tr class="border-b border-gray-700">
                             <td class="py-3 px-2 font-bold">
                                 <div class="inline-flex space-x-3 items-center">
-                                    <span>Thai Mei</span>
+                                    <span>joshu</span>
                                 </div>
                             </td>
-                            <td class="py-3 px-2">thai.mei@abc.com</td>
-                            <td class="py-3 px-2">User</td>
-                            <td class="py-3 px-2">Approved</td>
+                            <td class="py-3 px-2">joshu@abc.com</td>
+                            <td class="py-3 px-2">20150359</td>
+                            <td class="py-3 px-2">bachillerato</td>
                             <td class="py-3 px-2">
                                 <div class="inline-flex items-center space-x-3">
                                     <a href="" title="Edit" class="hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
