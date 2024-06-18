@@ -1,5 +1,5 @@
 import React from 'react'
-import { faUsers, faCheckToSlot, faClipboard, faFile, faTrash, faBan } from '@fortawesome/free-solid-svg-icons'
+import { faUsers, faCheckToSlot, faClipboard, faFile, faTrash, faBan, faPeopleRoof } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function DataStudentsCoordinatorDashboard() {
@@ -38,6 +38,13 @@ export default function DataStudentsCoordinatorDashboard() {
             icon: faFile,
         },
     ];
+    const superviseStats =[
+        {
+            name: 'Auditores activos',
+            value: '+6',
+            icon: faPeopleRoof
+        }
+    ];
 
     const renderStats = (stats) => {
         return stats.map((stat) => (
@@ -73,8 +80,13 @@ export default function DataStudentsCoordinatorDashboard() {
                     {renderStats(votingStats)}
                 </div>
             </div>
+            <div className="mb-8">
+                <h2 className="text-xl font-bold mb-4">Supervisión del proceso de votación</h2>
+                <div id="voting-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {renderStats(superviseStats)}
+                </div>
+            </div>
 
-            {/* Añadir más secciones según sea necesario */}
         </div>
     );
 }
