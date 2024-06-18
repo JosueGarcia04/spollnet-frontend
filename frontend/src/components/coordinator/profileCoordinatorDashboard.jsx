@@ -9,6 +9,9 @@ export default function ProfileCoordinatorDashboard(){
                 </div>
                 <div>
                     <p class="font-medium leading-4 text-center">Bienvenido, Joshue</p>
+                    <div className="flex justify-center sm:justify-start items-center">
+                    <span class=" inline-block mt-2 bg-green-500 rounded-full px-2 text-sm font-semibold text-white mr2">en linea</span>
+                    </div>
                 </div>
             </div>
         </div>

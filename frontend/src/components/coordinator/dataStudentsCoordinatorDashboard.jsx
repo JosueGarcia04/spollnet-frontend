@@ -14,7 +14,7 @@ export default function DataStudentsCoordinatorDashboard(){
                             <div>
                                 <p class="text-[#E41FAE] text-sm font-medium leading-4">Estudiantes registrados</p>
                                 <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
-                                    <span>31</span>
+                                    <span>+2000</span>
                                 </p>
                             </div>
                         </div>
