@@ -5,7 +5,7 @@ import Footer from '../../components/general/footer'
 //panel
 import ProfileCoordinatorDashboard from '../../components/coordinator/profileCoordinatorDashboard'
 import MenuCoordinatorDashboard from '../../components/coordinator/menuCoordinatorDasboard'
-import UsersTableCoordinatorDashboard from '../../components/coordinator/usersTable'
+// import UsersTableCoordinatorDashboard from '../../components/coordinator/usersTable'
 import DataStudentsCoordinatorDashboard from '../../components/coordinator/dataStudentsCoordinatorDashboard'
 export const Coordinator =() =>{
     return(
@@ -23,7 +23,7 @@ export const Coordinator =() =>{
                 
                 <div>
 </div>
-    <UsersTableCoordinatorDashboard/>
+    {/* <UsersTableCoordinatorDashboard/> */}
            
     </div>
 </div>
