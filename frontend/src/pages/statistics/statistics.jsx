@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Navbar from '../../components/general/navBar'
 import Footer from '../../components/general/footer'
 import { Chart } from "react-google-charts";
