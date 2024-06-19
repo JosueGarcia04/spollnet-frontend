@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faSignOutAlt, faQuestionCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faInbox, faSignOutAlt, faQuestionCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,36 +61,42 @@ const Navbar = () => {
             <div className="flex items-center px-4 mb-5">
               <FontAwesomeIcon icon={faUser} className="text-[#E41FAE] w-7 h-12 mr-3" />
               <div>
-                <p className="text-white font-bold">Nombre de Usuario</p>
+                <p className="text-white font-bold">Nombre de Estudiante</p>
                 <p className="text-gray-400">usuario@example.com</p>
               </div>
             </div>
-            <Link to={"/"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
-              <button className="text-lg">
+            <Link to={"/"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+              <button className="font-bold">
                 Inicio
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/about us"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
-              <button className="text-lg">
+            <Link to={"/about us"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+              <button className="font-bold">
                 Sobre nosotros
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
-              <button className="text-lg">
-                Candidatos
+            <Link to={"/contact"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+              <button className="font-bold">
+                Contáctanos
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
-              <button className="text-lg">
-                Ver Partidos
+            <Link to={"/Sign-in"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+              <button className="font-bold">
+                Registro
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 rounded-md">
-              <button className="text-lg">
+            <Link to={"/login"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+              <button className="font-bold">
+                Inicias sesión
+              </button>
+              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
+            </Link>
+            <Link to={"/news"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+              <button className="font-bold">
                 Noticias
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
@@ -105,10 +111,11 @@ const Navbar = () => {
 
         <nav ref={navbarRef} className={`bg-black fixed top-0 left-0 w-full z-10 py-1 px-3 md:px-0 transition-all duration-300 ${scrolling ? 'border-b-2 border-[#E41FAE] shadow-lg rounded-b-3xl' : 'border-b-2 border-transparent transform translate-y-0'} ${scrolling ? 'translate-y-0' : '-translate-y-20'}`}>
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+            <Link to={"/"}>
             <img src="public/logo2.png" className="w-40" alt="spollnet" />
-
+            </Link>
             <div className="flex items-center md:order-2">
-              <FontAwesomeIcon icon={faBell} className="text-[#E41FAE] w-6 h-6 mr-2" />
+              <FontAwesomeIcon icon={faInbox} className="text-[#E41FAE] w-6 h-6 mr-2" />
               <button
                 onClick={toggleNavbar}
                 className="inline-flex items-center p-2 w-12 h-12 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -121,20 +128,23 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
-            <div className="hidden md:flex md:items-center md:space-x-8">
-              <Link to={"/"} className="text-lg text-white hover:text-[#E41FAE]">
+            <div className="hidden md:flex md:items-center md:space-x-4">
+              <Link to={"/"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
                 Inicio
               </Link>
-              <Link to={"/about us"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/about us"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
                 Sobre nosotros
               </Link>
-              <Link to={"#"} className="text-lg text-white hover:text-[#E41FAE]">
-                Candidatos
+              <Link to={"/contact"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
+                Contáctanos
               </Link>
-              <Link to={"#"} className="text-lg text-white hover:text-[#E41FAE]">
-                Ver Partidos
+              <Link to={"/Sign-in"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
+                Registro
               </Link>
-              <Link to={"#"} className="text-lg text-white hover:text-[#E41FAE]">
+              <Link to={"/login"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
+                Iniciar sesión
+              </Link>
+              <Link to={"/news"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
                 Noticias
               </Link>
             </div>
