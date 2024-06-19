@@ -1,7 +1,7 @@
 export default function ProfileCoordinatorDashboard(){
     return(
         <div>
-             <h1 class="font-bold text-lg lg:text-3xl text-[#E31FAE]">Coordinador</h1>
+             <h1 class="font-bold text-lg lg:text-3xl text-[#E31FAE]">Admin, Coordinador</h1>
              <br></br>
             <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-gray-700 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                 <div>

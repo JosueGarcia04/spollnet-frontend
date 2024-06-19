@@ -18,7 +18,6 @@ import StudentTable from '../pages/coordinator/students/studentsTable';
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
 import Profile from '../pages/student/profile'
-import { Statistics } from '../pages/statistics/statistics' 
 
 
 export const Router = createBrowserRouter([
@@ -49,10 +48,6 @@ export const Router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login/>
-            },
-            {
-                path: "statistics",
-                element:<Statistics/>
             },
             {
                 path:"contact",
