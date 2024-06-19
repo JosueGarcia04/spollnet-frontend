@@ -2,9 +2,9 @@ import React from 'react'
 //general
 import Footer from '../../../components/general/footer'
 //panel
-import ProfileCoordinatorDashboard from '../../../components/coordinator/profileCoordinatorDashboard'
-import MenuCoordinatorDashboard from '../../../components/coordinator/menuCoordinatorDasboard'
-import DataCoordinatorDashboard from '../../../components/coordinator/dataCoordinatorDashboard'
+import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard'
+import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard'
+import DataCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/dataCoordinatorDashboard'
 export const Coordinator =() =>{
     return(
         <div class="antialiased bg-black w-full min-h-screen text-slate-300 relative py-2">

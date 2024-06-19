@@ -1,22 +1,23 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { faHouse, faUsers, faNewspaper, faChartSimple, faFile, faCalendarCheck, faFaceLaughBeam } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function MenuCoordinatorDashboard(){
     return(
         <div className='h-screen flex flex-col'>
             <div id="menu" class="flex flex-col space-y-2 w-full">
-                <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <Link to={"/main"} className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faHouse}/>                           
                         <p className="font-bold text-base lg:text-lg text-slate-200">Inicio</p>
                     </div>
-                </a>
-                <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                </Link>
+                <Link to={"/studentsTable"} className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faUsers}/>                           
                         <p className="font-bold text-base lg:text-lg text-slate-200">Usuarios</p>
                     </div>
-                </a>
+                </Link>
                 <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faCalendarCheck}/>                           
