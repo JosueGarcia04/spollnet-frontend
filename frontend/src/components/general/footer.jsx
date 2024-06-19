@@ -22,10 +22,10 @@ const Footer = () => {
               <div>
                   <h2 class="mb-6 text-xl font-bold text-[#E31FAE] text-center">Acerca de</h2>
                   <ul class="text-white font-medium text-center ">
-                      <li class="mb-4 hover:text-[#E31FAE]">
+                      <li class="mb-4 hover:text-[#E31FAE] transition duration-150 ease-linear">
                           <Link to={"/about us"}>Nosotros</Link>
                       </li>
-                      <li className='hover:text-[#E31FAE]'>
+                      <li className='hover:text-[#E31FAE] transition duration-150 ease-linear'>
                           <Link to={"/faq"}>Preguntas frecuentes</Link>
                       </li>
                   </ul>
@@ -33,10 +33,10 @@ const Footer = () => {
               <div>
                   <h2 class="mb-6 text-xl font-bold text-[#E31FAE] text-center">Legal</h2>
                   <ul class="text-white font-medium text-center">
-                      <li class="mb-4 hover:text-[#E31FAE]">
+                      <li class="mb-4 hover:text-[#E31FAE] transition duration-150 ease-linear">
                           <Link to={"#"}>Politica de Privacidad</Link>
                       </li>
-                      <li class='hover:text-[#E31FAE]'>
+                      <li class='hover:text-[#E31FAE] transition duration-150 ease-linear'>
                           <Link to={"#"}>Terminos y condiciones</Link>
                       </li>
                   </ul>
