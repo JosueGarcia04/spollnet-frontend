@@ -4,6 +4,7 @@ import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashbo
 import DataStudentsInformation from '../../../components/coordinator/studentsInformation/dataStudentsInformation'
 import UsersTableCoordinatorDashboard from '../../../components/coordinator/studentsInformation/usersTable'
 import Footer from '../../../components/general/footer'
+import AddStudent from '../../../components/coordinator/studentsInformation/addStudent';
 
 export const StudentTable=()=>{
     return(
@@ -16,6 +17,7 @@ export const StudentTable=()=>{
             <div id="content" class="bg-white/10 col-span-8 rounded-lg p-4">
                 <DataStudentsInformation/>
                 <UsersTableCoordinatorDashboard/>
+                <AddStudent/>
             </div>
         </div>
         <Footer/>

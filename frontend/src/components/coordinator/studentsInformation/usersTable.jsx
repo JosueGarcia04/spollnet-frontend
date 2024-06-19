@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function UsersTableCoordinatorDashboard(){
     return(
-        <div id="last-users">
+        <div>
                 <h1 class="font-bold py-4">Lista de estudiantes</h1>
                 <div class="overflow-x-scroll">
                     <table class="w-full whitespace-nowrap">
