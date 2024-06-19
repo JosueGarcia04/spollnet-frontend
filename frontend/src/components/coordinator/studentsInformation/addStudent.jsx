@@ -2,8 +2,8 @@ import RegisterButton from '../../../components/forms/Sign up/registerButton'
 export default function AddStudent(){
     return(
         <div>
-            <h1 class="font-bold py-4">Registrar Estudiante</h1>
-            <div class="flex items-center justify-center p-12">
+            <h2 className="text-xl font-bold py-5">Añadir estudiante</h2>
+            <div class="flex items-center justify-center p-3">
             <div class="mx-auto w-full max-w-[550px]">
                 <form action="" method="POST">
                 <div class="mb-5">
