@@ -1,5 +1,5 @@
 import React from 'react'
-import { faHouse, faUsers, faNewspaper, faChartSimple, faFile, faCalendarCheck, faFaceLaughBeam, faDoorOpen, faInbox } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faUsers, faNewspaper, faChartSimple, faFile, faCalendarCheck, faFaceLaughBeam } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function MenuCoordinatorDashboard(){
     return(
@@ -9,12 +9,6 @@ export default function MenuCoordinatorDashboard(){
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faHouse}/>                           
                         <p className="font-bold text-base lg:text-lg text-slate-200">Inicio</p>
-                    </div>
-                </a>
-                <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
-                    <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faInbox}/>                           
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Notis</p>
                     </div>
                 </a>
                 <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
@@ -52,12 +46,6 @@ export default function MenuCoordinatorDashboard(){
                         <FontAwesomeIcon icon={faNewspaper}/>                           
                         <p className="font-bold text-base lg:text-lg text-slate-200">Noticias</p>
                     </div>
-                </a>
-                <a href="#" className="bg-red-700 rounded-lg group w-full py-3 px-2">
-                <div className="flex items-center space-x-2">
-                    <FontAwesomeIcon icon={faDoorOpen}/>                           
-                    <p className="font-bold text-base lg:text-lg text-slate-200">Salir</p>
-                </div>
                 </a>
             </div>
         </div>
