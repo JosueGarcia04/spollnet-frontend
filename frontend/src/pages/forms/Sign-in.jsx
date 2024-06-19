@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/general/navBar'
 import Footer from '../../components/general/footer'
-import NavDown from "../../components/general/navDown"
+import NavDown from '../../components/general/navDown'
 import {Input} from '../../components/forms/input'
 import {Label} from '../../components/forms/label'
-import RegisterButton from '../../components/forms/registerButton'
+import RegisterButton from '../../components/forms/Sign up/registerButton'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
