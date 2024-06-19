@@ -1,6 +1,6 @@
 export default function TitleAnimated(){
     return(
-        <div className="flex flex-col lg:items-center text-white">
+        <div className="flex flex-col lg:hidden text-white">
               <div className="ml-9">
                 <div className="all2 flex items-center text-center">
                   <h1 className="text-3xl font-semibold mb-3">
