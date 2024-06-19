@@ -1,7 +1,9 @@
 import React from 'react';
 //router frontend
 import { createBrowserRouter } from 'react-router-dom'
+//index no logued
 import { Index } from '../pages/by us/no logued/Index'
+//route
 import { Root } from '../pages/Root'
 //general
 import NotFound from '../pages/not found/404'
@@ -10,7 +12,7 @@ import AboutUs from '../pages/by us/general/about us'
 import Contact  from '../pages/by us/general/contact'
 import News from '../pages/by us/general/news'
 //coordinador
-import Coordinator from '../pages/coordinator/main'
+import Coordinator from '../pages/coordinator/dashboard/main'
 //student
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
