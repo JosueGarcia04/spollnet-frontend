@@ -13,7 +13,7 @@ import Contact  from '../pages/by us/general/contact'
 import News from '../pages/by us/general/news'
 //coordinador
 import Coordinator from '../pages/coordinator/dashboard/main'
-import StudentTable from '../pages/coordinator/students/studentsTable';
+import StudentTable from '../pages/coordinator/students/studentsDashboard';
 //student
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
