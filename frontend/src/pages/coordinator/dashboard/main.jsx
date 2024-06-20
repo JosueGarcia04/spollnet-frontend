@@ -5,6 +5,8 @@ import Footer from '../../../components/general/footer'
 import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard'
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard'
 import DataCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/dataCoordinatorDashboard'
+//principal statistic
+import PrincipalStatisticInformationComponent from '../../../components/coordinator/previewSatisticDashboardInformation/principalStatisticInformation'
 export const Coordinator =() =>{
     return(
         <div class="antialiased bg-black w-full min-h-screen text-slate-300 relative py-2">
@@ -14,7 +16,8 @@ export const Coordinator =() =>{
                     <MenuCoordinatorDashboard/>
                 </div>
                 <div id="content" class="bg-white/10 col-span-8 rounded-lg p-4">
-                    <DataCoordinatorDashboard/>          
+                    <DataCoordinatorDashboard/>     
+                    <PrincipalStatisticInformationComponent/>     
                 </div>
             </div>
             <Footer/>

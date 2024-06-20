@@ -59,7 +59,6 @@ export default function DataStudentsCoordinatorDashboard() {
 
     return (
         <div id="24h">
-           
             <div className="mb-8">
                 <h2 className="text-xl font-bold mb-4">Información de Usuarios</h2>
                 <div id="user-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
