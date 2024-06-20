@@ -1,13 +1,13 @@
 const NewsletterCard = ({ date, title, link }) => (
-  <div className="border rounded-lg p-4 shadow-md transform transition-transform duration-300 hover:scale-105">
-    <h2 className="text-lg font-bold mb-2">Noticia: {date}</h2>
-    <p className="text-gray-700 mb-4">{title}</p>
+  <div className="bg-black border rounded-lg p-4 shadow-md transform transition-transform duration-300 hover:scale-105">
+    <h2 className="text-lg font-bold mb-2 text-[#E41FAE]">Noticia: {date}</h2>
+    <p className="text-white mb-4">{title}</p>
     <a href={link} className="text-blue-500 font-medium">Ver mas &rarr;</a>
   </div>
 );
 
 const NewslettersGrid = ({ newsletters }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-20">
+  <div className="bg-black grid grid-cols-1 md:grid-cols-2 gap-6 p-20">
     {newsletters.map((newsletter, index) => (
       <NewsletterCard
         key={index}
