@@ -1,4 +1,5 @@
-import RegisterButton from '../../../components/forms/Sign up/registerButton'
+import  AddStudentButton from '../studentsInformation/buttonsAddStudent/addStudentButton'
+import ClearStudentButton from './buttonsAddStudent/clearStudentButton';
 export default function AddStudent(){
     return(
         <div>
@@ -53,7 +54,11 @@ export default function AddStudent(){
                     </div>
                 </div>
                 <div>
-                    <RegisterButton/>
+                    
+                        <ClearStudentButton/>
+                        <br></br><br></br>
+                        <AddStudentButton/>
+                    
                 </div>
                 </form>
             </div>
