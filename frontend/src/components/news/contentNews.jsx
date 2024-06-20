@@ -1,35 +1,36 @@
-export default function ContentNews(){
-    return(
-            <div className='bg-black flex flex-wrap justify-center mt-10'>
-          <div class="max-w-sm rounded overflow-hidden shadow-lg m-5">
-            <img class="w-full" src="https://www.adslzone.net/app/uploads/2019/10/evoting_1200-715x402.jpg" alt="Sunset in the mountains"/>
-          <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2 text-[#E31FAE]">Votaciones</div>
-            <p class="text-white text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-[#380B99] rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#votes</span>
-            <span class="inline-block bg-[#380B99]  rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#students</span>
-            <span class="inline-block bg-[#380B99] rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#college</span>
-          </div>
-        </div>
-        <div class="max-w-sm rounded overflow-hidden shadow-lg m-5">
-          <img class="w-full" src="https://www.adslzone.net/app/uploads/2019/10/evoting_1200-715x402.jpg" alt="Sunset in the mountains"/>
-        <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2 text-[#E31FAE]">Votaciones</div>
-          <p class="text-white text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-          </p>
-        </div>
-        <div class="px-6 pt-4 pb-2">
-          <span class="inline-block bg-[#380B99] rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#votes</span>
-          <span class="inline-block bg-[#380B99]  rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#students</span>
-          <span class="inline-block bg-[#380B99] rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2">#college</span>
-        </div>
-        </div>
-      </div>
-    );
+const NewsletterCard = ({ date, title, link }) => (
+  <div className="border rounded-lg p-4 shadow-md transform transition-transform duration-300 hover:scale-105">
+    <h2 className="text-lg font-bold mb-2">Noticia: {date}</h2>
+    <p className="text-gray-700 mb-4">{title}</p>
+    <a href={link} className="text-blue-500 font-medium">Ver mas &rarr;</a>
+  </div>
+);
+
+const NewslettersGrid = ({ newsletters }) => (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-20">
+    {newsletters.map((newsletter, index) => (
+      <NewsletterCard
+        key={index}
+        date={newsletter.date}
+        title={newsletter.title}
+        link={newsletter.link}
+      />
+    ))}
+  </div>
+);
+  
+export default function ContentNews() {
+  const newsletters = [
+    {
+      date: 'May 23, 2024',title: 'In this edition of The GitHub Insider, we thought it would be fun to take a stroll through memory lane, looking back on the first few years of GitHub Copilot’s life, reminisce about some big milestones, and offer up some best practices that we’ve learned from a few of Copilot’s sticky spots.', link: '#'
+    },
+    {
+      date: 'May 2, 2024', title: 'Have you considered that coding can be both fun AND funny? With over 100 million developers and counting, GitHub is not only a home to serious coding projects—it’s also a goldmine of hilariously creative repositories.', link: '#'
+    },
+  ];
+  
+  return <NewslettersGrid newsletters={newsletters} />;
+  
 }
+
 
