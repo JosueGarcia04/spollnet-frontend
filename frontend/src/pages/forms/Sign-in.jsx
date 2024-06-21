@@ -129,7 +129,7 @@ const SignIn = () => {
                     </div>
                 </div>
                 <div className="mt-8 text-center">
-                    <RegisterButton/>
+                    <RegisterButton text="Registrarse"/>
                 </div>
             </form>
         </section>

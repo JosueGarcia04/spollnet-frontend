@@ -70,7 +70,7 @@ const Login = () => {
         <Forgot/>
       </div>
       <div class="mt-6">
-        <RegisterButton/>
+        <RegisterButton text="Iniciar sesión"/>
       </div>
       <div class="mt-6 text-center">
         <LinkRegister/>
