@@ -4,13 +4,13 @@ import { Chart } from "react-google-charts";
 export const SimplePieChart = () => {
   const chartRef = useRef(null);
   const [chartOptions, setChartOptions] = useState({
-    title: "Gráfica",
+    title: "Gráfica de estudiantes",
     backgroundColor: "#000",
     titleTextStyle: {
       color: 'white',
     },
     legend: {
-      position: 'right', // Default position
+      position: 'right',
       textStyle: {
         color: '#fff',
       },
@@ -41,7 +41,7 @@ export const SimplePieChart = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Call once to apply the correct styles on load
+    handleResize(); 
 
     return () => {
       window.removeEventListener('resize', handleResize);
