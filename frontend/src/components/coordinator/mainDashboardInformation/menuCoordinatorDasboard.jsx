@@ -18,12 +18,12 @@ export default function MenuCoordinatorDashboard(){
                         <p className="font-bold text-base lg:text-lg text-slate-200">Usuarios</p>
                     </div>
                 </Link>
-                <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <Link to={"/periodsOfVotesDashboard"} className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faCalendarCheck}/>                           
                         <p className="font-bold text-base lg:text-lg text-slate-200">Periodos</p>
                     </div>
-                </a>
+                </Link>
                 <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faFaceLaughBeam}/>                           

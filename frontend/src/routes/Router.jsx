@@ -14,6 +14,7 @@ import News from '../pages/by us/general/news'
 //coordinador
 import Coordinator from '../pages/coordinator/dashboard/main'
 import StudentTable from '../pages/coordinator/students/studentsDashboard';
+import PeriodsOfVotesDashboard from '../pages/coordinator/periods/periodsOfVotesDashboard';
 //student
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
@@ -64,6 +65,10 @@ export const Router = createBrowserRouter([
             {
                 path:"studentsTable",
                 element:<StudentTable/>
+            },
+            {
+                path:"periodsOfVotesDashboard",
+                element:<PeriodsOfVotesDashboard/>
             },
             {
                 path: "*",
