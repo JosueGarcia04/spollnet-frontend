@@ -20,13 +20,14 @@ export default function AddStudent(){
                         Correo 
                     </label>
                     <input
-                    type="text" min="0" class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none"
+                    type="email" min="0" class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none"
                     />
                 </div>
                 <div class="-mx-3 flex flex-wrap">
                     <div class="w-full px-3 sm:w-1/2">
                     <div class="mb-5">
                         <label
+                        type="text"
                         for="date"
                         class="mb-3 block text-base font-medium text-white"
                         >
