@@ -49,7 +49,7 @@ export const SimplePieChart = () => {
   }, []);
 
   return (
-    <div ref={chartRef} className="w-full relative">
+    <div ref={chartRef} className="w-full relative rounded-lg bg-black p-4">
       <Chart
         chartType="PieChart"
         data={data}
