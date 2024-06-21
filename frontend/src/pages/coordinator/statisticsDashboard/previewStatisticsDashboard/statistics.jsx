@@ -15,11 +15,11 @@ export const Statistics = () =>{
         title: "Votaciones",
         backgroundColor: "#000",
         titleTextStyle: {
-          color: 'white', // Color del texto del título en blanco
+          color: 'white', 
         },
         legend: {
           textStyle: {
-            color: '#fff', // Color del texto de la leyenda en blanco
+            color: '#fff',
           },
         },
       }

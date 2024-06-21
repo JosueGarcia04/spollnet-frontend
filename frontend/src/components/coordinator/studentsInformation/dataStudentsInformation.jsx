@@ -46,7 +46,7 @@ export default function DataStudentsInformation() {
                     <div>
                         <p className="text-[#E41FAE] text-sm font-medium leading-4">{stat.name}</p>
                         {stat.showButton ? (
-                            <button className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded">
+                            <button className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear">
                                 Ver {stat.name}
                             </button>
                         ) : (
