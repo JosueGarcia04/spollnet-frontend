@@ -17,23 +17,23 @@ open source of created resources. To achieve this, we have designed a simple and
 
 ## Execution
 
-Para poder iniciar, necesitas clonar nuestro proyecto, para eso ejecutarás:
+In order to start, you need to clone our project, for that you will execute:
 
     git clone
 
-Luego, necesitas instalar algunas dependecias que son clave para el funcionamiento de nuestra app, por ende, estarás ejecutando el siguiente comando:
+Next, you need to install some dependencies that are key to the operation of our app, therefore, you will be executing the following command:
 
     npm i
 
-Teniendo los archivos de datos, necesitas configurar la base de datos (asegúrate de tener MongoDB instalado y en funcionamiento en tu máquina). Si necesitas una base de datos para el proyecto, configura una base de datos en MongoDB y actualiza la configuración de conexión en el código del proyecto para que se conecte a la base de datos adecuada.
+Having the data files, you need to configure the database (make sure you have MongoDB installed and running on your machine). If you need a database for your project, set up a database in MongoDB and update the connection settings in your project code to connect to the appropriate database.
 
-Luego, necesitas configurar unas variables de entorno en el archivo ".env"
+Next, you need to configure some environment variables in the ".env" file
 
-Continuando, necesitas ejecutar los archivos y estilos Tailwind, entonces para ejecutar en nuestro servidor, utiliza este comando:
+Moving on, you need to run the Tailwind files and styles, so to run on our server, use this command:
 
     npm run build:styles
 
-Realizando todos los pasos anteriores, solo necesitas ejecutar
+Performing all the above steps, you just need to run
 
     npm run dev
 
