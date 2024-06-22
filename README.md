@@ -1,32 +1,21 @@
-💙App web de elección del Consejo Estudiantil del Colegio Don Bosco💛
+## Spollnet
 
-El sistema de votaciones SpollNet ofrece una plataforma moderna y accesible que permite a los estudiantes participar en procesos de votación de manera fácil y segura. Con una interfaz intuitiva y amigable, los estudiantes pueden acceder a la plataforma desde sus dispositivos móviles o computadoras y emitir sus votos de manera rápida y conveniente.
-Una de las características clave es su enfoque en la transparencia y la integridad del proceso de votación. 
+The SpollNet voting system offers a modern and accessible platform that allows students to participate in voting processes easily and securely. With an intuitive and friendly interface, students can access the platform from their mobile devices or computers and cast their votes quickly and conveniently.
+One of the key features is its focus on the transparency and integrity of the voting process.
 
-El sistema utiliza tecnologías avanzadas de seguridad y encriptación para garantizar la protección de los datos y la legitimidad de los votos emitidos. Además, ofrece funciones de seguimiento que permiten a los estudiantes verificar el estado de sus votos y acceder a información detallada sobre los candidatos y las propuestas en cuestión.
+The system uses advanced security and encryption technologies to guarantee the protection of data and the legitimacy of the votes cast. Additionally, it offers tracking features that allow students to check the status of their votes and access detailed information about the candidates and proposals in question.
 
-## 🔧 Tecnologías ⚙️
+## Licenses
 
-* Express
-* NodeJS
-* JavaScript
-* Vite
-* Tailwind 
-* React 
-* MongoDB
+As a project, we have decided to incorporate Creative Commons Licenses into our student voting system to ensure copyright protection and promote fair use and
+open source of created resources. To achieve this, we have designed a simple and effective process to integrate these licenses into our platform.
 
-## 📃 Licencias 📃
+- The source code of this project is under the [Attribution (CC BY)] license.
+- The documentation is under the license [Attribution-ShareAlike (CC BY-SA)].
+- The multimedia files (images, videos, etc.) are under the [Attribution-NonCommercial (CC BY-NC)] license.
+- Data files are under the [Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)] license.
 
-Como proyecto, hemos decidido incorporar las Licencias Creative Commons a nuestro sistema de  votaciones estudiantiles para garantizar la protección de los derechos de autor y promover el uso justo y 
-abierto de los recursos creados. Para lograr esto, hemos diseñado un proceso sencillo y efectivo para integrar estas licencias en nuestra plataforma.
-
-- El código fuente de este proyecto está bajo la licencia [Atribución (CC BY)].
-- La documentación está bajo la licencia [Atribución-CompartirIgual (CC BY-SA)].
-- Los archivos multimedia (imágenes, videos, etc.) están bajo la licencia [Atribución-NoComercial (CC BY-NC)].
-- Los archivos de datos están bajo la licencia [Atribución-NoComercial-CompartirIgual (CC BY-NC-SA)].
-
-
-## ⬇️ Ejecución ⬇️
+## Execution
 
 Para poder iniciar, necesitas clonar nuestro proyecto, para eso ejecutarás:
 
