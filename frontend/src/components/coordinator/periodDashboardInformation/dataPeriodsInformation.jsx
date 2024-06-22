@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarCheck, faCalendarMinus, faClock } from '@fortawesome/free-solid-svg-icons';
 
 export default function DataPeriodsInformation() {
     const periodsInformation = [
@@ -8,6 +8,16 @@ export default function DataPeriodsInformation() {
             name: 'Periodos existentes',
             value: '+2',
             icon: faCalendarCheck,
+        },
+        {
+            name: 'Periodos cancelados',
+            value: '+5',
+            icon: faCalendarMinus,
+        },
+        {
+            name: 'Periodos finalizados',
+            value: '+2',
+            icon: faClock,
         },
     ];
 
