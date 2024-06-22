@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarCheck, faCalendarMinus, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarCheck, faCalendarMinus, faClock, faCalendarPlus, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
 
 export default function DataPeriodsInformation() {
     const periodsInformation = [
@@ -21,6 +21,19 @@ export default function DataPeriodsInformation() {
         },
     ];
 
+    const createPeriod = [
+        {
+            name: 'Crear nuevo periodo',
+            icon: faCalendarPlus,
+            showButton: true,
+        },
+        {
+            name: 'Ver Historial de periodos',
+            icon: faClockRotateLeft,
+            showButton: true,
+        }
+    ];
+
     const renderStats = (stats) => {
         return stats.map((stat) => (
             <div key={stat.name} className="bg-black/60 p-6 rounded-lg">
@@ -31,8 +44,12 @@ export default function DataPeriodsInformation() {
                     <div>
                         <p className="text-[#E41FAE] text-sm font-medium leading-4">{stat.name}</p>
                         {stat.showButton ? (
-                            <button className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear">
-                                Ver {stat.name}
+                            <button
+                                className={`mt-2 font-bold py-2 px-4 rounded hover:bg-opacity-75 transition duration-150 ease-linear ${
+                                    stat.name === 'Ver Historial de periodos' ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'
+                                }`}
+                            >
+                                {stat.name}
                             </button>
                         ) : (
                             <p className="text-white font-bold text-2xl inline-flex items-center space-x-2">
@@ -51,6 +68,12 @@ export default function DataPeriodsInformation() {
                 <h2 className="text-xl font-bold mb-4">Información de Periodos de votación</h2>
                 <div id="period-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {renderStats(periodsInformation)}
+                </div>
+            </div>
+            <div className="mb-8">
+                <h2 className="text-xl font-bold mb-4">Crear nuevo periodo de votación</h2>
+                <div id="period-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                    {renderStats(createPeriod)}
                 </div>
             </div>
         </div>
