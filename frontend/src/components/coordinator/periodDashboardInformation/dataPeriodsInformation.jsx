@@ -21,16 +21,18 @@ export default function DataPeriodsInformation() {
         },
     ];
 
-    const createPeriod = [
+    const viewButtons = [
         {
-            name: 'Crear nuevo periodo',
-            icon: faCalendarPlus,
+            name: 'Periodos cancelados',
+            icon: faCalendarMinus,
             showButton: true,
+            buttonColor: 'bg-red-600',
         },
         {
-            name: 'Ver Historial de periodos',
-            icon: faClockRotateLeft,
+            name: 'Periodos finalizados',
+            icon: faClock,
             showButton: true,
+            buttonColor: 'bg-blue-600',
         }
     ];
 
@@ -45,9 +47,7 @@ export default function DataPeriodsInformation() {
                         <p className="text-[#E41FAE] text-sm font-medium leading-4">{stat.name}</p>
                         {stat.showButton ? (
                             <button
-                                className={`mt-2 font-bold py-2 px-4 rounded hover:bg-opacity-75 transition duration-150 ease-linear ${
-                                    stat.name === 'Ver Historial de periodos' ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'
-                                }`}
+                                className={`mt-2 font-bold py-2 px-4 rounded hover:bg-opacity-75 transition duration-150 ease-linear ${stat.buttonColor} text-white`}
                             >
                                 {stat.name}
                             </button>
@@ -69,12 +69,12 @@ export default function DataPeriodsInformation() {
                 <div id="period-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {renderStats(periodsInformation)}
                 </div>
+                <div id="view-buttons" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4">
+                    {renderStats(viewButtons)}
+                </div>
             </div>
             <div className="mb-8">
                 <h2 className="text-xl font-bold mb-4">Crear nuevo periodo de votación</h2>
-                <div id="period-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                    {renderStats(createPeriod)}
-                </div>
             </div>
         </div>
     );
