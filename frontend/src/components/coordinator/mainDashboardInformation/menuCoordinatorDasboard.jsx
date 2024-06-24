@@ -42,12 +42,12 @@ export default function MenuCoordinatorDashboard(){
                         <p className="font-bold text-base lg:text-lg text-slate-200">Reportes</p>
                     </div>
                 </a>
-                <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <Link to={"/newsDashboard"} className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faNewspaper}/>                           
                         <p className="font-bold text-base lg:text-lg text-slate-200">Noticias</p>
                     </div>
-                </a>
+                </Link>
                 <Link to={"/notificationsDashboard"} className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faInbox}/>                           
