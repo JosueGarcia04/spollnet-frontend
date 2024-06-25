@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarCheck, faCalendarMinus, faClock, faCalendarPlus, faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarCheck, faCalendarMinus, faClock } from '@fortawesome/free-solid-svg-icons';
 
 export default function DataPeriodsInformation() {
     const periodsInformation = [
@@ -74,7 +74,7 @@ export default function DataPeriodsInformation() {
                 </div>
             </div>
             <div className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Crear nuevo periodo de votación</h2>
+                <h2 className="text-xl font-bold mb-4">Lista de periodos existentes</h2>
             </div>
         </div>
     );
