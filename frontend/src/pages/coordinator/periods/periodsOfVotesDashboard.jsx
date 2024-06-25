@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DataPeriodsInformation from '../../../components/coordinator/periodDashboardInformation/dataPeriodsInformation';
 import ExistingPeriods from '../../../components/coordinator/periodDashboardInformation/existingPeriods';
+import AddPeriod from '../../../components/coordinator/periodDashboardInformation/addPeriod';
 import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard';
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
@@ -26,6 +27,7 @@ export const PeriodsOfVotesDashboard =()=>{
             <div id="content" className="bg-white/10 col-span-8 rounded-lg p-4">
                 <DataPeriodsInformation/>
                 <ExistingPeriods/>
+                <AddPeriod/>
             </div>
         </div>
     <Footer />

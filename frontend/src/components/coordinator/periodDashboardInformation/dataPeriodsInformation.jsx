@@ -73,9 +73,6 @@ export default function DataPeriodsInformation() {
                     {renderStats(viewButtons)}
                 </div>
             </div>
-            <div className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Lista de periodos existentes</h2>
-            </div>
         </div>
     );
 }
