@@ -3,6 +3,7 @@ import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDas
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import NewsDashboardContent from '../../../components/coordinator/newsDashboard/newsDashboardContent';
+import NewsInformationDashboard from '../../../components/coordinator/newsDashboard/newsInformation';
 import Footer from '../../../components/general/footer';
 export const NewsDashboard = () =>{
     const [isModalOpen, setModalOpen] = useState(false);
@@ -22,7 +23,7 @@ export const NewsDashboard = () =>{
                     <MenuCoordinatorDashboard />
                 </div>
             <div id="content" className="bg-white/10 col-span-8 rounded-lg p-4">
-                <h2 className="text-xl font-bold mb-4">Centro de noticias</h2>
+                <NewsInformationDashboard/>
                 <NewsDashboardContent/>
             </div>
         </div>
