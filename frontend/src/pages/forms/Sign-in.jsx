@@ -7,6 +7,7 @@ import {Label} from '../../components/forms/label'
 import RegisterButton from '../../components/forms/Sign up/registerButton'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import {useForm} from 'react-hook-form'
 
 const SignIn = () => {
 
@@ -16,17 +17,11 @@ const SignIn = () => {
     const [level, setEducationlevel] = useState('');
     const [specialty, setEspecialty] = useState('');
     const [identifier, setIdentifier] = useState('');
-    const [errors, setErrors] = useState({});
 
-    const validations = () =>{
-        const newErrors = {};
-
-        if(!name, !contra, !level, !specialty, !identifier) newErrors.name= 'Todos los campos son obligatorios';
-        if (!mail) newErrors.mail = 'El correo electrónico es obligatorio.';
-        else if (!/\S+@\S+\.\S+/.test(mail)) newErrors.mail = 'El correo electrónico no es válido.';
-        return newErrors;
-    };
+    const {register, formState:{errors}}=useForm();
     
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 

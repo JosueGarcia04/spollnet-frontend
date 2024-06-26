@@ -1,43 +1,37 @@
 import mongoose from 'mongoose';
+
 const studentSchema = new mongoose.Schema({
-    nombre: 
-    { 
+    nombre: { 
       type: String, 
       required: true 
     },
-    email: 
-    { 
+    email: { 
       type: String, 
       required: true, 
       unique: true 
     },
-    nivel: 
-    { 
+    nivel: { 
       type: String, 
       required: true 
     },
-    especialidad: 
-    { 
+    especialidad: { 
       type: String, 
       required: true 
     },
-    identificador: 
-    { 
+    identificador: { 
       type: String, 
       required: true, 
       unique: true  
     },
-    password: 
-    { 
+    password: { 
       type: String, 
       required: true 
     },
-    role: 
-    {
+    role: {
       type: String, 
       enum: ['user', 'admin'], 
-      default: user
-    } 
+      default: 'user' 
+    }
 });
 
 export const Student = mongoose.model('Student', studentSchema);

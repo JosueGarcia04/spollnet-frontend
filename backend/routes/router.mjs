@@ -1,8 +1,8 @@
 import express from 'express'
 import { register} from '../controllers/forms/sign_up.mjs';
 import { credentials } from '../controllers/forms/login.mjs';
-import { authenticateToken } from '../middleware/auth.mjs';
-import { isAdmin } from '../middleware/admin.mjs';
+import { authenticateToken } from '../middlewares/auth.mjs';
+import { isAdmin } from '../middlewares/admin.mjs';
 
 export const spollnetRouter = express.Router();
 
