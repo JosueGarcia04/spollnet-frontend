@@ -1,12 +1,11 @@
-//para levantar el server
-import express from 'express'
+import express from 'express';
 import { spollnetRouter } from './routes/router.mjs';
-//para trabajar con variables de entorno
-import dotenv from 'dotenv'
-//middleware
-import cors from 'cors'
-//para base de datos
+import { adminRouter } from './routes/adminRouter.mjs';
+import dotenv from 'dotenv';
+import cors from 'cors';
 import mongoose from 'mongoose';
+import { Admin } from './models/admin.mjs';
+import bcrypt from 'bcrypt';
 
 dotenv.config();
 
@@ -14,24 +13,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(spollnetRouter);
+app.use(adminRouter);
 
 const port = process.env.APP_PORT || 5000;
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';
+
 const createAdmin = async () => {
-  const adminEmail = 'coordinadorCDB@admin.com';
-  const adminPassword = 'admincoordinador1234_coordinador';
-  const adminIdentificador = 'admin123';
+  const adminUsername = 'admin123';
+  const adminPassword = 'administrador12345';
 
   try {
-    const admin = await Student.findOne({ email: adminEmail });
+    const admin = await Admin.findOne({ username: adminUsername });
     if (!admin) {
       const hashedPassword = await bcrypt.hash(adminPassword, 10);
-      const newAdmin = new Student({
-        nombre: 'Admin',
-        email: adminEmail,
-        nivel: 'N/A',
-        especialidad: 'N/A',
-        identificador: adminIdentificador,
+      const newAdmin = new Admin({
+        username: adminUsername,
         password: hashedPassword,
         role: 'admin',
       });
@@ -44,6 +40,7 @@ const createAdmin = async () => {
     console.error('Error al crear el administrador:', err);
   }
 };
+
 mongoose.connect(db)
   .then(() => {
     console.log('Conectado a MongoDB');
@@ -52,9 +49,7 @@ mongoose.connect(db)
   .catch(err => console.log(err));
 
 app.listen(port, () => {
-    console.log("Corriendo en el puerto", port);
+  console.log("Corriendo en el puerto", port);
 });
-export default db; 
 
-
-
+export default db;
