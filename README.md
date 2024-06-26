@@ -13,27 +13,6 @@ open source of created resources. To achieve this, we have designed a simple and
 - The multimedia files (images, videos, etc.) are under the [Attribution-NonCommercial (CC BY-NC)] license.
 - Data files are under the [Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)] license.
 
-## Execution
-In order to start, you need to clone our project, for that you will execute:
-
-    git clone
-
-Next, you need to install some dependencies that are key to the operation of our app, therefore, you will be executing the following command:
-
-    npm i
-
-Having the data files, you need to configure the database (make sure you have MongoDB installed and running on your machine). If you need a database for your project, set up a database in MongoDB and update the connection settings in your project code to connect to the appropriate database.
-
-Next, you need to configure some environment variables in the ".env" file
-
-Moving on, you need to run the Tailwind files and styles, so to run on our server, use this command:
-
-    npm run build:styles
-
-Performing all the above steps, you just need to run
-
-    npm run dev
-
 ## Organizers
 [Activity scheduler](https://trello.com/invite/spollnet/ATTIcd94de3af60d3ab84f47bb66a34f9d85A3D21D16)
  
