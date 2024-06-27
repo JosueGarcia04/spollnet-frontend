@@ -12,16 +12,23 @@ import Swal from 'sweetalert2'
 const Login = () => {
     const [mail, setEmail] = useState('');
     const [contra, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
+
+
     const handleSubmit =  async (e) => {
       e.preventDefault();
-      console.log(mail,contra)
+      const validationErrors = validations();
+      if (Object.keys(validationErrors).length > 0) {
+          setErrors(validationErrors);
+          return;
+      }
 
       try{
         const response = await axios.post('http://localhost:5000/login',{
           email: mail,
           password: contra 
         });
-        console.log(response.data);
+        
         if (response.data.msg) {
           Swal.fire({
             title: "¡Bien!",
@@ -55,6 +62,7 @@ const Login = () => {
             required
             value={mail} onChange={(e) => setEmail(e.target.value)}
         /> 
+         {errors.email && <p className="text-red-500">{errors.email}</p>}
       </div>
       <div class="mb-4 text-center font-bold">
         <Label htmlFor="password">Contraseña </Label>
@@ -65,6 +73,7 @@ const Login = () => {
             required
             value={contra} onChange={(e) => setPassword(e.target.value)}
         /> 
+         {errors.password && <p className="text-red-500">{errors.password}</p>}
       </div>
       <div class="mt-6 text-center">
         <Forgot/>
