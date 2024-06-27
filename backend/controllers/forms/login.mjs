@@ -1,6 +1,5 @@
 import { Student } from "../../models/student.mjs";
 import bcrypt from "bcrypt";
-import jwt from 'jsonwebtoken';
 
 export const credentials = async (req, res) => {
   const { email, password } = req.body;
@@ -14,12 +13,6 @@ export const credentials = async (req, res) => {
     if (!findPassword) {
       return res.status(400).json({ msg: "contraseña incorrecta" });
     }
-
-    const accessToken = jwt.sign(
-      { email: student.email, role: student.role },
-      process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: '1h' }
-    );
 
     return res.status(200).json({ msg: "logueado exitosamente" });
   } catch (err) {
