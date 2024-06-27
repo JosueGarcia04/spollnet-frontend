@@ -33,7 +33,15 @@ const SignIn = () => {
         if (year < 2010 || year > 2024) return false; 
         return true;
     };
-   
+    const isValidEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const isValidPassword = (password) => {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return passwordRegex.test(password);
+    };
     const checkCarnetUnique = async (carnet) => {
         try {
             const response = await axios.post('http://localhost:5000/check-carnet', { carnet });
@@ -61,8 +69,36 @@ const SignIn = () => {
             });
             errors.name = 'Nombre incorrecto';
         }
-        if (!mail) errors.mail = 'Completa el campo de correo electrónico';
-        if (!contra) errors.contra = 'Completa el campo de contraseña';
+        if (!mail) {
+            errors.mail = 'Completa el campo de correo electrónico';
+        } else if (!isValidEmail(mail)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Correo electrónico incorrecto',
+                text: 'El correo debe tener un formato válido (ejemplo@correo.com).',
+            });
+            errors.mail = 'Correo electrónico incorrecto';
+        }
+        if (!contra) {
+            errors.contra = 'Completa el campo de contraseña';
+        } else if (!isValidPassword(contra)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Contraseña incorrecta',
+                text: 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial.',
+            });
+            errors.contra = 'Contraseña incorrecta';
+        } else {
+            const isUnique = await checkPasswordUnique(contra);
+            if (!isUnique) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Contraseña duplicada',
+                    text: 'La contraseña ingresada ya está registrada. Por favor ingresa una contraseña única.',
+                });
+                errors.contra = 'Contraseña duplicada';
+            }
+        }
         if (!level) {
             errors.level = 'Completa el campo de nivel educativo';
         } else if (!validEducationLevels.includes(level)) {
