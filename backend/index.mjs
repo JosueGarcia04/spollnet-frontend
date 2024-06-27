@@ -1,6 +1,6 @@
 import express from 'express';
 import { spollnetRouter } from './routes/router.mjs';
-
+import authRouter from './routes/auth.mjs';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(spollnetRouter);
-
+app.use(authRouter);
 
 const port = process.env.APP_PORT || 5000;
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';
