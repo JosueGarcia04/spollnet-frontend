@@ -28,12 +28,12 @@ const SignIn = () => {
     ];
 
     const isValidCarnet = (carnet) => {
-        if (!/^\d{8}$/.test(carnet)) return false; // Debe tener exactamente 8 dígitos
+        if (!/^\d{8}$/.test(carnet)) return false; 
         const year = parseInt(carnet.slice(0, 4), 10);
-        if (year < 2010 || year > 2024) return false; // Los primeros 4 dígitos deben estar en el rango 2010-2024
+        if (year < 2010 || year > 2024) return false; 
         return true;
     };
-
+   
     const checkCarnetUnique = async (carnet) => {
         try {
             const response = await axios.post('http://localhost:5000/check-carnet', { carnet });
@@ -43,10 +43,24 @@ const SignIn = () => {
             return false;
         }
     };
+    const isValidName = (name) => {
+       
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        return nameRegex.test(name);
+    };
 
     const validations = async () => {
         const errors = {};
-        if (!name) errors.name = 'Completa el campo de nombre';
+        if (!name) {
+            errors.name = 'Completa el campo de nombre';
+        } else if (!isValidName(name)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Nombre incorrecto',
+                text: 'El nombre solo puede contener letras y espacios.',
+            });
+            errors.name = 'Nombre incorrecto';
+        }
         if (!mail) errors.mail = 'Completa el campo de correo electrónico';
         if (!contra) errors.contra = 'Completa el campo de contraseña';
         if (!level) {
