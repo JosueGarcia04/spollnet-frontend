@@ -7,7 +7,7 @@ import {Label} from '../../components/forms/label'
 import RegisterButton from '../../components/forms/Sign up/registerButton'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import {useForm} from 'react-hook-form'
+
 
 const SignIn = () => {
 
@@ -17,9 +17,7 @@ const SignIn = () => {
     const [level, setEducationlevel] = useState('');
     const [specialty, setEspecialty] = useState('');
     const [identifier, setIdentifier] = useState('');
-
-    const {register, formState:{errors}}=useForm();
-    
+    const [errors, setErrors] = useState({});
 
 
     const handleSubmit = async (e) => {
@@ -38,7 +36,7 @@ const SignIn = () => {
                 nivel: level,
                 especialidad: specialty,
                 identificador: identifier,
-                password: contra
+                password: contra,
         });
             Swal.fire({
                 title: 'Registrado exitosamente',
@@ -60,6 +58,16 @@ const SignIn = () => {
             });
         }
     };
+    const validations = () => {
+        const errors = {};
+        if (!name) errors.name = 'Por favor, ingrese su nombre completo.';
+        if (!mail) errors.email = 'Por favor, ingrese su correo electrónico.';
+        if (!contra) errors.password = 'Por favor, ingrese su contraseña.';
+        if (!level) errors.level = 'Por favor, ingrese su nivel educativo.';
+        if (!specialty) errors.specialty = 'Por favor, ingrese su especialidad.';
+        if (!identifier) errors.identifier = 'Por favor, ingrese su carnet.';
+        return errors;
+    };
 
     return(
         <>
@@ -76,6 +84,7 @@ const SignIn = () => {
                             type='text'
                             value={name} onChange={(e) => setNombre(e.target.value)}
                         />
+                        {errors.name && <p className="text-red-500">{errors.name}</p>}
                     </div>
                     <div className="text-center font-bold">
                         <Label htmlFor="emailAdress">Correo electronico </Label>
@@ -85,6 +94,7 @@ const SignIn = () => {
                             type='email'
                             value={mail} onChange={(e) => setEmail(e.target.value)}
                         />
+                         {errors.email && <p className="text-red-500">{errors.email}</p>}
                     </div>
                     <div className="text-center font-bold">
                     <Label htmlFor="level">Nivel educativo </Label>
@@ -94,6 +104,7 @@ const SignIn = () => {
                             type='text'
                             value={level} onChange={(e) => setEducationlevel(e.target.value)}
                         />  
+                         {errors.level && <p className="text-red-500">{errors.level}</p>}
                     </div>
                     <div className="text-center font-bold">
                     <Label htmlFor="speciality">Especialidad</Label>
@@ -103,6 +114,7 @@ const SignIn = () => {
                             type='text'
                             value={specialty} onChange={(e) => setEspecialty(e.target.value)}
                         />  
+                        {errors.specialty && <p className="text-red-500">{errors.specialty}</p>}
                     </div>
                     <div className="text-center font-bold">
                     <Label htmlFor="identify">Carnet </Label>
@@ -112,6 +124,7 @@ const SignIn = () => {
                             type='text'
                             value={identifier} onChange={(e) => setIdentifier(e.target.value)}
                         /> 
+                         {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
                     </div>
                     <div className='text-center font-bold'>
                     <Label htmlFor="password">Contraseña </Label>
@@ -121,6 +134,7 @@ const SignIn = () => {
                             type='password'
                             value={contra} onChange={(e) => setPassword(e.target.value)}
                         />  
+                        {errors.password && <p className="text-red-500">{errors.password}</p>}
                     </div>
                 </div>
                 <div className="mt-8 text-center">
