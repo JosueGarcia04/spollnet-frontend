@@ -20,7 +20,6 @@ const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';
 mongoose.connect(db)
   .then(() => {
     console.log('Conectado a MongoDB');
-    createAdmin(); 
   })
   .catch(err => console.log(err));
 
