@@ -16,6 +16,7 @@ const SignIn = () => {
     const [specialty, setEspecialty] = useState('');
     const [identifier, setIdentifier] = useState('');
     const [errors, setErrors] = useState({});
+
     const validEducationLevels = ['Primaria', 'Tercer ciclo', 'Bachillerato'];
     const validSpecialties = [
         'Mantenimiento automotriz',
@@ -26,7 +27,24 @@ const SignIn = () => {
         'Electronica'
     ];
 
-    const validations = () => {
+    const isValidCarnet = (carnet) => {
+        if (!/^\d{8}$/.test(carnet)) return false; // Debe tener exactamente 8 dígitos
+        const year = parseInt(carnet.slice(0, 4), 10);
+        if (year < 2010 || year > 2024) return false; // Los primeros 4 dígitos deben estar en el rango 2010-2024
+        return true;
+    };
+
+    const checkCarnetUnique = async (carnet) => {
+        try {
+            const response = await axios.post('http://localhost:5000/check-carnet', { carnet });
+            return response.data.isUnique;
+        } catch (error) {
+            console.error('Error checking carnet uniqueness:', error);
+            return false;
+        }
+    };
+
+    const validations = async () => {
         const errors = {};
         if (!name) errors.name = 'Completa el campo de nombre';
         if (!mail) errors.mail = 'Completa el campo de correo electrónico';
@@ -49,14 +67,33 @@ const SignIn = () => {
             });
             errors.specialty = 'Especialidad incorrecta';
         }
-        if (!identifier) errors.identifier = 'Completa el campo de carnet';
+        if (!identifier) {
+            errors.identifier = 'Completa el campo de carnet';
+        } else if (!isValidCarnet(identifier)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Carnet incorrecto',
+                text: 'El carnet ingresado no es válido. Debe tener exactamente 8 dígitos y los primeros 4 dígitos deben estar en el rango 2010-2024.'
+            });
+            errors.identifier = 'Carnet incorrecto';
+        } else {
+            const isUnique = await checkCarnetUnique(identifier);
+            if (!isUnique) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Carnet duplicado',
+                    text: 'El carnet ingresado ya está registrado. Por favor ingresa un carnet único.'
+                });
+                errors.identifier = 'Carnet duplicado';
+            }
+        }
         return errors;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const validationErrors = validations();
+        const validationErrors = await validations();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
