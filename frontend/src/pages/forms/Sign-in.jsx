@@ -16,6 +16,7 @@ const SignIn = () => {
     const [specialty, setEspecialty] = useState('');
     const [identifier, setIdentifier] = useState('');
     const [errors, setErrors] = useState({});
+    const [touched, setTouched] = useState({});
 
     const validEducationLevels = ['Primaria', 'Tercer ciclo', 'Bachillerato'];
     const validSpecialties = [
@@ -33,6 +34,7 @@ const SignIn = () => {
         if (year < 2010 || year > 2024) return false; 
         return true;
     };
+
     const checkCarnetUnique = async (carnet) => {
         try {
             const response = await axios.post('http://localhost:5000/check-carnet', { carnet });
@@ -44,17 +46,19 @@ const SignIn = () => {
     };
 
     const isValidName = (name) => {
-       
+        // Permitir solo letras y espacios
         const nameRegex = /^[a-zA-Z\s]+$/;
         return nameRegex.test(name);
     };
 
     const isValidEmail = (email) => {
+        // Expresión regular para validar el formato del correo
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
 
     const isValidPassword = (password) => {
+        // Al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         return passwordRegex.test(password);
     };
@@ -76,12 +80,13 @@ const SignIn = () => {
         } else if (!isValidName(name)) {
             errors.name = 'El nombre solo puede contener letras y espacios.';
         }
+
         if (!mail) {
             errors.mail = 'Completa el campo de correo electrónico';
         } else if (!isValidEmail(mail)) {
-            errors.mail = 'El correo debe tener un formato válido.';
+            errors.mail = 'El correo debe tener un formato válido (ejemplo@correo.com).';
         }
-        
+
         if (!contra) {
             errors.contra = 'Completa el campo de contraseña';
         } else if (!isValidPassword(contra)) {
@@ -93,14 +98,15 @@ const SignIn = () => {
             }
         }
 
-
         if (!level) {
-            errors.level = 'Completa nivel educativo';
+            errors.level = 'Completa el campo de nivel educativo';
         } else if (!validEducationLevels.includes(level)) {
             errors.level = 'El nivel educativo ingresado no es válido. Los valores permitidos son: Primaria, Tercer ciclo, Bachillerato.';
         }
 
-        if (level === 'Bachillerato' && !validSpecialties.includes(specialty)) {
+        if (level === 'Bachillerato' && !specialty) {
+            errors.specialty = 'Completa el campo de especialidad';
+        } else if (level === 'Bachillerato' && !validSpecialties.includes(specialty)) {
             errors.specialty = 'La especialidad ingresada no es válida. Los valores permitidos son: Mantenimiento automotriz, Desarrollo de software, Atencion primaria en salud, Electromecanica, Diseño Grafico y Electronica.';
         }
 
@@ -118,9 +124,9 @@ const SignIn = () => {
         return errors;
     };
 
-
     const handleInputFocus = (field) => {
         setErrors({ ...errors, [field]: '' });
+        setTouched({ ...touched, [field]: true });
     };
 
     const handleInputChange = (setter, field, value) => {
@@ -159,6 +165,7 @@ const SignIn = () => {
             setEspecialty('');
             setIdentifier('');
             setErrors({});
+            setTouched({});
         } catch (error) {
             let errorMessage = 'Error al registrar el usuario';
             if (error.response && error.response.data) {
@@ -173,12 +180,22 @@ const SignIn = () => {
         }
     };
 
+    const getInputClassName = (field, value) => {
+        if (errors[field]) {
+            return 'border-red-500';
+        }
+        if (touched[field] && !errors[field] && value) {
+            return 'border-green-500';
+        }
+        return 'border-white';
+    };
+
     return (
         <>
             <Navbar />
             <div className="bg-black min-h-screen">
                 <section className="max-w-4xl p-6 mx-auto rounded-md shadow-md">
-                    <br></br><br></br>
+                    <br /><br />
                     <form onSubmit={handleSubmit} className="mt-10 border border-white p-10 rounded-lg">
                         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                             <div className="text-center font-bold">
@@ -189,7 +206,7 @@ const SignIn = () => {
                                     type='text'
                                     value={name}
                                     onChange={(e) => handleInputChange(setNombre, 'name', e.target.value)}
-                                    className={`border-2 p-2 rounded ${errors.name ? 'border-red-500' : 'border-green-500'}`}
+                                    className={`border-2 p-2 rounded ${getInputClassName('name', name)}`}
                                 />
                                 {errors.name && <p className="text-red-500">{errors.name}</p>}
                             </div>
@@ -201,23 +218,24 @@ const SignIn = () => {
                                     type='email'
                                     value={mail}
                                     onChange={(e) => handleInputChange(setEmail, 'mail', e.target.value)}
-                                    className={`border-2 p-2 rounded ${errors.mail ? 'border-red-500' : 'border-green-500'}`}
+                                    className={`border-2 p-2 rounded ${getInputClassName('mail', mail)}`}
                                 />
                                 {errors.mail && <p className="text-red-500">{errors.mail}</p>}
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="level">Nivel educativo </Label>
+                                <Label htmlFor="level">Nivel educativo</Label>
                                 <Input
-                                    id='educationLevel'
-                                    name='educationLevel'
+                                    id='level'
+                                    name='level'
                                     type='text'
                                     value={level}
                                     onChange={(e) => handleInputChange(setEducationlevel, 'level', e.target.value)}
-                                    className={`border-2 p-2 rounded ${errors.level ? 'border-red-500' : 'border-green-500'}`}
+                                    className={`border-2 p-2 rounded ${getInputClassName('level', level)}`}
                                 />
+                                {errors.level && <p className="text-red-500">{errors.level}</p>}
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="speciality">Especialidad</Label>
+                                <Label htmlFor="specialty">Especialidad</Label>
                                 <Input
                                     id='specialty'
                                     name='specialty'
@@ -225,33 +243,33 @@ const SignIn = () => {
                                     value={specialty}
                                     onChange={(e) => handleInputChange(setEspecialty, 'specialty', e.target.value)}
                                     disabled={level === 'Primaria' || level === 'Tercer ciclo'}
-                                    className={`border-2 p-2 rounded ${errors.specialty ? 'border-red-500' : 'border-green-500'}`}
+                                    className={`border-2 p-2 rounded ${getInputClassName('specialty', specialty)}`}
                                 />
                                 {errors.specialty && <p className="text-red-500">{errors.specialty}</p>}
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="identify">Carnet </Label>
+                                <Label htmlFor="identifier">Carnet</Label>
                                 <Input
                                     id='identifier'
                                     name='identifier'
                                     type='text'
                                     value={identifier}
                                     onChange={(e) => handleInputChange(setIdentifier, 'identifier', e.target.value)}
-                                    className={`border-2 p-2 rounded ${errors.identifier ? 'border-red-500' : 'border-green-500'}`}
+                                    className={`border-2 p-2 rounded ${getInputClassName('identifier', identifier)}`}
                                 />
                                 {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
                             </div>
-                            <div className='text-center font-bold'>
-                                <Label htmlFor="password">Contraseña </Label>
+                            <div className="text-center font-bold">
+                                <Label htmlFor="contra">Contraseña</Label>
                                 <Input
-                                    id='contra'
-                                    name='contra'
+                                    id='password'
+                                    name='password'
                                     type='password'
                                     value={contra}
-                                    onChange={(e) => handleInputChange(setPassword, 'contra', e.target.value)}
-                                    className={`border-2 p-2 rounded ${errors.contra ? 'border-red-500' : 'border-green-500'}`}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className={`${errors.password ? 'border-red-500' : contra ? 'border-green-500' : 'border-white'}`}
                                 />
-                                {errors.contra && <p className="text-red-500">{errors.contra}</p>}
+                                {errors.password && <p className="text-red-500">{errors.password}</p>}
                             </div>
                         </div>
                         <div className="mt-8 text-center">
@@ -264,6 +282,6 @@ const SignIn = () => {
             <Footer />
         </>
     );
-}
+};
 
 export default SignIn;
