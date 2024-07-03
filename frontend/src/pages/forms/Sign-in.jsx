@@ -9,135 +9,38 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const SignIn = () => {
-    const [name, setNombre] = useState('');
+    const [name, setName] = useState('');
     const [mail, setEmail] = useState('');
     const [contra, setPassword] = useState('');
-    const [level, setEducationlevel] = useState('');
-    const [specialty, setEspecialty] = useState('');
+    const [level, setLevel] = useState('');
+    const [specialty, setSpecialty] = useState('');
     const [identifier, setIdentifier] = useState('');
     const [errors, setErrors] = useState({});
-    const [touched, setTouched] = useState({});
 
-    const validEducationLevels = ['Primaria', 'Tercer ciclo', 'Bachillerato'];
-    const validSpecialties = [
-        'Mantenimiento automotriz',
-        'Desarrollo de software',
-        'Atencion primaria en salud',
-        'Electromecanica',
-        'Diseño Grafico',
-        'Electronica'
-    ];
-
-    const isValidCarnet = (carnet) => {
-        if (!/^\d{8}$/.test(carnet)) return false; 
-        const year = parseInt(carnet.slice(0, 4), 10);
-        if (year < 2010 || year > 2024) return false; 
-        return true;
-    };
-
-    const checkCarnetUnique = async (carnet) => {
-        try {
-            const response = await axios.post('http://localhost:5000/check-carnet', { carnet });
-            return response.data.isUnique;
-        } catch (error) {
-            console.error('Error checking carnet uniqueness:', error);
-            return false;
-        }
-    };
-
-    const isValidName = (name) => {
-        // Permitir solo letras y espacios
-        const nameRegex = /^[a-zA-Z\s]+$/;
-        return nameRegex.test(name);
-    };
-
-    const isValidEmail = (email) => {
-        // Expresión regular para validar el formato del correo
+    const validateEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
 
-    const isValidPassword = (password) => {
-        // Al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const validatePassword = (password) => {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
         return passwordRegex.test(password);
     };
 
-    const checkPasswordUnique = async (password) => {
-        try {
-            const response = await axios.post('http://localhost:5000/check-password', { password });
-            return response.data.isUnique;
-        } catch (error) {
-            console.error('Error checking password uniqueness:', error);
-            return false;
-        }
+    const validateCarnet = (identifier) => {
+        const carnetRegex = /^(201[0-9]|202[0-4])\d{4}$/;
+        return carnetRegex.test(identifier);
     };
 
-    const validations = async () => {
-        const errors = {};
-        if (!name) {
-            errors.name = 'Completa el campo de nombre';
-        } else if (!isValidName(name)) {
-            errors.name = 'El nombre solo puede contener letras y espacios.';
-        }
-
-        if (!mail) {
-            errors.mail = 'Completa el campo de correo electrónico';
-        } else if (!isValidEmail(mail)) {
-            errors.mail = 'El correo debe tener un formato válido (ejemplo@correo.com).';
-        }
-
-        if (!contra) {
-            errors.contra = 'Completa el campo de contraseña';
-        } else if (!isValidPassword(contra)) {
-            errors.contra = 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial.';
-        } else {
-            const isUnique = await checkPasswordUnique(contra);
-            if (!isUnique) {
-                errors.contra = 'La contraseña ingresada ya está registrada. Por favor ingresa una contraseña única.';
-            }
-        }
-
-        if (!level) {
-            errors.level = 'Completa el campo de nivel educativo';
-        } else if (!validEducationLevels.includes(level)) {
-            errors.level = 'El nivel educativo ingresado no es válido. Los valores permitidos son: Primaria, Tercer ciclo, Bachillerato.';
-        }
-
-        if (level === 'Bachillerato' && !specialty) {
-            errors.specialty = 'Completa el campo de especialidad';
-        } else if (level === 'Bachillerato' && !validSpecialties.includes(specialty)) {
-            errors.specialty = 'La especialidad ingresada no es válida. Los valores permitidos son: Mantenimiento automotriz, Desarrollo de software, Atencion primaria en salud, Electromecanica, Diseño Grafico y Electronica.';
-        }
-
-        if (!identifier) {
-            errors.identifier = 'Completa el campo de carnet';
-        } else if (!isValidCarnet(identifier)) {
-            errors.identifier = 'El carnet ingresado no es válido. Debe tener exactamente 8 dígitos y los primeros 4 dígitos deben estar en el rango 2010-2024.';
-        } else {
-            const isUnique = await checkCarnetUnique(identifier);
-            if (!isUnique) {
-                errors.identifier = 'El carnet ingresado ya está registrado. Por favor ingresa un carnet único.';
-            }
-        }
-
-        return errors;
-    };
-
-    const handleInputFocus = (field) => {
-        setErrors({ ...errors, [field]: '' });
-        setTouched({ ...touched, [field]: true });
-    };
-
-    const handleInputChange = (setter, field, value) => {
-        setter(value);
-        handleInputFocus(field);
+    const handleInputChange = (setter) => (e) => {
+        setter(e.target.value);
+        setErrors({ ...errors, [e.target.name]: '' });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const validationErrors = await validations();
+        const validationErrors = validations();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
@@ -158,14 +61,7 @@ const SignIn = () => {
                 icon: 'success',
                 confirmButtonText: 'OK'
             });
-            setNombre('');
-            setEmail('');
-            setPassword('');
-            setEducationlevel('');
-            setEspecialty('');
-            setIdentifier('');
-            setErrors({});
-            setTouched({});
+            setName(''); setEmail(''); setPassword(''); setLevel(''); setSpecialty(''); setIdentifier(''); setErrors({});
         } catch (error) {
             let errorMessage = 'Error al registrar el usuario';
             if (error.response && error.response.data) {
@@ -173,103 +69,159 @@ const SignIn = () => {
             }
 
             Swal.fire({
-                icon: 'error',
-                title: 'Algo salió mal',
+                icon: "error",
+                title: "Algo salió mal",
                 text: errorMessage,
             });
         }
     };
 
-    const getInputClassName = (field, value) => {
-        if (errors[field]) {
-            return 'border-red-500';
+    const validations = () => {
+        const errors = {};
+
+        if (!name.trim()) {
+            errors.name = 'El nombre es obligatorio';
+        } else if (!/^[A-Za-z\s]+$/.test(name)) {
+            errors.name = 'El nombre solo puede contener letras y espacios';
         }
-        if (touched[field] && !errors[field] && value) {
-            return 'border-green-500';
+
+        if (!mail.trim()) {
+            errors.email = 'El correo es obligatorio';
+        } else if (!validateEmail(mail)) {
+            errors.email = 'El correo no es válido';
         }
-        return 'border-white';
+
+        if (!contra.trim()) {
+            errors.password = 'La contraseña es obligatoria';
+        } else if (!validatePassword(contra)) {
+            errors.password = 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial.';
+        }
+
+        if (!level.trim()) {
+            errors.level = 'El nivel educativo es obligatorio';
+        } else if (!['Primaria', 'Tercer ciclo', 'Bachillerato'].includes(level)) {
+            errors.level = 'El nivel educativo no es válido';
+        }
+
+        if (level === 'Bachillerato') {
+            if (!specialty.trim()) {
+                errors.specialty = 'La especialidad es obligatoria';
+            } else if (!['Mantenimiento automotriz', 'Desarrollo de software', 'Atencion primaria en salud', 'Electromecanica', 'Diseño Grafico', 'Electronica'].includes(specialty)) {
+                errors.specialty = 'La especialidad no es válida';
+            }
+        }
+
+        if (!identifier.trim()) {
+            errors.identifier = 'El carnet es obligatorio';
+        } else if (!validateCarnet(identifier)) {
+            errors.identifier = 'El carnet no es válido';
+        }
+
+        return errors;
     };
 
     return (
         <>
             <Navbar />
             <div className="bg-black min-h-screen">
-                <section className="max-w-4xl p-6 mx-auto rounded-md shadow-md">
-                    <br /><br />
+                <section className="max-w-4xl p-6 mx-auto rounded-md shadow-md"><br></br><br></br>
                     <form onSubmit={handleSubmit} className="mt-10 border border-white p-10 rounded-lg">
                         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                             <div className="text-center font-bold">
                                 <Label htmlFor="name">Nombre completo </Label>
-                                <Input
-                                    id='name'
-                                    name='name'
-                                    type='text'
-                                    value={name}
-                                    onChange={(e) => handleInputChange(setNombre, 'name', e.target.value)}
-                                    className={`border-2 p-2 rounded ${getInputClassName('name', name)}`}
-                                />
-                                {errors.name && <p className="text-red-500">{errors.name}</p>}
+                                <div className="relative">
+                                    <input
+                                        id='name'
+                                        name='name'
+                                        type='text'
+                                        value={name}
+                                        onChange={handleInputChange(setName)}
+                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.name ? 'border-red-500' : name ? 'border-green-500' : 'border-white'}`}
+                                    />
+                                    {errors.name && <p className="text-red-500">{errors.name}</p>}
+                                </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="emailAdress">Correo electronico </Label>
-                                <Input
-                                    id='emailAdress'
-                                    name='email'
-                                    type='email'
-                                    value={mail}
-                                    onChange={(e) => handleInputChange(setEmail, 'mail', e.target.value)}
-                                    className={`border-2 p-2 rounded ${getInputClassName('mail', mail)}`}
-                                />
-                                {errors.mail && <p className="text-red-500">{errors.mail}</p>}
+                                <Label htmlFor="emailAdress">Correo electrónico </Label>
+                                <div className="relative">
+                                    <input
+                                        id='emailAdress'
+                                        name='email'
+                                        type='email'
+                                        value={mail}
+                                        onChange={handleInputChange(setEmail)}
+                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.email ? 'border-red-500' : mail ? 'border-green-500' : 'border-white'}`}
+                                    />
+                                    {errors.email && <p className="text-red-500">{errors.email}</p>}
+                                </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="level">Nivel educativo</Label>
-                                <Input
-                                    id='level'
-                                    name='level'
-                                    type='text'
-                                    value={level}
-                                    onChange={(e) => handleInputChange(setEducationlevel, 'level', e.target.value)}
-                                    className={`border-2 p-2 rounded ${getInputClassName('level', level)}`}
-                                />
-                                {errors.level && <p className="text-red-500">{errors.level}</p>}
+                                <Label htmlFor="level">Nivel educativo </Label>
+                                <div className="relative">
+                                    <select
+                                        id='level'
+                                        name='level'
+                                        value={level}
+                                        onChange={handleInputChange(setLevel)}
+                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.level ? 'border-red-500' : level ? 'border-green-500' : 'border-white'}`}
+                                    >
+                                        <option value="">Seleccione un nivel educativo</option>
+                                        <option value="Primaria">Primaria</option>
+                                        <option value="Tercer ciclo">Tercer ciclo</option>
+                                        <option value="Bachillerato">Bachillerato</option>
+                                    </select>
+                                    {errors.level && <p className="text-red-500">{errors.level}</p>}
+                                </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="specialty">Especialidad</Label>
-                                <Input
-                                    id='specialty'
-                                    name='specialty'
-                                    type='text'
-                                    value={specialty}
-                                    onChange={(e) => handleInputChange(setEspecialty, 'specialty', e.target.value)}
-                                    disabled={level === 'Primaria' || level === 'Tercer ciclo'}
-                                    className={`border-2 p-2 rounded ${getInputClassName('specialty', specialty)}`}
-                                />
-                                {errors.specialty && <p className="text-red-500">{errors.specialty}</p>}
+                                <Label htmlFor="speciality">Especialidad</Label>
+                                <div className="relative">
+                                    <select
+                                        id='speciality'
+                                        name='speciality'
+                                        value={specialty}
+                                        onChange={handleInputChange(setSpecialty)}
+                                        disabled={level !== 'Bachillerato'}
+                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.specialty ? 'border-red-500' : specialty ? 'border-green-500' : 'border-white'}`}
+                                    >
+                                        <option value="">Seleccione una especialidad</option>
+                                        <option value="Mantenimiento automotriz">Mantenimiento automotriz</option>
+                                        <option value="Desarrollo de software">Desarrollo de software</option>
+                                        <option value="Atencion primaria en salud">Atencion primaria en salud</option>
+                                        <option value="Electromecanica">Electromecanica</option>
+                                        <option value="Diseño Grafico">Diseño Grafico</option>
+                                        <option value="Electronica">Electronica</option>
+                                    </select>
+                                    {errors.specialty && <p className="text-red-500">{errors.specialty}</p>}
+                                </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="identifier">Carnet</Label>
-                                <Input
-                                    id='identifier'
-                                    name='identifier'
-                                    type='text'
-                                    value={identifier}
-                                    onChange={(e) => handleInputChange(setIdentifier, 'identifier', e.target.value)}
-                                    className={`border-2 p-2 rounded ${getInputClassName('identifier', identifier)}`}
-                                />
-                                {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
+                                <Label htmlFor="identify">Carnet </Label>
+                                <div className="relative">
+                                    <input
+                                        id='identify'
+                                        name='identify'
+                                        type='text'
+                                        value={identifier}
+                                        onChange={handleInputChange(setIdentifier)}
+                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.identifier ? 'border-red-500' : identifier ? 'border-green-500' : 'border-white'}`}
+                                    />
+                                    {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
+                                </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="contra">Contraseña</Label>
-                                <Input
-                                    id='password'
-                                    name='password'
-                                    type='password'
-                                    value={contra}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className={`${errors.password ? 'border-red-500' : contra ? 'border-green-500' : 'border-white'}`}
-                                />
-                                {errors.password && <p className="text-red-500">{errors.password}</p>}
+                                <Label htmlFor="password">Contraseña </Label>
+                                <div className="relative">
+                                    <input
+                                        id='password'
+                                        name='password'
+                                        type='password'
+                                        value={contra}
+                                        onChange={handleInputChange(setPassword)}
+                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.password ? 'border-red-500' : contra ? 'border-green-500' : 'border-white'}`}
+                                    />
+                                    {errors.password && <p className="text-red-500">{errors.password}</p>}
+                                </div>
                             </div>
                         </div>
                         <div className="mt-8 text-center">
@@ -278,10 +230,10 @@ const SignIn = () => {
                     </form>
                 </section>
             </div>
-            <NavDown />
             <Footer />
+            <NavDown />
         </>
     );
-};
+}
 
 export default SignIn;
