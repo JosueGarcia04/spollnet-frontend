@@ -6,7 +6,6 @@ import Id from '../../../components/index/credentials'
 import Steps from '../../../components/index/steps_vote'
 import TitleAnimated from '../../../components/index/animationTitleWelcome'
 import Emitir from '../../../components/index/buttonVoteIndex'
-import "../../../components/general/scrollbar.css"
 
 export const Index = () => {
   return (

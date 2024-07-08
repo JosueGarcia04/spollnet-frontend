@@ -20,6 +20,7 @@ import NotificationDashboard from '../pages/coordinator/notifications/notificati
 //student
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
+import VerifyAccount from '../pages/verify/verifyAccount';
 import Profile from '../pages/student/profile'
 
 
@@ -51,6 +52,10 @@ export const Router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login/>
+            },
+            {
+                path: "verifyAccount",
+                element:<VerifyAccount/>
             },
             {
                 path:"contact",
