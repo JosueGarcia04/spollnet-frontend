@@ -4,7 +4,6 @@ import Countdown from '../../../components/index/countdown/timer'
 import NavDown from '../../../components/general/navDown'
 import Id from '../../../components/index/credentials'
 import Steps from '../../../components/index/steps_vote'
-import TitleAnimated from '../../../components/index/animationTitleWelcome'
 import Emitir from '../../../components/index/buttonVoteIndex'
 
 export const Index = () => {
@@ -15,7 +14,6 @@ export const Index = () => {
           <div className="relative top-16 bottom-16">
             <Countdown />
             <div className="text-white text-center mt-5 ">
-              <TitleAnimated/>
               <Emitir/>
             </div>
           </div>
