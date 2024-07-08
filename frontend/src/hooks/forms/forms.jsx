@@ -27,39 +27,35 @@ export const useValidations = () => {
         const errors = {};
 
         if (!name.trim()) {
-            errors.name = 'El nombre es obligatorio';
+            errors.name = 'Campo obligatorio';
         } else if (!/^[A-Za-z\s]+$/.test(name)) {
-            errors.name = 'El nombre solo puede contener letras y espacios';
+            errors.name = 'Nombre no valido';
         }
 
         if (!mail.trim()) {
-            errors.email = 'El correo es obligatorio';
+            errors.email = 'Campo obligatorio';
         } else if (!validateEmail(mail)) {
-            errors.email = 'El correo no es válido';
+            errors.email = 'Correo no valido';
         }
 
         if (!contra.trim()) {
-            errors.password = 'La contraseña es obligatoria';
+            errors.password = 'Campo obligatorio';
         } else if (!validatePassword(contra)) {
-            errors.password = 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula, un número y un carácter especial.';
+            errors.password = 'Contraseña no valida';
         }
 
         if (!level.trim()) {
-            errors.level = 'El nivel educativo es obligatorio';
-        } else if (!['Primaria', 'Tercer ciclo', 'Bachillerato'].includes(level)) {
-            errors.level = 'El nivel educativo no es válido';
+            errors.level = 'Campo obligatorio';
         }
 
         if (level === 'Bachillerato') {
             if (!specialty.trim()) {
-                errors.specialty = 'La especialidad es obligatoria';
-            } else if (!['Mantenimiento automotriz', 'Desarrollo de software', 'Atencion primaria en salud', 'Electromecanica', 'Diseño Grafico', 'Electronica'].includes(specialty)) {
-                errors.specialty = 'La especialidad no es válida';
-            }
+                errors.specialty = 'Campo obligatorio';
+            } 
         }
 
         if (!identifier.trim()) {
-            errors.identifier = 'El carnet es obligatorio';
+            errors.identifier = 'Campo obligatorio';
         } else if (!validateCarnet(identifier)) {
             errors.identifier = 'El carnet no es válido';
         }

@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import Navbar from '../../components/general/navBar';
 import Footer from '../../components/general/footer';
 import NavDown from '../../components/general/navDown';
-import { Input } from '../../components/forms/input';
 import { Label } from '../../components/forms/label';
 import RegisterButton from '../../components/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useValidations } from '../../hooks/forms';
+import { useValidations } from '../../hooks/forms/forms';
 
 const SignIn = () => {
     const { errors, setErrors, handleInputChange, validations } = useValidations();
@@ -36,19 +35,19 @@ const SignIn = () => {
                 identificador: identifier,
                 password: contra
             });
-            Swal.fire({
-                title: 'Registrado exitosamente',
-                text: `El usuario ha sido registrado correctamente. Respuesta del servidor: ${response.data}`,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    text: `El usuario ha sido registrado correctamente. Respuesta del servidor: ${response.data}`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             setName(''); setEmail(''); setPassword(''); setLevel(''); setSpecialty(''); setIdentifier(''); setErrors({});
         } catch (error) {
             let errorMessage = 'Error al registrar el usuario';
             if (error.response && error.response.data) {
                 errorMessage = error.response.data.message || errorMessage;
             }
-
             Swal.fire({
                 icon: "error",
                 title: "Algo salió mal",
