@@ -20,3 +20,5 @@ export const credentials = async (req, res) => {
     res.status(500).json({ msg: "Error interno del servidor" });
   } 
 };
+
+

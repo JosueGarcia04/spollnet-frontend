@@ -35,7 +35,7 @@ const Login = () => {
                 email: mail,
                 password: contra
             });
-            console.log(response.data);
+
             if (response.data.msg) {
                 Swal.fire({
                     title: "¡Bien!",
@@ -43,7 +43,11 @@ const Login = () => {
                     icon: "success"
                 });
             } else {
-                alert(response.data.msg);
+                Swal.fire({
+                    title: "Error",
+                    text: response.data.msg,
+                    icon: "error"
+                });
             }
         } catch (error) {
             Swal.fire({

@@ -8,9 +8,18 @@ export const register = async (req, res) => {
         if (existingStudent) {
             return res.status(400).json({ msg: 'El carnet ya está registrado' });
         }
-        
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new Student({ nombre, email, nivel, especialidad, identificador, password: hashedPassword });
+
+
+        const newUser = new Student({
+            nombre,
+            email,
+            nivel,
+            especialidad: nivel === 'Bachillerato' ? especialidad : null,  
+            identificador,
+            password: hashedPassword
+        });
+        
         await newUser.save();
         res.status(201).json({ msg: 'Usuario registrado exitosamente' });
     } catch (err) {

@@ -46,9 +46,11 @@ export const useValidations = () => {
 
         if (!level.trim()) {
             errors.level = 'Campo obligatorio';
+        }else if (level !== 'Primaria' && level !== 'Tercer ciclo' && level !== 'Bachillerato') {
+            errors.level = 'Nivel educativo no válido';
         }
 
-        if (level === 'Bachillerato') {
+        if (level === 'Bachillerato' && (!specialty.trim() || specialty === '')) {
             if (!specialty.trim()) {
                 errors.specialty = 'Campo obligatorio';
             } 
