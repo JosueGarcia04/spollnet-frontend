@@ -35,7 +35,6 @@ const SignIn = () => {
                 password: contra
             };
     
-            
             if (level === 'Bachillerato') {
                 studentData.especialidad = specialty;
             }

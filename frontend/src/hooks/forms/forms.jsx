@@ -50,7 +50,7 @@ export const useValidations = () => {
             errors.level = 'Nivel educativo no válido';
         }
 
-        if (level === 'Bachillerato' && (!specialty.trim() || specialty === '')) {
+        if (level === 'Bachillerato') {
             if (!specialty.trim()) {
                 errors.specialty = 'Campo obligatorio';
             } 
