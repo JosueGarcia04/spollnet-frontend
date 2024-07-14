@@ -1,4 +1,3 @@
-// UsersTableCoordinatorDashboard.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { faPenToSquare, faTrash, faBan } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +6,7 @@ import Swal from 'sweetalert2';
 
 export default function UsersTableCoordinatorDashboard() {
   const [students, setStudents] = useState([]);
+  const [counts, setCounts] = useState({ registered: 0, deleted: 0, banned: 0 });
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -21,7 +21,22 @@ export default function UsersTableCoordinatorDashboard() {
         console.error('Error fetching students:', error);
       }
     };
+    
+    const fetchCounts = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/dataStudentInformation');
+        if (!response.ok) {
+          throw new Error('Error fetching counts');
+        }
+        const data = await response.json();
+        setCounts(data);
+      } catch (error) {
+        console.error('Error fetching counts:', error);
+      }
+    };
+
     fetchStudents();
+    fetchCounts();
   }, []);
 
   const deleteStudent = async (studentId) => {
@@ -46,6 +61,7 @@ export default function UsersTableCoordinatorDashboard() {
               icon: "success"
             });
             setStudents(students.filter(student => student._id !== studentId));
+            fetchCounts(); 
           } else {
             console.error('Error deleting student');
           }
@@ -78,6 +94,7 @@ export default function UsersTableCoordinatorDashboard() {
               icon: "success"
             });
             setStudents(students.map(student => student._id === studentId ? { ...student, isBanned: true } : student));
+            fetchCounts(); // Actualizar los contadores
           } else {
             console.error('Error banning student');
           }
@@ -104,7 +121,7 @@ export default function UsersTableCoordinatorDashboard() {
             </tr>
           </thead>
           <tbody>
-          {students.map((student) => (
+            {students.filter(student => !student.isDeleted).map((student) => (
               <tr key={student._id} className="border-b border-gray-700">
                 <td className="py-3 px-2 font-bold">
                   <div className="inline-flex space-x-3 items-center">
@@ -114,7 +131,7 @@ export default function UsersTableCoordinatorDashboard() {
                 <td className="py-3 px-2">{student.email}</td>
                 <td className="py-3 px-2">{student.identificador}</td>
                 <td className="py-3 px-2">{student.nivel}</td>
-                <td className="py-3 px-2">{student.especialidad}</td> {/* Mostrar especialidad */}
+                <td className="py-3 px-2">{student.especialidad}</td> 
                 <td className="py-3 px-2">
                   <div className="inline-flex items-center space-x-3">
                     <Link to="">
