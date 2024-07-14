@@ -22,7 +22,9 @@ export const register = async (req, res) => {
             nivel,
             especialidad: nivel === 'Bachillerato' ? especialidad : null,  
             identificador,
-            password: hashedPassword
+            password: hashedPassword,
+            isDeleted: false,
+            idBanned: false,
         });
         
         await newUser.save();
