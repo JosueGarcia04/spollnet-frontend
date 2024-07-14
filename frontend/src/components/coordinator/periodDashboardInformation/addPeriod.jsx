@@ -15,28 +15,18 @@ export default function AddPeriod() {
             <InputAddStudent
               type="text"
               id="creator"
-              placeholder="Ingrese el nombre del creador"
             />
 
             <LabelAddStudent text="Fecha de Inicio" />
             <InputAddStudent
               type="date"
               id="startDate"
-              placeholder="Ingrese la fecha de inicio"
             />
 
             <LabelAddStudent text="Fecha de Fin" />
             <InputAddStudent
               type="date"
               id="endDate"
-              placeholder="Ingrese la fecha de fin"
-            />
-
-            <LabelAddStudent text="Número de Votantes" />
-            <InputAddStudent
-              type="number"
-              id="voters"
-              placeholder="Ingrese el número de votantes"
             />
 
             <div>

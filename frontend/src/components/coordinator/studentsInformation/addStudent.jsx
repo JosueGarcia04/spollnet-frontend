@@ -16,23 +16,20 @@ export default function AddStudent() {
             <InputAddStudent
               type="text"
               id="name"
-              placeholder="Ingrese el nombre del estudiante"
             />
 
             <LabelAddStudent text="Correo" />
             <InputAddStudent
               type="email"
               id="email"
-              placeholder="Ingrese el correo electrónico del estudiante"
             />
 
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
-                <LabelAddStudent text="Código" />
+                <LabelAddStudent text="Carnet" />
                 <InputAddStudent
                   type="text"
                   id="code"
-                  placeholder="Ingrese el código del estudiante"
                 />
               </div>
               <div className="w-full px-3 sm:w-1/2">
@@ -40,7 +37,6 @@ export default function AddStudent() {
                 <InputAddStudent
                   type="text"
                   id="level"
-                  placeholder="Ingrese el nivel del estudiante"
                 />
               </div>
             </div>
