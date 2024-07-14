@@ -99,11 +99,12 @@ export default function UsersTableCoordinatorDashboard() {
               <th className="text-left py-3 px-2">Correo</th>
               <th className="text-left py-3 px-2">Carnet</th>
               <th className="text-left py-3 px-2">Nivel</th>
+              <th className="text-left py-3 px-2">Especialidad</th> 
               <th className="text-left py-3 px-2 rounded-r-lg">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {students.map((student) => (
+          {students.map((student) => (
               <tr key={student._id} className="border-b border-gray-700">
                 <td className="py-3 px-2 font-bold">
                   <div className="inline-flex space-x-3 items-center">
@@ -113,6 +114,7 @@ export default function UsersTableCoordinatorDashboard() {
                 <td className="py-3 px-2">{student.email}</td>
                 <td className="py-3 px-2">{student.identificador}</td>
                 <td className="py-3 px-2">{student.nivel}</td>
+                <td className="py-3 px-2">{student.especialidad}</td> {/* Mostrar especialidad */}
                 <td className="py-3 px-2">
                   <div className="inline-flex items-center space-x-3">
                     <Link to="">
