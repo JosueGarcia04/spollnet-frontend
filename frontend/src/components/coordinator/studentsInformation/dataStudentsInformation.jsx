@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { faUsers, faTrash, faBan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function DataStudentsInformation() {
+    const [stats, setStats] = useState({
+        registered: 0,
+        deleted: 0,
+        banned: 0,
+    });
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/dataStudentInformation'); 
+                const data = await response.json();
+                setStats(data);
+            } catch (error) {
+                console.error('Error fetching stats:', error);
+            }
+        };
+
+        fetchStats();
+    }, []);
+
     const userStats = [
         {
             name: 'Estudiantes registrados',
-            value: '+2000',
+            value: stats.registered,
             icon: faUsers,
         },
         {
             name: 'Estudiantes eliminados',
-            value: '+8',
+            value: stats.deleted,
             icon: faTrash,
         },
         {
             name: 'Estudiantes baneados',
-            value: '+15',
+            value: stats.banned,
             icon: faBan,
         },
     ];
@@ -24,15 +44,15 @@ export default function DataStudentsInformation() {
     const TrashBan = [
         {
             name: 'Estudiantes eliminados',
-            value: '+8',
+            value: stats.deleted,
             icon: faTrash,
-            showButton: true, // Agrega esta propiedad
+            showButton: true,
         },
         {
             name: 'Estudiantes baneados',
-            value: '+15',
+            value: stats.banned,
             icon: faBan,
-            showButton: true, // Agrega esta propiedad
+            showButton: true,
         },
     ];
 

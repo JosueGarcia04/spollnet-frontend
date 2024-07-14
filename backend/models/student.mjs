@@ -29,6 +29,14 @@ const studentSchema = new mongoose.Schema({
       type: String, 
       required: true 
     },
+    isDeleted: { 
+      type: Boolean, 
+      default: false 
+    },
+    isBanned: { 
+      type: Boolean, 
+      default: false 
+    }
 });
 
 export const Student = mongoose.model('Student', studentSchema);
