@@ -65,37 +65,37 @@ const NavbarMobile = () => {
                 <p className="text-gray-400">coordinador123@correo.com</p>
               </div>
             </div>
-            <Link to={"/about us"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+            <Link to={"/studentsTable"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
               <button className="font-bold">
                 Usuarios
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/contact"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+            <Link to={"/periodsOfVotesDashboard"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
               <button className="font-bold">
                 Periodos
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/Sign-in"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
               <button className="font-bold">
                 Control
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/login"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
               <button className="font-bold">
                 Stats
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/news"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
               <button className="font-bold">
                 Reportes
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/news"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
+            <Link to={"/newsDashboard"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
               <button className="font-bold">
                 Noticias
               </button>
