@@ -32,8 +32,21 @@ const Login = () => {
 
         try {
             let response;
-            if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
-                response = { data: { msg: 'Inicio de sesión de coordinador exitoso' } };
+            
+        if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
+            response = { data: { msg: 'Inicio de sesión de coordinador exitoso' } };
+            Swal.fire({
+                title: "¡Bien!",
+                text: response.data.msg,
+                icon: "success"
+            }).then(() => {
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = '/main';
+                    link.click();
+                  }, 1000);
+            });
+            return;
             } else {
                 response = await axios.post('http://localhost:5000/login', {
                     email: mail,
@@ -41,7 +54,7 @@ const Login = () => {
                 });
             }
 
-            if (response.data.msg === 'Inicio de sesión del admin exitoso' || response.data.msg) {
+            if (response.data.msg) {
                 Swal.fire({
                     title: "¡Bien!",
                     text: response.data.msg,
@@ -57,8 +70,8 @@ const Login = () => {
         } catch (error) {
             Swal.fire({
                 icon: "error",
-                title: "Algo salio mal",
-                text: 'Error al iniciar sesion',
+                title: "Algo salió mal",
+                text: 'Error al iniciar sesión',
                 error,
             });
         }
