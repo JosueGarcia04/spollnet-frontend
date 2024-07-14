@@ -46,14 +46,14 @@ export const useValidations = () => {
 
         if (!level.trim()) {
             errors.level = 'Campo obligatorio';
-        }else if (level !== 'Primaria' && level !== 'Tercer ciclo' && level !== 'Bachillerato') {
+        } else if (level !== 'Primaria' && level !== 'Tercer ciclo' && level !== 'Bachillerato') {
             errors.level = 'Nivel educativo no válido';
         }
 
         if (level === 'Bachillerato') {
             if (!specialty.trim()) {
                 errors.specialty = 'Campo obligatorio';
-            } 
+            }
         }
 
         if (!identifier.trim()) {
@@ -65,6 +65,24 @@ export const useValidations = () => {
         return errors;
     };
 
+    const handleBackendErrors = (backendErrors) => {
+        const newErrors = {};
+        if (backendErrors.email) {
+            newErrors.email = 'El correo ya está registrado';
+        }
+        if (backendErrors.identifier) {
+            newErrors.identifier = 'El carnet ya está registrado';
+        }
+        if (backendErrors.password) {
+            newErrors.password = 'La contraseña ya está registrada';
+        }
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            ...newErrors,
+        }));
+    };
+
+
     return {
         errors,
         setErrors,
@@ -73,5 +91,6 @@ export const useValidations = () => {
         validateCarnet,
         handleInputChange,
         validations,
+        handleBackendErrors,
     };
 };

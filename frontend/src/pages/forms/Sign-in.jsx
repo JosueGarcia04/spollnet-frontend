@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 import { useValidations } from '../../hooks/forms/forms';
 
 const SignIn = () => {
-    const { errors, setErrors, handleInputChange, validations } = useValidations();
+    const { errors, setErrors, handleInputChange, validations, handleBackendErrors } = useValidations();
     const [name, setName] = useState('');
     const [mail, setEmail] = useState('');
     const [contra, setPassword] = useState('');
@@ -19,13 +19,13 @@ const SignIn = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         const validationErrors = validations(name, mail, contra, level, specialty, identifier);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
-    
+
         try {
             const studentData = {
                 nombre: name,
@@ -34,36 +34,31 @@ const SignIn = () => {
                 identificador: identifier,
                 password: contra
             };
-    
+
             if (level === 'Bachillerato') {
                 studentData.especialidad = specialty;
             }
-    
+
             const response = await axios.post('http://localhost:5000/register', studentData);
-    
             Swal.fire({
-                position: "top-end",
-                icon: "success",
-                text: `El usuario ha sido registrado correctamente. Respuesta del servidor: ${response.data}`,
-                showConfirmButton: false,
-                timer: 1500
+                title: "¡Bien!",
+                text: "El usuario ha sido registrado correctamente.",
+                icon: "success"
             });
-    
+
             setName(''); setEmail(''); setPassword(''); setLevel(''); setSpecialty(''); setIdentifier(''); setErrors({});
         } catch (error) {
-            let errorMessage = 'Error al registrar el usuario';
-            if (error.response && error.response.data) {
-                errorMessage = error.response.data.message || errorMessage;
+            if (error.response && error.response.data && error.response.data.errors) {
+                handleBackendErrors(error.response.data.errors);
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Algo salió mal",
+                    text: 'Error al registrar el usuario',
+                });
             }
-            Swal.fire({
-                icon: "error",
-                title: "Algo salió mal",
-                text: errorMessage,
-            });
-            setName(''); setEmail(''); setPassword(''); setLevel(''); setSpecialty(''); setIdentifier(''); setErrors({});
         }
     };
-    
 
     return (
         <>

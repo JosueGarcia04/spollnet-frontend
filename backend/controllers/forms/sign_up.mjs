@@ -4,10 +4,15 @@ import bcrypt from 'bcrypt';
 export const register = async (req, res) => {
     const { nombre, email, password, nivel, especialidad, identificador } = req.body;
     try {
-        const existingStudent = await Student.findOne({ identificador });
-        if (existingStudent) {
+        const existingStudentByIdentifier = await Student.findOne({ identificador });
+        if (existingStudentByIdentifier) {
             return res.status(400).json({ msg: 'El carnet ya está registrado' });
         }
+        const existingEmail = await Student.findOne({ email });
+        if (existingEmail) {
+            return res.status(400).json({ message: 'El correo ya está registrado' });
+        }
+
         const hashedPassword = await bcrypt.hash(password, 10);
 
 

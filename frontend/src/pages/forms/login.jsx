@@ -32,8 +32,8 @@ const Login = () => {
 
         try {
             let response;
-            if (mail === 'administrador123@gmail.com' && contra === 'adMin2024#') {
-                response = { data: { msg: 'Inicio de sesión del admin exitoso' } };
+            if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
+                response = { data: { msg: 'Inicio de sesión de coordinador exitoso' } };
             } else {
                 response = await axios.post('http://localhost:5000/login', {
                     email: mail,
