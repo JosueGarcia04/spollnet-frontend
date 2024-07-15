@@ -1,6 +1,8 @@
+
+
 export const ListDeletedStudents =()=>{
     return(
-        <h1></h1>
+        <h1>su</h1>
     );
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { faUsers, faTrash, faBan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 export default function DataStudentsInformation() {
     const [stats, setStats] = useState({
@@ -8,6 +9,8 @@ export default function DataStudentsInformation() {
         deleted: 0,
         banned: 0,
     });
+
+    const navigate = useNavigate(); // Inicializa useNavigate
 
     useEffect(() => {
         const fetchStats = async () => {
@@ -47,12 +50,14 @@ export default function DataStudentsInformation() {
             value: stats.deleted,
             icon: faTrash,
             showButton: true,
+            navigateTo: '/listDeletedStudents', // Ruta a la que se navegará
         },
         {
             name: 'Estudiantes baneados',
             value: stats.banned,
             icon: faBan,
             showButton: true,
+            navigateTo: '/listBannedStudents', // Ruta a la que se navegará
         },
     ];
 
@@ -66,7 +71,10 @@ export default function DataStudentsInformation() {
                     <div>
                         <p className="text-[#E41FAE] text-sm font-medium leading-4">{stat.name}</p>
                         {stat.showButton ? (
-                            <button className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear">
+                            <button 
+                                className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear"
+                                onClick={() => navigate(stat.navigateTo)} // Navegar a la ruta específica
+                            >
                                 Ver {stat.name}
                             </button>
                         ) : (
