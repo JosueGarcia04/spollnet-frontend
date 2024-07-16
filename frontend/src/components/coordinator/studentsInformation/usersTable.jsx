@@ -94,16 +94,25 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
               icon: "success"
             });
             setStudents(students.filter(student => student._id !== studentId));
-            fetchCounts(); 
           } else {
-            console.error('Error deleting student');
+            const errorResponse = await response.json();
+            Swal.fire({
+              title: "Error",
+              text: errorResponse.message || "Error eliminando el estudiante",
+              icon: "error"
+            });
           }
         } catch (error) {
-          console.error('Error deleting student:', error);
+          Swal.fire({
+            title: "Error",
+            text: "Error eliminando el estudiante",
+            icon: "error"
+          });
         }
       }
     });
   };
+  
 
   const banStudent = async (studentId) => {
     Swal.fire({
@@ -160,12 +169,20 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
               icon: "success"
             });
             setStudents(students.filter(student => student._id !== studentId));
-            fetchCounts(); 
           } else {
-            console.error('Error restoring student');
+            const errorResponse = await response.json();
+            Swal.fire({
+              title: "Error",
+              text: errorResponse.message || "Error restaurando el estudiante",
+              icon: "error"
+            });
           }
         } catch (error) {
-          console.error('Error restoring student:', error);
+          Swal.fire({
+            title: "Error",
+            text: "Error restaurando el estudiante",
+            icon: "error"
+          });
         }
       }
     });
