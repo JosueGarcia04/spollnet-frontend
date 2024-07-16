@@ -4,7 +4,7 @@ const ProfileCoordinatorDashboard = ({ onOpenModal }) => {
   return (
     <>
     <div onClick={onOpenModal} className="cursor-pointer">  
-      <h1 className="font-bold text-lg lg:text-3xl text-[#E31FAE]">Dashboard</h1>
+    <h1 className="font-bold text-lg lg:text-3xl text-[#E31FAE]">Dashboard</h1>
       <br />
       <div className="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-gray-700 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
         <div>
