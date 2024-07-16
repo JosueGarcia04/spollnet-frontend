@@ -1,8 +1,6 @@
 import React from 'react';
-//general
 import Footer from '../../../../components/general/footer';
 import NavbarMobile from '../../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
-//panel content
 import MenuCoordinatorDashboard from '../../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import UsersTableCoordinatorDashboard from '../../../../components/coordinator/studentsInformation/usersTable';
 
@@ -15,10 +13,9 @@ export default function ListDeletedStudents() {
           <div id="menu" className="bg-white/10 col-span-12 md:col-span-4 lg:col-span-3 rounded-lg p-2 hidden md:block">
             <MenuCoordinatorDashboard />
           </div>
-
           <div id="content" className="bg-white/10 col-span-12 md:col-span-8 lg:col-span-9 rounded-lg p-4">
             <h2 className="text-xl font-bold mb-4">Lista de estudiantes Eliminados</h2>
-            <UsersTableCoordinatorDashboard type="deleted" />
+            <UsersTableCoordinatorDashboard mode="deleted" />
           </div>
         </div>
       </div>
