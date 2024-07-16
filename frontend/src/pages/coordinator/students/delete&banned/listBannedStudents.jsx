@@ -16,6 +16,7 @@ export default function ListBannedStudents () {
                     </div>
 
                     <div id="content" className="bg-white/10 col-span-12 md:col-span-8 lg:col-span-9 rounded-lg p-4">
+                    <h2 className="text-xl font-bold mb-4">Lista de estudiantes Baneados</h2>
                         <UsersTableCoordinatorDashboard />
                     </div>
                 </div>

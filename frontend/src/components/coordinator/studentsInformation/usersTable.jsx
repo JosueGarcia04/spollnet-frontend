@@ -107,7 +107,7 @@ export default function UsersTableCoordinatorDashboard() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Lista de estudiantes</h2>
+     
       <div className="overflow-x-scroll">
         <table className="w-full whitespace-nowrap">
           <thead className="bg-black/60">

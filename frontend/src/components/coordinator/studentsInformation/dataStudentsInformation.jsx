@@ -97,7 +97,7 @@ export default function DataStudentsInformation() {
                 </div>
             </div>
             <div className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Eliminados y baneados</h2>
+                <h2 className="text-xl font-bold mb-4">Lista de Estudiantes / Eliminados y Baneados</h2>
                 <div id="user-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                     {renderStats(TrashBan)}
                 </div>
