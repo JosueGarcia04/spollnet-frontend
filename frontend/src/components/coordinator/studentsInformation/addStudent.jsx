@@ -1,5 +1,4 @@
-// AddStudent.jsx
-import React from 'react';
+import React, { useState } from 'react'; 
 import AddStudentButton from '../studentsInformation/buttonsAddStudent/addStudentButton';
 import ClearStudentButton from './buttonsAddStudent/clearStudentButton';
 import InputAddStudent from './inputsAddStudent/inputAddStudent';
@@ -9,7 +8,6 @@ import Swal from 'sweetalert2';
 import { useValidations } from '../../../hooks/forms/forms';
 
 export default function AddStudent() {
-
   const { errors, setErrors, handleInputChange, validations, handleBackendErrors } = useValidations();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -45,7 +43,13 @@ export default function AddStudent() {
         icon: "success"
       });
 
-      setName(''); setEmail(''); setIdentifier(''); setLevel(''); setSpecialty(''); setErrors({});
+      // Resetea los campos
+      setName(''); 
+      setEmail(''); 
+      setIdentifier(''); 
+      setLevel(''); 
+      setSpecialty(''); 
+      setErrors({});
     } catch (error) {
       if (error.response && error.response.data && error.response.data.errors) {
         handleBackendErrors(error.response.data.errors);
@@ -53,11 +57,12 @@ export default function AddStudent() {
         Swal.fire({
           icon: "error",
           title: "Algo salió mal",
-          text: 'Error al registrar el estudiante',
+          text: 'Error al registrar el estudiante. Intenta nuevamente.',
         });
       }
     }
   };
+
   return (
     <div>
       <h2 className="text-xl font-bold py-5">Añadir estudiante</h2>
@@ -89,7 +94,7 @@ export default function AddStudent() {
                 <LabelAddStudent text="Carnet" />
                 <InputAddStudent
                   type="text"
-                  id="code"
+                  id="identifier"
                   value={identifier}
                   onChange={handleInputChange(setIdentifier)}
                   className={errors.identifier ? 'border-red-500' : 'border-white'}
