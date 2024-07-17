@@ -61,7 +61,7 @@ const NavbarMobile = () => {
             <div className="flex items-center px-4 mb-5">
               <FontAwesomeIcon icon={faUser} className="text-[#E41FAE] w-7 h-12 mr-3" />
               <div>
-                <p className="text-white font-bold">Hola, coordinador</p>
+                <p className="text-white font-bold">Coordinador</p>
                 <p className="text-gray-400">coordinador123@correo.com</p>
               </div>
             </div>
