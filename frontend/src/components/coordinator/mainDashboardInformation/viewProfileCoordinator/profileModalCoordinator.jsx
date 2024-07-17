@@ -1,9 +1,26 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faUser } from '@fortawesome/free-solid-svg-icons'
-
+import Swal from 'sweetalert2';
 
 const ProfileModal = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: '¿Quieres cerrar sesión?',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate('/login');
+      }
+    });
+  };
   if (!isOpen) return null;
 
   return (
@@ -17,7 +34,10 @@ const ProfileModal = ({ isOpen, onClose }) => {
         <div className="flex flex-col items-center mb-5">
         <FontAwesomeIcon icon={faUser} className="text-[#E41FAE] w-7 h-12 mr-3" />
           <p className="font-medium leading-4 text-center mt-4">coordinador123@gmail.com</p>
-          <button className="font-bold mt-4 bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear">
+          <button 
+            className="font-bold mt-4 bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear"
+            onClick={handleLogout}
+          >
             Cerrar sesión
           </button>
         </div>
