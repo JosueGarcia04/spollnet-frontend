@@ -112,7 +112,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
       }
     });
   };
-  
+    
 
   const banStudent = async (studentId) => {
     Swal.fire({
