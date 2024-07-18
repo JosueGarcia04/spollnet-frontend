@@ -4,11 +4,14 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 // routers
 import { spollnetRouter } from './routes/router.mjs';
+//carnet
 import authRouter from './routes/auth.mjs';
+//coordinator
 import routerDataStudentInformation from './routes/student/dataStudentInformation.mjs';
 import DeleteBannedStudentRouter from './routes/student/DeleteBannedStudent.mjs';
 import getAllStudentsRouter from './routes/student/getAllStudents.mjs';
 import routerRestorePermanent from './routes/student/Restore&Permanent.mjs';
+import coordinatorAddStudentRouter from '';
 
 dotenv.config();
 
@@ -21,7 +24,8 @@ app.use(authRouter);
 app.use(routerDataStudentInformation);
 app.use(DeleteBannedStudentRouter);
 app.use(getAllStudentsRouter);
-app.use(routerRestorePermanent);  
+app.use(routerRestorePermanent);
+app.use(coordinatorAddStudentRouter);
 
 // connection to database
 const port = process.env.APP_PORT || 5000;
