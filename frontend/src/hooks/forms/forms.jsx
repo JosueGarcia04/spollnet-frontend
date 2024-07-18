@@ -38,9 +38,9 @@ export const useValidations = () => {
             errors.email = 'Correo no valido';
         }
 
-        if (!contra.trim()) {
+        if (!contra.trim() && contra !== undefined) {
             errors.password = 'Campo obligatorio';
-        } else if (!validatePassword(contra)) {
+        } else if (contra && !validatePassword(contra)) {
             errors.password = 'Contraseña no valida';
         }
 
@@ -81,7 +81,6 @@ export const useValidations = () => {
             ...newErrors,
         }));
     };
-
 
     return {
         errors,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import AddStudentButton from '../studentsInformation/buttonsAddStudent/addStudentButton';
 import ClearStudentButton from './buttonsAddStudent/clearStudentButton';
 import InputAddStudent from './inputsAddStudent/inputAddStudent';
@@ -43,13 +43,7 @@ export default function AddStudent() {
         icon: "success"
       });
 
-      // Resetea los campos
-      setName(''); 
-      setEmail(''); 
-      setIdentifier(''); 
-      setLevel(''); 
-      setSpecialty(''); 
-      setErrors({});
+      setName(''); setEmail(''); setIdentifier(''); setLevel(''); setSpecialty(''); setErrors({});
     } catch (error) {
       if (error.response && error.response.data && error.response.data.errors) {
         handleBackendErrors(error.response.data.errors);
@@ -57,7 +51,7 @@ export default function AddStudent() {
         Swal.fire({
           icon: "error",
           title: "Algo salió mal",
-          text: 'Error al registrar el estudiante. Intenta nuevamente.',
+          text: 'Error al registrar el estudiante',
         });
       }
     }
@@ -94,7 +88,7 @@ export default function AddStudent() {
                 <LabelAddStudent text="Carnet" />
                 <InputAddStudent
                   type="text"
-                  id="identifier"
+                  id="code"
                   value={identifier}
                   onChange={handleInputChange(setIdentifier)}
                   className={errors.identifier ? 'border-red-500' : 'border-white'}
