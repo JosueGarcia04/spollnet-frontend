@@ -38,7 +38,7 @@ const Login = () => {
             Swal.fire({
                 title: "¡Bien!",
                 text: response.data.msg,
-                icon: "success"
+                icon: "success" 
             }).then(() => {
                 setTimeout(() => {
                     const link = document.createElement('a');

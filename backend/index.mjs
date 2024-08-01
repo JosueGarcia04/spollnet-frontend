@@ -11,7 +11,6 @@ import routerDataStudentInformation from './routes/student/dataStudentInformatio
 import DeleteBannedStudentRouter from './routes/student/DeleteBannedStudent.mjs';
 import getAllStudentsRouter from './routes/student/getAllStudents.mjs';
 import routerRestorePermanent from './routes/student/Restore&Permanent.mjs';
-import coordinatorAddStudentRouter from '';
 
 dotenv.config();
 
@@ -24,8 +23,7 @@ app.use(authRouter);
 app.use(routerDataStudentInformation);
 app.use(DeleteBannedStudentRouter);
 app.use(getAllStudentsRouter);
-app.use(routerRestorePermanent);
-app.use(coordinatorAddStudentRouter);
+app.use(routerRestorePermanent);  
 
 // connection to database
 const port = process.env.APP_PORT || 5000;
