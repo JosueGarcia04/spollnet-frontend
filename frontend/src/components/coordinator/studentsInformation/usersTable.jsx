@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { faPenToSquare, faTrash, faBan, faCircleUp, faTrashCanArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
@@ -7,6 +6,9 @@ import Swal from 'sweetalert2';
 export default function UsersTableCoordinatorDashboard({ mode }) {
   const [students, setStudents] = useState([]);
   const [counts, setCounts] = useState({ registered: 0, deleted: 0, banned: 0 });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [updatedStudent, setUpdatedStudent] = useState({});
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -21,7 +23,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
         console.error('Error fetching students:', error);
       }
     };
-    
+
     const fetchCounts = async () => {
       try {
         const response = await fetch('http://localhost:5000/dataStudentInformation');
@@ -38,6 +40,60 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
     fetchStudents();
     fetchCounts();
   }, []);
+
+  const handleEditClick = (student) => {
+    setSelectedStudent(student);
+    setUpdatedStudent(student);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedStudent(null);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedStudent((prevStudent) => ({ ...prevStudent, [name]: value }));
+  };
+
+  const handleSaveChanges = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/students/${selectedStudent._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedStudent),
+      });
+      if (response.ok) {
+        Swal.fire({
+          title: "¡Actualizado!",
+          text: "El estudiante ha sido actualizado",
+          icon: "success"
+        });
+        setStudents((prevStudents) =>
+          prevStudents.map((student) =>
+            student._id === selectedStudent._id ? updatedStudent : student
+          )
+        );
+        handleModalClose();
+      } else {
+        const errorResponse = await response.json();
+        Swal.fire({
+          title: "Error",
+          text: errorResponse.message || "Error actualizando el estudiante",
+          icon: "error"
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Error",
+        text: "Error actualizando el estudiante",
+        icon: "error"
+      });
+    }
+  };
 
   const deleteStudent = async (studentId) => {
     Swal.fire({
@@ -112,7 +168,6 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
       }
     });
   };
-    
 
   const banStudent = async (studentId) => {
     Swal.fire({
@@ -187,20 +242,19 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
       }
     });
   };
-  
+
   return (
     <div>
-     
-      <div className="overflow-x-scroll">
+      <div className="overflow-x-auto">
         <table className="w-full whitespace-nowrap">
-          <thead className="bg-black/60">
+          <thead className="bg-gray-700 text-white">
             <tr>
-              <th className="text-left py-3 px-2 rounded-l-lg">Nombre</th>
-              <th className="text-left py-3 px-2">Correo</th>
-              <th className="text-left py-3 px-2">Carnet</th>
-              <th className="text-left py-3 px-2">Nivel</th>
-              <th className="text-left py-3 px-2">Especialidad</th> 
-              <th className="text-left py-3 px-2 rounded-r-lg">Acciones</th>
+              <th className="py-3 px-4 text-left">Nombre</th>
+              <th className="py-3 px-4 text-left">Correo</th>
+              <th className="py-3 px-4 text-left">Carnet</th>
+              <th className="py-3 px-4 text-left">Nivel</th>
+              <th className="py-3 px-4 text-left">Especialidad</th>
+              <th className="py-3 px-4 text-left">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -209,22 +263,22 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
               (mode === 'banned' && student.isBanned) ||
               (!mode && !student.isDeleted && !student.isBanned)
             ).map((student) => (
-              <tr key={student._id} className="border-b border-gray-700">
-                <td className="py-3 px-2 font-bold">
-                  <div className="inline-flex space-x-3 items-center">
+              <tr key={student._id} className="border-b border-gray-600">
+                <td className="py-3 px-4 font-bold">
+                  <div className="inline-flex items-center space-x-3">
                     <span>{student.nombre}</span>
                   </div>
                 </td>
-                <td className="py-3 px-2">{student.email}</td>
-                <td className="py-3 px-2">{student.identificador}</td>
-                <td className="py-3 px-2">{student.nivel}</td>
-                <td className="py-3 px-2">{student.especialidad}</td> 
-                <td className="py-3 px-2">
+                <td className="py-3 px-4">{student.email}</td>
+                <td className="py-3 px-4">{student.identificador}</td>
+                <td className="py-3 px-4">{student.nivel}</td>
+                <td className="py-3 px-4">{student.especialidad}</td>
+                <td className="py-3 px-4">
                   <div className="inline-flex items-center space-x-3">
                     {mode !== 'deleted' && mode !== 'banned' && (
-                      <Link to="">
+                      <button onClick={() => handleEditClick(student)}>
                         <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600' />
-                      </Link>
+                      </button>
                     )}
                     {mode === 'deleted' ? (
                         <>
@@ -247,7 +301,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
                             <FontAwesomeIcon icon={faTrash} className='text-red-600' />
                           </button>
                           <button onClick={() => banStudent(student._id)}>
-                            <FontAwesomeIcon icon={faBan} className='text-orange-300' />
+                            <FontAwesomeIcon icon={faBan} className='text-yellow-600' />
                           </button>
                         </>
                       )}
@@ -258,6 +312,74 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
           </tbody>
         </table>
       </div>
+
+      {selectedStudent && (
+        <div className={`fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 ${isModalOpen ? '' : 'hidden'}`}>
+          <div className="bg-white rounded-lg p-8 w-96">
+            <h2 className="text-2xl font-bold mb-4">Editar Estudiante</h2>
+            <form>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Nombre:</label>
+                <input
+                  type="text"
+                  name="nombre"
+                  value={updatedStudent.nombre}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Correo:</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={updatedStudent.email}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Carnet:</label>
+                <input
+                  type="text"
+                  name="identificador"
+                  value={updatedStudent.identificador}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Nivel:</label>
+                <input
+                  type="text"
+                  name="nivel"
+                  value={updatedStudent.nivel}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Especialidad:</label>
+                <input
+                  type="text"
+                  name="especialidad"
+                  value={updatedStudent.especialidad}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                />
+              </div>
+              <div className="flex justify-end space-x-4">
+                <button type="button" onClick={handleSaveChanges} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                  Guardar Cambios
+                </button>
+                <button type="button" onClick={handleModalClose} className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
