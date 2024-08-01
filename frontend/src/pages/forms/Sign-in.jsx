@@ -65,10 +65,10 @@ const SignIn = () => {
             <Navbar />
             <div className="bg-black min-h-screen">
                 <section className="max-w-4xl p-6 mx-auto rounded-md shadow-md"><br></br><br></br>
-                    <form onSubmit={handleSubmit} className="mt-10 border border-white p-10 rounded-lg">
+                <form onSubmit={handleSubmit} className="mt-10 border border-white p-10 rounded-lg">
                         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                             <div className="text-center font-bold">
-                                <Label htmlFor="name">Nombre completo </Label>
+                                <Label htmlFor="name">Nombre completo</Label>
                                 <div className="relative">
                                     <input
                                         id='name'
@@ -76,13 +76,13 @@ const SignIn = () => {
                                         type='text'
                                         value={name}
                                         onChange={handleInputChange(setName)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.name ? 'border-red-500' : name ? 'border-green-500' : 'border-white'}`}
+                                        className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.name ? 'border-red-500' : name ? 'border-green-500' : 'border-white'}`}
                                     />
                                     {errors.name && <p className="text-red-500">{errors.name}</p>}
                                 </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="emailAdress">Correo electrónico </Label>
+                                <Label htmlFor="emailAdress">Correo electrónico</Label>
                                 <div className="relative">
                                     <input
                                         id='emailAdress'
@@ -90,20 +90,20 @@ const SignIn = () => {
                                         type='email'
                                         value={mail}
                                         onChange={handleInputChange(setEmail)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.email ? 'border-red-500' : mail ? 'border-green-500' : 'border-white'}`}
+                                        className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.email ? 'border-red-500' : mail ? 'border-green-500' : 'border-white'}`}
                                     />
                                     {errors.email && <p className="text-red-500">{errors.email}</p>}
                                 </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="level">Nivel educativo </Label>
+                                <Label htmlFor="level">Nivel educativo</Label>
                                 <div className="relative">
                                     <select
                                         id='level'
                                         name='level'
                                         value={level}
                                         onChange={handleInputChange(setLevel)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.level ? 'border-red-500' : level ? 'border-green-500' : 'border-white'}`}
+                                        className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.level ? 'border-red-500' : level ? 'border-green-500' : 'border-white'}`}
                                     >
                                         <option value="">Seleccione un nivel educativo</option>
                                         <option value="Primaria">Primaria</option>
@@ -122,7 +122,7 @@ const SignIn = () => {
                                         value={specialty}
                                         onChange={handleInputChange(setSpecialty)}
                                         disabled={level !== 'Bachillerato'}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.specialty ? 'border-red-500' : specialty ? 'border-green-500' : 'border-white'}`}
+                                        className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.specialty ? 'border-red-500' : specialty ? 'border-green-500' : 'border-white'}`}
                                     >
                                         <option value="">Seleccione una especialidad</option>
                                         <option value="Mantenimiento automotriz">Mantenimiento automotriz</option>
@@ -136,7 +136,7 @@ const SignIn = () => {
                                 </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="identifier">Carnet </Label>
+                                <Label htmlFor="identifier">Carnet</Label>
                                 <div className="relative">
                                     <input
                                         id='identifier'
@@ -144,13 +144,13 @@ const SignIn = () => {
                                         type='text'
                                         value={identifier}
                                         onChange={handleInputChange(setIdentifier)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.identifier ? 'border-red-500' : identifier ? 'border-green-500' : 'border-white'}`}
+                                        className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.identifier ? 'border-red-500' : identifier ? 'border-green-500' : 'border-white'}`}
                                     />
                                     {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
                                 </div>
                             </div>
                             <div className="text-center font-bold">
-                                <Label htmlFor="password">Contraseña </Label>
+                                <Label htmlFor="password">Contraseña</Label>
                                 <div className="relative">
                                     <input
                                         id='password'
@@ -158,7 +158,7 @@ const SignIn = () => {
                                         type='password'
                                         value={contra}
                                         onChange={handleInputChange(setPassword)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.password ? 'border-red-500' : contra ? 'border-green-500' : 'border-white'}`}
+                                        className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.password ? 'border-red-500' : contra ? 'border-green-500' : 'border-white'}`}
                                     />
                                     {errors.password && <p className="text-red-500">{errors.password}</p>}
                                 </div>

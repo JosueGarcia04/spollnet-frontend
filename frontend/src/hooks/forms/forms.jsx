@@ -76,12 +76,14 @@ export const useValidations = () => {
         if (backendErrors.password) {
             newErrors.password = 'La contraseña ya está registrada';
         }
+        console.log("Backend Errors:", backendErrors);
+        console.log("New Errors:", newErrors);
         setErrors((prevErrors) => ({
             ...prevErrors,
             ...newErrors,
         }));
     };
-
+    
     return {
         errors,
         setErrors,
