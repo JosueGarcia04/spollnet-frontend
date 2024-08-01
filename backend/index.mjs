@@ -2,30 +2,37 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
-// routers
-import { spollnetRouter } from './routes/router.mjs';
-//carnet
-import authRouter from './routes/auth.mjs';
-//coordinator
-import routerDataStudentInformation from './routes/student/dataStudentInformation.mjs';
-import DeleteBannedStudentRouter from './routes/student/DeleteBannedStudent.mjs';
-import getAllStudentsRouter from './routes/student/getAllStudents.mjs';
-import routerRestorePermanent from './routes/student/Restore&Permanent.mjs';
+// controladores
+import { register } from './controllers/forms/sign_up.mjs';
+import { credentials } from './controllers/forms/login.mjs';
+import { checkCarnet } from './controllers/forms/carnet.mjs';
+import { addStudent } from './controllers/coordinator/addStudent.mjs';
+import { deleteStudentPermanently, restoreStudent } from './controllers/coordinator/Restore&Permanent.mjs';
+import { getAllStudents } from './controllers/coordinator/getAllStudents.mjs';
+import { deleteStudent, banStudent } from './controllers/coordinator/DeleteBannedStudent.mjs';
+import { getDataStudentInformation } from './controllers/coordinator/dataStudentInformation.mjs'; 
 
 dotenv.config();
 
 const app = express();
-// routers use
+
+// Middlewares
 app.use(cors());
 app.use(express.json());
-app.use(spollnetRouter);
-app.use(authRouter);
-app.use(routerDataStudentInformation);
-app.use(DeleteBannedStudentRouter);
-app.use(getAllStudentsRouter);
-app.use(routerRestorePermanent);  
 
-// connection to database
+// Rutas
+app.post("/register", register);
+app.post("/login", credentials);
+app.post('/check-carnet', checkCarnet);
+app.post('/add-student', addStudent);
+app.delete('/students/:id/permanent', deleteStudentPermanently);
+app.patch('/students/:id/restore', restoreStudent);
+app.get('/students', getAllStudents);
+app.delete('/students/:id', deleteStudent);
+app.patch('/students/:id/ban', banStudent);
+app.get('/dataStudentInformation', getDataStudentInformation);
+
+// Conexión a la base de datos
 const port = process.env.APP_PORT || 5000;
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';
 
