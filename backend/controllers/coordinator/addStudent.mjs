@@ -1,8 +1,8 @@
-import {Student} from '../../models/student.mjs';
+import { Student } from '../../models/student.mjs';
 import bcrypt from 'bcrypt';
 
-export const addStudent = async (req, res)  =>{
-    const { nombre, email, password, nivel, especialidad, identificador} = req.body;
+export const addStudent = async (req, res) => {
+    const { nombre, email, password, nivel, especialidad, identificador } = req.body;
     try {
         const existingStudentByIdentifier = await Student.findOne({ identificador });
         if (existingStudentByIdentifier) {
@@ -32,4 +32,4 @@ export const addStudent = async (req, res)  =>{
         console.error('Error al registrar el usuario:', err);
         res.status(500).json({ msg: 'Error al registrar el usuario', error: err.message });
     }
-}
+};
