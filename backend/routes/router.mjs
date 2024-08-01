@@ -1,12 +1,13 @@
 import express from 'express';
-import { register } from '../controllers/forms/sign_up.mjs';
+import { register } from '../controllers/forms/sign_up.mjs' 
 import { credentials } from '../controllers/forms/login.mjs';
-import { checkCarnet } from '../controllers/student/checkCarnet.mjs';
-import { addStudent } from '../controllers/student/addStudent.mjs';
-import { deleteStudentPermanently, restoreStudent } from '../controllers/student/restoreDelete.mjs';
-import { getAllStudents } from '../controllers/student/getAllStudents.mjs';
-import { deleteStudent, banStudent } from '../controllers/student/deleteBanStudent.mjs';
-import { getDataStudentInformation } from '../controllers/student/getDataStudentInformation.mjs';
+import { checkCarnet } from '../controllers/coordinator/students/checkCarnet.mjs';
+import { addStudent } from '../controllers/coordinator/students/addStudent.mjs';
+import { deleteStudentPermanently, restoreStudent } from '../controllers/coordinator/students/restoreDelete.mjs';
+import { getAllStudents } from '../controllers/coordinator/students/getAllStudents.mjs';
+import { deleteStudent, banStudent } from '../controllers/coordinator/students/deleteBanStudent.mjs';
+import { getDataStudentInformation } from '../controllers/coordinator/students/dataStudentInformation';
+import { updateStudent } from '../controllers/coordinator/students/editStudent.mjs';
 
 export const spollnetRouter = express.Router();
 
@@ -20,4 +21,5 @@ spollnetRouter.get('/students', getAllStudents);
 spollnetRouter.delete('/students/:id', deleteStudent);
 spollnetRouter.patch('/students/:id/ban', banStudent);
 spollnetRouter.get('/dataStudentInformation', getDataStudentInformation);
+spollnetRouter.patch('/students/:id', updateStudent);
 
