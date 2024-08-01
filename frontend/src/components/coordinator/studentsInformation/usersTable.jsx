@@ -58,6 +58,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
   };
 
   const handleSaveChanges = async () => {
+    console.log('Datos a enviar:', updatedStudent);  
     try {
       const response = await fetch(`http://localhost:5000/students/${selectedStudent._id}`, {
         method: 'PATCH',
@@ -247,7 +248,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
     <div>
       <div className="overflow-x-auto">
         <table className="w-full whitespace-nowrap">
-          <thead className="bg-gray-700 text-white">
+          <thead className="bg-black text-white rounded-t-lg">
             <tr>
               <th className="py-3 px-4 text-left">Nombre</th>
               <th className="py-3 px-4 text-left">Correo</th>
@@ -263,7 +264,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
               (mode === 'banned' && student.isBanned) ||
               (!mode && !student.isDeleted && !student.isBanned)
             ).map((student) => (
-              <tr key={student._id} className="border-b border-gray-600">
+              <tr key={student._id} className="border-b-2 border-gray-500">
                 <td className="py-3 px-4 font-bold">
                   <div className="inline-flex items-center space-x-3">
                     <span>{student.nombre}</span>
@@ -314,72 +315,73 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
       </div>
 
       {selectedStudent && (
-        <div className={`fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 ${isModalOpen ? '' : 'hidden'}`}>
-          <div className="bg-white rounded-lg p-8 w-96">
-            <h2 className="text-2xl font-bold mb-4">Editar Estudiante</h2>
-            <form>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Nombre:</label>
-                <input
-                  type="text"
-                  name="nombre"
-                  value={updatedStudent.nombre}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Correo:</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={updatedStudent.email}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Carnet:</label>
-                <input
-                  type="text"
-                  name="identificador"
-                  value={updatedStudent.identificador}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Nivel:</label>
-                <input
-                  type="text"
-                  name="nivel"
-                  value={updatedStudent.nivel}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">Especialidad:</label>
-                <input
-                  type="text"
-                  name="especialidad"
-                  value={updatedStudent.especialidad}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div className="flex justify-end space-x-4">
-                <button type="button" onClick={handleSaveChanges} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                  Guardar Cambios
-                </button>
-                <button type="button" onClick={handleModalClose} className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
-                  Cancelar
-                </button>
-              </div>
-            </form>
-          </div>
+  <div className={`fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 ${isModalOpen ? '' : 'hidden'}`}>
+    <div className="bg-black rounded-lg p-6 w-80">
+      <h2 className="text-2xl font-bold mb-4 text-[#E31FAE]">Editar Estudiante</h2>
+      <form>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-[#E31FAE]">Nombre:</label>
+          <input
+            type="text"
+            name="nombre"
+            value={updatedStudent.nombre}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
+          />
         </div>
-      )}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-[#E31FAE]">Correo:</label>
+          <input
+            type="email"
+            name="email"
+            value={updatedStudent.email}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-[#E31FAE]">Carnet:</label>
+          <input
+            type="text"
+            name="identificador"
+            value={updatedStudent.identificador}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-[#E31FAE]">Nivel:</label>
+          <input
+            type="text"
+            name="nivel"
+            value={updatedStudent.nivel}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-[#E31FAE]">Especialidad:</label>
+          <input
+            type="text"
+            name="especialidad"
+            value={updatedStudent.especialidad}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
+          />
+        </div>
+        <div className="flex justify-center space-x-4">
+          <button type="button" onClick={handleSaveChanges} className="bg-blue-500 text-white px-3 py-1.5 rounded-md hover:bg-blue-600">
+            Guardar Cambios
+          </button>
+          <button type="button" onClick={handleModalClose} className="bg-gray-500 text-white px-3 py-1.5 rounded-md hover:bg-gray-600">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

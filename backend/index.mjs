@@ -11,6 +11,7 @@ import { deleteStudentPermanently, restoreStudent } from './controllers/coordina
 import { getAllStudents } from './controllers/coordinator/students/getAllStudents.mjs';
 import { deleteStudent, banStudent } from './controllers/coordinator/students/DeleteBannedStudent.mjs';
 import { getDataStudentInformation } from './controllers/coordinator/students/dataStudentInformation.mjs'; 
+import { updateStudent } from './controllers/coordinator/students/editStudent.mjs';
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.get('/students', getAllStudents);
 app.delete('/students/:id', deleteStudent);
 app.patch('/students/:id/ban', banStudent);
 app.get('/dataStudentInformation', getDataStudentInformation);
+app.patch('/students/:id', updateStudent);
 
 // Conexión a la base de datos
 const port = process.env.APP_PORT || 5000;
