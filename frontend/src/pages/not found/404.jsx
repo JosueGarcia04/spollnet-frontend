@@ -12,7 +12,7 @@ const NotFound = () => {
         />
       </div>
       <div className="text-center lg:text-left lg:order-1 lg:w-1/2">
-        <p className="text-base font-semibold text-[#E31FAE]">404</p>
+        <p className="text-base font-semibold text-[#E31FAE]">Error 404</p>
         <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">Página no encontrada</h1>
         <p className="mt-6 text-base leading-7">Lo sentimos, no pudimos encontrar la página que buscabas.</p>
       </div>
