@@ -1,5 +1,4 @@
-import { Student } from '../../models/student.mjs';
-
+import { Student } from '../../../models/student.mjs';
 export const getDataStudentInformation = async (req, res) => {
     try {
         const registeredCount = await Student.countDocuments({});

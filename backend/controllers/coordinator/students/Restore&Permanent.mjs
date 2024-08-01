@@ -1,5 +1,4 @@
-import { Student } from '../../models/student.mjs';
-
+import { Student } from '../../../models/student.mjs';
 export const deleteStudentPermanently = async (req, res) => {
     try {
         const student = await Student.findByIdAndDelete(req.params.id);

@@ -1,4 +1,4 @@
-import { Student } from '../../models/student.mjs';
+import { Student } from '../../../models/student.mjs';
 import bcrypt from 'bcrypt';
 
 export const addStudent = async (req, res) => {

@@ -6,11 +6,11 @@ import mongoose from 'mongoose';
 import { register } from './controllers/forms/sign_up.mjs';
 import { credentials } from './controllers/forms/login.mjs';
 import { checkCarnet } from './controllers/forms/carnet.mjs';
-import { addStudent } from './controllers/coordinator/addStudent.mjs';
-import { deleteStudentPermanently, restoreStudent } from './controllers/coordinator/Restore&Permanent.mjs';
-import { getAllStudents } from './controllers/coordinator/getAllStudents.mjs';
-import { deleteStudent, banStudent } from './controllers/coordinator/DeleteBannedStudent.mjs';
-import { getDataStudentInformation } from './controllers/coordinator/dataStudentInformation.mjs'; 
+import { addStudent } from './controllers/coordinator/students/addStudent.mjs';
+import { deleteStudentPermanently, restoreStudent } from './controllers/coordinator/students/Restore&Permanent.mjs';
+import { getAllStudents } from './controllers/coordinator/students/getAllStudents.mjs';
+import { deleteStudent, banStudent } from './controllers/coordinator/students/DeleteBannedStudent.mjs';
+import { getDataStudentInformation } from './controllers/coordinator/students/dataStudentInformation.mjs'; 
 
 dotenv.config();
 

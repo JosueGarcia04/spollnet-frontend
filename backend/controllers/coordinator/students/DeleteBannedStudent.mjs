@@ -1,5 +1,4 @@
-import { Student } from '../../models/student.mjs';
-
+import { Student } from '../../../models/student.mjs';
 export const deleteStudent = async (req, res) => {
     const { id } = req.params;
 
