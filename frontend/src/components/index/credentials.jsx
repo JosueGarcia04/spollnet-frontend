@@ -1,6 +1,6 @@
   export default function Id() {
     return (
-      <div className='bg-black py-8'> 
+      <div className='bg-black'> 
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 px-4 md:px-0">
           <div className="flex flex-col items-center max-w-sm mx-4">
             <div 

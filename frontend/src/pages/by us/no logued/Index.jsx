@@ -27,19 +27,19 @@ export const Index = () => {
               <h2 className="mb-6 text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
                            text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
                            shadow-lg">
-                Credenciales de Votación
+                Detalles de Votación
               </h2>
               <Id />
               <h2 className="mb-6 text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
                            text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
-                           shadow-lg">
+                           shadow-lg p-6">
                 Proceso de Votación
               </h2>
               <Steps />
               <h2 className="mb-6 text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
                            text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
                            shadow-lg">
-                Sobre nosotros
+                Sobre Spollnet
               </h2>
               <Contact/>
               <AboutUs/>

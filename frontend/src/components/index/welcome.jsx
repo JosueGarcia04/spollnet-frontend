@@ -9,7 +9,7 @@ export default function Welcome() {
       <div className="flex flex-col md:flex-row items-center justify-center max-w-3xl mx-4 p-6 bg-black rounded-xl shadow-xl border-2 border-[#E31FAE]">
         <div className="flex-1 text-center md:text-left">
           <p className="text-center text-white md:text-left">
-            Estamos encantados de tenerte en nuestro sistema de votación. Aquí podrás gestionar y emitir tus votos de manera segura y eficiente. Explora nuestras funcionalidades y comienza a participar en el proceso electoral.
+            Aquí podrás gestionar y emitir tus votos de manera segura y eficiente. Explora nuestras funcionalidades y comienza a participar en el proceso electoral.
           </p>
         </div>
       </div>
