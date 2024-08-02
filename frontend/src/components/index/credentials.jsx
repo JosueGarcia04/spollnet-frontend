@@ -4,10 +4,10 @@
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 px-4 md:px-0">
           <div className="flex flex-col items-center max-w-sm mx-4">
             <div 
-              className="bg-cover bg-center bg-gray-300 h-64 w-full rounded-xl shadow-xl border-4 border-[#E31FAE]"
+              className="bg-cover bg-center bg-gray-300 h-64 w-full rounded-xl shadow-xl "
               style={{ backgroundImage: "url('src/assets/id.png')" }}
             />
-            <div className="w-full max-w-sm bg-black -mt-10 shadow-xl rounded-xl overflow-hidden border-4 border-[#E31FAE]"> 
+            <div className="w-full max-w-sm bg-black -mt-10 shadow-xl rounded-xl overflow-hidden border-2 border-[#E31FAE]"> 
               <div className="py-4 text-center font-semibold tracking-wide text-lg text-[#E31FAE]">
                 Carnét de estudiante
               </div>
@@ -20,10 +20,10 @@
           </div>
           <div className="flex flex-col items-center max-w-sm mx-4">
             <div 
-              className="bg-cover bg-center bg-gray-300 h-64 w-full rounded-xl shadow-xl border-4 border-[#E31FAE]"
+              className="bg-cover bg-center bg-gray-300 h-64 w-full rounded-xl shadow-xl"
               style={{ backgroundImage: "url('src/assets/registro.png')" }}
             />
-            <div className="w-full max-w-sm bg-black -mt-10 shadow-xl rounded-xl overflow-hidden border-4 border-[#E31FAE]"> 
+            <div className="w-full max-w-sm bg-black -mt-10 shadow-xl rounded-xl overflow-hidden border-2 border-[#E31FAE]"> 
               <div className="py-4 text-center font-semibold tracking-wide text-lg text-[#E31FAE]">
                 Registro del estudiante
               </div>
