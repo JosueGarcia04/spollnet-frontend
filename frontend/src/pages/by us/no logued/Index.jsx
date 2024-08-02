@@ -5,6 +5,7 @@ import NavDown from '../../../components/general/navDown';
 import Id from '../../../components/index/credentials';
 import Steps from '../../../components/index/steps_vote';
 import Emitir from '../../../components/index/buttonVoteIndex';
+import Welcome from '../../../components/index/welcome';
 
 export const Index = () => {
   return (
@@ -14,6 +15,7 @@ export const Index = () => {
         <div className="relative top-16 bottom-16">
           <Countdown />
           <div className="text-white text-center mt-5">
+            <Welcome/>
             <Emitir />
           </div>
         </div>

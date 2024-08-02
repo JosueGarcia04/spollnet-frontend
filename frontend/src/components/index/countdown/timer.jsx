@@ -28,14 +28,12 @@ const Countdown = () => {
   }, []);
 
   return (
-    <>
-     <div className="text-white text-center p-2 rounded-b-3xl  bg-[#E41FAE]">
-      <h2 className="text-2xl md:text-4xl font-bold">Dia de elecciones</h2>
+    <div className="text-white text-center p-2 rounded-b-3xl bg-[#E41FAE] mb-6">
+      <h2 className="text-2xl md:text-4xl font-bold">Día de elecciones</h2>
       <div className="text-lg md:text-2xl">
-        {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m :{timeLeft.seconds}s 
+        {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m : {timeLeft.seconds}s 
       </div>
     </div>
-    </>
   );
 };
 
