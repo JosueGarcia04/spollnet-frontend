@@ -11,8 +11,8 @@ const ProfileModal = ({ isOpen, onClose }) => {
     Swal.fire({
       title: '¿Quieres cerrar sesión?',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
-      cancelButtonText: 'No',
+      confirmButtonText: 'Cerrar sesión',
+      cancelButtonText: 'Cancelar',
       confirmButtonColor: '#d33',
       cancelButtonColor: '#3085d6',
     }).then((result) => {

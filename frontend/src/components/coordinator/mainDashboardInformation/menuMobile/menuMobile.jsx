@@ -1,13 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInbox, faSignOutAlt, faQuestionCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 
 const NavbarMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const location = useLocation();
   const navbarRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -37,6 +39,21 @@ const NavbarMobile = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleLogout = () => {
+    Swal.fire({
+      title: '¿Quieres cerrar sesión?',
+      showCancelButton: true,
+      confirmButtonText: 'Cerrar sesión',
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate('/login');
+      }
+    });
+  };
+
   return (
     <>
       <div>
@@ -61,7 +78,7 @@ const NavbarMobile = () => {
             <div className="flex items-center px-4 mb-5">
               <FontAwesomeIcon icon={faUser} className="text-[#E41FAE] w-7 h-12 mr-3" />
               <div>
-                <p className="text-white font-bold">Coordinador</p>
+                <p className="text-white font-bold">Hola, Coordinador</p>
                 <p className="text-gray-400">coordinador123@correo.com</p>
               </div>
             </div>
@@ -105,14 +122,14 @@ const NavbarMobile = () => {
 
           <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-between">
             <FontAwesomeIcon icon={faQuestionCircle} className="text-[#E41FAE] w-7 h-7" />
-            <FontAwesomeIcon icon={faSignOutAlt} className="text-[#E41FAE] w-7 h-7" />
+            <FontAwesomeIcon icon={faSignOutAlt} className="text-[#E41FAE] w-7 h-7" onClick={handleLogout} />
           </div>
         </div>
 
         <nav ref={navbarRef} className={`bg-black fixed top-0 left-0 w-full z-10 py-1 px-3 md:px-0 transition-all duration-300 ${scrolling ? 'border-b-2 border-[#E41FAE] shadow-lg rounded-b-3xl' : 'border-b-2 border-transparent transform translate-y-0'} ${scrolling ? 'translate-y-0' : '-translate-y-20'}`}>
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
             <Link to={"/main"}>
-            <img src="public/logo2.png" className="w-40" alt="spollnet" />
+              <img src="public/logo2.png" className="w-40" alt="spollnet" />
             </Link>
             <div className="flex items-center md:order-2">
               <FontAwesomeIcon icon={faInbox} className="text-[#E41FAE] w-6 h-6 mr-4" />
@@ -123,7 +140,7 @@ const NavbarMobile = () => {
                 aria-expanded={isOpen ? "true" : "false"}
               >
                 <span className="sr-only">Toggle navigation</span>
-                <svg className="w-8 h-8 text-[#E41FAE]" aria-hidden="true" xmlns="http://www.w3          .org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-8 h-8 text-[#E41FAE]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
               </button>
