@@ -7,7 +7,7 @@ import LabelAddStudent from '../studentsInformation/inputsAddStudent/labelAddStu
 export default function AddPeriod() {
   return (
     <div>
-      <h2 className="text-xl font-bold py-5">Añadir Periodo</h2>
+      <h2 className="text-2xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg py-5">Añadir Periodo</h2>
       <div className="flex items-center justify-center p-3">
         <div className="mx-auto w-full max-w-[550px]">
           <form action="" method="POST">

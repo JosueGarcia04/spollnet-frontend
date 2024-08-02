@@ -6,7 +6,7 @@ export default function ExistingPeriods (){
     return(
         <div>
             <div className="overflow-x-scroll">
-            <h2 className="text-xl font-bold mb-4">Lista de periodos existentes</h2>
+            <h2 className="text-2xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">Lista de periodos existentes</h2>
                 <table className="w-full whitespace-nowrap">
                     <thead className="bg-black/60">
                         <tr>
