@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from '../../../components/general/footer';
-import Navbar from '../../../components/general/navBar';
-import NavDown from '../../../components/general/navDown';
-import ContentNews from '../../../components/news/contentNews';
+import Footer from '../../../components/student-no-logued/general/footer'
+import Navbar from '../../../components/student-no-logued/general/navBar'
+import NavDown from '../../../components/student-no-logued/general/navDown'
+import ContentNews from '../../../components/student-no-logued/general/news/contentNews'
 
 const News = () => {
   return (

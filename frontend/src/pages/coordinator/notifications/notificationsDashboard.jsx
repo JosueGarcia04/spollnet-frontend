@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard';
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
-import Footer from '../../../components/general/footer';
 
 export const NotificationDashboard = () => {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -26,7 +25,6 @@ export const NotificationDashboard = () => {
                     <h2 className="text-xl font-bold mb-4">Sin notificaciones por el momento</h2>
                 </div>
             </div>
-            <Footer />
             <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </div>
     );

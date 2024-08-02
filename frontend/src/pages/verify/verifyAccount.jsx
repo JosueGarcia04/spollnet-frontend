@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/general/footer';
 
 export const VerifyAccount = () => {
   const [verificationCode, setVerificationCode] = useState('');
@@ -29,7 +28,6 @@ export const VerifyAccount = () => {
           <button type="submit" className="bg-pink-500 text-white p-2 rounded">Verificar cuenta</button>
         </form>
       </div>
-      <Footer />
     </div>
   );
 }

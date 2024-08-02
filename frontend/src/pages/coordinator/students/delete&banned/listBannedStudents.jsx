@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../../../components/general/footer';
 import NavbarMobile from '../../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
 import MenuCoordinatorDashboard from '../../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import UsersTableCoordinatorDashboard from '../../../../components/coordinator/studentsInformation/usersTable';
@@ -19,7 +18,6 @@ export default function ListBannedStudents() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

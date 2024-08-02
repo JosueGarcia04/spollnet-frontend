@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 //general
-import Footer from '../../../components/general/footer'
 import NavbarMobile from '../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
 //panel
 import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard'
@@ -35,7 +34,6 @@ export const Coordinator =() =>{
                     <PrincipalStatisticInformationComponent/>     
                 </div>
             </div>
-            <Footer/>
             <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </div>
         </>

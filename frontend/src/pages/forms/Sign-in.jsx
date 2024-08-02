@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Navbar from '../../components/general/navBar';
-import Footer from '../../components/general/footer';
-import NavDown from '../../components/general/navDown';
-import { Label } from '../../components/forms/label';
-import RegisterButton from '../../components/forms/Sign up/registerButton';
-import axios from 'axios';
-import Swal from 'sweetalert2';
-import { useValidations } from '../../hooks/forms/forms';
+import React, { useState } from 'react'
+import Navbar from '../../components/student-no-logued/general/navBar'
+import Footer from '../../components/student-no-logued/general/footer'
+import NavDown from '../../components/student-no-logued/general/navDown'
+import { Label } from '../../components/student-no-logued/forms/label'
+import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton'
+import axios from 'axios'
+import Swal from 'sweetalert2'
+import { useValidations } from '../../hooks/forms/forms'
 
 const SignIn = () => {
     const { errors, setErrors, handleInputChange, validations, handleBackendErrors } = useValidations();

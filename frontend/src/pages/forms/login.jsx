@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Navbar from '../../components/general/navBar';
-import Footer from '../../components/general/footer';
-import { Input } from '../../components/forms/input';
-import { Label } from '../../components/forms/label';
-import { Forgot } from '../../components/forms/Sign up/forgotPassword';
-import { LinkRegister } from '../../components/forms/login/linkForRegister';
-import RegisterButton from '../../components/forms/Sign up/registerButton';
-import axios from 'axios';
-import Swal from 'sweetalert2';
+import Navbar from '../../components/student-no-logued/general/navBar'
+import Footer from '../../components/student-no-logued/general/footer'
+import { Input } from '../../components/student-no-logued/forms/input'
+import { Label } from '../../components/student-no-logued/forms/label'
+import { Forgot } from '../../components/student-no-logued/forms/Sign up/forgotPassword'
+import { LinkRegister } from '../../components/student-no-logued/forms/login/linkForRegister'
+import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton'
+import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [mail, setEmail] = useState('');

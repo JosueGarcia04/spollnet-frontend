@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
-import LogoGithub from '../svg/logoGithub';
-import LogoNode from '../svg/logoNode';
-import LogoExpress from '../svg/logoExpress';
-import LogoReact from '../svg/logoReact';
-import LogoMongo from '../svg/logoMongo';
-import LogoJavascript from '../svg/logoJs';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import LogoGithub from '../../svg/logoGithub'
+import LogoNode from '../../svg/logoNode'
+import LogoExpress from '../../svg/logoExpress'
+import LogoReact from '../../svg/logoReact'
+import LogoMongo from '../../svg/logoMongo'
+import LogoJavascript from '../../svg/logoJs'
 
 const Footer = () => {
   return (

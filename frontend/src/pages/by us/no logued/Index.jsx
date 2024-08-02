@@ -1,12 +1,12 @@
-import Navbar from '../../../components/general/navBar';
-import Footer from '../../../components/general/footer';
-import Countdown from '../../../components/index/countdown/timer';
-import NavDown from '../../../components/general/navDown';
-import Id from '../../../components/index/credentials';
-import Steps from '../../../components/index/steps_vote';
-import Emitir from '../../../components/index/buttonVoteIndex';
-import Welcome from '../../../components/index/welcome';
-import AboutUs from '../general/about us';
+import Navbar from '../../../components/student-no-logued/general/navBar'
+import Footer from '../../../components/student-no-logued/general/footer'
+import Countdown from '../../../components/student-no-logued/index/countdown/timer'
+import NavDown from '../../../components/student-no-logued/general/navDown'
+import Id from '../../../components/student-no-logued/index/credentials'
+import Steps from '../../../components/student-no-logued/index/steps_vote'
+import Emitir from '../../../components/student-no-logued/index/buttonVoteIndex'
+import Welcome from '../../../components/student-no-logued/index/welcome'
+import AboutUs from '../general/about us'
 
 export const Index = () => {
   return (

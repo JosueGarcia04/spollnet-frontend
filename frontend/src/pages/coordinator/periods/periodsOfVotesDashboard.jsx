@@ -7,7 +7,6 @@ import AddPeriod from '../../../components/coordinator/periodDashboardInformatio
 import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard';
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
-import Footer from '../../../components/general/footer';
 import NavbarMobile from '../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
 
 export const PeriodsOfVotesDashboard = () => {
@@ -35,7 +34,6 @@ export const PeriodsOfVotesDashboard = () => {
                     <AddPeriod />
                 </div>
             </div>
-            <Footer />
             <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </div>
     );
