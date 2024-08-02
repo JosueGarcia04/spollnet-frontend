@@ -73,10 +73,6 @@ const Navbar = () => {
               <button className="font-bold">Iniciar sesión</button>
               <span className="text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/news"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md justify-between space-x-2">
-              <button className="font-bold">Noticias</button>
-              <span className="text-[#E41FAE] font-bold">&#62;</span>
-            </Link>
           </ul>
 
           <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-between">
