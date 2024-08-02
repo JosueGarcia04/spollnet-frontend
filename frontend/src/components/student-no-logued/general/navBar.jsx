@@ -65,41 +65,17 @@ const Navbar = () => {
                 <p className="text-gray-400">usuario@example.com</p>
               </div>
             </div>
-            <Link to={"/"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
-              <button className="font-bold">
-                Inicio
-              </button>
-              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
+            <Link to={"/Sign-in"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md justify-between space-x-2">
+              <button className="font-bold">Crear una cuenta</button>
+              <span className="text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/about us"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
-              <button className="font-bold">
-                Sobre nosotros
-              </button>
-              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
+            <Link to={"/login"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md justify-between space-x-2">
+              <button className="font-bold">Iniciar sesión</button>
+              <span className="text-[#E41FAE] font-bold">&#62;</span>
             </Link>
-            <Link to={"/contact"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
-              <button className="font-bold">
-                Contáctanos
-              </button>
-              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
-            </Link>
-            <Link to={"/Sign-in"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
-              <button className="font-bold">
-                Registro
-              </button>
-              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
-            </Link>
-            <Link to={"/login"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
-              <button className="font-bold">
-                Inicias sesión
-              </button>
-              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
-            </Link>
-            <Link to={"/news"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
-              <button className="font-bold">
-                Noticias
-              </button>
-              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
+            <Link to={"/news"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md justify-between space-x-2">
+              <button className="font-bold">Noticias</button>
+              <span className="text-[#E41FAE] font-bold">&#62;</span>
             </Link>
           </ul>
 
@@ -112,7 +88,7 @@ const Navbar = () => {
         <nav ref={navbarRef} className={`bg-black fixed top-0 left-0 w-full z-10 py-1 px-3 md:px-0 transition-all duration-300 ${scrolling ? 'border-b-2 border-[#E41FAE] shadow-lg rounded-b-3xl' : 'border-b-2 border-transparent transform translate-y-0'} ${scrolling ? 'translate-y-0' : '-translate-y-20'}`}>
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
             <Link to={"/"}>
-            <img src="public/logo2.png" className="w-40" alt="spollnet" />
+              <img src="public/logo2.png" className="w-40" alt="spollnet" />
             </Link>
             <div className="flex items-center md:order-2">
               <FontAwesomeIcon icon={faInbox} className="text-[#E41FAE] w-6 h-6 mr-2" />
@@ -123,29 +99,17 @@ const Navbar = () => {
                 aria-expanded={isOpen ? "true" : "false"}
               >
                 <span className="sr-only">Toggle navigation</span>
-                <svg className="w-8 h-8 text-[#E41FAE]" aria-hidden="true" xmlns="http://www.w3          .org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-8 h-8 text-[#E41FAE]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
               </button>
             </div>
-            <div className="hidden md:flex md:items-center md:space-x-4">
-              <Link to={"/"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-                Inicio
-              </Link>
-              <Link to={"/about us"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-                Sobre nosotros
-              </Link>
-              <Link to={"/contact"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-                Contáctanos
-              </Link>
+            <div className="hidden md:flex md:items-center md:space-x-4 ml-auto mr-4">
               <Link to={"/Sign-in"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-                Registro
+                Crear una cuenta
               </Link>
               <Link to={"/login"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
                 Iniciar sesión
-              </Link>
-              <Link to={"/news"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-                Noticias
               </Link>
             </div>
           </div>
