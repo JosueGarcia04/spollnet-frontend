@@ -1,6 +1,15 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/general/footer'
+import Footer from '../../components/general/footer';
+
 export const VerifyAccount = () => {
+  const [verificationCode, setVerificationCode] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Código de verificación enviado:', verificationCode);
+  };
+
   return (
     <div>
       <div className="bg-black min-h-screen flex flex-col items-center justify-center text-center text-white">
@@ -13,6 +22,7 @@ export const VerifyAccount = () => {
           <input
             type="text"
             placeholder="Código de verificación"
+            value={verificationCode}
             onChange={(e) => setVerificationCode(e.target.value)}
             className="mb-4 p-2 rounded border-2 border-pink-500 text-black"
           />

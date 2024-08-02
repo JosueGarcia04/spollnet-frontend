@@ -6,16 +6,14 @@ import InfoFaq from '../../../components/faq/infoFaq';
 
 const Faq = () => {
   return (
-    <>
-      <div className="bg-black text-white min-h-screen">
-        <div className='py-5'>
-          <Navbar />
-          <InfoFaq />
-        </div>
-        <NavDown />
-        <Footer />
+    <div className="bg-black text-white min-h-screen">
+      <Navbar />
+      <div className="py-5">
+        <InfoFaq />
       </div>
-    </>
+      <NavDown />
+      <Footer />
+    </div>
   );
 };
 
