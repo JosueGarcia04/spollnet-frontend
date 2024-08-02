@@ -59,7 +59,7 @@ export default function AddStudent() {
 
   return (
     <div>
-      <h2 className="text-xl font-bold py-5">Añadir estudiante</h2>
+      <h2 className="text-2xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg py-5">Añadir estudiante</h2>
       <div className="flex items-center justify-center p-3">
         <div className="mx-auto w-full max-w-[550px]">
           <form onSubmit={handleSubmit}>

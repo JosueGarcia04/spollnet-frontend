@@ -91,13 +91,13 @@ export default function DataStudentsInformation() {
     return (
         <div id="24h">
             <div className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Información de Usuarios</h2>
+                <h2 className="text-2xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">Información de Usuarios</h2>
                 <div id="user-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {renderStats(userStats)}
                 </div>
             </div>
             <div className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Lista de Estudiantes / Eliminados y Baneados</h2>
+                <h2 className="text-2xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">Lista de Estudiantes / Eliminados y Baneados</h2>
                 <div id="user-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                     {renderStats(TrashBan)}
                 </div>
