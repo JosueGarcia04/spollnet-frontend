@@ -1,22 +1,45 @@
-import React from 'react'
-import { faUsers, faCheckToSlot, faClipboard, faFile, faTrash, faBan} from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useEffect } from 'react';
+import { faUsers, faCheckToSlot, faClipboard, faFile, faTrash, faBan} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 
 export default function DataStudentsCoordinatorDashboard() {
+    const [stats, setStats] = useState({
+        registered: 0,
+        deleted: 0,
+        banned: 0,
+    });
+
+    const navigate = useNavigate(); 
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/dataStudentInformation'); 
+                const data = await response.json();
+                setStats(data);
+            } catch (error) {
+                console.error('Error fetching stats:', error);
+            }
+        };
+
+        fetchStats();
+    }, []);
+    
     const userStats = [
         {
             name: 'Estudiantes registrados',
-            value: '+2000',
+            value: stats.registered,
             icon: faUsers,
         },
         {
             name: 'Estudiantes eliminados',
-            value: '+8',
+            value: stats.deleted,
             icon: faTrash,
         },
         {
             name: 'Estudiantes baneados',
-            value: '+15',
+            value: stats.banned,
             icon: faBan,
         },
     ];
@@ -48,9 +71,18 @@ export default function DataStudentsCoordinatorDashboard() {
                     </div>
                     <div>
                         <p className="text-[#E41FAE] text-sm font-medium leading-4">{stat.name}</p>
-                        <p className="text-white font-bold text-2xl inline-flex items-center space-x-2">
-                            <span>{stat.value}</span>
-                        </p>
+                        {stat.showButton ? (
+                            <button 
+                                className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear"
+                                onClick={() => navigate(stat.navigateTo)}
+                            >
+                                Ver {stat.name}
+                            </button>
+                        ) : (
+                            <p className="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                                <span>{stat.value}</span>
+                            </p>
+                        )}
                     </div>
                 </div>
             </div>
@@ -65,7 +97,6 @@ export default function DataStudentsCoordinatorDashboard() {
                     {renderStats(userStats)}
                 </div>
             </div>
-
             <div className="mb-8">
                 <h2 className="text-2xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">Datos de Votación</h2>
                 <div id="voting-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
