@@ -7,9 +7,6 @@ import { Index } from '../pages/by us/no logued/Index'
 import { Root } from '../pages/Root'
 //general
 import NotFound from '../pages/not found/404'
-import Faq from '../pages/by us/general/faq'
-import AboutUs from '../pages/by us/general/about us'
-import Contact  from '../pages/by us/general/contact'
 import News from '../pages/by us/general/news'
 //coordinador
 import Coordinator from '../pages/coordinator/dashboard/main'
@@ -36,14 +33,6 @@ export const Router = createBrowserRouter([
                 element: <Index />
             },
             {
-                path:"/faq",
-                element:<Faq/>
-            },
-            {
-                path:"/about us",
-                element:<AboutUs/>
-            },
-            {
                 path:"Sign-in",
                 element:<SignIn/>
             },
@@ -58,10 +47,6 @@ export const Router = createBrowserRouter([
             {
                 path: "verifyAccount",
                 element:<VerifyAccount/>
-            },
-            {
-                path:"contact",
-                element:<Contact/>
             },
             {
                 path:"news",
