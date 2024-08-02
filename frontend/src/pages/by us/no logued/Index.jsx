@@ -7,7 +7,6 @@ import Steps from '../../../components/index/steps_vote';
 import Emitir from '../../../components/index/buttonVoteIndex';
 import Welcome from '../../../components/index/welcome';
 import AboutUs from '../general/about us';
-import Contact from '../general/contact';
 
 export const Index = () => {
   return (
@@ -41,7 +40,6 @@ export const Index = () => {
                            shadow-lg">
                 Sobre Spollnet
               </h2>
-              <Contact/>
               <AboutUs/>
             </div>
           </header>
