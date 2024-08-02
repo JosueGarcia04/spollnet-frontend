@@ -1,9 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPager, faThumbsUp, faShieldHalved, faChartSimple } from '@fortawesome/free-solid-svg-icons';
-import Footer from '../../../components/general/footer';
-import Navbar from '../../../components/general/navBar';
-import NavDown from '../../../components/general/navDown';
 
 const AboutUs = () => {
   const features = [
@@ -31,7 +28,6 @@ const AboutUs = () => {
 
   return (
     <>
-      <Navbar />
       <div className="bg-black pt-12 sm:pt-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto mt-8 max-w-2xl sm:mt-12 lg:mt-16 lg:max-w-4xl">
@@ -52,10 +48,6 @@ const AboutUs = () => {
             </dl>
           </div>
         </div>
-      </div>
-      <div className="bg-black">
-        <NavDown />
-        <Footer />
       </div>
     </>
   );

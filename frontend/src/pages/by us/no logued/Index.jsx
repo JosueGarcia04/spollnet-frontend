@@ -6,6 +6,8 @@ import Id from '../../../components/index/credentials';
 import Steps from '../../../components/index/steps_vote';
 import Emitir from '../../../components/index/buttonVoteIndex';
 import Welcome from '../../../components/index/welcome';
+import AboutUs from '../general/about us';
+import Contact from '../general/contact';
 
 export const Index = () => {
   return (
@@ -34,6 +36,13 @@ export const Index = () => {
                 Proceso de Votación
               </h2>
               <Steps />
+              <h2 className="mb-6 text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
+                           text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
+                           shadow-lg">
+                Sobre nosotros
+              </h2>
+              <Contact/>
+              <AboutUs/>
             </div>
           </header>
         </div>
