@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { faHouse, faUsers, faNewspaper, faChartSimple, faFile, faCalendarCheck, faFaceLaughBeam, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUsers, faNewspaper, faChartSimple, faFile, faCalendarCheck, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
 
@@ -43,12 +43,6 @@ export default function MenuCoordinatorDashboard() {
                         <p className="font-bold text-base lg:text-lg text-slate-200">Periodos</p>
                     </div>
                 </Link>
-                <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
-                    <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faFaceLaughBeam} />
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Gestión</p>
-                    </div>
-                </a>
                 <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faChartSimple} />

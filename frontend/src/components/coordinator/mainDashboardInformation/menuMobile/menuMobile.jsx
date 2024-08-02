@@ -96,12 +96,6 @@ const NavbarMobile = () => {
             </Link>
             <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
               <button className="font-bold">
-                Gestión
-              </button>
-              <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
-            </Link>
-            <Link to={"#"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md">
-              <button className="font-bold">
                 Estadisticas
               </button>
               <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>
