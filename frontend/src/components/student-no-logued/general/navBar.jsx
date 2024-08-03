@@ -101,13 +101,13 @@ const Navbar = () => {
             </div>
             <div className="hidden md:flex md:items-center md:space-x-4 ml-auto mr-4 md:mr-8">
               <Link to={"/Sign-in"} className="font-bold text-white rounded-lg py-3 px-2">
-                <button className="bg-[#E41FAE] text-white px-4 py-2 rounded-md shadow-md hover:bg-[#d81b9a] font-bold transition-colors duration-300">
-                  Crear una cuenta
+                <button className="border-2 border-[#E41FAE] text-white px-4 py-3 rounded-md font-bold transition-colors duration-300">
+                  Iniciar sesión
                 </button>
               </Link>
               <Link to={"/login"} className="font-bold text-white rounded-lg py-3 px-2">
-                <button className="border-2 border-[#E41FAE] text-white px-4 py-2 rounded-md font-bold transition-colors duration-300">
-                  Iniciar sesión
+                <button className="bg-[#E41FAE] text-white px-4 py-3 rounded-md shadow-md hover:bg-[#d81b9a] font-bold transition-colors duration-300">
+                  Crear cuenta
                 </button>
               </Link>
             </div>
