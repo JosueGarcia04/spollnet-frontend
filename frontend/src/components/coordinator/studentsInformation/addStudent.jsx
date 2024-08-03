@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import AddStudentButton from '../studentsInformation/buttonsAddStudent/addStudentButton';
+import { Label } from '../../../components/student-no-logued/forms/label';
+import { Input } from '../../../components/student-no-logued/forms/input';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useValidations } from '../../../hooks/forms/forms';
@@ -60,60 +62,68 @@ export default function AddStudent() {
       <div className="flex items-center justify-center p-3">
         <div className="mx-auto w-full max-w-[550px]">
           <form onSubmit={handleSubmit}>
-            {/* <LabelAddStudent text="Nombre" />
-            <InputAddStudent
-              type="text"
-              id="name"
-              value={name}
-              onChange={handleInputChange(setName)}
-              className={errors.name ? 'border-red-500' : 'border-white'}
-            />
-            {errors.name && <p className="text-red-500">{errors.name}</p>}
+            <div className="mb-4">
+              <Label htmlFor="name">Nombre completo</Label>
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                value={name}
+                onChange={handleInputChange(setName)}
+                className={errors.name ? 'border-red-500' : 'border-white'}
+              />
+              {errors.name && <p className="text-red-500">{errors.name}</p>}
+            </div>
 
-            <LabelAddStudent text="Correo" />
-            <InputAddStudent
-              type="email"
-              id="email"
-              value={email}
-              onChange={handleInputChange(setEmail)}
-              className={errors.email ? 'border-red-500' : 'border-white'}
-            />
-            {errors.email && <p className="text-red-500">{errors.email}</p>}
+            <div className="mb-4">
+              <Label htmlFor="email">Correo electrónico</Label>
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={handleInputChange(setEmail)}
+                className={errors.email ? 'border-red-500' : 'border-white'}
+              />
+              {errors.email && <p className="text-red-500">{errors.email}</p>}
+            </div>
 
-            <div className="-mx-3 flex flex-wrap">
-              <div className="w-full px-3 sm:w-1/2">
-                <LabelAddStudent text="Carnet" />
-                <InputAddStudent
-                  type="text"
-                  id="code"
-                  value={identifier}
-                  onChange={handleInputChange(setIdentifier)}
-                  className={errors.identifier ? 'border-red-500' : 'border-white'}
-                />
-                {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
-              </div>
-              <div className="w-full px-3 sm:w-1/2">
-                <LabelAddStudent text="Nivel" />
-                <select
-                  id="level"
-                  value={level}
-                  onChange={handleInputChange(setLevel)}
-                  className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.level ? 'border-red-500' : level ? 'border-green-500' : 'border-white'}`}
-                >
-                  <option value="">Seleccione un nivel educativo</option>
-                  <option value="Primaria">Primaria</option>
-                  <option value="Tercer ciclo">Tercer ciclo</option>
-                  <option value="Bachillerato">Bachillerato</option>
-                </select>
-                {errors.level && <p className="text-red-500">{errors.level}</p>}
-              </div>
+            <div className="mb-4">
+              <Label htmlFor="identifier">Carnet</Label>
+              <Input
+                type="text"
+                id="identifier"
+                name="identifier"
+                value={identifier}
+                onChange={handleInputChange(setIdentifier)}
+                className={errors.identifier ? 'border-red-500' : 'border-white'}
+              />
+              {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
+            </div>
+
+            <div className="mb-4">
+              <Label htmlFor="level">Nivel educativo</Label>
+              <select
+                id="level"
+                name="level"
+                value={level}
+                onChange={handleInputChange(setLevel)}
+                className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.level ? 'border-red-500' : level ? 'border-green-500' : 'border-white'}`}
+              >
+                <option value="">Seleccione un nivel educativo</option>
+                <option value="Primaria">Primaria</option>
+                <option value="Tercer ciclo">Tercer ciclo</option>
+                <option value="Bachillerato">Bachillerato</option>
+              </select>
+              {errors.level && <p className="text-red-500">{errors.level}</p>}
             </div>
 
             {level === 'Bachillerato' && (
-              <div className="w-full px-3 sm:w-1/2">
-                <LabelAddStudent text="Especialidad" />
+              <div className="mb-4">
+                <Label htmlFor="specialty">Especialidad</Label>
                 <select
                   id="specialty"
+                  name="specialty"
                   value={specialty}
                   onChange={handleInputChange(setSpecialty)}
                   className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.specialty ? 'border-red-500' : specialty ? 'border-green-500' : 'border-white'}`}
@@ -128,9 +138,9 @@ export default function AddStudent() {
                 </select>
                 {errors.specialty && <p className="text-red-500">{errors.specialty}</p>}
               </div>
-            )} */}
+            )}
 
-            <div>
+            <div className="mt-4">
               <AddStudentButton />
             </div>
           </form>
