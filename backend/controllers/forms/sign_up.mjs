@@ -13,6 +13,11 @@ export const register = async (req, res) => {
             return res.status(400).json({ message: 'El correo ya está registrado' });
         }
         
+        const existingPasswordHash = await Student.findOne({ password: hashedPassword });
+        if (existingPasswordHash) {
+            return res.status(400).json({ message: 'La contraseña ya está en uso' });
+        }
+
         let hashedPassword = null;
         if (password) {
             hashedPassword = await bcrypt.hash(password, 10);
