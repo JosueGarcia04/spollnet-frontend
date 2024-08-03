@@ -1,5 +1,4 @@
 import React from 'react';
-import AddStudentButton from '../studentsInformation/buttonsAddStudent/addStudentButton';
 
 export default function AddPeriod() {
   return (
@@ -27,7 +26,7 @@ export default function AddPeriod() {
             /> */}
 
             <div>
-              <AddStudentButton text="Agregar periodo" />
+              {/* <AddStudentButton text="Agregar periodo" /> */}
             </div>
           </form>
         </div>

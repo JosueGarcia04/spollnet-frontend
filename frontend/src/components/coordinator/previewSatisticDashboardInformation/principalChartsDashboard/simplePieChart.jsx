@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Chart } from "react-google-charts";
-import AddStudentButton from "../../studentsInformation/buttonsAddStudent/addStudentButton";
+// import AddStudentButton from "../../studentsInformation/buttonsAddStudent/addStudentButton";
 import {Link} from 'react-router-dom'
 
 export const SimplePieChart = () => {
@@ -62,7 +62,7 @@ export const SimplePieChart = () => {
       />
        <div className="mt-4">
         <Link to="/">
-          <AddStudentButton text="Ver todas las estadísticas" additionalClasses="mt-4" />
+          {/* <AddStudentButton text="Ver todas las estadísticas" additionalClasses="mt-4" /> */}
         </Link>
       </div>
     </div>
