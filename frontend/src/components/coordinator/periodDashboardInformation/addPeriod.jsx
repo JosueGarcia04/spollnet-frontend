@@ -1,8 +1,5 @@
 import React from 'react';
 import AddStudentButton from '../studentsInformation/buttonsAddStudent/addStudentButton';
-import ClearStudentButton from '../studentsInformation/buttonsAddStudent/clearStudentButton';
-import InputAddStudent from '../studentsInformation/inputsAddStudent/inputAddStudent';
-import LabelAddStudent from '../studentsInformation/inputsAddStudent/labelAddStudent';
 
 export default function AddPeriod() {
   return (
@@ -11,7 +8,7 @@ export default function AddPeriod() {
       <div className="flex items-center justify-center p-3">
         <div className="mx-auto w-full max-w-[550px]">
           <form action="" method="POST">
-            <LabelAddStudent text="Quien lo creó" />
+            {/* <LabelAddStudent text="Quien lo creó" />
             <InputAddStudent
               type="text"
               id="creator"
@@ -27,11 +24,9 @@ export default function AddPeriod() {
             <InputAddStudent
               type="date"
               id="endDate"
-            />
+            /> */}
 
             <div>
-              <ClearStudentButton />
-              <br /><br />
               <AddStudentButton text="Agregar periodo" />
             </div>
           </form>

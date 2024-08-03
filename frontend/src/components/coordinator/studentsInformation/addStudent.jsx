@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import AddStudentButton from '../studentsInformation/buttonsAddStudent/addStudentButton';
-import ClearStudentButton from './buttonsAddStudent/clearStudentButton';
-import InputAddStudent from './inputsAddStudent/inputAddStudent';
-import LabelAddStudent from './inputsAddStudent/labelAddStudent';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useValidations } from '../../../hooks/forms/forms';
@@ -63,7 +60,7 @@ export default function AddStudent() {
       <div className="flex items-center justify-center p-3">
         <div className="mx-auto w-full max-w-[550px]">
           <form onSubmit={handleSubmit}>
-            <LabelAddStudent text="Nombre" />
+            {/* <LabelAddStudent text="Nombre" />
             <InputAddStudent
               type="text"
               id="name"
@@ -131,11 +128,9 @@ export default function AddStudent() {
                 </select>
                 {errors.specialty && <p className="text-red-500">{errors.specialty}</p>}
               </div>
-            )}
+            )} */}
 
             <div>
-              <ClearStudentButton />
-              <br /><br />
               <AddStudentButton />
             </div>
           </form>
