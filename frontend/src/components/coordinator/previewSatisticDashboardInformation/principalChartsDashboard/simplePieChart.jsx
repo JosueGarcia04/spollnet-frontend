@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Chart } from "react-google-charts";
-// import AddStudentButton from "../../studentsInformation/buttonsAddStudent/addStudentButton";
-import {Link} from 'react-router-dom'
 
 export const SimplePieChart = () => {
   const chartRef = useRef(null);
@@ -60,11 +58,6 @@ export const SimplePieChart = () => {
         height={"400px"}
         className="simple-pie-chart"
       />
-       <div className="mt-4">
-        <Link to="/">
-          {/* <AddStudentButton text="Ver todas las estadísticas" additionalClasses="mt-4" /> */}
-        </Link>
-      </div>
     </div>
   );
 };

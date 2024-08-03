@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInbox, faSignOutAlt, faQuestionCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faSignOutAlt, faQuestionCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 
 const NavbarMobile = () => {
@@ -126,7 +126,7 @@ const NavbarMobile = () => {
               <img src="public/logo2.png" className="w-40" alt="spollnet" />
             </Link>
             <div className="flex items-center md:order-2">
-              <FontAwesomeIcon icon={faInbox} className="text-[#E41FAE] w-6 h-6 mr-4" />
+              <FontAwesomeIcon icon={faBell} className="text-[#E41FAE] w-6 h-6 mr-4" />
               <button
                 onClick={toggleNavbar}
                 className="inline-flex items-center p-2 w-12 h-12 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"

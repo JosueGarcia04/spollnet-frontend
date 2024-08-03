@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Label } from '../../../components/student-no-logued/forms/label';
-// import AddStudentButton from './buttonsAddStudent/addStudentButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useValidations } from '../../../hooks/forms/forms';
@@ -57,10 +56,9 @@ const AddStudent = () => {
 
     return (
         <>
-            <div className="min-h-screen">
-                <h2 className="text-2xl font-extrabold mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg ">Añadir estudiante</h2>
-                <section className="max-w-4xl mx-auto rounded-md shadow-md">
-                    <form onSubmit={handleSubmit} className="mt-10 border-4 border-black p-10 rounded-lg">
+            <h2 className="text-2xl font-extrabold mt-6 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">Añadir estudiantes</h2>
+                    <form onSubmit={handleSubmit} className=" p-10 rounded-lg">
+                    
                         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                             <div className="text-center font-bold">
                                 <Label htmlFor="name">Nombre completo</Label>
@@ -149,8 +147,6 @@ const AddStudent = () => {
                             {/* <AddStudentButton /> */}
                         </div>
                     </form>
-                </section>
-            </div>
         </>
     );
 }
