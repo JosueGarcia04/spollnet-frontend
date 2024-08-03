@@ -66,7 +66,7 @@ const Navbar = () => {
               </div>
             </div>
             <Link to={"/Sign-in"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md justify-between space-x-2">
-              <button className="font-bold">Crear cuenta</button>
+              <button className="font-bold">Crear una cuenta</button>
               <span className="text-[#E41FAE] font-bold">&#62;</span>
             </Link>
             <Link to={"/login"} className="flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md justify-between space-x-2">
@@ -83,7 +83,7 @@ const Navbar = () => {
 
         <nav ref={navbarRef} className={`bg-black fixed top-0 left-0 w-full z-10 py-1 px-3 md:px-0 transition-all duration-300 ${scrolling ? 'border-b-2 border-[#E41FAE] shadow-lg rounded-b-3xl' : 'border-b-2 border-transparent transform translate-y-0'} ${scrolling ? 'translate-y-0' : '-translate-y-20'}`}>
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-            <Link to={"/"} className="ml-4 md:ml-8">
+            <Link to={"/"}>
               <img src="public/logo2.png" className="w-40" alt="spollnet" />
             </Link>
             <div className="flex items-center md:order-2">
@@ -99,16 +99,12 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
-            <div className="hidden md:flex md:items-center md:space-x-4 ml-auto mr-4 md:mr-8">
-              <Link to={"/Sign-in"} className="font-bold text-white rounded-lg py-3 px-2">
-                <button className="border-2 border-[#E41FAE] text-white px-4 py-3 rounded-md font-bold transition-colors duration-300">
-                  Iniciar sesión
-                </button>
+            <div className="hidden md:flex md:items-center md:space-x-4 ml-auto mr-4">
+              <Link to={"/Sign-in"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
+                Crear una cuenta
               </Link>
-              <Link to={"/login"} className="font-bold text-white rounded-lg py-3 px-2">
-                <button className="bg-[#E41FAE] text-white px-4 py-3 rounded-md shadow-md hover:bg-[#d81b9a] font-bold transition-colors duration-300">
-                  Crear cuenta
-                </button>
+              <Link to={"/login"} className="font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
+                Iniciar sesión
               </Link>
             </div>
           </div>
