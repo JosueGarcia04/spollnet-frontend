@@ -16,7 +16,7 @@ const studentSchema = new mongoose.Schema({
     },
     especialidad: { 
       type: String, 
-      required: function(){
+      required: function() {
         return this.nivel === "Bachillerato";
       }
     },
@@ -27,7 +27,7 @@ const studentSchema = new mongoose.Schema({
     },
     password: { 
       type: String, 
-      required: true 
+      required: false
     },
     isDeleted: { 
       type: Boolean, 

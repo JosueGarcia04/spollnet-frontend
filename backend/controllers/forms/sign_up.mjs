@@ -12,9 +12,11 @@ export const register = async (req, res) => {
         if (existingEmail) {
             return res.status(400).json({ message: 'El correo ya está registrado' });
         }
-
-        const hashedPassword = await bcrypt.hash(password, 10);
-
+        
+        let hashedPassword = null;
+        if (password) {
+            hashedPassword = await bcrypt.hash(password, 10);
+        }
 
         const newUser = new Student({
             nombre,
@@ -24,7 +26,7 @@ export const register = async (req, res) => {
             identificador,
             password: hashedPassword,
             isDeleted: false,
-            idBanned: false,
+            isBanned: false,
         });
         
         await newUser.save();
