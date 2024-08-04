@@ -23,25 +23,25 @@ export const useValidations = () => {
         setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: '' }));
     };
 
-    const validations = (name, mail, contra, level, specialty, identifier) => {
+    const validations = (name, email, password, level, specialty, identifier) => {
         const errors = {};
 
         if (!name.trim()) {
             errors.name = 'Campo obligatorio';
         } else if (!/^[A-Za-z\s]+$/.test(name)) {
-            errors.name = 'Nombre no valido';
+            errors.name = 'Nombre no válido';
         }
 
-        if (!mail.trim()) {
+        if (!email.trim()) {
             errors.email = 'Campo obligatorio';
-        } else if (!validateEmail(mail)) {
-            errors.email = 'Correo no valido';
+        } else if (!validateEmail(email)) {
+            errors.email = 'Correo no válido';
         }
 
-        if (!contra.trim() && contra !== undefined) {
+        if (!password.trim()) {
             errors.password = 'Campo obligatorio';
-        } else if (contra && !validatePassword(contra)) {
-            errors.password = 'Contraseña no valida';
+        } else if (password && !validatePassword(password)) {
+            errors.password = 'Contraseña no válida';
         }
 
         if (!level.trim()) {
@@ -66,21 +66,9 @@ export const useValidations = () => {
     };
 
     const handleBackendErrors = (backendErrors) => {
-        const newErrors = {};
-        if (backendErrors.email) {
-            newErrors.email = 'El correo ya está registrado';
-        }
-        if (backendErrors.identifier) {
-            newErrors.identifier = 'El carnet ya está registrado';
-        }
-        if (backendErrors.password) {
-            newErrors.password = 'La contraseña ya está registrada';
-        }
-        console.log("Backend Errors:", backendErrors);
-        console.log("New Errors:", newErrors);
         setErrors((prevErrors) => ({
             ...prevErrors,
-            ...newErrors,
+            ...backendErrors,
         }));
     };
     

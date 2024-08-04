@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 const studentSchema = new mongoose.Schema({
   nombre: { 
     type: String, 
@@ -36,3 +38,5 @@ const studentSchema = new mongoose.Schema({
     default: false 
   }
 });
+
+export const Student = mongoose.model('Student', studentSchema);

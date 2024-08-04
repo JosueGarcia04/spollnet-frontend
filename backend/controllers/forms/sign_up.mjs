@@ -1,5 +1,4 @@
-export const Student = mongoose.model('Student', studentSchema);
-import { Student } from '../../models/student.mjs';
+import {Student} from '../../models/student.mjs';
 import bcrypt from 'bcrypt';
 
 export const register = async (req, res) => {
