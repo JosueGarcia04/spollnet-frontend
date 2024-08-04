@@ -1,3 +1,4 @@
+export const Student = mongoose.model('Student', studentSchema);
 import { Student } from '../../models/student.mjs';
 import bcrypt from 'bcrypt';
 
@@ -12,11 +13,9 @@ export const register = async (req, res) => {
         if (existingEmail) {
             return res.status(400).json({ message: 'El correo ya está registrado' });
         }
-        
-        let hashedPassword = null;
-        if (password) {
-            hashedPassword = await bcrypt.hash(password, 10);
-        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+
 
         const newUser = new Student({
             nombre,
@@ -26,7 +25,7 @@ export const register = async (req, res) => {
             identificador,
             password: hashedPassword,
             isDeleted: false,
-            isBanned: false,
+            idBanned: false,
         });
         
         await newUser.save();
