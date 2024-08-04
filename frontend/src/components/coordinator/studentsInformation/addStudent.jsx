@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Label } from '../../../components/student-no-logued/forms/label';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import RegisterButton from '../../student-no-logued/forms/Sign up/registerButton'
 import { useValidations } from '../../../hooks/forms/forms';
 
 const AddStudent = () => {
@@ -144,7 +145,7 @@ const AddStudent = () => {
                             </div>
                         </div>
                         <div className="flex justify-center mt-6">
-                            {/* <AddStudentButton /> */}
+                            <RegisterButton text='Añadir estudiante'/>
                         </div>
                     </form>
         </>
