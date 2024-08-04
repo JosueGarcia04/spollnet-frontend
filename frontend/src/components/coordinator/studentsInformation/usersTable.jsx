@@ -275,37 +275,55 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
                 <td className="py-3 px-4">{student.nivel}</td>
                 <td className="py-3 px-4">{student.especialidad}</td>
                 <td className="py-3 px-4">
-                  <div className="inline-flex items-center space-x-3">
-                    {mode !== 'deleted' && mode !== 'banned' && (
-                      <button onClick={() => handleEditClick(student)}>
-                        <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600' />
-                      </button>
+                  <div className="space-x-3">
+                    {!student.isDeleted && !student.isBanned && (
+                      <>
+                        <button
+                          onClick={() => handleEditClick(student)}
+                          className="text-blue-500 hover:text-blue-700"
+                        >
+                          <FontAwesomeIcon icon={faPenToSquare} />
+                        </button>
+                        <button
+                          onClick={() => deleteStudent(student._id)}
+                          className="text-red-500 hover:text-red-700"
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                        <button
+                          onClick={() => banStudent(student._id)}
+                          className="text-yellow-500 hover:text-yellow-700"
+                        >
+                          <FontAwesomeIcon icon={faBan} />
+                        </button>
+                      </>
                     )}
-                    {mode === 'deleted' ? (
-                        <>
-                          <button onClick={() => permanentlyDeleteStudent(student._id)}>
-                            <FontAwesomeIcon icon={faTrashCanArrowUp} className='text-red-600' />
-                          </button>
-                          <button onClick={() => restoreStudent(student._id)}>
-                            <FontAwesomeIcon icon={faCircleUp} className='text-green-600' />
-                          </button>
-                        </>
-                      ) : mode === 'banned' ? (
-                        <>
-                          <button onClick={() => restoreStudent(student._id)}>
-                            <FontAwesomeIcon icon={faCircleUp} className='text-green-600' />
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <button onClick={() => deleteStudent(student._id)}>
-                            <FontAwesomeIcon icon={faTrash} className='text-red-600' />
-                          </button>
-                          <button onClick={() => banStudent(student._id)}>
-                            <FontAwesomeIcon icon={faBan} className='text-yellow-600' />
-                          </button>
-                        </>
-                      )}
+                    {student.isDeleted && (
+                      <>
+                        <button
+                          onClick={() => permanentlyDeleteStudent(student._id)}
+                          className="text-red-500 hover:text-red-700"
+                        >
+                          <FontAwesomeIcon icon={faTrashCanArrowUp} />
+                        </button>
+                        <button
+                          onClick={() => restoreStudent(student._id)}
+                          className="text-green-500 hover:text-green-700"
+                        >
+                          <FontAwesomeIcon icon={faCircleUp} />
+                        </button>
+                      </>
+                    )}
+                    {student.isBanned && (
+                      <>
+                        <button
+                          onClick={() => restoreStudent(student._id)}
+                          className="text-green-500 hover:text-green-700"
+                        >
+                          <FontAwesomeIcon icon={faCircleUp} />
+                        </button>
+                      </>
+                    )}
                   </div>
                 </td>
               </tr>
@@ -314,74 +332,84 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
         </table>
       </div>
 
-      {selectedStudent && (
-  <div className={`fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 ${isModalOpen ? '' : 'hidden'}`}>
-    <div className="bg-black rounded-lg p-6 w-80">
-      <h2 className="text-2xl font-bold mb-4 text-[#E31FAE]">Editar Estudiante</h2>
-      <form>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-[#E31FAE]">Nombre:</label>
-          <input
-            type="text"
-            name="nombre"
-            value={updatedStudent.nombre}
-            onChange={handleInputChange}
-            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
-          />
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-black p-6 rounded-lg shadow-md relative z-50">
+          <h2 className="text-2xl font-extrabold text-center mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">Editar estudiante</h2>
+            <form className="space-y-4">
+              <div>
+                <label htmlFor="nombre" className="font-bold block text-[#E31FAE]">Nombre</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  value={updatedStudent.nombre}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 bg-black text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-[#E31FAE]"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="font-bold block text-[#E31FAE]">Correo</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={updatedStudent.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 bg-black text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-[#E31FAE]"
+                />
+              </div>
+              <div>
+                <label htmlFor="identificador" className="font-bold block text-[#E31FAE]">Carnet</label>
+                <input
+                  type="text"
+                  id="identificador"
+                  name="identificador"
+                  value={updatedStudent.identificador}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 bg-black text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-[#E31FAE]"
+                />
+              </div>
+              <div>
+                <label htmlFor="nivel" className="font-bold block text-[#E31FAE]">Nivel</label>
+                <input
+                  type="text"
+                  id="nivel"
+                  name="nivel"
+                  value={updatedStudent.nivel}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 bg-black text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-[#E31FAE]"
+                />
+              </div>
+              <div>
+                <label htmlFor="especialidad" className="font-bold block text-[#E31FAE]">Especialidad</label>
+                <input
+                  type="text"
+                  id="especialidad"
+                  name="especialidad"
+                  value={updatedStudent.especialidad}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 bg-black text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-[#E31FAE]"
+                />
+              </div>
+            </form>
+            <div className="mt-4 flex justify-center space-x-4">
+              <button
+                onClick={handleSaveChanges}
+                className="bg-[#E31FAE] text-white px-4 py-2 rounded hover:bg-[#D0219D]"
+              >
+                Guardar Cambios
+              </button>
+              <button
+                onClick={handleModalClose}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-[#E31FAE]">Correo:</label>
-          <input
-            type="email"
-            name="email"
-            value={updatedStudent.email}
-            onChange={handleInputChange}
-            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-[#E31FAE]">Carnet:</label>
-          <input
-            type="text"
-            name="identificador"
-            value={updatedStudent.identificador}
-            onChange={handleInputChange}
-            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-[#E31FAE]">Nivel:</label>
-          <input
-            type="text"
-            name="nivel"
-            value={updatedStudent.nivel}
-            onChange={handleInputChange}
-            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-[#E31FAE]">Especialidad:</label>
-          <input
-            type="text"
-            name="especialidad"
-            value={updatedStudent.especialidad}
-            onChange={handleInputChange}
-            className="mt-1 block w-full rounded-md border-[#E31FAE] bg-black text-[#E31FAE] focus:border-[#E31FAE] focus:ring-[#E31FAE] sm:text-sm"
-          />
-        </div>
-        <div className="flex justify-center space-x-4">
-          <button type="button" onClick={handleSaveChanges} className="bg-blue-500 text-white px-3 py-1.5 rounded-md hover:bg-blue-600">
-            Guardar Cambios
-          </button>
-          <button type="button" onClick={handleModalClose} className="bg-gray-500 text-white px-3 py-1.5 rounded-md hover:bg-gray-600">
-            Cancelar
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-)}
-
+      )}
     </div>
   );
 }
