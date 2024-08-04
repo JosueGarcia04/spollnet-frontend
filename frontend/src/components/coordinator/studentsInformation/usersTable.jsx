@@ -260,7 +260,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
           </thead>
           <tbody>
             {students.filter(student => 
-              (mode === 'deleted' && student.isDeleted) || 
+              (mode === 'deleted'  && student.isDeleted) || 
               (mode === 'banned' && student.isBanned) ||
               (!mode && !student.isDeleted && !student.isBanned)
             ).map((student) => (
