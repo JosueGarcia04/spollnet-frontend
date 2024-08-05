@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import Navbar from '../../components/student-no-logued/general/navBar'
-import Footer from '../../components/student-no-logued/general/footer'
-import { Input } from '../../components/student-no-logued/forms/input'
-import { Label } from '../../components/student-no-logued/forms/label'
-import { Forgot } from '../../components/student-no-logued/forms/Sign up/forgotPassword'
-import { LinkRegister } from '../../components/student-no-logued/forms/login/linkForRegister'
-import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton'
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import Navbar from '../../components/student-no-logued/general/navBar';
+import Footer from '../../components/student-no-logued/general/footer';
+import { Input } from '../../components/student-no-logued/forms/input';
+import { Label } from '../../components/student-no-logued/forms/label';
+import { Forgot } from '../../components/student-no-logued/forms/Sign up/forgotPassword';
+import { LinkRegister } from '../../components/student-no-logued/forms/login/linkForRegister';
+import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [mail, setEmail] = useState('');
     const [contra, setPassword] = useState('');
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
     const validations = () => {
         const errors = {};
@@ -32,21 +34,26 @@ const Login = () => {
 
         try {
             let response;
-            
-        if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
-            response = { data: { msg: 'Inicio de sesión de coordinador exitoso' } };
-            Swal.fire({
-                title: "¡Bien!",
-                text: response.data.msg,
-                icon: "success" 
-            }).then(() => {
-                setTimeout(() => {
-                    const link = document.createElement('a');
-                    link.href = '/main';
-                    link.click();
-                  }, 1000);
-            });
-            return;
+            if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
+                response = { data: { msg: 'Inicio de sesión de coordinador exitoso' } };
+                Swal.fire({
+                    title: "¡Bien!",
+                    text: response.data.msg,
+                    icon: "success"
+                }).then(() => {
+                    navigate('/main', { replace: true });
+                });
+                return;
+            } else if (mail === 'consejo2024@gmail.com' && contra === 'conseJo2024#') {
+                response = { data: { msg: 'Inicio de sesión de consejal exitoso' } };
+                Swal.fire({
+                    title: "¡Bien!",
+                    text: response.data.msg,
+                    icon: "success"
+                }).then(() => {
+                    navigate('/council', { replace: true });
+                });
+                return;
             } else {
                 response = await axios.post('http://localhost:5000/login', {
                     email: mail,
@@ -59,6 +66,8 @@ const Login = () => {
                     title: "¡Bien!",
                     text: response.data.msg,
                     icon: "success"
+                }).then(() => {
+                    navigate('/main', { replace: true });
                 });
             } else {
                 Swal.fire({
@@ -75,7 +84,8 @@ const Login = () => {
                 error,
             });
         }
-    }
+    };
+
     return (
         <>
             <Navbar />
@@ -83,7 +93,7 @@ const Login = () => {
                 <div className="w-full sm:max-w-md p-5 mx-auto">
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4 text-center font-bold">
-                            <Label htmlFor="emailAdress">Correo electronico </Label>
+                            <Label htmlFor="emailAdress">Correo electrónico</Label>
                             <Input
                                 id='emailAdress'
                                 name='email'
@@ -96,7 +106,7 @@ const Login = () => {
                             {errors.mail && <p className="text-red-500">{errors.mail}</p>}
                         </div>
                         <div className="mb-4 text-center font-bold">
-                            <Label htmlFor="password">Contraseña </Label>
+                            <Label htmlFor="password">Contraseña</Label>
                             <Input
                                 id='password'
                                 name='password'
@@ -123,6 +133,6 @@ const Login = () => {
             <Footer />
         </>
     );
-}
+};
 
 export default Login;
