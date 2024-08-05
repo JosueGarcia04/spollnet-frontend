@@ -2,7 +2,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
-// controladores
 import { register } from './controllers/forms/sign_up.mjs';
 import { credentials } from './controllers/forms/login.mjs';
 import { checkCarnet } from './controllers/forms/carnet.mjs';
@@ -17,11 +16,10 @@ dotenv.config();
 
 const app = express();
 
-// Middlewares
+
 app.use(cors());
 app.use(express.json());
 
-// Rutas
 app.post("/register", register);
 app.post("/login", credentials);
 app.post('/check-carnet', checkCarnet);
@@ -34,7 +32,6 @@ app.patch('/students/:id/ban', banStudent);
 app.get('/dataStudentInformation', getDataStudentInformation);
 app.patch('/students/:id', updateStudent);
 
-// Conexión a la base de datos
 const port = process.env.APP_PORT || 5000;
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';
 

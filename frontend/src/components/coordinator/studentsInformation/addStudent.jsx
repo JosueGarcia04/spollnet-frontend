@@ -4,7 +4,7 @@ import { Label } from '../../../components/student-no-logued/forms/label';
 import { Input } from '../../../components/student-no-logued/forms/input';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useValidations } from '../../../hooks/forms/forms';
+import { useValidations } from '../../../hooks/forms/addStudent';
 
 export default function AddStudent() {
   const { errors, setErrors, handleInputChange, validations, handleBackendErrors } = useValidations();
@@ -17,25 +17,26 @@ export default function AddStudent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const validationErrors = validations(name, email, '', level, specialty, identifier);
+    const validationErrors = validations(name, email, level, specialty, identifier);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
     try {
-      const studentData = {
+      const data = {
         nombre: name,
         email: email,
         nivel: level,
         identificador: identifier,
+        especialidad: level === 'Bachillerato' ? specialty : null,
       };
-
+      
       if (level === 'Bachillerato') {
-        studentData.especialidad = specialty;
-      }
+        data.especialidad = specialty;
+    }
 
-      const response = await axios.post('http://localhost:5000/students', studentData);
+      const response = await axios.post('http://localhost:5000/add-student', data);
       Swal.fire({
         title: "¡Éxito!",
         text: "El estudiante ha sido registrado correctamente.",
@@ -48,8 +49,8 @@ export default function AddStudent() {
       setSpecialty('');
       setErrors({});
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.errors) {
-        handleBackendErrors(error.response.data.errors);
+      if (error.response && error.response.data && error.response.data.msg) {
+        handleBackendErrors({ msg: error.response.data.msg });
       } else {
         Swal.fire({
           icon: "error",
@@ -149,7 +150,7 @@ export default function AddStudent() {
             </div>
 
             <div className="mt-4">
-              <RegisterButton text="Añadir estudiante"/>
+              <RegisterButton text="Añadir estudiante" />
             </div>
           </form>
         </div>

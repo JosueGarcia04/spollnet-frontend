@@ -3,6 +3,11 @@ import { AddStudent } from '../../../models/addStudent.mjs';
 export const addStudent = async (req, res) => {
   const { nombre, email, nivel, especialidad, identificador } = req.body;
   try {
+
+    if (!nombre ||!email ||!nivel ||!identificador) {
+      return res.status(400).json({ msg: 'Por favor, complete todos los campos' });
+    }
+    
     const existingStudentByIdentifier = await AddStudent.findOne({ identificador });
     if (existingStudentByIdentifier) {
       return res.status(400).json({ msg: 'El carnet ya está registrado' });

@@ -18,7 +18,7 @@ export const useValidations = () => {
         setErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: '' }));
     };
 
-    const validations = (name, email, password, level, specialty, identifier) => {
+    const validations = (name, email, level, specialty, identifier) => {
         const errors = {};
 
         if (!name.trim()) {
