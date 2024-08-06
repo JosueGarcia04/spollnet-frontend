@@ -27,14 +27,9 @@ const Profile = () => {
                         <div className="h-full flex flex-col justify-center">
                             <div className="p-8 md:p-12 rounded-lg shadow-md text-white h-full flex flex-col">
                                 <div className="relative">
-                                    <div className="flex flex-col md:flex-row md:items-start">
-                                        <div className="md:ml-6 text-left">
-                                            <h1 className="text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#E41FAE] to-[#380B99]">
-                                                {userData.nombre}
-                                            </h1>
-                                            <p className="text-gray-300 mb-4">{userData.carnet}</p>
-                                        </div>
-                                    </div>
+                                <h2 className="text-center sm:text-5xl md:text-6xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">
+                                Tu perfil bb
+                                </h2>
                                     <div className="mt-6 flex-grow">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <ProfileField
