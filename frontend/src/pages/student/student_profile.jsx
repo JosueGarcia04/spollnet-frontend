@@ -21,12 +21,12 @@ const Profile = () => {
     return (
         <>
             <NavbarMobile className="fixed top-0 left-0 w-full z-50" />
-            <div className="bg-black min-h-screen p-4 flex pt-20">
-                <div className="max-w-7xl mx-auto mt-10 flex flex-col md:flex-row flex-grow w-full">
+            <div className="bg-black min-h-screen p-4 flex">
+                <div className="max-w-7xl mx-auto mt-5 flex flex-col md:flex-row flex-grow w-full">
                     <div className="w-full md:w-3/4 md:ml-4 flex-grow">
                         <div className="h-full flex flex-col justify-center">
                             <div className="p-8 md:p-12 rounded-lg shadow-md text-white h-full flex flex-col">
-                                <div className="relative z-10">
+                                <div className="relative">
                                     <div className="flex flex-col md:flex-row md:items-start">
                                         <div className="md:ml-6 text-left">
                                             <h1 className="text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#E41FAE] to-[#380B99]">
@@ -36,7 +36,6 @@ const Profile = () => {
                                         </div>
                                     </div>
                                     <div className="mt-6 flex-grow">
-                                        <h2 className="text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#E41FAE] to-[#380B99]">Información Personal</h2>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <ProfileField
                                                 title="Nombre Completo"
