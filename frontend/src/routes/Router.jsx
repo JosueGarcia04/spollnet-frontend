@@ -18,7 +18,7 @@ import NotificationDashboard from '../pages/coordinator/notifications/notificati
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
 import VerifyAccount from '../pages/verify/verifyAccount';
-import Profile from '../pages/student/profile'
+import Profile from '../pages/student/student_profile'
 import ListDeletedStudents from '../pages/coordinator/students/delete&banned/listDeletedStudents';
 import ListBannedStudents from '../pages/coordinator/students/delete&banned/listBannedStudents';
 
@@ -37,7 +37,7 @@ export const Router = createBrowserRouter([
                 element:<SignIn/>
             },
             {
-                path:"profile",
+                path:"student_profile",
                 element:<Profile/>
             },
             {
