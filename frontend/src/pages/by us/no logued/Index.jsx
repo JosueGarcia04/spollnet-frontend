@@ -23,19 +23,19 @@ export const Index = () => {
         <div className="bg-black mt-20 text-white min-h-screen flex flex-col items-center">
           <header className="bg-black text-[#E31FAE] py-3 w-full">
             <div className="container mx-auto">
-              <h2 className="mb-6 text-center sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
+              <h2 className="mb-6 text-center text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
                            text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
                            shadow-lg">
                 Detalles de Votación
               </h2>
               <Id />
-              <h2 className="mb-6 text-center sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
+              <h2 className="mb-6 text-center text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
                            text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
                            shadow-lg p-6">
                 Proceso de Votación
               </h2>
               <Steps />
-              <h2 className="mb-6 text-center sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
+              <h2 className="mb-6 text-center text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
                            text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
                            shadow-lg">
                 Sobre Spollnet

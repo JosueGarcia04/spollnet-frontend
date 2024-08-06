@@ -1,7 +1,7 @@
 export default function Welcome() {
   return (
     <div className="bg-black py-8 flex flex-col items-center justify-center min-screen">
-      <h2 className="mb-4 text-center sm:text-5xl md:text-6xl lg:text-8xl font-extrabold 
+      <h2 className="mb-4 text-center text-5xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold 
                     text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
                     shadow-lg">
         Bienvenidos a Spollnet
