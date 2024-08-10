@@ -8,8 +8,8 @@ import { LinkRegister } from '../../components/student-no-logued/forms/login/lin
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import * as jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 const Login = () => {
     const [mail, setEmail] = useState('');
@@ -19,11 +19,15 @@ const Login = () => {
     
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if (!token) {
-            navigate('/login');
-        } else {
-            const decodedToken = jwtDecode(token);
-            if (decodedToken.exp * 1000 < Date.now()) {
+        if (token) {
+            try {
+                const decodedToken = jwtDecode(token);
+                if (decodedToken.exp * 1000 < Date.now()) {
+                    localStorage.removeItem('token');
+                    navigate('/login');
+                }
+            } catch (error) {
+                console.error('Error decoding token:', error);
                 localStorage.removeItem('token');
                 navigate('/login');
             }
@@ -71,7 +75,6 @@ const Login = () => {
                 });
                 return;
             } else {
-                // Login normal
                 response = await axios.post('http://localhost:5000/login', {
                     email: mail,
                     password: contra
@@ -86,13 +89,22 @@ const Login = () => {
                 }).then(() => {
                     localStorage.setItem('token', response.data.token);
 
-                    const decodedToken = jwtDecode(response.data.token);
-                    if (decodedToken.role === 'coordinador') {
-                        navigate('/main', { replace: true });
-                    } else if (decodedToken.role === 'consejal') {
-                        navigate('/council', { replace: true });
-                    } else {
-                        navigate('/main', { replace: true });
+                    try {
+                        const decodedToken = jwtDecode(response.data.token);
+                        if (decodedToken.role === 'coordinador') {
+                            navigate('/main', { replace: true });
+                        } else if (decodedToken.role === 'consejal') {
+                            navigate('/council', { replace: true });
+                        } else {
+                            navigate('/profile', { replace: true });
+                        }
+                    } catch (error) {
+                        console.error('Error decoding token:', error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: 'Token inválido.',
+                        });
                     }
                 });
             } else {
