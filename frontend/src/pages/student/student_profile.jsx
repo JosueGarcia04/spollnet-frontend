@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
-import Footer from '../../components/student-no-logued/general/footer'
+import Footer from '../../components/student-no-logued/general/footer';
+import Swal from 'sweetalert2';
 
-const Profile = () => {
+const Profile = ({ userId }) => {
     const [userData, setUserData] = useState({
         nombre: '',
         email: '',
@@ -11,12 +13,50 @@ const Profile = () => {
         nivel: ''
     });
 
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/profile/${userId}`);
+                setUserData(response.data);
+            } catch (error) {
+                console.error('Error al obtener el perfil del usuario:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No se pudo obtener el perfil del usuario'
+                });
+            }
+        };
+
+        fetchProfileData();
+    }, [userId]);
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setUserData((prevData) => ({
             ...prevData,
             [name]: value
         }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.put(`http://localhost:5000/profile/${userId}`, userData);
+            setUserData(response.data);
+            Swal.fire({
+                title: '¡Éxito!',
+                text: 'Perfil actualizado correctamente.',
+                icon: 'success'
+            });
+        } catch (error) {
+            console.error('Error al actualizar el perfil del usuario:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Error al actualizar el perfil del usuario'
+            });
+        }
     };
 
     return (
@@ -34,40 +74,40 @@ const Profile = () => {
                                         <ProfileSummary userData={userData} />
                                     </div>
                                     <div className="mt-6 flex-grow">
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                            <ProfileField
-                                                title="Correo Electrónico"
-                                                value={userData.email}
-                                                name="email"
-                                                type="email"
-                                                handleInputChange={handleInputChange}
-                                            />
-                                            <ProfileField
-                                                title="Carnet"
-                                                value={userData.carnet}
-                                                name="carnet"
-                                                handleInputChange={handleInputChange}
-                                            />
-                                            <ProfileField
-                                                title="Especialidad"
-                                                value={userData.especialidad}
-                                                name="especialidad"
-                                                handleInputChange={handleInputChange}
-                                            />
-                                            <ProfileField
-                                                title="Nivel educativo"
-                                                value={userData.nivel}
-                                                name="nivel"
-                                                handleInputChange={handleInputChange}
-                                            />
-                                        </div>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-8">
-                                            <div className="col-span-1 md:col-span-2 flex justify-center">
-                                                <div className="col-span-2 md:col-span-2 flex justify-center">
-                                                    <RegisterButton text="Guardar edición de datos" />
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                <ProfileField
+                                                    title="Correo Electrónico"
+                                                    value={userData.email}
+                                                    name="email"
+                                                    type="email"
+                                                    handleInputChange={handleInputChange}
+                                                />
+                                                <ProfileField
+                                                    title="Carnet"
+                                                    value={userData.carnet}
+                                                    name="carnet"
+                                                    handleInputChange={handleInputChange}
+                                                />
+                                                <ProfileField
+                                                    title="Especialidad"
+                                                    value={userData.especialidad}
+                                                    name="especialidad"
+                                                    handleInputChange={handleInputChange}
+                                                />
+                                                <ProfileField
+                                                    title="Nivel educativo"
+                                                    value={userData.nivel}
+                                                    name="nivel"
+                                                    handleInputChange={handleInputChange}
+                                                />
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-8">
+                                                <div className="col-span-1 md:col-span-2 flex justify-center">
+                                                    <RegisterButton text="Guardar cambios" />
                                                 </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +115,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 };

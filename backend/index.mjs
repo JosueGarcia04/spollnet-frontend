@@ -10,6 +10,7 @@ import { getAllStudents } from './controllers/coordinator/students/getAllStudent
 import { deleteStudent, banStudent } from './controllers/coordinator/students/DeleteBannedStudent.mjs';
 import { getDataStudentInformation } from './controllers/coordinator/students/dataStudentInformation.mjs'; 
 import { updateStudent } from './controllers/coordinator/students/editStudent.mjs';
+import { getProfile, updateProfile} from './controllers/students/dataProfile.mjs';
 
 dotenv.config();
 
@@ -29,6 +30,9 @@ app.delete('/students/:id', deleteStudent);
 app.patch('/students/:id/ban', banStudent);
 app.get('/dataStudentInformation', getDataStudentInformation);
 app.patch('/students/:id', updateStudent);
+app.get('/profile/:userId', getProfile);
+app.put('/profile/:userId', updateProfile);
+
 
 const port = process.env.APP_PORT || 5000;
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';
