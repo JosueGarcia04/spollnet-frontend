@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NavbarMobile from '../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
+import Footer from '../../components/student-no-logued/general/footer'
 
 const Profile = () => {
     const [userData, setUserData] = useState({
@@ -21,7 +21,6 @@ const Profile = () => {
 
     return (
         <>
-            <NavbarMobile className="fixed top-0 left-0 w-full z-50" />
             <div className="bg-black min-h-screen p-4 flex">
                 <div className="max-w-7xl mx-auto mt-5 flex flex-col md:flex-row flex-grow w-full">
                     <div className="w-full md:w-3/4 md:ml-4 flex-grow">
@@ -29,7 +28,7 @@ const Profile = () => {
                             <div className="p-8 md:p-12 rounded-lg shadow-md text-white h-full flex flex-col">
                                 <div className="relative">
                                     <h2 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">
-                                        Tu perfil, ñosue    
+                                        Tu perfil,     
                                     </h2>
                                     <div className="mt-6 flex flex-col items-center">
                                         <ProfileSummary userData={userData} />
@@ -65,11 +64,10 @@ const Profile = () => {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-8">
                                             <div className="col-span-1 md:col-span-2 flex justify-center">
                                                 <div className="col-span-2 md:col-span-2 flex justify-center">
-                                                    <RegisterButton text="Guardar cambios" />
+                                                    <RegisterButton text="Guardar edición de datos" />
                                                 </div>
                                             </div>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -77,6 +75,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 };
