@@ -8,7 +8,7 @@ import { LinkRegister } from '../../components/student-no-logued/forms/login/lin
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import jwtDecode from 'jwt-decode';
+import * as jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
