@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/student-no-logued/general/navBar';
 import Footer from '../../components/student-no-logued/general/footer';
 import { Input } from '../../components/student-no-logued/forms/input';
@@ -8,6 +8,7 @@ import { LinkRegister } from '../../components/student-no-logued/forms/login/lin
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -15,6 +16,19 @@ const Login = () => {
     const [contra, setPassword] = useState('');
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            navigate('/login');
+        } else {
+            const decodedToken = jwtDecode(token);
+            if (decodedToken.exp * 1000 < Date.now()) {
+                localStorage.removeItem('token');
+                navigate('/login');
+            }
+        }
+    }, [navigate]);
 
     const validations = () => {
         const errors = {};
@@ -34,7 +48,6 @@ const Login = () => {
 
         try {
             let response;
-
             if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
                 response = { data: { msg: 'Inicio de sesión de coordinador exitoso', token: 'sample_token' } };
                 Swal.fire({
@@ -58,20 +71,29 @@ const Login = () => {
                 });
                 return;
             } else {
+                // Login normal
                 response = await axios.post('http://localhost:5000/login', {
                     email: mail,
                     password: contra
                 });
             }
 
-            if (response.data.msg) {
+            if (response.data.token) {
                 Swal.fire({
                     title: "¡Bien!",
                     text: response.data.msg,
                     icon: "success"
                 }).then(() => {
                     localStorage.setItem('token', response.data.token);
-                    navigate('/main', { replace: true });
+
+                    const decodedToken = jwtDecode(response.data.token);
+                    if (decodedToken.role === 'coordinador') {
+                        navigate('/main', { replace: true });
+                    } else if (decodedToken.role === 'consejal') {
+                        navigate('/council', { replace: true });
+                    } else {
+                        navigate('/main', { replace: true });
+                    }
                 });
             } else {
                 Swal.fire({
@@ -101,7 +123,8 @@ const Login = () => {
                                 id='emailAdress'
                                 name='email'
                                 type='email'
-                                value={mail} onChange={(e) => {
+                                value={mail}
+                                onChange={(e) => {
                                     setEmail(e.target.value);
                                     setErrors({ ...errors, mail: '' });
                                 }}
@@ -114,7 +137,8 @@ const Login = () => {
                                 id='password'
                                 name='password'
                                 type='password'
-                                value={contra} onChange={(e) => {
+                                value={contra}
+                                onChange={(e) => {
                                     setPassword(e.target.value);
                                     setErrors({ ...errors, contra: '' });
                                 }}
