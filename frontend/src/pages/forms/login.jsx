@@ -34,6 +34,7 @@ const Login = () => {
 
         try {
             let response;
+
             if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
                 response = { data: { msg: 'Inicio de sesión de coordinador exitoso', token: 'sample_token' } };
                 Swal.fire({
@@ -84,7 +85,6 @@ const Login = () => {
                 icon: "error",
                 title: "Algo salió mal",
                 text: 'Error al iniciar sesión',
-                error,
             });
         }
     };
