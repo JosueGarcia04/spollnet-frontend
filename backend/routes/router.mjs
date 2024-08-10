@@ -1,6 +1,7 @@
 import express from 'express';
 import { register } from '../controllers/forms/sign_up.mjs' 
 import { credentials } from '../controllers/forms/login.mjs';
+import { verifyToken } from '../middleware/verifyToken.mjs';
 import { checkCarnet } from '../controllers/coordinator/students/checkCarnet.mjs';
 import { deleteStudentPermanently, restoreStudent } from '../controllers/coordinator/students/restoreDelete.mjs';
 import { getAllStudents } from '../controllers/coordinator/students/getAllStudents.mjs';
@@ -12,6 +13,9 @@ export const spollnetRouter = express.Router();
 
 spollnetRouter.post("/register", register);
 spollnetRouter.post("/login", credentials);
+spollnetRouter.get('/protected-route', verifyToken, (req, res) => {
+    res.status(200).json({ msg: 'Acceso a la ruta protegida exitoso.' });
+});
 spollnetRouter.post('/check-carnet', checkCarnet);
 spollnetRouter.delete('/students/:id/permanent', deleteStudentPermanently);
 spollnetRouter.patch('/students/:id/restore', restoreStudent);

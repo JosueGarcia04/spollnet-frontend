@@ -35,22 +35,24 @@ const Login = () => {
         try {
             let response;
             if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
-                response = { data: { msg: 'Inicio de sesión de coordinador exitoso' } };
+                response = { data: { msg: 'Inicio de sesión de coordinador exitoso', token: 'sample_token' } };
                 Swal.fire({
                     title: "¡Bien!",
                     text: response.data.msg,
                     icon: "success"
                 }).then(() => {
+                    localStorage.setItem('token', response.data.token);
                     navigate('/main', { replace: true });
                 });
                 return;
             } else if (mail === 'consejo2024@gmail.com' && contra === 'conseJo2024#') {
-                response = { data: { msg: 'Inicio de sesión de consejal exitoso' } };
+                response = { data: { msg: 'Inicio de sesión de consejal exitoso', token: 'sample_token' } };
                 Swal.fire({
                     title: "¡Bien!",
                     text: response.data.msg,
                     icon: "success"
                 }).then(() => {
+                    localStorage.setItem('token', response.data.token);
                     navigate('/council', { replace: true });
                 });
                 return;
@@ -67,6 +69,7 @@ const Login = () => {
                     text: response.data.msg,
                     icon: "success"
                 }).then(() => {
+                    localStorage.setItem('token', response.data.token);
                     navigate('/main', { replace: true });
                 });
             } else {

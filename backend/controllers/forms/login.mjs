@@ -1,12 +1,19 @@
 import { Student } from "../../models/student.mjs";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 export const credentials = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    if (email === 'administrador123@correo.com' && password === 'adMin2024#') {
-        return res.status(200).json({ msg: 'Inicio de sesión del admin exitoso' });
+    if (email === 'coordinador123@gmail.com' && password === 'coorDinadOr2024#') {
+        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        return res.status(200).json({ msg: 'Inicio de sesión del admin exitoso', token });
+    }
+
+    if (email === 'consejo2024@gmail.com' && password === 'conseJo2024#') {
+        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        return res.status(200).json({ msg: 'Inicio de sesión del consejal exitoso', token });
     }
 
     const student = await Student.findOne({ email });
@@ -19,11 +26,10 @@ export const credentials = async (req, res) => {
         return res.status(400).json({ msg: 'Contraseña incorrecta' });
     }
 
-    res.status(200).json({ msg: 'Inicio de sesión del estudiante exitoso' });
+    const token = jwt.sign({ email: student.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    res.status(200).json({ msg: 'Inicio de sesión del estudiante exitoso', token });
 } catch (err) {
     console.error('Error al iniciar sesión:', err);
     res.status(500).json({ msg: 'Error al iniciar sesión', error: err.message });
 }
 };
-
-
