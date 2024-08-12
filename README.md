@@ -20,13 +20,4 @@ open source of created resources. To achieve this, we have designed a simple and
  
 [Diagrams](https://app.diagrams.net/#G1VyuIOC_vt2RXtVw_tWNoHy7QH0aMx8xF#%7B%22pageId%22%3A%226-WXzx9mxk2itoo6lPSH%22%7D)
 
-## Contributors
-[Contributors](#contributors)
 
-## Developers
-
-* **Christian Daniel Alfarado Renderos**
-* **Leonel Alejandro Cruz Jeronimo**
-* **Carlos Alberto Escobar Flores**
-* **Josué Adrián García Juárez**
-* **Ricardo Amilcar Guevara Alvarado**
