@@ -63,8 +63,7 @@ export default function AddStudent() {
 
   return (
     <>
-        <div className=" min-h-screen">
-          <h2 className="text-2xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg py-5">Añadir estudiante</h2>            
+        <div>
                 <form onSubmit={handleSubmit} className="p-10 rounded-lg">
                     <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                         <div className="text-center font-bold">
