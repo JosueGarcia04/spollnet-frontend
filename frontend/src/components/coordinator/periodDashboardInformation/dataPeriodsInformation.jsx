@@ -65,7 +65,6 @@ export default function DataPeriodsInformation() {
     return (
         <div id="periods">
             <div className="mb-8">
-                <h2 className="text-2xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">Información de Periodos de votación</h2>
                 <div id="period-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {renderStats(periodsInformation)}
                 </div>
