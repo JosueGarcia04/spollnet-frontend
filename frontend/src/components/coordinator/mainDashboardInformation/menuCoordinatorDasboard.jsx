@@ -23,48 +23,62 @@ export default function MenuCoordinatorDashboard() {
     };
 
     return (
-        <div className='h-screen flex flex-col'>
-            <div id="menu" className="flex flex-col space-y-2 w-full">
-                <Link to="/main" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+        <div className="h-screen flex flex-col">
+            <div className="flex-grow flex flex-col space-y-2">
+                <Link to="/main" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faHouse} />
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Inicio</p>
+                        <FontAwesomeIcon icon={faHouse} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />
+                        <p className="font-bold text-base lg:text-lg text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out">
+                            Inicio
+                        </p>
                     </div>
                 </Link>
-                <Link to="/studentsTable" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <Link to="/studentsTable" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faUsers} />
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Usuarios</p>
+                        <FontAwesomeIcon icon={faUsers} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />
+                        <p className="font-bold text-base lg:text-lg text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out">
+                            Usuarios
+                        </p>
                     </div>
                 </Link>
-                <Link to="/periodsOfVotesDashboard" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <Link to="/periodsOfVotesDashboard" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faCalendarCheck} />
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Periodos</p>
+                        <FontAwesomeIcon icon={faCalendarCheck} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />
+                        <p className="font-bold text-base lg:text-lg text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out">
+                            Periodos
+                        </p>
                     </div>
                 </Link>
-                <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <a href="#" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faChartSimple} />
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Estadísticas</p>
+                        <FontAwesomeIcon icon={faChartSimple} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />
+                        <p className="font-bold text-base lg:text-lg text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out">
+                            Estadísticas
+                        </p>
                     </div>
                 </a>
-                <a href="#" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <a href="#" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faFile} />
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Reportes</p>
+                        <FontAwesomeIcon icon={faFile} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />
+                        <p className="font-bold text-base lg:text-lg text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out">
+                            Reportes
+                        </p>
                     </div>
                 </a>
-                <Link to="/newsDashboard" className="hover:bg-gray-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <Link to="/newsDashboard" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faNewspaper} />
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Noticias</p>
+                        <FontAwesomeIcon icon={faNewspaper} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />
+                        <p className="font-bold text-base lg:text-lg text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out">
+                            Noticias
+                        </p>
                     </div>
                 </Link>
-                <a href="#" onClick={handleLogout} className="hover:bg-red-700 transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <a href="#" onClick={handleLogout} className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
-                        <FontAwesomeIcon icon={faDoorOpen} />
-                        <p className="font-bold text-base lg:text-lg text-slate-200">Cerrar sesión</p>
+                        <FontAwesomeIcon icon={faDoorOpen} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />
+                        <p className="font-bold text-base lg:text-lg text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out">
+                            Cerrar sesión
+                        </p>
                     </div>
                 </a>
             </div>
