@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/student-no-logued/general/navBar';
-import Footer from '../../components/student-no-logued/general/footer';
 import { Input } from '../../components/student-no-logued/forms/input';
 import { Label } from '../../components/student-no-logued/forms/label';
 import { Forgot } from '../../components/student-no-logued/forms/Sign up/forgotPassword';
@@ -169,7 +168,6 @@ const Login = () => {
                     </form>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };

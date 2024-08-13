@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../../components/student-no-logued/general/footer'
 import Navbar from '../../../components/student-no-logued/general/navBar'
 import NavDown from '../../../components/student-no-logued/general/navDown'
 import ContentNews from '../../../components/student-no-logued/general/news/contentNews'
@@ -12,7 +11,6 @@ const News = () => {
         <ContentNews />
       </div>
       <NavDown />
-      <Footer />
     </div>
   );
 };

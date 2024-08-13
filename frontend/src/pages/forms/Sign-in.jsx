@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/student-no-logued/general/navBar'
-import Footer from '../../components/student-no-logued/general/footer'
 import NavDown from '../../components/student-no-logued/general/navDown'
 import { Label } from '../../components/student-no-logued/forms/label'
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton'
@@ -170,7 +169,6 @@ const SignIn = () => {
                     </form>
                 </section>
             </div>
-            <Footer />
             <NavDown />
         </>
     );

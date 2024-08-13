@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
-import Footer from '../../components/student-no-logued/general/footer';
 import Swal from 'sweetalert2';
 
 const Profile = ({ userId }) => {
@@ -115,7 +114,6 @@ const Profile = ({ userId }) => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };

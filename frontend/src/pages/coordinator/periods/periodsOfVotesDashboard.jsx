@@ -4,7 +4,6 @@ import DataPeriodsInformation from '../../../components/coordinator/periodDashbo
 import ExistingPeriods from '../../../components/coordinator/periodDashboardInformation/existingPeriods';
 import AddPeriod from '../../../components/coordinator/periodDashboardInformation/addPeriod';
 // General
-import Footer from '../../../components/student-no-logued/general/footer';
 import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard';
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
@@ -36,7 +35,6 @@ export const PeriodsOfVotesDashboard = () => {
                 </div>
             </div>
             <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
-            <Footer/>
         </div>
     );
 }

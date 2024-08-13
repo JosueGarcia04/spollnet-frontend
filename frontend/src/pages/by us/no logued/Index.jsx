@@ -1,5 +1,4 @@
 import Navbar from '../../../components/student-no-logued/general/navBar'
-import Footer from '../../../components/student-no-logued/general/footer'
 import Countdown from '../../../components/student-no-logued/index/countdown/timer'
 import NavDown from '../../../components/student-no-logued/general/navDown'
 import Id from '../../../components/student-no-logued/index/credentials'
@@ -46,7 +45,6 @@ export const Index = () => {
         </div>
       </div>
       <NavDown />
-      <Footer />
     </>
   );
 };
