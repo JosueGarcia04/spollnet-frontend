@@ -11,7 +11,7 @@ import { deleteStudent, banStudent } from './controllers/coordinator/students/De
 import { getDataStudentInformation } from './controllers/coordinator/students/dataStudentInformation.mjs'; 
 import { updateStudent } from './controllers/coordinator/students/editStudent.mjs';
 import { getProfile, updateProfile} from './controllers/students/dataProfile.mjs';
-import { addNewsletter } from './controllers/general/newsletter.mjs'
+import { addNewsletter, getNewsletters } from './controllers/general/newsletter.mjs'
 
 dotenv.config();
 
@@ -34,6 +34,7 @@ app.patch('/students/:id', updateStudent);
 app.get('/profile/:userId', getProfile);
 app.put('/profile/:userId', updateProfile);
 app.post('/add-newsletter', addNewsletter);
+app.get('/get-newsletters', getNewsletters);
 
 
 const port = process.env.APP_PORT || 5000;
