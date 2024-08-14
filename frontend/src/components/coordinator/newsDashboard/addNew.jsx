@@ -8,14 +8,14 @@ export default function AddNew() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('/add-newsletter', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ title, description }),
-    });
-
+    const response = await fetch('http://localhost:5000/add-newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, description }),
+      });
+  
     if (response.ok) {
       alert('Noticia añadida con éxito');
       setTitle('');

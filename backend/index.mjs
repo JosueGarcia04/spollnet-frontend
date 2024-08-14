@@ -11,7 +11,7 @@ import { deleteStudent, banStudent } from './controllers/coordinator/students/De
 import { getDataStudentInformation } from './controllers/coordinator/students/dataStudentInformation.mjs'; 
 import { updateStudent } from './controllers/coordinator/students/editStudent.mjs';
 import { getProfile, updateProfile} from './controllers/students/dataProfile.mjs';
-import { addNewsletter } from '../controllers/general/newsletter.mjs'; 
+import { addNewsletter } from './controllers/general/newsletter.mjs'
 
 dotenv.config();
 
