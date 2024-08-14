@@ -1,9 +1,9 @@
 import React from 'react';
 const NewsletterCard = ({ date, title, link }) => (
-  <div className="bg-black border rounded-lg p-4 shadow-md transform transition-transform duration-300 hover:scale-105">
-    <h2 className="text-lg font-bold mb-2 text-[#E41FAE]">Noticia: {date}</h2>
+  <div className="bg-black border rounded-lg p-4 shadow-md ">
+    <h2 className="text-lg font-bold mb-2 text-[#E41FAE]">{date}</h2>
     <p className="text-white mb-4">{title}</p>
-    <a href={link} className="text-blue-500 font-medium">Ver mas &rarr;</a>
+    <a href={link} className="text-red-500 font-bold">Eliminar noticia &rarr;</a>
   </div>
 );
 
@@ -13,7 +13,7 @@ const NewslettersGrid = ({ newsletters }) => (
       <NewsletterCard
         key={index}
         date={newsletter.date}
-        title={newsletter.title}
+        title={newsletter.title}  
         link={newsletter.link}
       />
     ))}

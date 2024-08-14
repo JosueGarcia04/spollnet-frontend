@@ -43,7 +43,6 @@ const Navbar = () => {
         {isOpen && (
           <div className="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-md md:hidden" onClick={toggleNavbar}></div>
         )}
-
         <div className={`fixed top-0 right-0 h-full w-4/5 sm:w-3/4 transform transition-transform z-50 ${isOpen ? 'translate-x-0 bg-[#0e0e0e] ease-in-out duration-500' : 'translate-x-full bg-[#0e0e0e] ease-out duration-500'} md:hidden rounded-l-3xl border-l-2 border-[#E41FAE]`} id="navbar-default">
           <div className="flex justify-between p-2">
             <span></span>
