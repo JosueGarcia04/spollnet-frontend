@@ -1,36 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import NewsletterCard from './newslettercard';
+import NewslettersGrid from './newslettergrid';
+import AddNew from './addNew';
 
-const NewsletterCard = ({ title, description }) => (
-  <div className="bg-black border rounded-lg p-4 shadow-md">
-    <h2 className="text-lg font-bold mb-2 text-[#E41FAE]">{title}</h2>
-    <p className="text-white mb-4">{description}</p>
-    <a href="#" className="text-red-500 font-bold">Eliminar noticia &rarr;</a>
-  </div>
-);
+const NewsDashboardContent = () => {
+  const [newsletters, setNewsletters] = useState([]);
 
-const NewslettersGrid = ({ newsletters }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
-    {newsletters.map((newsletter, index) => (
-      <NewsletterCard
-        key={index}
-        title={newsletter.title}
-        description={newsletter.description}
-      />
-    ))}
-  </div>
-);
+  useEffect(() => {
+    fetchNewsletters();
+  }, []);
 
-export default function NewsDashboardContent() {
-  const newsletters = [
-    {
-      title: 'GitHub Copilot: Milestones',
-      description: 'In this edition of The GitHub Insider, we thought it would be fun to take a stroll through memory lane...',
-    },
-    {
-      title: 'Coding Can Be Fun',
-      description: 'Have you considered that coding can be both fun AND funny? With over 100 million developers...',
-    },
-  ];
+  const fetchNewsletters = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/get-newsletters');
+      const data = await response.json();
+      setNewsletters(data);
+    } catch (error) {
+      console.error('Error fetching newsletters:', error);
+    }
+  };
 
-  return <NewslettersGrid newsletters={newsletters} />;
-}
+  const handleAddNewsletter = async (newNewsletter) => {
+    try {
+      const response = await fetch('http://localhost:5000/add-newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newNewsletter),
+      });
+
+      if (response.ok) {
+        const addedNewsletter = await response.json();
+        setNewsletters((prevNewsletters) => [...prevNewsletters, addedNewsletter]);
+      } else {
+        console.error('Error adding newsletter:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error adding newsletter:', error);
+    }
+  };
+
+  return (
+    <div>
+      <NewslettersGrid newsletters={newsletters} />
+      <AddNew onAddNewsletter={handleAddNewsletter} />
+    </div>
+  );
+};
+
+export default NewsDashboardContent;

@@ -1,32 +1,40 @@
 import React, { useState } from 'react';
-import RegisterButton from '../../student-no-logued/forms/Sign up/registerButton';
 
-export default function AddNew() {
+export default function AddNew({ onAddNewsletter }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:5000/add-newsletter', {
+    const newNewsletter = { title, description };
+
+    try {
+      const response = await fetch('http://localhost:5000/add-newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, description }),
+        body: JSON.stringify(newNewsletter),
       });
-  
-    if (response.ok) {
-      alert('Noticia añadida con éxito');
-      setTitle('');
-      setDescription('');
-    } else {
+
+      if (response.ok) {
+        const addedNewsletter = await response.json();
+        onAddNewsletter(addedNewsletter);
+        setTitle('');
+        setDescription('');
+        alert('Noticia añadida con éxito');
+      } else {
+        alert('Hubo un problema al añadir la noticia');
+      }
+    } catch (error) {
+      console.error('Error adding newsletter:', error);
       alert('Hubo un problema al añadir la noticia');
     }
   };
 
   return (
-    <div className="max-w-lg mx-auto p-8 ">
+    <div className="max-w-lg mx-auto p-8">
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-white text-sm font-bold mb-2" htmlFor="title">
@@ -55,7 +63,7 @@ export default function AddNew() {
           />
         </div>
         <div className="text-center">
-            <RegisterButton text='Añadir noticia'/>
+          <button type="submit">Añadir noticia</button>
         </div>
       </form>
     </div>

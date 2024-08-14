@@ -22,7 +22,7 @@ spollnetRouter.post('/check-carnet', checkCarnet);
 spollnetRouter.delete('/students/:id/permanent', deleteStudentPermanently);
 spollnetRouter.patch('/students/:id/restore', restoreStudent);
 spollnetRouter.get('/students', getAllStudents);
-spollnetRouter.delete('/students/:id', deleteStudent);
+spollnetRouter.delete('/students/:id', deleteStudent);  
 spollnetRouter.patch('/students/:id/ban', banStudent);
 spollnetRouter.get('/dataStudentInformation', getDataStudentInformation);
 spollnetRouter.patch('/students/:id', updateStudent);
