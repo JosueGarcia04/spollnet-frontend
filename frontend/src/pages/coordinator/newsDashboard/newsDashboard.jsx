@@ -7,6 +7,7 @@ import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashbo
 //data
 import NewsDashboardContent from '../../../components/coordinator/newsDashboard/newsDashboardContent';
 import NewsInformationDashboard from '../../../components/coordinator/newsDashboard/newsInformation';
+import AddNew from '../../../components/coordinator/newsDashboard/addNew';
 
 export const NewsDashboard = () =>{
     const [isModalOpen, setModalOpen] = useState(false);
@@ -30,6 +31,7 @@ export const NewsDashboard = () =>{
             <div id="content" className="bg-white/10 col-span-12 md:col-span-8 lg:col-span-9 rounded-lg p-4">
                 <NewsInformationDashboard/>
                 <NewsDashboardContent/>
+                <AddNew/>
             </div>
         </div>
             <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
