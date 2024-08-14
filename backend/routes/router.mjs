@@ -9,6 +9,7 @@ import { deleteStudent, banStudent } from '../controllers/coordinator/students/d
 import { getDataStudentInformation } from '../controllers/coordinator/students/dataStudentInformation';
 import { updateStudent } from '../controllers/coordinator/students/editStudent.mjs';
 import { getProfile, updateProfile} from '../controllers/students/dataProfile.mjs';
+import { addNewsletter } from '../controllers/general/newsletter.mjs'; 
 
 export const spollnetRouter = express.Router();
 
@@ -27,4 +28,5 @@ spollnetRouter.get('/dataStudentInformation', getDataStudentInformation);
 spollnetRouter.patch('/students/:id', updateStudent);
 spollnetRouter.Router.get('/profile/:userId', getProfile);
 spollnetRouter.put('/profile/:userId', updateProfile);
+spollnetRouter.post('/add-newsletter', addNewsletter);
 
