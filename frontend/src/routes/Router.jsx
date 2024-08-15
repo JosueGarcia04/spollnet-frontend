@@ -14,6 +14,7 @@ import StudentTable from '../pages/coordinator/students/studentsDashboard';
 import PeriodsOfVotesDashboard from '../pages/coordinator/periods/periodsOfVotesDashboard';
 import NewsDashboard from '../pages/coordinator/newsDashboard/newsDashboard';
 import NotificationDashboard from '../pages/coordinator/notifications/notificationsDashboard';
+import Application from '../pages/coordinator/application/application';
 //student
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
@@ -79,6 +80,10 @@ export const Router = createBrowserRouter([
             {
                 path:"notificationsDashboard",
                 element:<NotificationDashboard/>
+            },
+            {
+                path:"application",
+                element:<Application/>
             },
             {
                 path: "*",
