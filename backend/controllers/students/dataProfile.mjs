@@ -2,12 +2,13 @@ import { Student } from '../../models/student.mjs'
 import bcrypt from 'bcrypt'
 
 export const getProfile = async (req, res)=>{
-    const {userId} = req.Params;
+    const {userId} = req.params;
 
     try {
         const student = await Student.findById(userId).select('-password');
         if (!student) {
             return res.status(404).json({ msg: 'Usuario no encontrado' });
+            console.log(student)
           }
           res.status(200).json(student);
   } catch (err) {

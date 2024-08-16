@@ -26,7 +26,7 @@ spollnetRouter.delete('/students/:id', deleteStudent);
 spollnetRouter.patch('/students/:id/ban', banStudent);
 spollnetRouter.get('/dataStudentInformation', getDataStudentInformation);
 spollnetRouter.patch('/students/:id', updateStudent);
-spollnetRouter.Router.get('/profile/:userId', getProfile);
+spollnetRouter.get('/profile/:userId', getProfile);
 spollnetRouter.put('/profile/:userId', updateProfile);
 spollnetRouter.post('/add-newsletter', addNewsletter);
 spollnetRouter.get('/get-newsletters', getNewsletters);

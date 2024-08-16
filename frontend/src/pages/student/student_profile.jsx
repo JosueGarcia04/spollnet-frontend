@@ -11,11 +11,13 @@ const Profile = ({ userId }) => {
         especialidad: '',
         nivel: ''
     });
+    console.log(userId)
 
     useEffect(() => {
         const fetchProfileData = async () => {
             try {
                 const response = await axios.get(`http://localhost:5000/profile/${userId}`);
+                
                 setUserData(response.data);
             } catch (error) {
                 console.error('Error al obtener el perfil del usuario:', error);
