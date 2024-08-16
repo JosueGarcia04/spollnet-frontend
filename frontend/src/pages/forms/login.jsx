@@ -125,49 +125,68 @@ const Login = () => {
     return (
         <>
             <Navbar />
-            <div className="h-screen bg-black flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
-                <div className="w-full sm:max-w-md p-5 mx-auto">
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-4 text-center font-bold">
-                            <Label htmlFor="emailAdress">Correo electrónico</Label>
-                            <Input
-                                id='emailAdress'
-                                name='email'
-                                type='email'
-                                value={mail}
-                                onChange={(e) => {
-                                    setEmail(e.target.value);
-                                    setErrors({ ...errors, mail: '' });
-                                }}
-                            />
-                            {errors.mail && <p className="text-red-500">{errors.mail}</p>}
-                        </div>
-                        <div className="mb-4 text-center font-bold">
-                            <Label htmlFor="password">Contraseña</Label>
-                            <Input
-                                id='password'
-                                name='password'
-                                type='password'
-                                value={contra}
-                                onChange={(e) => {
-                                    setPassword(e.target.value);
-                                    setErrors({ ...errors, contra: '' });
-                                }}
-                            />
-                            {errors.contra && <p className="text-red-500">{errors.contra}</p>}
-                        </div>
-                        <div className="mt-8">
-                            <RegisterButton text="Iniciar Sesión" />
-                        </div>
-                        <div className='mt-4'>
-                            <Forgot text="¿Olvidaste tu contraseña?" />
-                        </div>
-                        <div className='mt-4'>
-                            <LinkRegister text="¿Aun no tienes una cuenta?" />
-                        </div>
-                    </form>
+            <div className="h-screen bg-black bg-cover bg-center  flex items-center justify-center">
+            <div className="flex w-full sm:max-w-6xl bg-gray-800 bg-opacity-25 p-5 rounded-lg shadow-lg">
+        <div className="flex-1 flex flex-col justify-center items-center text-center text-white p-8">
+            <h1 className="text-3xl font-bold mb-4">Bienvenido a SpollNet</h1>
+            <p className="mb-4">Si no tienes una cuenta por favor registrate aquí</p>
+            <button
+                onClick={() => window.location.href = '/Sign-in'}
+                className="px-6 py-3 rounded-full bg-[#E41FAE] text-white font-bold hover:bg-blue-600 transition-colors duration-300"
+            >
+                Registro
+            </button>
+        </div>
+        <div className="flex-1 flex justify-center items-center">
+            <form onSubmit={handleSubmit} className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg border border-white w-full max-w-md">
+                <h2 className="text-2xl font-bold text-center text-neutral-300 mb-6">Iniciar Sesión</h2>
+                <div className="mb-4 text-center font-bold">
+                    <Label htmlFor="emailAdress">Correo electrónico</Label>
+                    <div className="relative">
+                        <input
+                            id='emailAdress'
+                            name='email'
+                            type='email'
+                            value={mail}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                setErrors({ ...errors, mail: '' });
+                            }}
+                            className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border transition-colors duration-300 ${errors.mail ? 'border-red-500' : mail ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                        />
+                        {errors.mail && <p className="text-red-500">{errors.mail}</p>}
+                    </div>
                 </div>
-            </div>
+                <div className="mb-4 text-center font-bold">
+                    <Label htmlFor="password">Contraseña</Label>
+                    <div className="relative">
+                        <input
+                            id='password'
+                            name='password'
+                            type='password'
+                            value={contra}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                                setErrors({ ...errors, contra: '' });
+                            }}
+                            className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border transition-colors duration-300 ${errors.contra ? 'border-red-500' : contra ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                        />
+                        {errors.contra && <p className="text-red-500">{errors.contra}</p>}
+                    </div>
+                </div>
+                <div className="mt-8 text-center">
+                    <RegisterButton text="Iniciar Sesión" />
+                </div>
+                <div className="mt-4 text-center">
+                    <Forgot text="¿Olvidaste tu contraseña?" />
+                </div>
+                <div className="mt-4 text-center">
+                    <p className="text-gray-600">¿Aún no tienes una cuenta? <a href="/Sign-in" className="text-blue-500 hover:underline">Regístrate aquí</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
         </>
     );
 };

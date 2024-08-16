@@ -7,7 +7,11 @@ export default function AddNew() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newNewsletter = { title, description };
+    const trimmedTitle = title.trim();
+    const trimmedDescription = description.trim();
+
+    const newNewsletter = { title: trimmedTitle, description: trimmedDescription };
+  
 
     try {
       const response = await fetch('http://localhost:5000/add-newsletter', {
