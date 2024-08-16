@@ -21,6 +21,7 @@ import VerifyAccount from '../pages/verify/verifyAccount';
 import Profile from '../pages/student/student_profile'
 import ListDeletedStudents from '../pages/coordinator/students/delete&banned/listDeletedStudents';
 import ListBannedStudents from '../pages/coordinator/students/delete&banned/listBannedStudents';
+import Votacion from '../pages/student/candidates';
 
 
 export const Router = createBrowserRouter([
@@ -80,6 +81,10 @@ export const Router = createBrowserRouter([
                 path:"notificationsDashboard",
                 element:<NotificationDashboard/>
             },
+            {
+                path:"candidates",
+                element:<Votacion/>
+            },  
             {
                 path: "*",
                 element: <NotFound/>

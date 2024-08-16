@@ -6,4 +6,4 @@ const candidatoSchema = new mongoose.Schema({
   candidato3: { type: Number, default: 0 },
 });
 
-export default mongoose.model('Candidato', candidatoSchema);
+export const Candidato = mongoose.model('Candidato', candidatoSchema);

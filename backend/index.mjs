@@ -13,6 +13,8 @@ import { updateStudent } from './controllers/coordinator/students/editStudent.mj
 import { getProfile, updateProfile} from './controllers/students/dataProfile.mjs';
 import { addNewsletter, getNewsletters } from './controllers/general/newsletter.mjs'
 import { votar } from './controllers/students/postulados/votes.mjs';
+import { getNumberofVotes } from './controllers/students/postulados/getNumberOfVotes.mjs';
+
 
 dotenv.config();
 
@@ -37,6 +39,7 @@ app.put('/profile/:userId', updateProfile);
 app.post('/add-newsletter', addNewsletter);
 app.get('/get-newsletters', getNewsletters);
 app.post('/votes', votar);
+app.get('/get-votes', getNumberofVotes);
 
 
 const port = process.env.APP_PORT || 5000;

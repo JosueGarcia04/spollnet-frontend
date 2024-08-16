@@ -1,4 +1,4 @@
-import Candidato from '../../../models/votes.mjs';
+import { Candidato } from '../../../models/votes.mjs';
 
 export const votar = async (req, res) => {
   const { candidato } = req.body;
