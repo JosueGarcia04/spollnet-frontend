@@ -14,7 +14,7 @@ import React from 'react'
  */
 export const Label = (props) => {
     return (
-        <label className="text-[#E31FAE]" htmlFor="completeName"{...props}>{props.children}</label>
+        <label className="text-[#E31FAE] font-semibold" htmlFor="completeName"{...props}>{props.children}</label>
     );
 }
  

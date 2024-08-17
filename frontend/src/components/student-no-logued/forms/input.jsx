@@ -26,13 +26,13 @@ export const Input = (props) => {
       <input
         {...props}
         type={props.type === 'password' && showPassword ? 'text' : props.type}
-        className={`block w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border border-white ${props.className}`}
+        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${props.className}`}
       />
       {props.type === 'password' && (
         <button
           type="button"
           onClick={togglePasswordVisibility}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-transparent border-none cursor-pointer text-white"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-transparent border-none cursor-pointer text-[#E41FAE]"
         >
           {showPassword ? (
             <EyeSlashIcon className="h-6 w-6" />

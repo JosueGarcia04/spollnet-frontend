@@ -6,6 +6,8 @@ import { Forgot } from '../../components/student-no-logued/forms/Sign up/forgotP
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleExclamation, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
@@ -151,7 +153,7 @@ const Login = () => {
                                             setEmail(e.target.value);
                                             setErrors({ ...errors, mail: '' });
                                         }}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border transition-colors duration-300 ${errors.mail ? 'border-red-500' : mail ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                                        className={`${errors.mail ? 'border-red-500' : mail ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                         placeholder="correo@personal.com"
                                     />
                                     {errors.mail && <p className="text-red-500">{errors.mail}</p>}
@@ -163,13 +165,13 @@ const Login = () => {
                                     <Input
                                         id='password'
                                         name='password'
-                                        type='password'
+                                        type='password' 
                                         value={contra}
                                         onChange={(e) => {
                                             setPassword(e.target.value);
                                             setErrors({ ...errors, contra: '' });
                                         }}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border transition-colors duration-300 ${errors.contra ? 'border-red-500' : contra ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                                        className={`${errors.contra ? 'border-red-500' : contra ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                         placeholder="********"
                                     />
                                     {errors.contra && <p className="text-red-500">{errors.contra}</p>}

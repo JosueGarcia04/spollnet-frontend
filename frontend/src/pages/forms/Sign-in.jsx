@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import Navbar from '../../components/student-no-logued/general/navBar'
-import NavDown from '../../components/student-no-logued/general/navDown'
-    import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton'
-import axios from 'axios'
-import Swal from 'sweetalert2'
-import { useValidations } from '../../hooks/forms/forms'
+import React, { useState } from 'react';
+import Navbar from '../../components/student-no-logued/general/navBar';
+import Label from '../../components/student-no-logued/forms/label';
+import Input from '../../components/student-no-logued/forms/input';
+import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useValidations } from '../../hooks/forms/forms';
 
 const SignIn = () => {
     const { errors, setErrors, handleInputChange, validations, handleBackendErrors } = useValidations();
@@ -37,7 +38,7 @@ const SignIn = () => {
                 studentData.especialidad = specialty;
             }
 
-            const response = await axios.post('http://localhost:5000/register', studentData);
+            await axios.post('http://localhost:5000/register', studentData);
             Swal.fire({
                 title: "¡Bien!",
                 text: "El usuario ha sido registrado correctamente.",
@@ -78,39 +79,39 @@ const SignIn = () => {
                             <h2 className="text-2xl font-bold text-center text-neutral-300 mb-6">Crear Cuenta</h2>
                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                                 <div className="text-center font-bold relative">
-                                    <label htmlFor="name" className="block text-[#E41FAE]">Nombre</label>
-                                    <input
+                                    <Label htmlFor="name">Nombre del estudiante</Label>
+                                    <Input
                                         id='name'
                                         name='name'
                                         type='text'
                                         placeholder='spollnet'
                                         value={name}
                                         onChange={handleInputChange(setName)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border ${errors.name ? 'border-red-500' : name ? 'border-green-500' : 'border-gray-300'}`}
+                                        className={`${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     />
                                     {errors.name && <p className="text-red-500">{errors.name}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
-                                    <label htmlFor="emailAdress" className="block text-[#E41FAE]">Correo electrónico</label>
-                                    <input
+                                    <Label htmlFor="emailAdress">Correo electrónico</Label>
+                                    <Input
                                         id='emailAdress'
                                         name='email'
                                         type='email'
                                         placeholder='correo@personal.com'
                                         value={mail}
                                         onChange={handleInputChange(setEmail)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border ${errors.email ? 'border-red-500' : mail ? 'border-green-500' : 'border-gray-300'}`}
+                                        className={`${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     />
                                     {errors.email && <p className="text-red-500">{errors.email}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
-                                    <label htmlFor="level" className="block text-[#E41FAE]">Nivel educativo</label>
+                                    <Label htmlFor="level">Nivel educativo</Label>
                                     <select
                                         id='level'
                                         name='level'
                                         value={level}
                                         onChange={handleInputChange(setLevel)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border ${errors.level ? 'border-red-500' : level ? 'border-green-500' : 'border-gray-300'}`}
+                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.level ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     >
                                         <option value="">Selecciona el nivel</option>
                                         <option value="Primaria">Primaria</option>
@@ -120,66 +121,60 @@ const SignIn = () => {
                                     {errors.level && <p className="text-red-500">{errors.level}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
-                                    <label htmlFor="speciality" className="block text-[#E41FAE]">Especialidad</label>
+                                    <Label htmlFor="speciality">Especialidad</Label>
                                     <select
                                         id='speciality'
                                         name='speciality'
                                         value={specialty}
                                         onChange={handleInputChange(setSpecialty)}
                                         disabled={level !== 'Bachillerato'}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border ${errors.specialty ? 'border-red-500' : specialty ? 'border-green-500' : 'border-gray-300'}`}
+                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.specialty ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     >
                                         <option value="">Selecciona tu especialidad</option>
                                         <option value="Mantenimiento automotriz">Mantenimiento automotriz</option>
                                         <option value="Desarrollo de software">Desarrollo de software</option>
                                         <option value="Atencion primaria en salud">Atencion primaria en salud</option>
                                         <option value="Electromecanica">Electromecanica</option>
-                                        <option value="Diseño Grafico">Diseño Grafico</option>
-                                        <option value="Electronica">Electronica</option>
+                                        <option value="Ejecutivo para centros de servicio">Ejecutivo para centros de servicio</option>
                                     </select>
                                     {errors.specialty && <p className="text-red-500">{errors.specialty}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
-                                    <label htmlFor="identifier" className="block text-[#E41FAE]">Carnet</label>
-                                    <input
+                                    <Label htmlFor="identifier">Identificador del estudiante</Label>
+                                    <Input
                                         id='identifier'
                                         name='identifier'
-                                        placeholder='00000000'
                                         type='text'
+                                        placeholder='202443'
                                         value={identifier}
                                         onChange={handleInputChange(setIdentifier)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border ${errors.identifier ? 'border-red-500' : identifier ? 'border-green-500' : 'border-gray-300'}`}
+                                        className={`${errors.identifier ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     />
                                     {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
-                                    <label htmlFor="password" className="block text-[#E41FAE]">Contraseña</label>
-                                    <input
+                                    <Label htmlFor="password">Contraseña</Label>
+                                    <Input
                                         id='password'
                                         name='password'
                                         type='password'
-                                        placeholder='********'
+                                        placeholder='contraseña'
                                         value={contra}
                                         onChange={handleInputChange(setPassword)}
-                                        className={`block w-full px-4 py-2 mt-2 rounded-md bg-white text-black font-bold border ${errors.password ? 'border-red-500' : contra ? 'border-green-500' : 'border-gray-300'}`}
+                                        className={`${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     />
                                     {errors.password && <p className="text-red-500">{errors.password}</p>}
                                 </div>
                             </div>
-                            <div className="mt-8 text-center">
-                                <RegisterButton text="Registrarse" />
-                            </div>
-                            <div className="mt-4 text-center text-gray-600">
-                                <p>¿Ya tienes una cuenta? <a href="/login" className="text-blue-500 hover:underline">Inicia sesión</a></p>
+                            <div className="flex items-center justify-center mt-6">
+                                <RegisterButton text={'Crear cuenta'} />
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <NavDown/>
         </>
     );
-    
-}
+};
 
 export default SignIn;
