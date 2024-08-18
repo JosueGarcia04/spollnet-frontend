@@ -8,14 +8,14 @@ export default function DiscoverMore() {
                     <div className="py-6 sm:py-8 lg:py-12">
                         <div className="mx-auto max-w-screen-2xl px-0 md:px-0">
                             <div className="mb-10 md:mb-16">
-                                <h2 data-aos="fade-up" className="mb-4 text-white text-center text-4xl lg:text-5xl font-semibold tracking-tight">
-                                    Descubre muchas más
+                                <h2 data-aos="fade-up" className="mb-4 text-center text-5xl sm:text-5xl md:text-6xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] ">
+                                Descubre mucho más
                                 </h2>
                                 <div data-aos="fade-up" className="w-full mb-4">
                                     <div className="h-1 mx-auto gradient bg-[#e7148c] w-64 opacity-65 my-0 py-0 rounded-t"></div>
                                 </div>
                                 <p data-aos="fade-up" className="mx-auto max-w-screen-md text-center font-light text-slate-300 lg:text-xl md:text-lg">
-                                    Explora todas las funcionalidades que ofrece nuestro sistema de votación en línea. Desde acceder a noticias, estadísticas y postularte como candidato. ¡Todo en un solo lugar!
+                                    Explora funcionalidades que ofrece nuestro sistema de votación en línea. Desde acceder a noticias, estadísticas y postularte como candidato. ¡Todo en un solo lugar!
                                 </p>
                             </div>
                             <div className="grid gap-4 md:grid-cols-1 md:gap-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-8">
@@ -34,7 +34,6 @@ export default function DiscoverMore() {
                                     <div className="relative mt-auto p-4">
                                         <span className="block text-sm text-gray-200">Ver lo relevante</span>
                                         <h2 className="mb-2 text-xl font-semibold text-white transition duration-100">Visualiza las noticias</h2>
-                                        <span className="font-semibold text-indigo-300">Ver más</span>
                                     </div>
                                 </a>
 
@@ -53,7 +52,6 @@ export default function DiscoverMore() {
                                     <div className="relative mt-auto p-4">
                                         <span className="block text-sm text-gray-200">Tiempo Real</span>
                                         <h2 className="mb-2 text-xl font-semibold text-white transition duration-100">Visualiza los resultados</h2>
-                                        <span className="font-semibold text-indigo-300">Ver más</span>
                                     </div>
                                 </a>
 
@@ -72,7 +70,6 @@ export default function DiscoverMore() {
                                     <div className="relative mt-auto p-4">
                                         <span className="block text-sm text-gray-200">Ser un líder</span>
                                         <h2 className="mb-2 text-xl font-semibold text-white transition duration-100">Postúlate como candidato</h2>
-                                        <span className="font-semibold text-indigo-300">Ver más</span>
                                     </div>
                                 </a>
                             </div>

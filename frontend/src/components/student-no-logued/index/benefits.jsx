@@ -10,7 +10,7 @@ export default function Benefits() {
                             <div className="mb-10 md:mb-16">
                                 <h2
                                     data-aos="fade-up"
-                                    className="mb-4 text-white text-center text-4xl lg:text-5xl font-semibold tracking-tight"
+                                    className="mb-4 text-center text-5xl sm:text-5xl md:text-6xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1]"
                                 >
                                     Beneficios
                                 </h2>
