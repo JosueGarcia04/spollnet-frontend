@@ -32,7 +32,7 @@ export default function AddStudent() {
       };
 
       if (level === 'Bachillerato') {
-        studentData.especialidad = specialty;
+        data.especialidad = specialty;
     } 
 
       const response = await axios.post('http://localhost:5000/register', data);
