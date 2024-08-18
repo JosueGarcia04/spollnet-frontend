@@ -1,50 +1,63 @@
-import Navbar from '../../../components/student-no-logued/general/navBar'
+import React, { useEffect } from 'react';
+import Navbar from '../../../components/student-no-logued/general/navBar';
+import Footer from '../../../components/student-no-logued/general/footer';
 import Countdown from '../../../components/student-no-logued/index/countdown/timer'
-import NavDown from '../../../components/student-no-logued/general/navDown'
-import Id from '../../../components/student-no-logued/index/credentials'
-import Steps from '../../../components/student-no-logued/index/steps_vote'
-import Emitir from '../../../components/student-no-logued/index/buttonVoteIndex'
-import Welcome from '../../../components/student-no-logued/index/welcome'
-import AboutUs from '../general/about us'
+import Navdown from '../../../components/student-no-logued/general/navDown';
+import Sidebar from '../../../components/student-no-logued/general/sidebar'
+import Btnstart from '../../../components/student-no-logued/general/Btnstart';
+import Parte1 from '../../../components/student-no-logued/index/inicio_index';
+import Parte2 from '../../../components/student-no-logued/index/Whatspoll';
+import Parte3 from '../../../components/student-no-logued/index/valor_index';
+import Parte4 from '../../../components/student-no-logued/index/VotingSteps';
+import Parte5 from '../../../components/student-no-logued/index/benefits';
+import Parte6 from '../../../components/student-no-logued/index/CarnetInfo';
+import Parte7 from '../../../components/student-no-logued/index/DiscoverMore';
+import Parte8 from '../../../components/student-no-logued/index/ReadyToVote';
+import "../../../pages/by us/general/extra.css";
+import 'aos/dist/aos.css'; 
+import AOS from 'aos'; 
+import 'tailwindcss/tailwind.css';
+import 'flowbite';
 
 export const Index = () => {
+  useEffect(() => {
+        AOS.init();
+    const resetCarousel = () => {
+      const carousel = document.querySelector('[data-carousel="slide"]');
+      if (carousel) {
+        const items = carousel.querySelectorAll('[data-carousel-item]');
+        items.forEach(item => item.classList.add('hidden'));
+        items[0]?.classList.remove('hidden');
+
+      }
+    };
+    resetCarousel(); 
+    return () => { 
+    };
+  }, []); 
+
   return (
     <>
       <Navbar />
-      <div className="all bg-black">
-        <div className="relative top-16 bottom-16">
-          <Countdown />
+      <div className="bg-black md:flex">
+        <Sidebar />
+        <div className="content flex-1 ml-0 md:ml-16 relative top-0 ">
           <div className="text-white text-center mt-5">
-            <Welcome/>
-            <Emitir />
+            <Countdown />
           </div>
+          <Parte1 />
+          <Parte2 />
+          <Parte3 />
+          <Parte4 />
+          <Parte5 />
+          <Parte6 />
+          <Parte7 />
+          <Parte8 />
         </div>
-        <div className="bg-black mt-20 text-white min-h-screen flex flex-col items-center">
-          <header className="bg-black text-[#E31FAE] py-3 w-full">
-            <div className="container mx-auto">
-              <h2 className="mb-6 text-center text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
-                           text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
-                           shadow-lg">
-                Detalles de Votación
-              </h2>
-              <Id />
-              <h2 className="mb-6 text-center text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
-                           text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
-                           shadow-lg p-6">
-                Proceso de Votación
-              </h2>
-              <Steps />
-              <h2 className="mb-6 text-center text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold 
-                           text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] 
-                           shadow-lg">
-                Sobre Spollnet
-              </h2>
-              <AboutUs/>
-            </div>
-          </header>
-        </div>
-      </div>
-      <NavDown />
+      </div >
+      <Navdown />
+      <Footer />
+      <Btnstart />
     </>
   );
 };

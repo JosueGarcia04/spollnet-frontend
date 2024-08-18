@@ -1,0 +1,255 @@
+::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000000; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #ffffff; 
+    border-radius: 6px; 
+    border: 1px solid #f1f1f1; 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff; 
+  }
+
+
+
+  @keyframes roll1 {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    10%, 30% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    40% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+  }
+
+  @keyframes roll2 {
+    0%, 30% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    40%, 60% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    70% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+  }
+
+  @keyframes roll3 {
+    0%, 60% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    70%, 90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+  }
+
+  .rotating-words {
+    position: relative;
+    height: 0.9em;
+    display: inline-block;
+
+  }
+
+  .rotating-words p {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    white-space: nowrap;
+    color: #e7148c;
+    text-align: center;
+  }
+
+  .rotating-words p:nth-child(1) {
+    animation: roll1 10s linear infinite;
+  }
+
+  .rotating-words p:nth-child(2) {
+    animation: roll2 10s linear infinite;
+  }
+
+  .rotating-words p:nth-child(3) {
+    animation: roll3 10s linear infinite;
+  }
+
+  .text-gradient {
+    background: #e7148c;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+
+.lava-lamp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  background: radial-gradient(circle at center, rgba(231, 20, 140, 0.6), rgba(194, 194, 194, 0) 80%); 
+  animation: pulseAnimation 6s ease-in-out infinite;
+  z-index: 0;
+  filter: blur(15px); 
+  border-radius: 50%; 
+  box-shadow: 0 0 10px rgba(93, 93, 93, 0.7), 0 0 600px rgba(110, 29, 92, 0.5);
+}
+
+@keyframes pulseAnimation {
+  0% {
+      background-position: 0% 0%;
+      transform: scale(1);
+  }
+  50% {
+      background-position: 50% 50%;
+      transform: scale(1.05); 
+  }
+  100% {
+      background-position: 100% 100%;
+      transform: scale(1);
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.icons-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px; 
+  height: 200px; 
+  transform: translate(-115%, -120%); 
+}
+
+.icon {
+  position: absolute;
+  width: 75px;
+  height: 24px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateIcon 10s linear infinite;
+}
+
+.icon1 {
+  top: 0%; 
+  left: 0%;
+  transform: translate(-50%, -50%) rotate(0deg); 
+}
+
+.icon2 {
+  top: 140%;
+  left: 0%;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.icon3 {
+  top: 210%;
+  left: 180%;
+  transform: translate(-50%, -100%) rotate(180deg); 
+}
+
+.icon4 {
+  top: 0%;
+  left: 150%;
+  transform: translate(-50%, -50%) rotate(270deg); 
+}
+
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.features-box {
+  padding: 1rem;
+
+  width: 24rem;
+  height: 16rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Para Safari */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.features-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.3);
+  filter: brightness(1.2);
+}
+
+
+
+.card-container {
+  perspective: 1000px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+
+.card-checkbox:checked + .card {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Box shadow when flipped */
+  border: 2px solid white;
+}
+
+.step-number {
+  font-size: 6rem;
+  font-weight: bold;
+  position: absolute;
+}
