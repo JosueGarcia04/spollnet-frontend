@@ -156,7 +156,7 @@ const Login = () => {
                                         className={`${errors.mail ? 'border-red-500' : mail ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                         placeholder="correo@personal.com"
                                     />
-                                    {errors.mail && <p className="text-red-500">{errors.mail}</p>}
+                                    {errors.mail && <p className="text-red-500 font-semibold">{errors.mail}</p>}
                                 </div>
                             </div>
                             <div className="mb-4 text-center font-bold">
@@ -174,7 +174,7 @@ const Login = () => {
                                         className={`${errors.contra ? 'border-red-500' : contra ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
                                         placeholder="********"
                                     />
-                                    {errors.contra && <p className="text-red-500">{errors.contra}</p>}
+                                    {errors.contra && <p className="text-red-500 font-semibold">{errors.contra}</p>}
                                 </div>
                             </div>
                             <div className="mt-8 text-center">

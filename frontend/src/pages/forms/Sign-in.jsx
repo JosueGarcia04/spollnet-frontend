@@ -82,14 +82,14 @@ const SignIn = () => {
                                     <Label htmlFor="name">Nombre del estudiante</Label>
                                     <Input
                                         id='name'
-                                        name='name'
+                                        name='name' 
                                         type='text'
                                         placeholder='spollnet'
                                         value={name}
                                         onChange={handleInputChange(setName)}
-                                        className={`${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
+                                        className={`${errors.name ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     />
-                                    {errors.name && <p className="text-red-500">{errors.name}</p>}
+                                    {errors.name && <p className="text-red-500 font-semibold">{errors.name}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
                                     <Label htmlFor="emailAdress">Correo electrónico</Label>
@@ -100,9 +100,9 @@ const SignIn = () => {
                                         placeholder='correo@personal.com'
                                         value={mail}
                                         onChange={handleInputChange(setEmail)}
-                                        className={`${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
+                                        className={`${errors.email ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     />
-                                    {errors.email && <p className="text-red-500">{errors.email}</p>}
+                                    {errors.email && <p className="text-red-500 font-semibold">{errors.email}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
                                     <Label htmlFor="level">Nivel educativo</Label>
@@ -111,14 +111,14 @@ const SignIn = () => {
                                         name='level'
                                         value={level}
                                         onChange={handleInputChange(setLevel)}
-                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.level ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
+                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.level ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     >
                                         <option value="">Selecciona el nivel</option>
                                         <option value="Primaria">Primaria</option>
                                         <option value="Tercer ciclo">Tercer ciclo</option>
                                         <option value="Bachillerato">Bachillerato</option>
                                     </select>
-                                    {errors.level && <p className="text-red-500">{errors.level}</p>}
+                                    {errors.level && <p className="text-red-500 font-semibold">{errors.level}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
                                     <Label htmlFor="speciality">Especialidad</Label>
@@ -128,16 +128,17 @@ const SignIn = () => {
                                         value={specialty}
                                         onChange={handleInputChange(setSpecialty)}
                                         disabled={level !== 'Bachillerato'}
-                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.specialty ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
+                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.specialty ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     >
                                         <option value="">Selecciona tu especialidad</option>
                                         <option value="Mantenimiento automotriz">Mantenimiento automotriz</option>
                                         <option value="Desarrollo de software">Desarrollo de software</option>
                                         <option value="Atencion primaria en salud">Atencion primaria en salud</option>
+                                        <option value="Diseño Gráfico">Diseño Gráfico</option>
                                         <option value="Electromecanica">Electromecanica</option>
-                                        <option value="Ejecutivo para centros de servicio">Ejecutivo para centros de servicio</option>
+                                        <option value="Electronica">Electronica</option>
                                     </select>
-                                    {errors.specialty && <p className="text-red-500">{errors.specialty}</p>}
+                                    {errors.specialty && <p className="text-red-500 font-semibold">{errors.specialty}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
                                     <Label htmlFor="identifier">Identificador del estudiante</Label>
@@ -145,12 +146,12 @@ const SignIn = () => {
                                         id='identifier'
                                         name='identifier'
                                         type='text'
-                                        placeholder='202443'
+                                        placeholder='00000000'
                                         value={identifier}
                                         onChange={handleInputChange(setIdentifier)}
-                                        className={`${errors.identifier ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
+                                        className={`${errors.identifier ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
                                     />
-                                    {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
+                                    {errors.identifier && <p className="text-red-500 font-semibold">{errors.identifier}</p>}
                                 </div>
                                 <div className="text-center font-bold relative">
                                     <Label htmlFor="password">Contraseña</Label>
@@ -158,12 +159,12 @@ const SignIn = () => {
                                         id='password'
                                         name='password'
                                         type='password'
-                                        placeholder='contraseña'
+                                        placeholder='********'
                                         value={contra}
                                         onChange={handleInputChange(setPassword)}
-                                        className={`${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
+                                        className={`${errors.name ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}    
                                     />
-                                    {errors.password && <p className="text-red-500">{errors.password}</p>}
+                                    {errors.password && <p className="text-red-500 font-semibold">{errors.password}</p>}
                                 </div>
                             </div>
                             <div className="flex items-center justify-center mt-6">
