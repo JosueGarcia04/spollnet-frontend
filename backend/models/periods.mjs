@@ -13,6 +13,10 @@ const PeriodSchema = new mongoose.Schema({
     endDate: {
         type: Date,
         required: true,
+    },
+    isDeleted: { 
+        type: Boolean, 
+        default: false 
     }
 });
 

@@ -17,6 +17,7 @@ import { getNumberofVotes } from './controllers/students/postulados/getNumberOfV
 import { addPeriod } from './controllers/coordinator/periods/addPeriod.mjs';
 import { getAllPeriods } from './controllers/coordinator/periods/getPeriods.mjs';
 import { updatePeriod } from './controllers/coordinator/periods/editPeriod.mjs';
+import { deletePeriod } from './controllers/coordinator/periods/deletePeriod.mjs';
 
 dotenv.config();
 
@@ -44,6 +45,7 @@ app.get('/get-votes', getNumberofVotes);
 app.post('/add-period', addPeriod);
 app.get('/get-periods', getAllPeriods);
 app.put('/update-period/:id', updatePeriod);
+app.delete('/delete-period/:id', deletePeriod);
 
 const port = process.env.APP_PORT || 5000;
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';

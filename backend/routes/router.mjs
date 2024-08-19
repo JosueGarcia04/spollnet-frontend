@@ -15,6 +15,7 @@ import { getNumberofVotes } from '../controllers/students/postulados/getNumberOf
 import { addPeriod } from '../controllers/coordinator/periods/addPeriod.mjs';
 import { getAllPeriods } from '../controllers/coordinator/periods/getPeriods.mjs';
 import { updatePeriod } from '../controllers/coordinator/periods/editPeriod.mjs';
+import { deletePeriod } from '../controllers/coordinator/periods/deletePeriod.mjs';
 
 export const spollnetRouter = express.Router();
 
@@ -40,6 +41,7 @@ spollnetRouter.get('/get-votes', getNumberofVotes);
 spollnetRouter.post('/add-period', addPeriod);
 spollnetRouter.get('/get-periods', getAllPeriods);
 spollnetRouter.put('/update-period/:id', updatePeriod);
+spollnetRouter.delete('/delete-period/:id', deletePeriod);
 
 
 

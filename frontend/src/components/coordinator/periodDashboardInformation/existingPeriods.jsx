@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { faPenToSquare, faTrash, faClock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export default function ExistingPeriods() {
     const [periods, setPeriods] = useState([]);
@@ -14,8 +15,7 @@ export default function ExistingPeriods() {
         const fetchPeriods = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/get-periods');
-                console.log('Response Data:', response.data);
-                setPeriods(response.data); 
+                setPeriods(response.data);
             } catch (error) {
                 console.error('Error fetching periods:', error);
                 setPeriods([]);
@@ -29,12 +29,11 @@ export default function ExistingPeriods() {
         setSelectedPeriod(period);
         setUpdatedPeriod({
             name: period.name || '',
-            startDate: period.startDate ? new Date(period.startDate).toISOString().split('T')[0] : '',
-            endDate: period.endDate ? new Date(period.endDate).toISOString().split('T')[0] : ''
+            startDate: period.startDate.slice(0, 10) || '',
+            endDate: period.endDate.slice(0, 10) || ''
         });
         setIsModalOpen(true);
     };
-    
 
     const handleModalClose = () => {
         setIsModalOpen(false);
@@ -43,21 +42,12 @@ export default function ExistingPeriods() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setUpdatedPeriod((prevPeriod) => ({
-            ...prevPeriod,
-            [name]: value
-        }));
+        setUpdatedPeriod((prevPeriod) => ({ ...prevPeriod, [name]: value }));
     };
-
 
     const handleSaveChanges = async () => {
         try {
-            const response = await axios.put(`http://localhost:5000/update-period/${selectedPeriod._id}`, {
-                ...updatedPeriod,
-                startDate: new Date(updatedPeriod.startDate).toISOString(),
-                endDate: new Date(updatedPeriod.endDate).toISOString()
-            });
-            console.log('Update Response:', response.data);
+            const response = await axios.put(`http://localhost:5000/update-period/${selectedPeriod._id}`, updatedPeriod);
             setPeriods((prevPeriods) =>
                 prevPeriods.map((period) =>
                     period._id === selectedPeriod._id ? response.data : period
@@ -68,7 +58,37 @@ export default function ExistingPeriods() {
             console.error('Error updating period:', error);
         }
     };
-    
+
+    const handleDeleteClick = async (periodId) => {
+        const result = await Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás deshacer esta acción!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminarlo!'
+        });
+
+        if (result.isConfirmed) {
+            try {
+                await axios.delete(`http://localhost:5000/delete-period/${periodId}`);
+                setPeriods((prevPeriods) => prevPeriods.filter((period) => period._id !== periodId));
+                Swal.fire(
+                    'Eliminado!',
+                    'El periodo ha sido eliminado.',
+                    'success'
+                );
+            } catch (error) {
+                console.error('Error deleting period:', error);
+                Swal.fire(
+                    'Error!',
+                    'Hubo un problema al eliminar el periodo.',
+                    'error'
+                );
+            }
+        }
+    };
 
     return (
         <div>
@@ -100,9 +120,9 @@ export default function ExistingPeriods() {
                                             <button onClick={() => handleEditClick(period)}>
                                                 <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600'/>
                                             </button>
-                                            <Link to={`/delete/${period._id}`}>
+                                            <button onClick={() => handleDeleteClick(period._id)}>
                                                 <FontAwesomeIcon icon={faTrash} className='text-red-600' />
-                                            </Link>
+                                            </button>
                                             <Link to={`/view/${period._id}`}>
                                                 <FontAwesomeIcon icon={faClock} className='text-orange-300' />
                                             </Link>
@@ -141,9 +161,9 @@ export default function ExistingPeriods() {
                                 <label htmlFor="startDate" className="font-bold block text-[#E31FAE]">Fecha de Inicio</label>
                                 <input
                                     type="date"
-                                    id="endDate"
-                                    name="endDate"
-                                    value={updatedPeriod.endDate}
+                                    id="startDate"
+                                    name="startDate"
+                                    value={updatedPeriod.startDate}
                                     onChange={handleInputChange}
                                     className="w-full px-4 py-2 bg-black text-white border rounded-md focus:outline-none focus:ring-2 focus:ring-[#E31FAE]"
                                 />
@@ -163,13 +183,13 @@ export default function ExistingPeriods() {
                         <div className="mt-4 flex justify-center space-x-4">
                             <button
                                 onClick={handleSaveChanges}
-                                className="bg-[#E31FAE] text-white px-4 py-2 rounded hover:bg-[#D0219D]"
+                                className="bg-[#E31FAE] text-white py-2 px-4 rounded-md hover:bg-[#E31FAE]/80 transition duration-150 ease-in-out"
                             >
                                 Guardar Cambios
                             </button>
                             <button
                                 onClick={handleModalClose}
-                                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                                className="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition duration-150 ease-in-out"
                             >
                                 Cancelar
                             </button>
