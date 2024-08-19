@@ -7,8 +7,7 @@ import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashbo
 import DataCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/dataCoordinatorDashboard'
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 //principal statistic
-import PrincipalStatisticInformationComponent from '../../../components/coordinator/previewSatisticDashboardInformation/principalStatisticInformation'
-
+import PrincipalStatisticInformationComponent from '../../../components/coordinator/previewSatisticDashboardInformation/principalChartsDashboard/principalStatisticInformation';
 export const Coordinator =() =>{
     const [isModalOpen, setModalOpen] = useState(false);
 

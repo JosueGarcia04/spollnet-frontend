@@ -1,5 +1,5 @@
 import React from'react'
-import { SimplePieChart } from './principalChartsDashboard/simplePieChart';
+import {SimplePieChart} from './simplePieChart'
 export default function PrincipalStatisticInformationComponent(){
     return (
         <div>
