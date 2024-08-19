@@ -16,6 +16,7 @@ export default function ExistingPeriods() {
             try {
                 const response = await axios.get('http://localhost:5000/get-periods');
                 setPeriods(response.data);
+                console.log(response.data);
             } catch (error) {
                 console.error('Error fetching periods:', error);
                 setPeriods([]);
@@ -29,8 +30,8 @@ export default function ExistingPeriods() {
         setSelectedPeriod(period);
         setUpdatedPeriod({
             name: period.name || '',
-            startDate: period.startDate.slice(0, 10) || '',
-            endDate: period.endDate.slice(0, 10) || ''
+            startDate: new Date(period.startDate).toISOString().split('T')[0],
+            endDate: new Date(period.endDate).toISOString().split('T')[0]
         });
         setIsModalOpen(true);
     };
@@ -47,7 +48,12 @@ export default function ExistingPeriods() {
 
     const handleSaveChanges = async () => {
         try {
-            const response = await axios.put(`http://localhost:5000/update-period/${selectedPeriod._id}`, updatedPeriod);
+            const periodToUpdate = {
+                ...updatedPeriod,
+                startDate: new Date(updatedPeriod.startDate).toISOString(),
+                endDate: new Date(updatedPeriod.endDate).toISOString(),
+            };
+            const response = await axios.put(`http://localhost:5000/update-period/${selectedPeriod._id}`, periodToUpdate);
             setPeriods((prevPeriods) =>
                 prevPeriods.map((period) =>
                     period._id === selectedPeriod._id ? response.data : period
@@ -58,6 +64,7 @@ export default function ExistingPeriods() {
             console.error('Error updating period:', error);
         }
     };
+    
 
     const handleDeleteClick = async (periodId) => {
         const result = await Swal.fire({
@@ -112,9 +119,9 @@ export default function ExistingPeriods() {
                                             <span>{period.name || "N/A"}</span>
                                         </div>
                                     </td>
-                                    <td className="py-3 px-2">{new Date(period.startDate).toLocaleDateString()}</td>
+                                    <td className="py-3 px-2">{period.startDate.toString().split("T")[0]}</td>
                                     <td className="py-3 px-2"></td>
-                                    <td className="py-3 px-2">{new Date(period.endDate).toLocaleDateString()}</td>
+                                    <td className="py-3 px-2">{period.endDate.toString().split("T")[0]}</td>
                                     <td className="py-3 px-2">
                                         <div className="inline-flex items-center space-x-3">
                                             <button onClick={() => handleEditClick(period)}>

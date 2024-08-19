@@ -29,6 +29,7 @@ export const useAddPeriodValidations = () => {
                 errors.endDate = 'La fecha de fin debe ser posterior a la fecha de inicio';
             }
         }
+        
 
         console.log('Validations:', errors);
         return errors;
