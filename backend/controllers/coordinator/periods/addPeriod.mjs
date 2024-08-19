@@ -3,6 +3,7 @@ import { Period } from '../../../models/periods.mjs'
 export const addPeriod = async (req, res) => {
     try {
         const { name, startDate, endDate } = req.body;
+        console.log('Received Data:', { name, startDate, endDate }); 
         if (!name || !startDate || !endDate) {
             return res.status(400).json({ msg: "Todos los campos son obligatorios" });
         }

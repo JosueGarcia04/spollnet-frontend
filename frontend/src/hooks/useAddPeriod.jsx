@@ -21,10 +21,16 @@ export const useAddPeriodValidations = () => {
 
         if (!endDate) {
             errors.endDate = 'Campo obligatorio';
-        } else if (new Date(endDate) <= new Date(startDate)) {
-            errors.endDate = 'La fecha de fin debe ser posterior a la fecha de inicio';
+        } else {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+
+            if (end <= start) {
+                errors.endDate = 'La fecha de fin debe ser posterior a la fecha de inicio';
+            }
         }
 
+        console.log('Validations:', errors);
         return errors;
     };
 

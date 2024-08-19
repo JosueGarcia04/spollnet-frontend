@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RegisterButton from '../../student-no-logued/forms/Sign up/registerButton'
 import {Label} from '../../../components/student-no-logued/forms/label'
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import useAddPeriodValidations from '../../../hooks/useAddPeriod'
+import {useAddPeriodValidations} from '../../../hooks/useAddPeriod'
 
 export default function AddPeriod() {
 
@@ -23,12 +23,10 @@ export default function AddPeriod() {
 
     try {
       const data = {
-        nombre: name,
-        fechaInicio: startDate,
-        fechaFin: endDate,
+        name, startDate, endDate,
       };
 
-      const response = await axios.post('http://localhost:5000/addPeriod', data);
+      const response = await axios.post('http://localhost:5000/add-period', data);
       Swal.fire({
         title: "¡Éxito!",
         text: "El periodo ha sido registrado correctamente.",
@@ -57,7 +55,7 @@ export default function AddPeriod() {
       <form onSubmit={handleSubmit} className="p-10 rounded-lg">
         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
           <div className="text-center font-bold">
-            <Label htmlFor="name">Nombre del Periodo</Label>
+            <Label htmlFor="name">Nombre del periodo</Label>
             <div className="relative">
               <input
                 id='name'
