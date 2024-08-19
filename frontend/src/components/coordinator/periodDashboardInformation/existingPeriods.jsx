@@ -1,9 +1,28 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import { faPenToSquare, faTrash, faClock} from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { faPenToSquare, faTrash, faClock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export default function ExistingPeriods (){
-    return(
+import axios from 'axios';
+
+export default function ExistingPeriods() {
+    const [periods, setPeriods] = useState([]);
+
+    useEffect(() => {
+        const fetchPeriods = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/get-periods');
+                console.log('Response Data:', response.data);
+                setPeriods(response.data); 
+            } catch (error) {
+                console.error('Error fetching periods:', error);
+                setPeriods([]);
+            }
+        };
+
+        fetchPeriods();
+    }, []);
+
+    return (
         <div>
             <div className="overflow-x-scroll">
                 <table className="w-full whitespace-nowrap">
@@ -17,52 +36,39 @@ export default function ExistingPeriods (){
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className="border-b border-gray-700">
-                            <td className="py-3 px-2 font-bold">
-                                <div className="inline-flex space-x-3 items-center">
-                                    <span>el papu</span>
-                                </div>
-                            </td>
-                            <td className="py-3 px-2">01/01/2023</td>
-                            <td className="py-3 px-2"></td>
-                            <td className="py-3 px-2">01/31/2023</td>
-                            <td className="py-3 px-2">
-                                <div className="inline-flex items-center space-x-3">
-                                    <Link to={""}>
-                                        <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600'/>
-                                    </Link>
-                                    <Link to={""}>
-                                        <FontAwesomeIcon icon={faTrash} className='text-red-600'></FontAwesomeIcon>
-                                    </Link>
-                                    <Link to={""}>
-                                        <FontAwesomeIcon icon={faClock} className='text-orange-300'></FontAwesomeIcon>
-                                    </Link>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr className="border-b border-gray-700">
-                            <td className="py-3 px-2 font-bold">
-                                <div className="inline-flex space-x-3 items-center">
-                                    <span>el papu</span>
-                                </div>
-                            </td>
-                            <td className="py-3 px-2">01/01/2023</td>
-                            <td className="py-3 px-2"></td>
-                            <td className="py-3 px-2">01/31/2023</td>
-                            <td className="py-3 px-2">
-                                <div className="inline-flex items-center space-x-3">
-                                    <Link to={""}>
-                                        <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600'/>
-                                    </Link>
-                                    <Link to={""}>
-                                        <FontAwesomeIcon icon={faTrash} className='text-red-600'></FontAwesomeIcon>
-                                    </Link>
-                                    <Link to={""}>
-                                        <FontAwesomeIcon icon={faClock} className='text-orange-300'></FontAwesomeIcon>
-                                    </Link>
-                                </div>
-                            </td>
-                        </tr> 
+                        {Array.isArray(periods) && periods.length > 0 ? (
+                            periods.map((period) => (
+                                <tr key={period._id} className="border-b border-gray-700">
+                                    <td className="py-3 px-2 font-bold">
+                                        <div className="inline-flex space-x-3 items-center">
+                                            <span>{period.name || "N/A"}</span> {/* Cambié createdBy por name ya que es lo que tienes en los datos */}
+                                        </div>
+                                    </td>
+                                    <td className="py-3 px-2">{new Date(period.startDate).toLocaleDateString()}</td>
+                                    <td className="py-3 px-2"></td>
+                                    <td className="py-3 px-2">{new Date(period.endDate).toLocaleDateString()}</td>
+                                    <td className="py-3 px-2">
+                                        <div className="inline-flex items-center space-x-3">
+                                            <Link to={`/edit/${period._id}`}>
+                                                <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600'/>
+                                            </Link>
+                                            <Link to={`/delete/${period._id}`}>
+                                                <FontAwesomeIcon icon={faTrash} className='text-red-600' />
+                                            </Link>
+                                            <Link to={`/view/${period._id}`}>
+                                                <FontAwesomeIcon icon={faClock} className='text-orange-300' />
+                                            </Link>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="5" className="py-3 px-2 text-center">
+                                    No hay periodos disponibles.
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>
