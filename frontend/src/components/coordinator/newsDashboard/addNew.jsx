@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function AddNew() {
+export default function AddNew({ onAddNewsletter }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -11,7 +11,6 @@ export default function AddNew() {
     const trimmedDescription = description.trim();
 
     const newNewsletter = { title: trimmedTitle, description: trimmedDescription };
-  
 
     try {
       const response = await fetch('http://localhost:5000/add-newsletter', {
@@ -23,12 +22,10 @@ export default function AddNew() {
       });
 
       if (response.ok) {
-        const addedNewsletter = await response.json();
+        onAddNewsletter(newNewsletter);
         setTitle('');
         setDescription('');
         alert('Noticia añadida con éxito');
-        location.reload();
-
       } else {
         alert('Hubo un problema al añadir la noticia');
       }
