@@ -12,6 +12,7 @@ import { getProfile, updateProfile} from '../controllers/students/dataProfile.mj
 import { addNewsletter, getNewsletters } from '../controllers/general/newsletter.mjs'; 
 import { votar } from '../controllers/students/postulados/votes.mjs';
 import { getNumberofVotes } from '../controllers/students/postulados/getNumberOfVotes.mjs';
+import { addPeriod } from '../controllers/coordinator/periods/addPeriod.mjs';
 
 export const spollnetRouter = express.Router();
 
@@ -34,5 +35,6 @@ spollnetRouter.post('/add-newsletter', addNewsletter);
 spollnetRouter.get('/get-newsletters', getNewsletters);
 spollnetRouter.post('/votar', votar);
 spollnetRouter.get('/get-votes', getNumberofVotes);
+spollnetRouter.post('/add-period', addPeriod);
 
 
