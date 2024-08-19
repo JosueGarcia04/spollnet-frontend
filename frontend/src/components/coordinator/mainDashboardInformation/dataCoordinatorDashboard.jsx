@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { faUsers, faCheckToSlot, faClipboard, faFile, faTrash, faBan} from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faCheckToSlot, faClipboard, faFile, faTrash, faBan, faCalendarCheck, faCalendarMinus, faClock} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 
@@ -62,6 +62,24 @@ export default function DataStudentsCoordinatorDashboard() {
         },
     ];
 
+    const periodsInformation = [
+        {
+            name: 'Periodos existentes',
+            value: '+2',
+            icon: faCalendarCheck,
+        },
+        {
+            name: 'Periodos cancelados',
+            value: '+5',
+            icon: faCalendarMinus,
+        },
+        {
+            name: 'Periodos finalizados',
+            value: '+2',
+            icon: faClock,
+        },
+    ];
+
     const renderStats = (stats) => {
         return stats.map((stat) => (
             <div key={stat.name} className="bg-black/60 p-6 rounded-lg">
@@ -99,6 +117,11 @@ export default function DataStudentsCoordinatorDashboard() {
             <div className="mb-8">
                 <div id="voting-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {renderStats(votingStats)}
+                </div>
+            </div>  
+            <div className="mb-8">
+                <div id="voting-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {renderStats(periodsInformation)}
                 </div>
             </div>  
         </div>
