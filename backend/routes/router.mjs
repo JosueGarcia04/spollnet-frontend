@@ -14,6 +14,7 @@ import { votar } from '../controllers/students/postulados/votes.mjs';
 import { getNumberofVotes } from '../controllers/students/postulados/getNumberOfVotes.mjs';
 import { addPeriod } from '../controllers/coordinator/periods/addPeriod.mjs';
 import { getAllPeriods } from '../controllers/coordinator/periods/getPeriods.mjs';
+import { updatePeriod } from '../controllers/coordinator/periods/editPeriod.mjs';
 
 export const spollnetRouter = express.Router();
 
@@ -30,13 +31,15 @@ spollnetRouter.delete('/students/:id', deleteStudent);
 spollnetRouter.patch('/students/:id/ban', banStudent);
 spollnetRouter.get('/dataStudentInformation', getDataStudentInformation);
 spollnetRouter.patch('/students/:id', updateStudent);
-spollnetRouter.get('/profile/:userId', getProfile);
-spollnetRouter.put('/profile/:userId', updateProfile);
+spollnetRouter.get('/profile/:id', getProfile);
+spollnetRouter.put('/profile/:id', updateProfile);
 spollnetRouter.post('/add-newsletter', addNewsletter);
 spollnetRouter.get('/get-newsletters', getNewsletters);
 spollnetRouter.post('/votar', votar);
 spollnetRouter.get('/get-votes', getNumberofVotes);
 spollnetRouter.post('/add-period', addPeriod);
 spollnetRouter.get('/get-periods', getAllPeriods);
+spollnetRouter.put('/update-period/:id', updatePeriod);
+
 
 

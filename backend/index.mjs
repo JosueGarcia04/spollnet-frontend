@@ -16,11 +16,11 @@ import { votar } from './controllers/students/postulados/votes.mjs';
 import { getNumberofVotes } from './controllers/students/postulados/getNumberOfVotes.mjs';
 import { addPeriod } from './controllers/coordinator/periods/addPeriod.mjs';
 import { getAllPeriods } from './controllers/coordinator/periods/getPeriods.mjs';
+import { updatePeriod } from './controllers/coordinator/periods/editPeriod.mjs';
 
 dotenv.config();
 
 const app = express();
-
 
 app.use(cors());
 app.use(express.json());
@@ -35,15 +35,15 @@ app.delete('/students/:id', deleteStudent);
 app.patch('/students/:id/ban', banStudent);
 app.get('/dataStudentInformation', getDataStudentInformation);
 app.patch('/students/:id', updateStudent);
-app.get('/profile/:userId', getProfile);
-app.put('/profile/:userId', updateProfile);
+app.get('/profile/:id', getProfile);
+app.put('/profile/:id', updateProfile);
 app.post('/add-newsletter', addNewsletter);
 app.get('/get-newsletters', getNewsletters);
 app.post('/votes', votar);
 app.get('/get-votes', getNumberofVotes);
 app.post('/add-period', addPeriod);
 app.get('/get-periods', getAllPeriods);
-
+app.put('/update-period/:id', updatePeriod);
 
 const port = process.env.APP_PORT || 5000;
 const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/spollnet';
