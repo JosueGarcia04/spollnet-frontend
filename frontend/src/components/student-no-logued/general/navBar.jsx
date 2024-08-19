@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faHome, faInfoCircle, faEnvelope, faSignOutAlt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faHome, faInfoCircle, faEnvelope, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
@@ -28,7 +28,7 @@ const Navbar = () => {
               aria-expanded={isOpen ? "true" : "false"}
             >
               <span className="sr-only">Toggle navigation</span>
-              <svg className="w-8 h-8 text-[#ffffff]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-8 h-8 text-[#e7148c]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
             </button>
@@ -79,8 +79,8 @@ const Navbar = () => {
           <div className="flex items-center px-4 mb-5">
             <FontAwesomeIcon icon={faUser} className="text-[#e7148c] w-7 h-12 mr-3" />
             <div>
-              <p className="text-white font-bold">Nombre de Estudiante</p>
-              <p className="text-gray-400">usuario@example.com</p>
+              <Link to={"/Sign-in"} className="text-white font-bold">Crear una cuenta</Link><br></br>
+              <Link to={"/login"} className="text-gray-400">Inicia sesión</Link>
             </div>
           </div>
           <Link to={"/"} className={`flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md ${location.pathname === '/' ? 'bg-gray-700' : ''}`}>
@@ -100,8 +100,7 @@ const Navbar = () => {
           </Link>
         </ul>
         <div className="absolute bottom-0 left-0 right-0 p-4 flex justify-between">
-          <FontAwesomeIcon icon={faQuestionCircle} className="text-[#ffffff] w-7 h-7" />
-          <FontAwesomeIcon icon={faSignOutAlt} className="text-[#ffffff] w-7 h-7" />
+          <FontAwesomeIcon icon={faQuestionCircle} className="text-[#e7148c] w-7 h-7" />
         </div>
       </div>
     </>

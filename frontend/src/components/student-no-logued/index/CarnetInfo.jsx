@@ -19,38 +19,42 @@ export default function CarnetInfo() {
                                 />
                             </div>
                             <div data-aos="fade-up" className="flex w-full flex-col md:items-center items-center lg:items-start p-4 sm:w-full mx-auto lg:px-14 lg:w-3/5">
-                                <h2 className="mb-4 text-2xl md:text-center font-bold text-white md:text-3xl lg:text-4xl">
+                                <h2 className="mb-4 text-2xl md:text-center text-center font-bold text-white md:text-3xl lg:text-4xl">
                                     Tu carnet es fundamental
                                 </h2>
-                                <p data-aos="fade-up" className="mb-6 md:text-center lg:text-start text-center max-w-md lg:text-[16px] text-white">
+                                <p data-aos="fade-up" className="mb-6 md:text-center text-center lg:text-start  max-w-md lg:text-[16px] text-white">
                                     El carnet estudiantil es fundamental para garantizar la autenticidad y seguridad en el proceso de votación estudiantil virtual.
                                 </p>
-                                <div data-aos="fade-up" className="flex mb-6 space-x-3">
-                                    <div className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
-                                        <img src="public/icons1.png" alt="Seguridad y Privacidad" />
+                                <div className="text-left">
+                                    <div className="flex items-center mb-6 space-x-3">
+                                        <div className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
+                                            <img src="public/icons1.png" alt="Seguridad y Privacidad" />
+                                        </div>
+                                        <div className="text-white">
+                                            <h4 className="text-md font-semibold">Seguridad y Privacidad</h4>
+                                        </div>
                                     </div>
-                                    <div className="text-white">
-                                        <h4 className="text-md font-semibold">Seguridad y Privacidad</h4>
+
+                                    <div className="flex items-center mb-4 space-x-3">
+                                        <div className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
+                                            <img src="public/icons2.png" alt="Identificación Única" />
+                                        </div>
+                                        <div className="text-white">
+                                            <h4 className="text-md font-semibold">Identificación Única</h4>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex mb-4 items-start space-x-3">
-                                    <div data-aos="fade-up" className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
-                                        <img src="public/icons2.png" alt="Identificación Única" />
-                                    </div>
-                                    <div className="text-white">
-                                        <h4 className="text-md font-semibold">Identificación Única</h4>
-                                    </div>
-                                </div>
-                                <div className="flex items-start space-x-3">
-                                    <div data-aos="fade-up" className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
-                                        <img src="public/icons3.png" alt="Facilidad de Verificación" />
-                                    </div>
-                                    <div className="text-white">
-                                        <h4 className="text-md font-semibold">Facilidad de Verificación</h4>
+
+                                    <div className="flex items-center space-x-3">
+                                        <div className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
+                                            <img src="public/icons3.png" alt="Facilidad de Verificación" />
+                                        </div>
+                                        <div className="text-white">
+                                            <h4 className="text-md font-semibold">Facilidad de Verificación</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>   
                     </div>
                 </div>
             </div>

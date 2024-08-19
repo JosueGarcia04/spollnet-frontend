@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faUser, faUsers, faCalendarCheck, faChartSimple, faNewspaper, faSignOutAlt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUser, faUsers, faCalendarCheck, faChartSimple, faNewspaper, faSignOutAlt, faQuestionCircle, faBell } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
@@ -33,8 +33,13 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-          <div className="hidden md:flex md:items-center md:space-x-4 md:ml-auto md:mr-20">
-            
+          <div className="hidden md:flex md:items-center md:space-x-4 md:ml-auto md:mr-10">
+          <Link
+              to="#"
+              className="bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] text-white hover:bg-gradient-to-r hover:from-[#e7148c] hover:to-[#6e1d5c] focus:ring-4 focus:outline-none focus:ring-[#E41FAE]/50 font-medium rounded-lg text-base px-5 py-2 text-center transition-all duration-300 ease-in-out"
+            >
+              Ver notificaciones
+            </Link>
           </div>
         </div>
       </nav>
@@ -94,6 +99,11 @@ const Navbar = () => {
           <Link to={"/newsDashboard"} className={`flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md ${location.pathname === '/contact' ? 'bg-gray-700' : ''}`}>
             <FontAwesomeIcon icon={faNewspaper} className="text-[#ffffff] w-5 h-5 mr-2" />
             <span className="md:inline-block">Noticias</span>
+            <span className="ml-auto text-[#e7148c] font-bold">&#62;</span>
+          </Link>
+          <Link to={"/newsDashboard"} className={`flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md ${location.pathname === '/contact' ? 'bg-gray-700' : ''}`}>
+            <FontAwesomeIcon icon={faBell} className="text-[#ffffff] w-5 h-5 mr-2" />
+            <span className="md:inline-block">Notificaciones</span>
             <span className="ml-auto text-[#e7148c] font-bold">&#62;</span>
           </Link>
         </ul>
