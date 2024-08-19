@@ -5,21 +5,21 @@ import NewslettersGrid from './newslettergrid';
 import AddNew from './addNew';
 
 const NewsDashboardContent = () => {
-  const [newsletters, setNewsletters] = useState([]);
+    const [newsletters, setNewsletters] = useState([]);
 
-  useEffect(() => {
-    fetchNewsletters();
-  }, []);
+    useEffect(() => {
+      fetchNewsletters();
+    }, []);
 
-  const fetchNewsletters = async () => {
-    try {
-      const response = await fetch('http://localhost:5000/get-newsletters');
-      const data = await response.json();
-      setNewsletters(data);
-    } catch (error) {
-      console.error('Error fetching newsletters:', error);
-    }
-  };
+    const fetchNewsletters = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/get-newsletters');
+        const data = await response.json();
+        setNewsletters(data);
+      } catch (error) {
+        console.error('Error fetching newsletters:', error);
+      }
+    };
 
   const handleAddNewsletter = async (newNewsletter) => {
     try {
