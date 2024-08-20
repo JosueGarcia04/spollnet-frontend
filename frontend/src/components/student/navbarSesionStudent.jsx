@@ -16,7 +16,7 @@ export default function NavbarSesionStudent() {
       <nav className="bg-[#141414] fixed top-0 left-0 w-full z-50 py-3.5 px-3 md:px-2 border-b-2 border-[#ffffff]">
         <div className="flex flex-wrap items-center justify-between">
           {/* Menú de hamburguesa visible solo en modo escritorio */}
-          <Link to={"/"}>
+          <Link to={"/IndexStudent"}>
             <img src="public/logo-beta5.png" className="w-40 md:w-44 h-10 md:h-11 md:ml-10" alt="spollnet" />
           </Link>
           <div className="flex items-center md:order-2">

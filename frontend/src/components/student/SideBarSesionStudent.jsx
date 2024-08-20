@@ -23,7 +23,7 @@ const SidebarSesionStudent = ({ isSidebarOpen, toggleSidebar }) => {
       style={{ zIndex: 9 }}
     >
       <div className="flex flex-col pl-3 pt-6 mt-5 space-y-5 p-3 text-white">
-        <Link to={"/"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
+        <Link to={"/IndexStudent"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
           <FontAwesomeIcon icon={faHome} className="text-[#ffffff] w-5 h-5 mr-2" />
           {isHovered && <span className="inline-block">Inicio</span>}
         </Link>
