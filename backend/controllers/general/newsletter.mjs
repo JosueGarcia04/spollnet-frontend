@@ -20,7 +20,6 @@ export const getAllNewsletters = async (req, res) => {
   }
 };
 
-
 export const deleteNewsletter = async (req, res) => {
   try {
     const { id } = req.params;
@@ -34,3 +33,4 @@ export const deleteNewsletter = async (req, res) => {
     res.status(500).json({ message: 'Error marcando la noticia como eliminada' });
   }
 };
+

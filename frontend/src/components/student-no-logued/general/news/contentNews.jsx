@@ -9,13 +9,22 @@ export default function ContentNews() {
 
   const fetchNewsletters = async () => {
     try {
-      const response = await fetch('http://localhost:5000/get-newsletters');
+      const response = await fetch('http://localhost:5000/get-all-newsletters');
       const data = await response.json();
-      setNewsletters(data);
+      console.log('Datos de la API:', data);
+  
+      data.forEach(newsletter => {
+        console.log(`ID: ${newsletter._id}, isBanned: ${newsletter.isDeleted}`);
+      });
+  
+      const activeNewsletters = data.filter(newsletter => newsletter.isDeleted === false);
+      console.log('Newsletters activas:', activeNewsletters);
+      setNewsletters(activeNewsletters);
     } catch (error) {
       console.error('Error fetching newsletters:', error);
     }
   };
+  
 
   const NewsletterCard = ({ title, description }) => (
     <div className="bg-black border rounded-lg p-4 shadow-md">
