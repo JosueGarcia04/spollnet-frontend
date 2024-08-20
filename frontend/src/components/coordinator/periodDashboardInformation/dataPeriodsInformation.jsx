@@ -1,22 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarCheck, faCalendarMinus, faClock } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom'; 
 
 export default function DataPeriodsInformation() {
+
+    const [stats, setStats] = useState({
+        registered: 0,
+        deleted: 0,
+        finally: 0,
+    });
+
+    const navigate = useNavigate(); 
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/dataPeriodInformation'); 
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                setStats(data);
+            } catch (error) {
+                console.error('Error fetching stats:', error.message);
+            }
+        };
+    
+        fetchStats();
+    }, []);
+    
+
     const periodsInformation = [
         {
             name: 'Periodos existentes',
-            value: '+2',
+            value: stats.registered,
             icon: faCalendarCheck,
         },
         {
             name: 'Periodos cancelados',
-            value: '+5',
+            value: stats.deleted,
             icon: faCalendarMinus,
         },
         {
             name: 'Periodos finalizados',
-            value: '+2',
+            value: stats.finally,
             icon: faClock,
         },
     ];

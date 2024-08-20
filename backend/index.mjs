@@ -12,6 +12,7 @@ import { getDataStudentInformation } from './controllers/coordinator/students/da
 import { updateStudent } from './controllers/coordinator/students/editStudent.mjs';
 import { getProfile, updateProfile} from './controllers/students/dataProfile.mjs';
 import { addNewsletter, getAllNewsletters, deleteNewsletter} from './controllers/general/newsletter.mjs'
+import { getDataPeriodInformation } from './controllers/coordinator/periods/dataPeriodInformation.mjs';
 import { votar } from './controllers/students/postulados/votes.mjs';
 import { getNumberofVotes } from './controllers/students/postulados/getNumberOfVotes.mjs';
 import { addPeriod } from './controllers/coordinator/periods/addPeriod.mjs';
@@ -41,6 +42,7 @@ app.put('/profile/:id', updateProfile);
 app.post('/add-newsletter', addNewsletter);
 app.get('/get-all-newsletters', getAllNewsletters);
 app.delete('/delete-newsletter/:id', deleteNewsletter);
+app.get('/dataPeriodInformation', getDataPeriodInformation);
 app.post('/votes', votar);
 app.get('/get-votes', getNumberofVotes);
 app.post('/add-period', addPeriod);
