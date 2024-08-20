@@ -12,7 +12,7 @@ const NewsDashboardContent = () => {
 
   const fetchNewsletters = async () => {
     try {
-      const response = await fetch('http://localhost:5000/get-newsletters');
+      const response = await fetch('http://localhost:5000/get-all-newsletters');
       const data = await response.json();
       setNewsletters(data);
     } catch (error) {

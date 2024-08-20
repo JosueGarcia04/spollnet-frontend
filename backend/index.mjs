@@ -11,7 +11,7 @@ import { deleteStudent, banStudent } from './controllers/coordinator/students/De
 import { getDataStudentInformation } from './controllers/coordinator/students/dataStudentInformation.mjs'; 
 import { updateStudent } from './controllers/coordinator/students/editStudent.mjs';
 import { getProfile, updateProfile} from './controllers/students/dataProfile.mjs';
-import { addNewsletter, getNewsletters, deleteNewsletter } from './controllers/general/newsletter.mjs'
+import { addNewsletter, getAllNewsletters, deleteNewsletter } from './controllers/general/newsletter.mjs'
 import { votar } from './controllers/students/postulados/votes.mjs';
 import { getNumberofVotes } from './controllers/students/postulados/getNumberOfVotes.mjs';
 import { addPeriod } from './controllers/coordinator/periods/addPeriod.mjs';
@@ -39,7 +39,7 @@ app.patch('/students/:id', updateStudent);
 app.get('/profile/:id', getProfile);
 app.put('/profile/:id', updateProfile);
 app.post('/add-newsletter', addNewsletter);
-app.get('/get-newsletters', getNewsletters);
+app.get('/get-all-newsletters', getAllNewsletters);
 app.delete('/delete-newsletter/:id', deleteNewsletter);
 app.post('/votes', votar);
 app.get('/get-votes', getNumberofVotes);

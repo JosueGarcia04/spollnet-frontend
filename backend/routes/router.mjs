@@ -9,7 +9,7 @@ import { deleteStudent, banStudent } from '../controllers/coordinator/students/d
 import { getDataStudentInformation } from '../controllers/coordinator/students/dataStudentInformation';
 import { updateStudent } from '../controllers/coordinator/students/editStudent.mjs';
 import { getProfile, updateProfile} from '../controllers/students/dataProfile.mjs';
-import { addNewsletter, getNewsletters, deleteNewsletter } from '../controllers/general/newsletter.mjs'; 
+import { addNewsletter, getAllNewsletters, deleteNewsletter } from '../controllers/general/newsletter.mjs'; 
 import { votar } from '../controllers/students/postulados/votes.mjs';
 import { getNumberofVotes } from '../controllers/students/postulados/getNumberOfVotes.mjs';
 import { addPeriod } from '../controllers/coordinator/periods/addPeriod.mjs';
@@ -35,7 +35,7 @@ spollnetRouter.patch('/students/:id', updateStudent);
 spollnetRouter.get('/profile/:id', getProfile);
 spollnetRouter.put('/profile/:id', updateProfile);
 spollnetRouter.post('/add-newsletter', addNewsletter);
-spollnetRouter.get('/get-newsletters', getNewsletters);
+spollnetRouter.get('/get-all-newsletters', getAllNewsletters);
 spollnetRouter.delete('/delete-newsletter/:id', deleteNewsletter);
 spollnetRouter.post('/votar', votar);
 spollnetRouter.get('/get-votes', getNumberofVotes);

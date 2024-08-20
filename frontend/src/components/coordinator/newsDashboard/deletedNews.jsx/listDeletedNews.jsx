@@ -12,9 +12,15 @@ export default function ListDeletedNews() {
 
   const fetchDeletedNewsletters = async () => {
     try {
-      const response = await fetch('http://localhost:5000/get-newsletters');
+      const response = await fetch('http://localhost:5000/get-all-newsletters');
       const data = await response.json();
-      const deletedNews = data.filter(newsletter => newsletter.isDeleted);
+      console.log(data); 
+      data.forEach(newsletter => {
+        console.log(`ID: ${newsletter._id}, isDeleted: ${newsletter.isDeleted}`);
+      });
+
+      const deletedNews = data.filter(newsletter => newsletter.isDeleted === true);
+      console.log('Noticias eliminadas:', deletedNews);
       setDeletedNewsletters(deletedNews);
     } catch (error) {
       console.error('Error fetching deleted newsletters:', error);

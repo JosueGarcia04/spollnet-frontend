@@ -11,14 +11,15 @@ export const addNewsletter = async (req, res) => {
   }
 };
 
-export const getNewsletters = async (req, res) => {
+export const getAllNewsletters = async (req, res) => {
   try {
-    const newsletters = await News.find({ isDeleted: false });
+    const newsletters = await News.find({});
     res.status(200).json(newsletters);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching newsletters' });
   }
 };
+
 
 export const deleteNewsletter = async (req, res) => {
   try {
