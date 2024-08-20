@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/student-no-logued/general/navBar';
 import Label from '../../components/student-no-logued/forms/label';
 import Input from '../../components/student-no-logued/forms/input';
@@ -8,6 +9,7 @@ import Swal from 'sweetalert2';
 import { useValidations } from '../../hooks/forms/forms';
 
 const SignIn = () => {
+    const navigate = useNavigate();
     const { errors, setErrors, handleInputChange, validations, handleBackendErrors } = useValidations();
     const [name, setName] = useState('');
     const [mail, setEmail] = useState('');
@@ -44,6 +46,7 @@ const SignIn = () => {
                 text: "El usuario ha sido registrado correctamente.",
                 icon: "success"
             });
+            navigate('/login');
 
             setName(''); setEmail(''); setPassword(''); setLevel(''); setSpecialty(''); setIdentifier(''); setErrors({});
         } catch (error) {

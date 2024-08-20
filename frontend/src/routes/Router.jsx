@@ -18,6 +18,7 @@ import NotificationDashboard from '../pages/coordinator/notifications/notificati
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
 import VerifyAccount from '../pages/verify/verifyAccount';
+import IndexStudent from '../pages/student/IndexStudent';
 import Profile from '../pages/student/student_profile'
 import ListDeletedStudents from '../pages/coordinator/students/delete&banned/listDeletedStudents';
 import ListBannedStudents from '../pages/coordinator/students/delete&banned/listBannedStudents';
@@ -25,6 +26,7 @@ import Votacion from '../pages/student/candidates';
 //newsletter
 import ListDeletedNews from '../components/coordinator/newsDashboard/deletedNews.jsx/listDeletedNews'
 //consejo
+import IndexConsejo from '../pages/consejo/IndexConsejo';
 import Publish from '../pages/consejo/publis';
 import Solicitudes from '../pages/consejo/solicitudes';
 
@@ -101,6 +103,14 @@ export const Router = createBrowserRouter([
             {
                 path:"solicitudes",
                 element:<Solicitudes/>
+            },
+            {
+                path:"IndexStudent",
+                element:<IndexStudent/>
+            },
+            {
+                path:"IndexConsejo",
+                element:<IndexConsejo/>
             },
             {
                 path: "*",

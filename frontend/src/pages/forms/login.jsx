@@ -71,7 +71,7 @@ const Login = () => {
                     icon: "success"
                 }).then(() => {
                     localStorage.setItem('token', response.data.token);
-                    navigate('/council', { replace: true });
+                    navigate('/IndexConsejo', { replace: true });
                 });
                 return;
             } else {
@@ -96,7 +96,7 @@ const Login = () => {
                         } else if (decodedToken.role === 'consejal') {
                             navigate('/council', { replace: true });
                         } else {
-                            navigate('/profile', { replace: true });
+                            navigate('/IndexStudent', { replace: true });
                         }
                     } catch (error) {
                         console.error('Error decoding token:', error);
