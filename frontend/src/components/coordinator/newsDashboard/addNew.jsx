@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import RegisterButton from '../../../components/student-no-logued/forms/Sign up/registerButton';
+import Swal from 'sweetalert2';
 
 export default function AddNew({ onAddNewsletter }) {
   const [title, setTitle] = useState('');
@@ -22,16 +24,29 @@ export default function AddNew({ onAddNewsletter }) {
       });
 
       if (response.ok) {
-        onAddNewsletter(newNewsletter);
+        const addedNewsletter = await response.json();
+        onAddNewsletter(addedNewsletter);
         setTitle('');
         setDescription('');
-        alert('Noticia añadida con éxito');
+        Swal.fire({
+          title: "¡Bien!",
+          text: "La noticia se ha registrado correctamente.",
+          icon: "success"
+        });
       } else {
-        alert('Hubo un problema al añadir la noticia');
+        Swal.fire({
+          title: "Algo salió mal",
+          text: "Hubo un error al registrar la noticia",
+          icon: "error"
+        });
       }
     } catch (error) {
       console.error('Error adding newsletter:', error);
-      alert('Hubo un problema al añadir la noticia');
+      Swal.fire({
+        title: "Error",
+        text: "Hubo un problema al añadir la noticia",
+        icon: "error"
+      });
     }
   };
 
@@ -65,7 +80,7 @@ export default function AddNew({ onAddNewsletter }) {
           />
         </div>
         <div className="text-center">
-          <button type="submit">Añadir noticia</button>
+          <RegisterButton text='Añadir noticia'/>
         </div>
       </form>
     </div>

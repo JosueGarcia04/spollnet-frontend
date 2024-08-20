@@ -1,51 +1,53 @@
-// NewsDashboardContent.js
 import React, { useState, useEffect } from 'react';
-import NewsletterCard from './newslettercard';
 import NewslettersGrid from './newslettergrid';
 import AddNew from './addNew';
+import Swal from 'sweetalert2';
 
 const NewsDashboardContent = () => {
-    const [newsletters, setNewsletters] = useState([]);
+  const [newsletters, setNewsletters] = useState([]);
 
-    useEffect(() => {
-      fetchNewsletters();
-    }, []);
+  useEffect(() => {
+    fetchNewsletters();
+  }, []);
 
-    const fetchNewsletters = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/get-newsletters');
-        const data = await response.json();
-        setNewsletters(data);
-      } catch (error) {
-        console.error('Error fetching newsletters:', error);
-      }
-    };
-
-  const handleAddNewsletter = async (newNewsletter) => {
+  const fetchNewsletters = async () => {
     try {
-      const response = await fetch('http://localhost:5000/add-newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newNewsletter),
+      const response = await fetch('http://localhost:5000/get-newsletters');
+      const data = await response.json();
+      setNewsletters(data);
+    } catch (error) {
+      console.error('Error fetching newsletters:', error);
+    }
+  };
+
+  const handleAddNewsletter = (newNewsletter) => {
+    setNewsletters((prevNewsletters) => [...prevNewsletters, newNewsletter]);
+  };
+
+  const handleDeleteNewsletter = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/delete-newsletter/${id}`, {
+        method: 'DELETE',
       });
 
       if (response.ok) {
-        const addedNewsletter = await response.json();
-        setNewsletters((prevNewsletters) => [...prevNewsletters, addedNewsletter]);
+        Swal.fire('Eliminado', 'La noticia ha sido eliminada exitosamente.', 'success');
+        setNewsletters((prevNewsletters) =>
+          prevNewsletters.filter((newsletter) => newsletter._id !== id)
+        );
       } else {
-        console.error('Error adding newsletter:', response.statusText);
+        Swal.fire('Error', 'No se pudo eliminar la noticia.', 'error');
       }
     } catch (error) {
-      console.error('Error adding newsletter:', error);
+      Swal.fire('Error', 'Error eliminando la noticia.', 'error');
+      console.error('Error deleting newsletter:', error);
     }
   };
 
   return (
     <div>
-      <NewslettersGrid newsletters={newsletters} />
       <AddNew onAddNewsletter={handleAddNewsletter} />
+      <NewslettersGrid newsletters={newsletters} onDelete={handleDeleteNewsletter} />
     </div>
   );
 };
