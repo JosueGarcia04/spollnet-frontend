@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // General components
+import Footer from '../../../components/student-no-logued/general/footer';
 import NavbarMobile from '../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard';
@@ -37,6 +38,7 @@ export const StudentTable = () => {
         </div>
         <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
       </div>
+      <Footer/>
     </>
   );
 };

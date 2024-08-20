@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 //general
 import NavbarMobile from '../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
+import Footer from '../../../components/student-no-logued/general/footer';
 import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard';
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
@@ -35,6 +36,7 @@ export const NewsDashboard = () =>{
         </div>
             <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </div>
+        <Footer/>
         </>
     );
 }

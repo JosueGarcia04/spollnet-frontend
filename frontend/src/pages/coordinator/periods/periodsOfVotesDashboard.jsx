@@ -8,6 +8,7 @@ import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDas
 import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import NavbarMobile from '../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
+import Footer from '../../../components/student-no-logued/general/footer';
 
 export const PeriodsOfVotesDashboard = () => {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -35,6 +36,7 @@ export const PeriodsOfVotesDashboard = () => {
                 </div>
             </div>
             <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
+            <Footer/>
         </div>
     );
 }
