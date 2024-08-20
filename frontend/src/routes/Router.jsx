@@ -22,6 +22,8 @@ import Profile from '../pages/student/student_profile'
 import ListDeletedStudents from '../pages/coordinator/students/delete&banned/listDeletedStudents';
 import ListBannedStudents from '../pages/coordinator/students/delete&banned/listBannedStudents';
 import Votacion from '../pages/student/candidates';
+//newsletter
+import ListDeletedNews from '../components/coordinator/newsDashboard/deletedNews.jsx/listDeletedNews'
 
 
 export const Router = createBrowserRouter([
@@ -85,6 +87,10 @@ export const Router = createBrowserRouter([
                 path:"candidates",
                 element:<Votacion/>
             },  
+            {
+                path:"listDeletedNews",
+                element:<ListDeletedNews/>
+            },
             {
                 path: "*",
                 element: <NotFound/>

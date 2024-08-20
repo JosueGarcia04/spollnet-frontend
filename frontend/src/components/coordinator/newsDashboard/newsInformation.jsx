@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { faNewspaper, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function NewsInformationDashboard() {
+    const [newsCount, setNewsCount] = useState(0);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetchNewsCount();
+    }, []);
+
+    const fetchNewsCount = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/get-newsletters');
+            const data = await response.json();
+            const existingNews = data.filter(newsletter => !newsletter.isDeleted);
+            setNewsCount(existingNews.length);
+        } catch (error) {
+            console.error('Error fetching newsletters:', error);
+        }
+    };
     const newsStats = [
         {
             name: 'Noticias existentes',
-            value: '+2',
+            value: newsCount,
             icon: faNewspaper,
         },
     ];
@@ -16,6 +34,7 @@ export default function NewsInformationDashboard() {
             name: 'Noticias eliminadas',
             icon: faTrash,
             showButton: true, 
+            action: () => navigate('/listDeletedNews')
         },
     ];
 
@@ -29,7 +48,10 @@ export default function NewsInformationDashboard() {
                     <div>
                         <p className="text-[#E41FAE] text-sm font-medium leading-4">{stat.name}</p>
                         {stat.showButton ? (
-                            <button className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear">
+                            <button
+                                onClick={stat.action}
+                                className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear"
+                            >
                                 Ver {stat.name}
                             </button>
                         ) : (
