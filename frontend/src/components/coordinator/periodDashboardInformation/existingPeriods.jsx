@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-export default function ExistingPeriods() {
+export default function ExistingPeriods({ mode }) {
     const [periods, setPeriods] = useState([]);
+    const [counts, setCounts] = useState({ registered: 0, deleted: 0, finally: 0 });
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedPeriod, setSelectedPeriod] = useState(null);
     const [updatedPeriod, setUpdatedPeriod] = useState({ name: '', startDate: '', endDate: '' });
@@ -23,7 +24,20 @@ export default function ExistingPeriods() {
             }
         };
 
+        const fetchStats = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/dataPeriodInformation'); 
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                setCounts(data);
+            } catch (error) {
+                console.error('Error fetching stats:', error.message);
+            }
+        };
         fetchPeriods();
+        fetchStats();
     }, []);
 
     const handleEditClick = (period) => {
@@ -64,38 +78,43 @@ export default function ExistingPeriods() {
             console.error('Error updating period:', error);
         }
     };
-    
 
     const handleDeleteClick = async (periodId) => {
-        const result = await Swal.fire({
-            title: '¿Estás seguro?',
-            text: "¡No podrás deshacer esta acción!",
-            icon: 'warning',
+        Swal.fire({
+            title: "Alerta",
+            text: "¿Quieres eliminar este período?",
+            icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminarlo!'
-        });
-
-        if (result.isConfirmed) {
-            try {
-                await axios.delete(`http://localhost:5000/delete-period/${periodId}`);
-                setPeriods((prevPeriods) => prevPeriods.filter((period) => period._id !== periodId));
-                Swal.fire(
-                    'Eliminado!',
-                    'El periodo ha sido eliminado.',
-                    'success'
-                );
-            } catch (error) {
-                console.error('Error deleting period:', error);
-                Swal.fire(
-                    'Error!',
-                    'Hubo un problema al eliminar el periodo.',
-                    'error'
-                );
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Eliminar período"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await fetch(`http://localhost:5000/delete-period/${periodId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    if (response.ok) {
+                        Swal.fire({
+                            title: "¡Eliminado!",
+                            text: "El período ha sido marcado como eliminado.",
+                            icon: "success"
+                        });
+                        setPeriods(periods.map(period => period._id === periodId ? { ...period, isDeleted: true } : period));
+                    } else {
+                        console.error('Error marcando como eliminado el período');
+                    }
+                } catch (error) {
+                    console.error('Error eliminando el período:', error);
+                }
             }
-        }
+        });
     };
+    
+    
 
     return (
         <div>
@@ -112,31 +131,47 @@ export default function ExistingPeriods() {
                     </thead>
                     <tbody>
                         {Array.isArray(periods) && periods.length > 0 ? (
-                            periods.map((period) => (
-                                <tr key={period._id} className="border-b border-gray-700">
-                                    <td className="py-3 px-2 font-bold">
-                                        <div className="inline-flex space-x-3 items-center">
-                                            <span>{period.name || "N/A"}</span>
-                                        </div>
-                                    </td>
-                                    <td className="py-3 px-2">{period.startDate.toString().split("T")[0]}</td>
-                                    <td className="py-3 px-2"></td>
-                                    <td className="py-3 px-2">{period.endDate.toString().split("T")[0]}</td>
-                                    <td className="py-3 px-2">
-                                        <div className="inline-flex items-center space-x-3">
-                                            <button onClick={() => handleEditClick(period)}>
-                                                <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600'/>
-                                            </button>
-                                            <button onClick={() => handleDeleteClick(period._id)}>
-                                                <FontAwesomeIcon icon={faTrash} className='text-red-600' />
-                                            </button>
-                                            <Link to={`/view/${period._id}`}>
-                                                <FontAwesomeIcon icon={faClock} className='text-orange-300' />
-                                            </Link>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))
+                            periods.filter(period => 
+                                (mode === 'deleted' && period.isDeleted) ||
+                                (!mode && !period.isDeleted)
+                            ).map((period) => {
+                                const startDate = period.startDate ? new Date(period.startDate) : null;
+                                const endDate = period.endDate ? new Date(period.endDate) : null;
+
+                                return (
+                                    <tr key={period._id} className="border-b border-gray-700">
+                                        <td className="py-3 px-2 font-bold">
+                                            <div className="inline-flex space-x-3 items-center">
+                                                <span>{period.name || "N/A"}</span>
+                                            </div>
+                                        </td>
+                                        <td className="py-3 px-2">
+                                            {startDate ? startDate.toISOString().split("T")[0] : "N/A"}
+                                        </td>
+                                        <td className="py-3 px-2"></td>
+                                        <td className="py-3 px-2">
+                                            {endDate ? endDate.toISOString().split("T")[0] : "N/A"}
+                                        </td>
+                                        <td className="py-3 px-2">
+                                            <div className="inline-flex items-center space-x-3">
+                                                {!period.isDeleted && (
+                                                    <>
+                                                        <button onClick={() => handleEditClick(period)}>
+                                                            <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600'/>
+                                                        </button>
+                                                        <button onClick={() => handleDeleteClick(period._id)}>
+                                                            <FontAwesomeIcon icon={faTrash} className='text-red-600' />
+                                                        </button>
+                                                        <Link to={`/view/${period._id}`}>
+                                                            <FontAwesomeIcon icon={faClock} className='text-orange-300' />
+                                                        </Link>
+                                                    </>
+                                                )}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })
                         ) : (
                             <tr>
                                 <td colSpan="5" className="py-3 px-2 text-center">

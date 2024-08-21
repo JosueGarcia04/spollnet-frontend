@@ -52,15 +52,19 @@ export default function DataPeriodsInformation() {
     const viewButtons = [
         {
             name: 'Periodos cancelados',
+            value: stats.deleted,
             icon: faCalendarMinus,
             showButton: true,
             buttonColor: 'bg-red-600',
+            navigateTo: '/listDeletedPeriods', 
         },
         {
             name: 'Periodos finalizados',
+            value: stats.finally,
             icon: faClock,
             showButton: true,
             buttonColor: 'bg-blue-600',
+            navigateTo: '/listFinallyPeriods', 
         }
     ];
 
