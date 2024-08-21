@@ -6,15 +6,15 @@ import { useNavigate } from 'react-router-dom';
 export default function DataPeriodsInformation() {
 
     const [stats, setStats] = useState({
-        registered: 0,
-        deleted: 0,
-        finally: 0,
+        registeredPeriods: 0,
+        deletedPeriods: 0,
+        finallyPeriods: 0,
     });
 
     const navigate = useNavigate(); 
 
     useEffect(() => {
-        const fetchStats = async () => {
+        const fetchStatsPeriods = async () => {
             try {
                 const response = await fetch('http://localhost:5000/dataPeriodInformation'); 
                 if (!response.ok) {
@@ -27,24 +27,24 @@ export default function DataPeriodsInformation() {
             }
         };
     
-        fetchStats();
+        fetchStatsPeriods();
     }, []);
     
 
     const periodsInformation = [
         {
             name: 'Periodos existentes',
-            value: stats.registered,
+            value: stats.registeredPeriods,
             icon: faCalendarCheck,
         },
         {
             name: 'Periodos cancelados',
-            value: stats.deleted,
+            value: stats.deletedPeriods,
             icon: faCalendarMinus,
         },
         {
             name: 'Periodos finalizados',
-            value: stats.finally,
+            value: stats.finallyPeriods,
             icon: faClock,
         },
     ];
@@ -52,7 +52,7 @@ export default function DataPeriodsInformation() {
     const viewButtons = [
         {
             name: 'Periodos cancelados',
-            value: stats.deleted,
+            value: stats.deletedPeriods,
             icon: faCalendarMinus,
             showButton: true,
             buttonColor: 'bg-red-600',
@@ -60,7 +60,7 @@ export default function DataPeriodsInformation() {
         },
         {
             name: 'Periodos finalizados',
-            value: stats.finally,
+            value: stats.finallyPeriods,
             icon: faClock,
             showButton: true,
             buttonColor: 'bg-blue-600',

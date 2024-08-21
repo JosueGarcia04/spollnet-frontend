@@ -2,14 +2,14 @@ import { Period } from '../../../models/periods.mjs';
 
 export const getDataPeriodInformation = async (req, res) => {
     try {
-        const registeredCount = await Period.countDocuments({});
-        const deletedCount = await Period.countDocuments({ isDeleted: true });
-        const finallyCount = await Period.countDocuments({ isFinally: true });
+        const registeredPeriodsCount = await Period.countDocuments({});
+        const deletedPeriodsCount = await Period.countDocuments({ isDeleted: true });
+        const finallyPeriodsCount = await Period.countDocuments({ isFinally: true });
 
         res.json({
-            registered: registeredCount,
-            deleted: deletedCount,
-            finally: finallyCount,
+            registeredPeriods: registeredPeriodsCount,
+            deletedPeriods: deletedPeriodsCount,
+            finallyPeriods: finallyPeriodsCount,
         });
     } catch (error) {
         console.error('Error al obtener datos:', error);

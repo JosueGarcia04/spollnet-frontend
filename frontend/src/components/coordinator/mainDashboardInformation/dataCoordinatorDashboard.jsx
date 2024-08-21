@@ -8,6 +8,9 @@ export default function DataStudentsCoordinatorDashboard() {
         registered: 0,
         deleted: 0,
         banned: 0,
+        registeredPeriods: 0,
+        deletedPeriods: 0,
+        finallyPeriods: 0
     });
 
     const navigate = useNavigate(); 
@@ -15,9 +18,19 @@ export default function DataStudentsCoordinatorDashboard() {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const response = await fetch('http://localhost:5000/dataStudentInformation'); 
-                const data = await response.json();
-                setStats(data);
+                const responseStudents = await fetch('http://localhost:5000/dataStudentInformation'); 
+                const dataStudents = await responseStudents.json();
+
+                const responsePeriods = await fetch('http://localhost:5000/dataPeriodInformation'); 
+                if (!responsePeriods.ok) {
+                    throw new Error(`HTTP error! status: ${responsePeriods.status}`);
+                }
+                const dataPeriods = await responsePeriods.json();
+                setStats(prevStats => ({
+                    ...prevStats,
+                    ...dataStudents,
+                    ...dataPeriods
+                }));
             } catch (error) {
                 console.error('Error fetching stats:', error);
             }
@@ -54,28 +67,23 @@ export default function DataStudentsCoordinatorDashboard() {
             name: 'Votos emitidos',
             value: '+2000',
             icon: faCheckToSlot,
-        },
-        {
-            name: 'Reportes generados',
-            value: '+2',
-            icon: faFile,
-        },
+        }
     ];
 
     const periodsInformation = [
         {
             name: 'Periodos existentes',
-            value: '+2',
+            value: stats.registeredPeriods,
             icon: faCalendarCheck,
         },
         {
             name: 'Periodos cancelados',
-            value: '+5',
+            value: stats.deletedPeriods,
             icon: faCalendarMinus,
         },
         {
             name: 'Periodos finalizados',
-            value: '+2',
+            value: stats.finallyPeriods,
             icon: faClock,
         },
     ];
@@ -89,18 +97,9 @@ export default function DataStudentsCoordinatorDashboard() {
                     </div>
                     <div>
                         <p className="text-[#E41FAE] text-sm font-medium leading-4">{stat.name}</p>
-                        {stat.showButton ? (
-                            <button 
-                                className="mt-2 bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-150 ease-linear"
-                                onClick={() => navigate(stat.navigateTo)}
-                            >
-                                Ver {stat.name}
-                            </button>
-                        ) : (
-                            <p className="text-white font-bold text-2xl inline-flex items-center space-x-2">
-                                <span>{stat.value}</span>
-                            </p>
-                        )}
+                        <p className="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                            <span>{stat.value}</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -115,12 +114,12 @@ export default function DataStudentsCoordinatorDashboard() {
                 </div>
             </div>
             <div className="mb-8">
-                <div id="voting-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div id="voting-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                     {renderStats(votingStats)}
                 </div>
             </div>  
             <div className="mb-8">
-                <div id="voting-stats" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div id="periods-info" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {renderStats(periodsInformation)}
                 </div>
             </div>  

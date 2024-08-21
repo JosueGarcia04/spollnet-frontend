@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 export default function ExistingPeriods({ mode }) {
     const [periods, setPeriods] = useState([]);
-    const [counts, setCounts] = useState({ registered: 0, deleted: 0, finally: 0 });
+    const [counts, setCounts] = useState({ registeredPeriods: 0, deletedPeriods: 0, finallyPeriods: 0 });
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedPeriod, setSelectedPeriod] = useState(null);
     const [updatedPeriod, setUpdatedPeriod] = useState({ name: '', startDate: '', endDate: '' });
