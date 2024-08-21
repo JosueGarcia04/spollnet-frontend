@@ -80,6 +80,7 @@ export default function DataPeriodsInformation() {
                         {stat.showButton ? (
                             <button
                                 className={`mt-2 font-bold py-2 px-4 rounded hover:bg-opacity-75 transition duration-150 ease-linear ${stat.buttonColor} text-white`}
+                                onClick={() => navigate(stat.navigateTo)}
                             >
                                 {stat.name}
                             </button>

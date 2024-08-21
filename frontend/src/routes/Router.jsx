@@ -27,6 +27,7 @@ import Votacion from '../pages/student/candidates';
 import ListDeletedNews from '../components/coordinator/newsDashboard/deletedNews.jsx/listDeletedNews'
 //periods
 import ListDeletedPeriods from '../pages/coordinator/periods/deleted&finally/listDeletedPeriods';
+import ListFinallyPeriods from '../pages/coordinator/periods/deleted&finally/listFinallyPeriods';
 //consejo
 import IndexConsejo from '../pages/consejo/IndexConsejo';
 import Publish from '../pages/consejo/publis';
@@ -117,6 +118,10 @@ export const Router = createBrowserRouter([
             {
                 path:"listDeletedPeriods",
                 element:<ListDeletedPeriods/>
+            },
+            {
+                path: "listFinallyPeriods",
+                element: <ListFinallyPeriods/>
             },
             {
                 path: "*",
