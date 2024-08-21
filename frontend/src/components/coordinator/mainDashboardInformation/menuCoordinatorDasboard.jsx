@@ -23,7 +23,7 @@ export default function MenuCoordinatorDashboard() {
     };
 
     return (
-        <div className="h-screen flex flex-col">
+        <div className="min-screen flex flex-col">
             <div className="flex-grow flex flex-col space-y-2">
                 <Link to="/main" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
@@ -49,14 +49,14 @@ export default function MenuCoordinatorDashboard() {
                         </p>
                     </div>
                 </Link>
-                <a href="#" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+                <Link to="/mainStatistic" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faChartSimple} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />
                         <p className="font-bold text-base lg:text-lg text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out">
                             Estadísticas
                         </p>
                     </div>
-                </a>
+                </Link>
                 <Link to="/newsDashboard" className="transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                     <div className="flex items-center space-x-2">
                         <FontAwesomeIcon icon={faNewspaper} className="text-slate-200 group-hover:text-white transform group-hover:scale-105 transition-all duration-150 ease-in-out" />

@@ -14,6 +14,7 @@ import StudentTable from '../pages/coordinator/students/studentsDashboard';
 import PeriodsOfVotesDashboard from '../pages/coordinator/periods/periodsOfVotesDashboard';
 import NewsDashboard from '../pages/coordinator/newsDashboard/newsDashboard';
 import NotificationDashboard from '../pages/coordinator/notifications/notificationsDashboard';
+import MainStatistic from '../pages/coordinator/statistics/mainStatistic';
 //student
 import SignIn from '../pages/forms/Sign-in'
 import Login from '../pages/forms/login'
@@ -122,6 +123,10 @@ export const Router = createBrowserRouter([
             {
                 path: "listFinallyPeriods",
                 element: <ListFinallyPeriods/>
+            },
+            {
+                path:"mainStatistic",
+                element:<MainStatistic/>
             },
             {
                 path: "*",
