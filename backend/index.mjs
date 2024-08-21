@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import { register } from './controllers/forms/sign_up.mjs';
 import { credentials } from './controllers/forms/login.mjs';

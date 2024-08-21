@@ -82,6 +82,9 @@ const Login = () => {
             }
 
             if (response.data.token) {
+                console.log(response.data.token)
+
+
                 Swal.fire({
                     title: "¡Bien!",
                     text: response.data.msg,
@@ -90,6 +93,7 @@ const Login = () => {
                     localStorage.setItem('token', response.data.token);
 
                     try {
+                        const token = response.data.token;
                         const decodedToken = jwtDecode(response.data.token);
                         if (decodedToken.role === 'coordinador') {
                             navigate('/main', { replace: true });
@@ -98,6 +102,8 @@ const Login = () => {
                         } else {
                             navigate('/IndexStudent', { replace: true });
                         }
+                        localStorage.setItem("token", token)
+                        localStorage.removeItem("decodedToken");
                     } catch (error) {
                         console.error('Error decoding token:', error);
                         Swal.fire({

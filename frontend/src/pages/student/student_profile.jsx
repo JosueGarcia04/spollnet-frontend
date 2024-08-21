@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import Swal from 'sweetalert2';
+import { jwtDecode } from 'jwt-decode';
 
-const Profile = ({ userId }) => {
+const Profile = () => {
+
     const [userData, setUserData] = useState({
         nombre: '',
         email: '',
@@ -11,14 +13,28 @@ const Profile = ({ userId }) => {
         especialidad: '',
         nivel: ''
     });
-    console.log(userId)
-
+    
+    const token = localStorage.getItem("token");
+    let id = '';
+    
+    if (token) {
+        try {
+            const decodedToken = jwtDecode(token);
+            id = decodedToken.id;
+        } catch (error) {
+            console.error('Error al decodificar el token:', error);
+        }
+    }
+    
     useEffect(() => {
         const fetchProfileData = async () => {
+            console.log(id);
+    
             try {
-                const response = await axios.get(`http://localhost:5000/profile/${userId}`);
-                
+                const response = await axios.get(`http://localhost:5000/profile/${id}`);
+                console.log(response.data);
                 setUserData(response.data);
+                localStorage.removeItem("decodedToken");
             } catch (error) {
                 console.error('Error al obtener el perfil del usuario:', error);
                 Swal.fire({
@@ -28,22 +44,16 @@ const Profile = ({ userId }) => {
                 });
             }
         };
-
-        fetchProfileData();
-    }, [userId]);
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setUserData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    };
-
+    
+        if (id) {
+            fetchProfileData();
+        }
+    }, [id]);
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:5000/profile/${userId}`, userData);
+            const response = await axios.put(`http://localhost:5000/profile/${id}`, userData);
             setUserData(response.data);
             Swal.fire({
                 title: '¡Éxito!',
@@ -59,6 +69,15 @@ const Profile = ({ userId }) => {
             });
         }
     };
+    
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setUserData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+    
 
     return (
         <>
@@ -86,7 +105,7 @@ const Profile = ({ userId }) => {
                                                 />
                                                 <ProfileField
                                                     title="Carnet"
-                                                    value={userData.carnet}
+                                                    value={userData.identificador}
                                                     name="carnet"
                                                     handleInputChange={handleInputChange}
                                                 />
@@ -129,7 +148,7 @@ const ProfileSummary = ({ userData }) => (
             </li>
             <li className="flex flex-col">
                 <label className="text-sm font-bold">Carnet:</label>
-                <span className="text-xs">{userData.carnet}</span>
+                <span className="text-xs">{userData.identificador}</span>
             </li>
             <li className="flex flex-col">
                 <label className="text-sm font-bold">Nivel:</label>

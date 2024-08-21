@@ -50,11 +50,12 @@ const SidebarSesionStudent = ({ isSidebarOpen, toggleSidebar }) => {
       </div>
       <div className="mb-28 flex flex-col md:space-y-2 lg:space-y-4 p-3">
         <div className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-          <FontAwesomeIcon icon={faCog} className="text-[#ffffff] w-6 h-6 mr-2" />
-          {isHovered && <span className="inline-block">Configuración</span>}
+          <Link to={"/student_profile"}>
+            <FontAwesomeIcon icon={faCog} className="text-[#ffffff] w-6 h-6 mr-2" />
+            {isHovered && <span className="inline-block">Configuración</span>}
+          </Link>
         </div>
       </div>
-
     </div>
   );
 };

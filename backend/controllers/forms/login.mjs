@@ -36,6 +36,7 @@ export const credentials = async (req, res) => {
     }
 
     const token = generateToken(student);
+    // const decodedToken = jwt.decode(token)
         res.status(200).json({ msg: 'Inicio de sesión del estudiante exitoso', token });
     } catch (err) {
         console.error('Error al iniciar sesión:', err);
