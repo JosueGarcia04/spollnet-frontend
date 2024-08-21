@@ -90,7 +90,7 @@ const Login = () => {
                     text: response.data.msg,
                     icon: "success"
                 }).then(() => {
-                    localStorage.setItem('token', response.data.token);
+                    sessionStorage.setItem('token', response.data.token);
 
                     try {
                         const token = response.data.token;
@@ -102,8 +102,8 @@ const Login = () => {
                         } else {
                             navigate('/IndexStudent', { replace: true });
                         }
-                        localStorage.setItem("token", token)
-                        localStorage.removeItem("decodedToken");
+                        sessionStorage.setItem("token", token)
+                        sessionStorage.removeItem("decodedToken");
                     } catch (error) {
                         console.error('Error decoding token:', error);
                         Swal.fire({

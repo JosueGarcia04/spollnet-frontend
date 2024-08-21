@@ -14,7 +14,7 @@ const Profile = () => {
         nivel: ''
     });
     
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
     let id = '';
     
     if (token) {
