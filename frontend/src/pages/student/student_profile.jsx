@@ -15,12 +15,12 @@ const Profile = () => {
     });
     
     const token = sessionStorage.getItem("token");
-    let id = '';
+    let id = "";
     
     if (token) {
         try {
             const decodedToken = jwtDecode(token);
-            id = decodedToken.id;
+             id = decodedToken.id;
         } catch (error) {
             console.error('Error al decodificar el token:', error);
         }
@@ -34,7 +34,6 @@ const Profile = () => {
                 const response = await axios.get(`http://localhost:5000/profile/${id}`);
                 console.log(response.data);
                 setUserData(response.data);
-                localStorage.removeItem("decodedToken");
             } catch (error) {
                 console.error('Error al obtener el perfil del usuario:', error);
                 Swal.fire({
@@ -88,7 +87,7 @@ const Profile = () => {
                             <div className="p-8 md:p-12 rounded-lg shadow-md text-white h-full flex flex-col">
                                 <div className="relative">
                                     <h2 className="text-center text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#E31FAE] to-[#E4A0D1] shadow-lg">
-                                        Tu perfil,     
+                                        Tu perfil, {userData.nombre} 
                                     </h2>
                                     <div className="mt-6 flex flex-col items-center">
                                         <ProfileSummary userData={userData} />

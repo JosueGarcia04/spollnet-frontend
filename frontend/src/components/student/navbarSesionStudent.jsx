@@ -1,9 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faHome, faInfoCircle, faEnvelope, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { jwtDecode } from 'jwt-decode';
+
 
 export default function NavbarSesionStudent() {
+  const [userData, setUserData] = useState({
+    nombre: '',
+    email: '',
+    carnet: '',
+    especialidad: '',
+    nivel: ''
+}); 
+
+const token = sessionStorage.getItem("token");
+    let id = '';
+    
+    if (token) {
+        try {
+            const decodedToken = jwtDecode(token);
+            id = decodedToken.id;
+        } catch (error) {
+            console.error('Error al decodificar el token:', error);
+        }
+    }
+    
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            console.log(id);
+    
+            try {
+                const response = await axios.get(`http://localhost:5000/profile/${id}`);
+                console.log(response.data);
+                setUserData(response.data);
+                localStorage.removeItem("decodedToken");
+            } catch (error) {
+                console.error('Error al obtener el perfil del usuario:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No se pudo obtener el perfil del usuario'
+                });
+            }
+        };
+    
+        if (id) {
+            fetchProfileData();
+        }
+    }, [id]);
+    
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -35,7 +82,7 @@ export default function NavbarSesionStudent() {
           {/* Ícono de usuario y saludo en la vista escritorio */}
           <div className="hidden md:flex md:items-center md:space-x-4 md:ml-auto md:mr-20">
             <FontAwesomeIcon icon={faUser} className="text-white w-6 h-6" />
-            <span className="text-white text-base">Hola, usuario</span>
+            <span className="text-white text-base">Hola, {userData.nombre}</span>
           </div>
         </div>
       </nav>
