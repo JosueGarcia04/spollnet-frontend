@@ -23,8 +23,17 @@ import Profile from '../pages/student/student_profile'
 import ListDeletedStudents from '../pages/coordinator/students/delete&banned/listDeletedStudents';
 import ListBannedStudents from '../pages/coordinator/students/delete&banned/listBannedStudents';
 import Votacion from '../pages/student/candidates';
+
 import Publish from '../components/consejo/publicaciones';
 import Solicitudes from '../pages/student/solicitudes';
+
+//newsletter
+import ListDeletedNews from '../components/coordinator/newsDashboard/deletedNews.jsx/listDeletedNews'
+//consejo
+import IndexConsejo from '../pages/consejo/IndexConsejo';
+import Publish from '../pages/consejo/publis';
+import Solicitudes from '../pages/consejo/solicitudes';import Informacion from '../pages/student/informacion';
+
 
 export const Router = createBrowserRouter([
     {
@@ -99,6 +108,10 @@ export const Router = createBrowserRouter([
                 path:"solicitudes",
                 element:<Solicitudes/>
             }, 
+            {
+                path:"informacion",
+                element:<Informacion/>
+            },
             {
                 path: "*",
                 element: <NotFound/>
