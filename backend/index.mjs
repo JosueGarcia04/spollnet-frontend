@@ -20,6 +20,7 @@ import { addPeriod } from './controllers/coordinator/periods/addPeriod.mjs';
 import { getAllPeriods } from './controllers/coordinator/periods/getPeriods.mjs';
 import { updatePeriod } from './controllers/coordinator/periods/editPeriod.mjs';
 import { deletePeriod } from './controllers/coordinator/periods/deletePeriod.mjs';
+import { deletePeriodPermanently } from './controllers/coordinator/periods/Restore&PermanentPeriods.mjs';
 
 dotenv.config();
 
@@ -44,6 +45,7 @@ app.post('/add-newsletter', addNewsletter);
 app.get('/get-all-newsletters', getAllNewsletters);
 app.delete('/delete-newsletter/:id', deleteNewsletter);
 app.get('/dataPeriodInformation', getDataPeriodInformation);
+app.delete('/periods/:id/permanentPeriod', deletePeriodPermanently);
 app.post('/votes', votar);
 app.get('/get-votes', getNumberofVotes);
 app.post('/add-period', addPeriod);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { faPenToSquare, faTrash, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faCalendarMinus, faClock, faTrashCanArrowUp, faCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -82,7 +82,7 @@ export default function ExistingPeriods({ mode }) {
     const handleDeleteClick = async (periodId) => {
         Swal.fire({
             title: "Alerta",
-            text: "¿Quieres eliminar este período?",
+            text: "¿Quieres cancelar este período?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -99,8 +99,8 @@ export default function ExistingPeriods({ mode }) {
                     });
                     if (response.ok) {
                         Swal.fire({
-                            title: "¡Eliminado!",
-                            text: "El período ha sido marcado como eliminado.",
+                            title: "¡Cancelado!",
+                            text: "El período ha sido marcado como cancelado.",
                             icon: "success"
                         });
                         setPeriods(periods.map(period => period._id === periodId ? { ...period, isDeleted: true } : period));
@@ -113,74 +113,124 @@ export default function ExistingPeriods({ mode }) {
             }
         });
     };
-    
-    
 
+    const handleDeletePermanentPeriod = async (periodId) => {
+        Swal.fire({
+            title: "Alerta",
+            text: "¿Quieres eliminar definitivamente este periodo?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Eliminar definitivamente"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await fetch(`http://localhost:5000/periods/${periodId}/permanentPeriod`, {
+                        method: 'DELETE',
+                    });
+                    if (response.ok) {
+                        Swal.fire({
+                            title: "¡Eliminado definitivamente!",
+                            text: "El periodo ha sido eliminado definitivamente",
+                            icon: "success"
+                        });
+                        setPeriods(periods.filter(period => period._id !== periodId));
+                    } else {
+                        const errorResponse = await response.json();
+                        Swal.fire({
+                            title: "Error",
+                            text: errorResponse.message || "Error eliminando el periodo",
+                            icon: "error"
+                        });
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        title: "Error",
+                        text: "Error eliminando el periodo",
+                        icon: "error"
+                    });
+                }
+            }
+        });
+    };
+    
     return (
         <div>
             <div className="overflow-x-scroll">
-                <table className="w-full whitespace-nowrap">
-                    <thead className="bg-black/60">
-                        <tr>
-                            <th className="text-left py-3 px-2 rounded-l-lg">Nombre</th>
-                            <th className="text-left py-3 px-2">Fecha de Inicio</th>
-                            <th className="text-left py-3 px-2"></th>
-                            <th className="text-left py-3 px-2">Fecha de Fin</th>
-                            <th className="text-left py-3 px-2 rounded-r-lg">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {Array.isArray(periods) && periods.length > 0 ? (
-                            periods.filter(period => 
-                                (mode === 'deleted' && period.isDeleted) ||
-                                (!mode && !period.isDeleted)
-                            ).map((period) => {
-                                const startDate = period.startDate ? new Date(period.startDate) : null;
-                                const endDate = period.endDate ? new Date(period.endDate) : null;
+            <table className="w-full whitespace-nowrap">
+    <thead className="bg-black/60">
+        <tr>
+            <th className="text-left py-3 px-2 rounded-l-lg">Nombre</th>
+            <th className="text-left py-3 px-2">Fecha de Inicio</th>
+            <th className="text-left py-3 px-2"></th>
+            <th className="text-left py-3 px-2">Fecha de Fin</th>
+            <th className="text-left py-3 px-2 rounded-r-lg">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {Array.isArray(periods) && periods.length > 0 ? (
+            periods.filter(period => 
+                (mode === 'deleted' && period.isDeleted) ||
+                (!mode && !period.isDeleted)
+            ).map((period) => {
+                const startDate = period.startDate ? new Date(period.startDate) : null;
+                const endDate = period.endDate ? new Date(period.endDate) : null;
 
-                                return (
-                                    <tr key={period._id} className="border-b border-gray-700">
-                                        <td className="py-3 px-2 font-bold">
-                                            <div className="inline-flex space-x-3 items-center">
-                                                <span>{period.name || "N/A"}</span>
-                                            </div>
-                                        </td>
-                                        <td className="py-3 px-2">
-                                            {startDate ? startDate.toISOString().split("T")[0] : "N/A"}
-                                        </td>
-                                        <td className="py-3 px-2"></td>
-                                        <td className="py-3 px-2">
-                                            {endDate ? endDate.toISOString().split("T")[0] : "N/A"}
-                                        </td>
-                                        <td className="py-3 px-2">
-                                            <div className="inline-flex items-center space-x-3">
-                                                {!period.isDeleted && (
-                                                    <>
-                                                        <button onClick={() => handleEditClick(period)}>
-                                                            <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600'/>
-                                                        </button>
-                                                        <button onClick={() => handleDeleteClick(period._id)}>
-                                                            <FontAwesomeIcon icon={faTrash} className='text-red-600' />
-                                                        </button>
-                                                        <Link to={`/view/${period._id}`}>
-                                                            <FontAwesomeIcon icon={faClock} className='text-orange-300' />
-                                                        </Link>
-                                                    </>
-                                                )}
-                                            </div>
-                                        </td>
-                                    </tr>
-                                );
-                            })
-                        ) : (
-                            <tr>
-                                <td colSpan="5" className="py-3 px-2 text-center">
-                                    No hay periodos disponibles.
-                                </td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
+                return (
+                    <tr key={period._id} className="border-b border-gray-700">
+                        <td className="py-3 px-2 font-bold">
+                            <div className="inline-flex space-x-3 items-center">
+                                <span>{period.name || "N/A"}</span>
+                            </div>
+                        </td>
+                        <td className="py-3 px-2">
+                            {startDate ? startDate.toISOString().split("T")[0] : "N/A"}
+                        </td>
+                        <td className="py-3 px-2"></td>
+                        <td className="py-3 px-2">
+                            {endDate ? endDate.toISOString().split("T")[0] : "N/A"}
+                        </td>
+                        <td className="py-3 px-2">
+                            <div className="inline-flex items-center space-x-3">
+                                {!period.isDeleted && (
+                                    <>
+                                        <button onClick={() => handleEditClick(period)}>
+                                            <FontAwesomeIcon icon={faPenToSquare} className='text-blue-600'/>
+                                        </button>
+                                        <button onClick={() => handleDeleteClick(period._id)}>
+                                            <FontAwesomeIcon icon={faCalendarMinus} className='text-red-600' />
+                                        </button>
+                                        <Link to={`/view/${period._id}`}>
+                                            <FontAwesomeIcon icon={faClock} className='text-orange-300' />
+                                        </Link>
+                                    </>
+                                )}
+                                {period.isDeleted && (
+                                    <>
+                                        <button onClick={() => handleDeletePermanentPeriod(period._id)}>
+                                            <FontAwesomeIcon icon={faTrashCanArrowUp} className='text-red-600' />
+                                        </button>
+                                        <button onClick={() => restorePeriod(period._id)}>
+                                            <FontAwesomeIcon icon={faCircleUp} className='text-green-600' />
+                                        </button>
+                                    </>
+                                )}
+                            </div>
+                        </td>
+                    </tr>
+                );
+            })
+        ) : (
+            <tr>
+                <td colSpan="5" className="py-3 px-2 text-center">
+                    No hay periodos disponibles.
+                </td>
+            </tr>
+        )}
+    </tbody>
+</table>
+
             </div>
 
             {isModalOpen && (
