@@ -65,119 +65,154 @@ const SignIn = () => {
     return (
         <>
             <Navbar />
-            <div className="min-h-screen bg-black bg-cover bg-center flex items-center justify-center mt-10">
-                <div className="flex flex-col sm:flex-row w-full sm:max-w-7xl p-5">
-                    <div className="w-full sm:w-1/3 flex flex-col justify-center items-center text-center text-white p-8 mb-8 sm:mb-0 sm:ml-8">
-                        <h1 className="text-3xl font-bold mb-4">Bienvenido a SpollNet</h1>
-                        <p className="mb-4">Si ya tienes una cuenta, inicia sesión aquí:</p>
-                        <button
-                            onClick={() => window.location.href = '/login'}
-                            className="px-6 py-3 rounded-full bg-[#E41FAE] text-white font-bold hover:bg-[#E41FAE] transition-colors duration-300"
+                <div className="min-h-screen bg-black flex items-center justify-center mt-16"> 
+                <div className="relative bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full">
+                    
+                    <form onSubmit={handleSubmit} className="relative z-10">
+                    <h2 className="text-2xl font-bold text-center text-white mb-6">Crear Cuenta</h2>
+                
+                    <div className="relative mb-6">
+                        <input
+                        id='name'
+                        name='name'
+                        type='text'
+                        value={name}
+                        onChange={(e) => {
+                            setName(e.target.value);
+                            setErrors({ ...errors, name: '' });
+                        }}
+                        className={`${errors.name ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
+                        placeholder=" "
+                        />
+                        <label htmlFor="name" className="absolute left-0 text-white text-sm duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Nombre del estudiante
+                        </label>
+                        {errors.name && <p className="text-red-500 text-sm mt-2">{errors.name}</p>}
+                    </div>
+                
+                    <div className="relative mb-6">
+                        <input
+                        id='emailAdress'
+                        name='email'
+                        type='email'
+                        value={mail}
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                            setErrors({ ...errors, mail: '' });
+                        }}
+                        className={`${errors.mail ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
+                        placeholder=" "
+                        />
+                        <label htmlFor="emailAdress" className="absolute left-0 text-white text-sm duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Correo electrónico
+                        </label>
+                        {errors.mail && <p className="text-red-500 text-sm mt-2">{errors.mail}</p>}
+                    </div>
+                
+                    <div className="flex gap-4 mb-6">
+                        <div className="flex-1 relative">
+                        <select
+                            id='level'
+                            name='level'
+                            value={level}
+                            onChange={(e) => {
+                            setLevel(e.target.value);
+                            setErrors({ ...errors, level: '' });
+                            }}
+                            className={`bg-transparent ${errors.level ? 'border-red-500' : 'border-gray-300'} w-full py-2 text-white border-b-2 focus:outline-none focus:border-pink-500 appearance-none`}
                         >
-                            Iniciar Sesión
-                        </button>
+                            <option value="" disabled className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Nivel Educativo</option>
+                            <option value="Primaria" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Primaria</option>
+                            <option value="Tercer ciclo" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Tercer ciclo</option>
+                            <option value="Bachillerato" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Bachillerato</option>
+                        </select> 
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        {errors.level && <p className="text-red-500 text-sm mt-2">{errors.level}</p>}
+                        </div>
+                
+                        <div className="flex-1 relative">
+                        <select
+                            id='speciality'
+                            name='speciality'
+                            value={specialty}
+                            onChange={(e) => {
+                            setSpecialty(e.target.value);
+                            setErrors({ ...errors, specialty: '' });
+                            }}
+                            disabled={level !== 'Bachillerato'}
+                            className={`bg-transparent ${errors.specialty ? 'border-red-500' : 'border-gray-300'} w-full py-2 text-white border-b-2 focus:outline-none focus:border-pink-500 appearance-none`}
+                        >
+                            <option value="" disabled className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Especialidad</option>
+                            <option value="Mantenimiento automotriz" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Mantenimiento automotriz</option>
+                            <option value="Desarrollo de software" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Desarrollo de software</option>
+                            <option value="Atencion primaria en salud" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Atencion primaria en salud</option>
+                            <option value="Diseño Gráfico" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Diseño Gráfico</option>
+                            <option value="Electromecanica" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Electromecanica</option>
+                            <option value="Electronica" className="bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full text-white">Electronica</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        {errors.specialty && <p className="text-red-500 text-sm mt-2">{errors.specialty}</p>}
+                        </div>
                     </div>
-                    <div className="w-full sm:w-2/3 bg-gray-800 p-6 rounded-lg shadow-lg border border-white">
-                        <form onSubmit={handleSubmit} className="p-8">
-                            <h2 className="text-2xl font-bold text-center text-neutral-300 mb-6">Crear Cuenta</h2>
-                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="name">Nombre del estudiante</Label>
-                                    <Input
-                                        id='name'
-                                        name='name' 
-                                        type='text'
-                                        placeholder='spollnet'
-                                        value={name}
-                                        onChange={handleInputChange(setName)}
-                                        className={`${errors.name ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
-                                    />
-                                    {errors.name && <p className="text-red-500 font-semibold">{errors.name}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="emailAdress">Correo electrónico</Label>
-                                    <Input
-                                        id='emailAdress'
-                                        name='email'
-                                        type='email'
-                                        placeholder='correo@personal.com'
-                                        value={mail}
-                                        onChange={handleInputChange(setEmail)}
-                                        className={`${errors.email ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
-                                    />
-                                    {errors.email && <p className="text-red-500 font-semibold">{errors.email}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="level">Nivel educativo</Label>
-                                    <select
-                                        id='level'
-                                        name='level'
-                                        value={level}
-                                        onChange={handleInputChange(setLevel)}
-                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.level ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
-                                    >
-                                        <option value="">Selecciona el nivel</option>
-                                        <option value="Primaria">Primaria</option>
-                                        <option value="Tercer ciclo">Tercer ciclo</option>
-                                        <option value="Bachillerato">Bachillerato</option>
-                                    </select>
-                                    {errors.level && <p className="text-red-500 font-semibold">{errors.level}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="speciality">Especialidad</Label>
-                                    <select
-                                        id='speciality'
-                                        name='speciality'
-                                        value={specialty}
-                                        onChange={handleInputChange(setSpecialty)}
-                                        disabled={level !== 'Bachillerato'}
-                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.specialty ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
-                                    >
-                                        <option value="">Selecciona tu especialidad</option>
-                                        <option value="Mantenimiento automotriz">Mantenimiento automotriz</option>
-                                        <option value="Desarrollo de software">Desarrollo de software</option>
-                                        <option value="Atencion primaria en salud">Atencion primaria en salud</option>
-                                        <option value="Diseño Gráfico">Diseño Gráfico</option>
-                                        <option value="Electromecanica">Electromecanica</option>
-                                        <option value="Electronica">Electronica</option>
-                                    </select>
-                                    {errors.specialty && <p className="text-red-500 font-semibold">{errors.specialty}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="identifier">Identificador del estudiante</Label>
-                                    <Input
-                                        id='identifier'
-                                        name='identifier'
-                                        type='text'
-                                        placeholder='00000000'
-                                        value={identifier}
-                                        onChange={handleInputChange(setIdentifier)}
-                                        className={`${errors.identifier ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
-                                    />
-                                    {errors.identifier && <p className="text-red-500 font-semibold">{errors.identifier}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="password">Contraseña</Label>
-                                    <Input
-                                        id='password'
-                                        name='password'
-                                        type='password'
-                                        placeholder='********'
-                                        value={contra}
-                                        onChange={handleInputChange(setPassword)}
-                                        className={`${errors.name ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}    
-                                    />
-                                    {errors.password && <p className="text-red-500 font-semibold">{errors.password}</p>}
-                                </div>
-                            </div>
-                            <div className="flex items-center justify-center mt-6">
-                                <RegisterButton text={'Crear cuenta'} />
-                            </div>
-                        </form>
+                
+                    <div className="relative mb-6">
+                        <input
+                        id='identifier'
+                        name='identifier'
+                        type='text'
+                        value={identifier}
+                        onChange={(e) => {
+                            setIdentifier(e.target.value);
+                            setErrors({ ...errors, identifier: '' });
+                        }}
+                        className={`${errors.identifier ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
+                        placeholder=" "
+                        />
+                        <label htmlFor="identifier" className="absolute left-0 text-white text-sm duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Identificador del estudiante
+                        </label>
+                        {errors.identifier && <p className="text-red-500 text-sm mt-2">{errors.identifier}</p>}
                     </div>
+                
+                    <div className="relative mb-6">
+                        <input
+                        id='password'
+                        name='password'
+                        type='password'
+                        value={contra}
+                        onChange={(e) => {
+                            setPassword(e.target.value);
+                            setErrors({ ...errors, contra: '' });
+                        }}
+                        className={`${errors.contra ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
+                        placeholder=" "
+                        />
+                        <label htmlFor="password" className="absolute left-0 text-white text-sm duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Contraseña
+                        </label>
+                        {errors.contra && <p className="text-red-500 text-sm mt-2">{errors.contra}</p>}
+                    </div>
+                
+                    <button type="submit" className="w-full bg-pink-600 text-white py-2 rounded-full hover:bg-pink-700 transition-colors duration-300">
+                        Crear Cuenta
+                    </button>
+                
+                    <div className="text-center text-white mt-4">
+                        <p className="text-sm">¿Ya tienes una cuenta?</p>
+                        <a href="/login" className="text-pink-400 hover:underline text-sm">Inicia sesión aquí</a>
+                    </div>
+                    </form>
                 </div>
-            </div>
-        </>
+                </div>
+       </>
     );
 };
 

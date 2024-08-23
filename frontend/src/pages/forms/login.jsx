@@ -131,73 +131,71 @@ const Login = () => {
 
     return (
         <>
-        <Navbar/>
-            <div className="min-h-screen bg-black bg-cover bg-center flex items-center justify-center mt-10">
-                <div className="flex flex-col sm:flex-row w-full sm:max-w-7xl p-5">
-                    <div className="w-full sm:w-1/3 flex flex-col justify-center items-center text-center text-white p-8 mb-8 sm:mb-0 sm:ml-8">
-                        <h1 className="text-3xl font-bold mb-4">Bienvenido a SpollNet</h1>
-                        <p className="mb-4">Si no tienes una cuenta por favor regístrate aquí:</p>
-                        <button
-                            onClick={() => window.location.href = '/Sign-in'}
-                            className="px-6 py-3 rounded-full bg-[#E41FAE] text-white font-bold hover:bg-blue-600 transition-colors duration-300"
-                        >
-                            Registro
-                        </button>
-                    </div>
-                    <div className="w-full sm:w-2/3 bg-gray-800 bg-opacity-75 p-6 rounded-lg shadow-lg border border-white">
-                        <form onSubmit={handleSubmit} className="p-8">
-                            <h2 className="text-2xl font-bold text-center text-neutral-300 mb-6">Iniciar Sesión</h2>
-                            <div className="mb-4 text-center font-bold">
-                                <Label htmlFor="emailAdress">Correo electrónico</Label>
-                                <div className="relative">
-                                    <Input
-                                        id='emailAdress'
-                                        name='email'
-                                        type='email'
-                                        value={mail}
-                                        onChange={(e) => {
-                                            setEmail(e.target.value);
-                                            setErrors({ ...errors, mail: '' });
-                                        }}
-                                        className={`${errors.mail ? 'border-red-500' : mail ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                                        placeholder="correo@personal.com"
-                                    />
-                                    {errors.mail && <p className="text-red-500 font-semibold">{errors.mail}</p>}
-                                </div>
-                            </div>
-                            <div className="mb-4 text-center font-bold">
-                                <Label htmlFor="password">Contraseña</Label>
-                                <div className="relative">
-                                    <Input
-                                        id='password'
-                                        name='password'
-                                        type='password' 
-                                        value={contra}
-                                        onChange={(e) => {
-                                            setPassword(e.target.value);
-                                            setErrors({ ...errors, contra: '' });
-                                        }}
-                                        className={`${errors.contra ? 'border-red-500' : contra ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                                        placeholder="********"
-                                    />
-                                    {errors.contra && <p className="text-red-500 font-semibold">{errors.contra}</p>}
-                                </div>
-                            </div>
-                            <div className="mt-8 text-center">
-                                <RegisterButton text="Iniciar Sesión" />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <Forgot text="¿Olvidaste tu contraseña?" />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <p className="text-gray-600">¿Aún no tienes una cuenta? <a href="/Sign-in" className="text-blue-500 hover:underline">Regístrate aquí</a></p>
-                            </div>
-                        </form>
-                    </div>
-                    
-                </div>
-            </div>
-        </>
+  <Navbar />
+  <div className="min-h-screen bg-black flex items-center justify-center">
+    <div className="relative bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-full 
+      box-shadow-lg: 0px 10px 15px rgba(255, 255, 255, 0.5), 0px 4px 6px rgba(255, 255, 255, 0.3)">
+      
+      <form onSubmit={handleSubmit} className="relative z-10">
+        <h2 className="text-2xl font-bold text-center text-white mb-6">Iniciar Sesión</h2>
+
+        <div className="relative mb-6">
+          <input
+            id='emailAdress'
+            name='email'
+            type='email'
+            value={mail}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setErrors({ ...errors, mail: '' });
+            }}
+            className={`${errors.mail ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
+            placeholder=" "
+          />
+          <label htmlFor="emailAdress" className="absolute left-0 text-white text-sm duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            Correo electrónico
+          </label>
+          {errors.mail && <p className="text-red-500 text-sm mt-2">{errors.mail}</p>}
+        </div>
+
+        <div className="relative mb-6">
+          <input
+            id='password'
+            name='password'
+            type='password'
+            value={contra}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setErrors({ ...errors, contra: '' });
+            }}
+            className={`${errors.contra ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
+            placeholder=" "
+          />
+          <label htmlFor="password" className="absolute left-0 text-white text-sm duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            Contraseña
+          </label>
+          {errors.contra && <p className="text-red-500 text-sm mt-2">{errors.contra}</p>}
+        </div>
+
+        <button type="submit" className="w-full bg-pink-600 text-white py-2 rounded-full hover:bg-pink-700 transition-colors duration-300">
+          Iniciar Sesión
+        </button>
+
+        <div className="mt-4 text-center">
+          <a href="/forgot-password" className="text-white hover:underline">
+            ¿Olvidaste tu contraseña?
+          </a>
+        </div>
+
+        <p className="mt-6 text-center text-sm text-pink-600">
+          ¿Aún no tienes una cuenta? <a href="/Sign-in" className="text-white
+           hover:underline">Regístrate aquí</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</>
+
     );
     
 };
