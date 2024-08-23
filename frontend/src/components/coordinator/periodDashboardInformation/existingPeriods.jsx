@@ -154,6 +154,51 @@ export default function ExistingPeriods({ mode }) {
             }
         });
     };
+
+    const handleRestorePeriod = async (periodId) => {
+        Swal.fire({
+            title: "Restaurar Periodo",
+            text: "¿Estás seguro de que deseas restaurar este periodo?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Restaurar"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const response = await fetch(`http://localhost:5000/periods/${periodId}/restorePeriod`, {
+                        method: 'PATCH',
+                    });
+                    if (response.ok) {
+                        Swal.fire({
+                            title: "¡Restaurado!",
+                            text: "El periodo ha sido restaurado exitosamente",
+                            icon: "success"
+                        });
+                        setPeriods(periods.map(period => 
+                            period._id === periodId ? { ...period, isDeleted: false } : period
+                        ));
+                    } else {
+                        const errorResponse = await response.json();
+                        Swal.fire({
+                            title: "Error",
+                            text: errorResponse.message || "Error restaurando el periodo",
+                            icon: "error"
+                        });
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        title: "Error",
+                        text: "Error restaurando el periodo",
+                        icon: "error"
+                    });
+                }
+            }
+        });
+    };
+    
+    
     
     return (
         <div>
@@ -211,7 +256,7 @@ export default function ExistingPeriods({ mode }) {
                                         <button onClick={() => handleDeletePermanentPeriod(period._id)}>
                                             <FontAwesomeIcon icon={faTrashCanArrowUp} className='text-red-600' />
                                         </button>
-                                        <button onClick={() => restorePeriod(period._id)}>
+                                        <button onClick={() => handleRestorePeriod(period._id)}>
                                             <FontAwesomeIcon icon={faCircleUp} className='text-green-600' />
                                         </button>
                                     </>

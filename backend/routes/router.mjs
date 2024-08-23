@@ -17,7 +17,7 @@ import { addPeriod } from '../controllers/coordinator/periods/addPeriod.mjs';
 import { getAllPeriods } from '../controllers/coordinator/periods/getPeriods.mjs';
 import { updatePeriod } from '../controllers/coordinator/periods/editPeriod.mjs';
 import { deletePeriod } from '../controllers/coordinator/periods/deletePeriod.mjs';
-import { deletePeriodPermanently } from '../controllers/coordinator/periods/Restore&PermanentPeriods.mjs';
+import { deletePeriodPermanently, restorePeriod } from '../controllers/coordinator/periods/Restore&PermanentPeriods.mjs';
 
 export const spollnetRouter = express.Router();
 
@@ -41,6 +41,7 @@ spollnetRouter.get('/get-all-newsletters', getAllNewsletters);
 spollnetRouter.delete('/delete-newsletter/:id', deleteNewsletter);
 spollnetRouter.get('/dataPeriodInformation', getDataPeriodInformation );
 spollnetRouter.delete('/periods/:id/permanentPeriod', deletePeriodPermanently);
+spollnetRouter.patch('/periods/:id/restorePeriod', restorePeriod);
 spollnetRouter.post('/votar', votar);
 spollnetRouter.get('/get-votes', getNumberofVotes);
 spollnetRouter.post('/add-period', addPeriod);
