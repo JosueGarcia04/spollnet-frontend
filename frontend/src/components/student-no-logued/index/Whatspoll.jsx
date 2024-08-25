@@ -51,7 +51,7 @@ export default function Whatspoll() {
                     <div data-aos="fade-up" className="w-full mb-4">
                       <div className="h-1 mx-auto  gradient bg-[#e7148c] w-64 opacity-65 my-0 py-0 rounded-t"></div>
                     </div>
-                    <p data-aos="fade-up" className="mb-8  lg:mt-5 font-light text-slate-300  lg:text-xl lg:text-left text-center">
+                    <p data-aos="fade-up" className="mb-8  lg:mt-5 font-light text-slate-300  lg:text-xl lg:text-center text-center">
                       Spollnet es un sistema de votación estudiantil que garantiza seguridad, accesibilidad y resultados en tiempo real. Facilita elecciones justas y transparentes.
                     </p>
 
@@ -75,7 +75,7 @@ export default function Whatspoll() {
                         <span className="text-base font-medium leading-tight text-gray-900 dark:text-white">Resultados en Tiempo Real</span>
                       </li>
                     </ul>
-                    <p data-aos="fade-up" className="mb-8  font-light text-slate-300 lg:text-xl lg:text-left text-center">
+                    <p data-aos="fade-up" className="mb-8  font-light text-slate-300 lg:text-xl lg:text-center text-center">
                       Spollnet es flexible, facilitando la participación activa de los estudiantes en sus procesos democráticos.
                     </p>
                   </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function ReadyToVote() {
     return (
@@ -15,14 +16,14 @@ export default function ReadyToVote() {
                         data-aos="fade-up"
                         className="text-white leading-relaxed mb-7 text-center text-3xl md:text-3xl"
                     >
-                        <strong>¿Estás listo? </strong> para hacer <strong>tu voto realidad.</strong>
+                        <strong>¿Estás listo</strong> para hacer <strong>tu voto?</strong>
                     </p>
-                    <button
+                    <Link to={"/Sign-in"}
                         className="transform duration-300 hover:scale-105 md:0 lg:mt-0 text-xl inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90 px-4 py-2 text-white shadow-xl md:w-[7.5rem] select-none hover:opacity-90 hover:bg-primary h-[2.9375rem] bg-[#5F37EF] rounded-full border border-white w-[13rem]"
                         type="button"
                     >
                         Vota ya
-                    </button>
+                    </Link>
                 </div>
                 <div
                     data-aos="fade-up"
