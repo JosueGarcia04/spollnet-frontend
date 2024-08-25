@@ -24,6 +24,9 @@ import Profile from '../pages/student/student_profile'
 import ListDeletedStudents from '../pages/coordinator/students/delete&banned/listDeletedStudents';
 import ListBannedStudents from '../pages/coordinator/students/delete&banned/listBannedStudents';
 import Votacion from '../pages/student/candidates';
+import Papel from '../pages/by us/general/papeleta';
+import Informacion from '../components/Infocandidatos/Infocandi';
+import Vote from '../pages/by us/general/Sectionvote'
 //newsletter
 import ListDeletedNews from '../components/coordinator/newsDashboard/deletedNews.jsx/listDeletedNews'
 //periods
@@ -47,6 +50,18 @@ export const Router = createBrowserRouter([
             {
                 path:"Sign-in",
                 element:<SignIn/>
+            },
+            {
+                path:"Papel",
+                element:<Papel/>
+            },
+            {
+                path:"informacion",
+                element:<Informacion/>
+            },
+            {
+                path:"vote",
+                element:<Vote/>
             },
             {
                 path:"student_profile",

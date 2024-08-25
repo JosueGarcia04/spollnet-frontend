@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#141414] p-4 lg:p-6 lg:py-8">
+    <footer className="bg-[#141414] border-t-2 border-white p-4 lg:p-6 lg:py-8">
       <div className="mx-auto w-full max-w-screen-xl flex flex-col md:flex-row items-center justify-center">
         <Link to={"/"} className="flex items-center mb-4 md:mb-0">
           <img src="../../../public/logo-beta5.png" className="w-40 md:w-52" alt="spollnet" />
