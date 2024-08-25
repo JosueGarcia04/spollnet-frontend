@@ -27,6 +27,7 @@
     "react-icons": "^5.2.1",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.23.0",
+    "react-tooltip": "^5.28.0",
     "sweetalert2": "^11.11.0"
   },
   "devDependencies": {

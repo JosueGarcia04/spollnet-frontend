@@ -1,64 +1,74 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faChartBar, faChalkboard, faInbox, faUsers,faCog } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faNewspaper, faChartBar, faChalkboard, faBell, faUsers, faCog } from '@fortawesome/free-solid-svg-icons';
 
-const SidebarSesionStudent = ({ isSidebarOpen, toggleSidebar }) => {
-  const [isHovered, setIsHovered] = useState(false);
+const Popover = ({ text, children }) => {
+  const [isVisible, setIsVisible] = useState(false);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  const handleMouseEnter = () => setIsVisible(true);
+  const handleMouseLeave = () => setIsVisible(false);
 
   return (
+    <div className="relative flex items-center" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {children}
+      {isVisible && (
+        <div className="absolute left-full ml-2 p-2 text-sm text-white font-bold bg-gray-700 rounded-lg shadow-lg whitespace-nowrap">
+          {text}
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full">
+            <div className="w-2 h-2 bg-gray-700 rotate-45"></div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const SidebarSesionStudent = () => {
+  return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className={`sidebar hidden md:flex md:flex-col md:fixed md:top-14 md:left-0 md:h-full md:w-16 md:hover:w-64 md:bg-[#141414] md:border-r-2 md:border-[#ffffff] md:transition-all md:duration-300 md:ease-in-out ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
-        } md:translate-x-0`}
+      className={`sidebar hidden md:flex md:flex-col md:fixed md:top-14 md:left-0 md:h-full md:w-20 md:bg-[#141414] md:border-r-2 md:border-[#ffffff] md:transition-all md:duration-300 md:ease-in-out`}
       style={{ zIndex: 9 }}
     >
-      <div className="flex flex-col pl-3 pt-6 mt-5 space-y-5 p-3 text-white">
-        <Link to={"/IndexStudent"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-          <FontAwesomeIcon icon={faHome} className="text-[#ffffff] w-5 h-5 mr-2" />
-          {isHovered && <span className="inline-block">Inicio</span>}
-        </Link>
-        <Link to={"/news"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-          <FontAwesomeIcon icon={faNewspaper} className="text-[#ffffff] w-5 h-5 mr-2" />
-          {isHovered && <span className="inline-block">Noticias</span>}
-        </Link>
-        <Link to={"/news"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-          <FontAwesomeIcon icon={faChalkboard} className="text-[#ffffff] w-5 h-5 mr-2" />
-          {isHovered && <span className="inline-block">Publicaciones</span>}
-        </Link>
-        <Link to={"#"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-          <FontAwesomeIcon icon={faUsers} className="text-[#ffffff] w-5 h-5 mr-2" />
-          {isHovered && <span className="inline-block">Candidatos</span>}
-        </Link>
-        <Link to={"#"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-          <FontAwesomeIcon icon={faChartBar} className="text-[#ffffff] w-5 h-5 mr-2" />
-          {isHovered && <span className="inline-block">Estadisticas</span>}
-        </Link>
-        <div className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-          <FontAwesomeIcon icon={faInbox} className="text-[#ffffff] w-5 h-5 mr-2" />
-          {isHovered && <span className="inline-block">Notificaciones</span>}
-        </div>
-      </div>
-      <div className="mb-28 flex flex-col md:space-y-2 lg:space-y-4 p-3">
-        <div className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
-          <Link to={"/student_profile"}>
-            <FontAwesomeIcon icon={faCog} className="text-[#ffffff] w-6 h-6 mr-2" />
-            {isHovered && <span className="inline-block">Configuración</span>}
+      <div className="flex flex-col items-center space-y-8 p-10 text-white">
+        <Popover text="Inicio">
+          <Link to={"/IndexStudent"}>
+            <FontAwesomeIcon icon={faHome} className="text-[#ffffff] w-7 h-7" />
           </Link>
-        </div>
+        </Popover>
+        <Popover text="Noticias">
+          <Link to={"/news"}>
+            <FontAwesomeIcon icon={faNewspaper} className="text-[#ffffff] w-7 h-7" />
+          </Link>
+        </Popover>
+        <Popover text="Publicaciones">
+          <Link to={"/news"}>
+            <FontAwesomeIcon icon={faChalkboard} className="text-[#ffffff] w-7 h-7" />
+          </Link>
+        </Popover>
+        <Popover text="Candidatos">
+          <Link to={"#"}>
+            <FontAwesomeIcon icon={faUsers} className="text-[#ffffff] w-7 h-7" />
+          </Link>
+        </Popover>
+        <Popover text="Estadísticas">
+          <Link to={"#"}>
+            <FontAwesomeIcon icon={faChartBar} className="text-[#ffffff] w-7 h-7" />
+          </Link>
+        </Popover>
+        <Popover text="Notificaciones">
+          <div>
+            <FontAwesomeIcon icon={faBell} className="text-[#ffffff] w-7 h-7" />
+          </div>
+        </Popover>
+        <Popover text="Configuración">
+          <Link to={"/student_profile"}>
+            <FontAwesomeIcon icon={faCog} className="text-[#ffffff] w-7 h-7" />
+          </Link>
+        </Popover>
       </div>
     </div>
   );
 };
 
 export default SidebarSesionStudent;
-
