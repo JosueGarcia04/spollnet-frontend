@@ -1,38 +1,27 @@
-import React, { useState } from 'react';
-//general
+import React from 'react';
 import NavbarMobile from '../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
-//panel
-import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard'
-import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard'
-import DataCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/dataCoordinatorDashboard'
-import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
-export const Coordinator =() =>{
-    const [isModalOpen, setModalOpen] = useState(false);
+import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
+import DataCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/dataCoordinatorDashboard';
 
-    const handleOpenModal = () => {
-      setModalOpen(true);
-    };
-  
-    const handleCloseModal = () => {
-      setModalOpen(false);
-    };
-
-    return(
-        <>
-        <NavbarMobile/>
-        <div className="antialiased bg-black w-full min-screen text-slate-300 relative py-16">
-            <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
-            <div id="menu" className="bg-white/10 col-span-12 md:col-span-3 lg:col-span-2.5 rounded-lg p-2 hidden md:block">
-                    <ProfileCoordinatorDashboard onOpenModal={handleOpenModal} />
-                    <MenuCoordinatorDashboard/>
-                </div>
-                <div id="content" className="bg-white/10 col-span-12 md:col-span-9 lg:col-span-9.5 rounded-lg p-4">
-                    <DataCoordinatorDashboard/>     
-                </div>
-            </div>
-            <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
+export const Coordinator = () => {
+  return (
+    <>
+      <NavbarMobile />
+      <div className="antialiased bg-black w-full min-screen text-slate-300 relative py-16">
+        <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
+          <div
+            className={`sidebar hidden md:flex md:flex-col md:fixed md:top-14 md:left-0 md:h-full md:w-20 md:bg-[#141414] md:border-r-2 md:border-[#ffffff] md:transition-all md:duration-300 md:ease-in-out`}
+            style={{ zIndex: 9 }}
+          >
+            <MenuCoordinatorDashboard />
+          </div>
+          <div id="content" className="bg-white/10 col-span-full md:col-span-full lg:col-span-full rounded-lg p-4 overflow-x-hidden md:ml-20">
+            <DataCoordinatorDashboard />
+          </div>
         </div>
-        </>
-    );
-}
+      </div>
+    </>
+  );
+};
+
 export default Coordinator;
