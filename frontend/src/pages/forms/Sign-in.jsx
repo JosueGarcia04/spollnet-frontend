@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/student-no-logued/general/navBar';
+import Navdown from '../../components/student-no-logued/general/navDown';
+import Footer from '../../components/student-no-logued/general/footer'
 import Label from '../../components/student-no-logued/forms/label';
 import Input from '../../components/student-no-logued/forms/input';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
@@ -177,6 +179,8 @@ const SignIn = () => {
                     </div>
                 </div>
             </div>
+            <Navdown/>
+            <Footer/>
         </>
     );
 };

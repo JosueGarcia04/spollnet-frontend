@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/student-no-logued/general/navBar';
+import Navdown from '../../components/student-no-logued/general/navDown'
+import Footer from '../../components/student-no-logued/general/footer'
 import { Input } from '../../components/student-no-logued/forms/input';
 import { Label } from '../../components/student-no-logued/forms/label';
 import { Forgot } from '../../components/student-no-logued/forms/Sign up/forgotPassword';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleExclamation, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
@@ -197,6 +197,8 @@ const Login = () => {
                     
                 </div>
             </div>
+            <Navdown/>
+            <Footer/>
         </>
     );
     

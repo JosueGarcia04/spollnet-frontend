@@ -5,7 +5,7 @@ import Countdown from '../../../components/student-no-logued/index/countdown/tim
 import Navdown from '../../../components/student-no-logued/general/navDown';
 import Sidebar from '../../../components/student-no-logued/general/sidebar'
 import Btnstart from '../../../components/student-no-logued/general/Btnstart';
-import FAQ from '../../../components/student-no-logued/general/faq';
+import ChatbotComponent from '../../../components/chat/chatbox';
 import Parte1 from '../../../components/student-no-logued/index/inicio_index';
 import Parte2 from '../../../components/student-no-logued/index/Whatspoll';
 import Parte3 from '../../../components/student-no-logued/index/valor_index';
@@ -59,7 +59,7 @@ export const Index = () => {
       <Navdown />
       <Footer />
       <Btnstart />
-      <FAQ/>
+      <ChatbotComponent/>
     </>
   );
 };

@@ -4,9 +4,10 @@ export default function valor_index() {
     return (
         <div className="relative px-10 lg:px-0">
             <div
-                data-aos="fade-up"
-                className="bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] grid grid-cols-1 md:grid-cols-3 items-center justify-center rounded-[45px] gap-[40px] py-10 px-14 lg:py-10 lg:px-10 mt-5 lg:mt-[-150px] text-black md:p-[45px] max-w-6xl mx-auto"
-            >
+    data-aos="fade-up"
+    className="bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] grid grid-cols-1 md:grid-cols-3 items-center justify-center rounded-[45px] gap-[40px] py-10 px-14 lg:py-10 lg:px-10 mt-5 lg:mt-[-150px] text-black md:p-[45px] max-w-6xl mx-auto"
+>
+
                 <div className="flex justify-center items-center relative">
                     <div className="flex-1">
                         <div data-aos="fade-up" className="flex justify-center">
