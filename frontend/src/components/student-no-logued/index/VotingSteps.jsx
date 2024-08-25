@@ -10,12 +10,12 @@ export default function VotingSteps() {
                             <div>
                                 <h2
                                     data-aos="fade-up"
-                                    className="md:text-center text-center lg:text-start text-4xl lg:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white"
+                                    className="md:text-center text-white text-center lg:text-start text-4xl lg:text-5xl font-semibold tracking-tight  dark:text-white"
                                 >
                                     Como puedes votar
                                 </h2>
                                 <div data-aos="fade-up" className="w-full mt-4">
-                                    <div className="h-1 mx-auto gradient bg-[#e7148c] w-64 opacity-65 my-0 py-0 rounded-t"></div>
+                                    <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-40  opacity-65 my-0 py-0 rounded-t"></div>
                                 </div>
                             </div>
                             <p
@@ -39,10 +39,14 @@ export default function VotingSteps() {
                                     />
                                     <span className="step-number absolute text-6xl font-bold text-white">1</span>
                                 </div>
-                                <div className="card-back flex flex-col bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] text-white p-4 rounded-lg shadow-lg">
-                                    <h3 className="text-lg font-semibold">Paso 1: Registro</h3>
-                                    <p className="mt-2 text-sm text-center">Crea una cuenta o inicia sesión para acceder al sistema de votación.</p>
+                                <div className="card-back flex flex-col text-white p-4 rounded-lg shadow-lg bg-cover bg-center" style={{
+                                    backgroundImage: 'url(public/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
+                                    backgroundBlendMode: 'overlay'
+                                }}>
+                                    <h3 className="text-xl  font-semibold">Paso 1: Registro</h3>
+                                    <p className="mt-2 text-base  text-center">Crea una cuenta o inicia sesión para acceder al sistema de votación.</p>
                                 </div>
+
                             </label>
                         </div>
 
@@ -57,10 +61,15 @@ export default function VotingSteps() {
                                     />
                                     <span className="step-number absolute text-6xl font-bold text-white">2</span>
                                 </div>
-                                <div className="card-back flex flex-col bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] text-white p-4 rounded-lg shadow-lg">
-                                    <h3 className="text-lg font-semibold">Paso 2: Selección</h3>
-                                    <p className="mt-2 text-sm text-center">Elige el candidato de tu preferencia para emitir tu voto.</p>
+                                <div className="card-back flex flex-col p-4 text-white rounded-lg shadow-lg bg-cover bg-center" style={{
+                                    backgroundImage: 'url(public/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
+                                    backgroundBlendMode: 'overlay'
+                                }}>
+                                    <h3 className="text-xl t font-semibold">Paso 2: Selección</h3>
+                                    <p className="mt-2 text-base  text-center">Visualiza la informacion de los candidatos y elige el candidato de tu preferencia para poder emitir tu voto.</p>
                                 </div>
+
+
                             </label>
                         </div>
 
@@ -75,10 +84,14 @@ export default function VotingSteps() {
                                     />
                                     <span className="step-number absolute text-6xl font-bold text-white">3</span>
                                 </div>
-                                <div className="card-back flex flex-col bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] text-white p-4 rounded-lg shadow-lg">
-                                    <h3 className="text-lg font-semibold">Paso 3: Votación</h3>
-                                    <p className="mt-2 text-sm text-center">Confirma tu elección y emite tu voto de manera segura.</p>
+                                <div className="card-back flex flex-col p-4 rounded-lg text-white shadow-lg bg-cover bg-center" style={{
+                                    backgroundImage: 'url(public/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
+                                    backgroundBlendMode: 'overlay'
+                                }}>
+                                    <h3 className="text-xl font-semibold">Paso 3: Votación</h3>
+                                    <p className="mt-2 text-base  text-center">Confirma tu elección y emite tu voto de manera segura.</p>
                                 </div>
+
                             </label>
                         </div>
 
@@ -93,10 +106,14 @@ export default function VotingSteps() {
                                     />
                                     <span className="step-number absolute text-6xl font-bold text-white">4</span>
                                 </div>
-                                <div className="card-back flex flex-col bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] text-white p-4 rounded-lg shadow-lg">
-                                    <h3 className="text-lg font-semibold">Paso 4: Resultados</h3>
-                                    <p className="mt-2 text-sm text-center">Consulta los resultados finales y descubre el ganador.</p>
+                                <div className="card-back flex text-white flex-col p-4 rounded-lg shadow-lg bg-cover bg-center" style={{
+                                    backgroundImage: 'url(public/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
+                                    backgroundBlendMode: 'overlay'
+                                }}>
+                                    <h3 className="text-xl font-semibold">Paso 4: Resultados</h3>
+                                    <p className="mt-2 text-base text-center">Consulta los resultados finales y descubre el ganador.</p>
                                 </div>
+
                             </label>
                         </div>
                     </div>
