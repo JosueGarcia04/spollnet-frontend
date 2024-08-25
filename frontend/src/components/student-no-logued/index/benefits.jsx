@@ -2,20 +2,20 @@ import React from 'react';
 
 export default function Benefits() {
     return (
-        <div className="lg:mb-0 lg:py-10 lg:pt-0 lg:pb-0">
+        <div className="lg:mb-0  lg:py-10 lg:pt-0 lg:pb-0">
             <div>
-                <div className="max-w-screen-xl lg:px-4 lg:py-1 px-10 mx-auto space-y-12 lg:space-y-20">
+                <div className="max-w-screen-xl lg:px-0 lg:py-1 px-10 mx-auto space-y-12 lg:space-y-20">
                     <div className="sm:py-8 lg:py-0">
                         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                             <div className="mb-10 md:mb-16">
                                 <h2
                                     data-aos="fade-up"
-                                    className="md:text-center text-center lg:text-start text-4xl lg:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white"
+                                    className="mb-4 text-white text-center text-4xl lg:text-5xl font-semibold tracking-tight"
                                 >
                                     Beneficios
                                 </h2>
                                 <div data-aos="fade-up" className="w-full mb-4">
-                                    <div className="h-1 mx-auto gradient bg-[#e7148c] w-64 opacity-65 my-0 py-0 rounded-t"></div>
+                                    <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-40 opacity-65 my-0 py-0 rounded-t"></div>
                                 </div>
                                 <p
                                     data-aos="fade-up"
