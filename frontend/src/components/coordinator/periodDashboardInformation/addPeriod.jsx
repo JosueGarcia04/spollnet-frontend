@@ -43,7 +43,7 @@ export default function AddPeriod() {
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: 'No se pudo registrar el periodo.',
+          text: 'No se ha registrado el periodo.',
         });
       }
     }
