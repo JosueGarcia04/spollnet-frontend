@@ -1,38 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
-import ProfileCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/profileCoordinatorDashboard';
-import ProfileModal from '../../../components/coordinator/mainDashboardInformation/viewProfileCoordinator/profileModalCoordinator';
+import Footer from '../../../components/student-no-logued/general/footer';
 import { SimplePieChart } from '../../../components/coordinator/StatisticsGraphics/principalChartsDashboard/simplePieChart';
 
-export default function MainStatistic(){
-    const [isModalOpen, setModalOpen] = useState(false);
-
-    const handleOpenModal = () => {
-      setModalOpen(true);
-    };
-  
-    const handleCloseModal = () => {
-      setModalOpen(false);
-    };
-    return(
+export default function MainStatistic() {
+    return (
         <>
-        <div>
-            <Navbar/>
-            <div className="antialiased bg-black w-full min-screen text-slate-300 relative py-16">
-            <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
-            <div id="menu" className="bg-white/10 col-span-12 md:col-span-3 lg:col-span-2.5 rounded-lg p-2 hidden md:block">
-                    <ProfileCoordinatorDashboard onOpenModal={handleOpenModal} />
-                    <MenuCoordinatorDashboard/>
+            <div>
+                <Navbar />
+                <div className="antialiased bg-black w-full min-screen text-slate-300 relative py-16 md:px-5">
+                    <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
+                        <div
+                            className={`sidebar hidden md:flex md:flex-col md:fixed md:top-14 md:left-0 md:h-full md:w-20 md:bg-[#141414] md:border-r-2 md:border-[#ffffff] md:transition-all md:duration-300 md:ease-in-out`}
+                            style={{ zIndex: 9 }}
+                        >
+                            <MenuCoordinatorDashboard />
+                        </div>
+                        <div id="content" className="bg-white/10 col-span-full md:col-span-full lg:col-span-full rounded-lg p-4 overflow-x-hidden md:ml-20">
+                            <SimplePieChart />
+                        </div>
+                    </div>
                 </div>
-                <div id="content" className="bg-white/10 col-span-12 md:col-span-9 lg:col-span-9.5 rounded-lg p-4">
-                <SimplePieChart/>
-                </div>
+                <Footer />
             </div>
-            <ProfileModal isOpen={isModalOpen} onClose={handleCloseModal} />
-        </div>
-           
-        </div>
         </>
     );
 }
