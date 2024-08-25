@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../../components/student-no-logued/general/footer';
 import NavbarMobile from '../../../components/coordinator/mainDashboardInformation/menuMobile/menuMobile';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import DataCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/dataCoordinatorDashboard';
@@ -7,7 +8,7 @@ export const Coordinator = () => {
   return (
     <>
       <NavbarMobile />
-      <div className="antialiased bg-black w-full min-screen text-slate-300 relative py-16">
+      <div className="antialiased bg-black w-full min-screen text-slate-300 relative py-16 px-5">
         <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
           <div
             className={`sidebar hidden md:flex md:flex-col md:fixed md:top-14 md:left-0 md:h-full md:w-20 md:bg-[#141414] md:border-r-2 md:border-[#ffffff] md:transition-all md:duration-300 md:ease-in-out`}
@@ -20,6 +21,7 @@ export const Coordinator = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
