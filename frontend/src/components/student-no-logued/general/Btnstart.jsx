@@ -27,11 +27,10 @@ const BackToTopButton = () => {
   };
 
   return (
-    
     <button 
       onClick={handleClick}
-      className={`fixed right-4 p-3 text-[#e7148c] bg-white rounded-full shadow-lg transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} hidden lg:flex lg:bottom-24 lg:right-4`}
-      style={{ zIndex: 10 }}
+      className={`fixed lg:right-4 right-3 p-3 text-[#e7148c] bg-white rounded-full shadow-lg transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} bottom-36 lg:bottom-24`}
+      style={{ zIndex: 50 }}
     >
       <svg className="w-6 h-6 md:w-8 md:h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 15l-7-7-7 7" />

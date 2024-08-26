@@ -6,10 +6,10 @@ export default function Whatspoll() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
     '../../../../public/vot1.jpeg',
-    '../../../../public/vot2.jpeg',
-    '../../../../public/vot3.jpeg',
-    '../../../../public/vot4.jpeg',
-    '../../../../public/vot5.jpeg'
+    '../../../../public/vot2.jfif',
+    '../../../../public/vot3.jfif',
+    '../../../../public/vot4.jfif',
+    '../../../../public/vot5.jfif'
   ];
 
   useEffect(() => {

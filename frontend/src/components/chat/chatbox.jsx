@@ -62,7 +62,7 @@ const ChatbotComponent = () => {
 
             const namePattern = /^[A-Za-z]{3,7}$/;
             if (!namePattern.test(inputValue)) {
-                const invalidNameMessage = 'El nombre no es válido. 😒 Por favor, introduce un nombre que sea real 😈.';
+                const invalidNameMessage = 'El nombre no es válido. 😒 Por favor, introduce un nombre que sea real.';
                 const newMessages = [...messages, { text: inputValue, type: 'user' }, { text: invalidNameMessage, type: 'bot' }];
                 setMessages(newMessages);
                 setInputValue('');
