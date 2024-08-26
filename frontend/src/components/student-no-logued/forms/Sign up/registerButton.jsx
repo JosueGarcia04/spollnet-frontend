@@ -1,8 +1,6 @@
 const RegisterButton = ({ text }) => {
   return (
-    <button className="bg-[#E41FAE] text-white px-6 py-3 rounded-md shadow-md hover:bg-[#d81b9a] font-bold transition-colors duration-300 w-full">
-      {text}
-    </button>
+    <button type="submit" className="w-full bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] text-white py-2 rounded-full hover:bg-[#E41FAE] transition-colors duration-300">{text}</button>
   );
 }
 

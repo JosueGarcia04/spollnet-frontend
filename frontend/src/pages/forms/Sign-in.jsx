@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/student-no-logued/general/navBar';
-import Navdown from '../../components/student-no-logued/general/navDown';
-import Footer from '../../components/student-no-logued/general/footer'
+import { Link, useLocation } from 'react-router-dom';
 import Label from '../../components/student-no-logued/forms/label';
 import Input from '../../components/student-no-logued/forms/input';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Loading from '../../../src/components/loading/loading';
 import { useValidations } from '../../hooks/forms/forms';
 
+
 const SignIn = () => {
+
+    const [loading, setLoading] = useState(true);
+    const location = useLocation();
+
     const navigate = useNavigate();
     const { errors, setErrors, handleInputChange, validations, handleBackendErrors } = useValidations();
     const [name, setName] = useState('');
@@ -19,6 +25,15 @@ const SignIn = () => {
     const [level, setLevel] = useState('');
     const [specialty, setSpecialty] = useState('');
     const [identifier, setIdentifier] = useState('');
+    const [showPassword, setShowPassword] = useState(false); // New state for password visibility
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1000); // Tiempo en milisegundos para mostrar el estado de carga
+
+        return () => clearTimeout(timer); // Limpiar el temporizador en el desmontaje del componente
+    }, [location]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -66,121 +81,158 @@ const SignIn = () => {
 
     return (
         <>
-            <Navbar />
-            <div className="min-h-screen bg-black bg-cover bg-center flex items-center justify-center mt-10">
-                <div className="flex flex-col sm:flex-row w-full sm:max-w-7xl p-5">
-                    <div className="w-full sm:w-1/3 flex flex-col justify-center items-center text-center text-white p-8 mb-8 sm:mb-0 sm:ml-8">
-                        <h1 className="text-3xl font-bold mb-4">Bienvenido a SpollNet</h1>
-                        <p className="mb-4">Si ya tienes una cuenta, inicia sesión aquí:</p>
-                        <button
-                            onClick={() => window.location.href = '/login'}
-                            className="px-6 py-3 rounded-full bg-[#E41FAE] text-white font-bold hover:bg-[#E41FAE] transition-colors duration-300"
-                        >
-                            Iniciar Sesión
-                        </button>
+            {loading ? (
+                <Loading />
+            ) : (
+                <div className="lg:min-h-screen py-6 bg-[#141414] flex flex-col items-center justify-center ">
+                    <div className="flex justify-center mb-6">
+                        <Link to={"/"}>
+                            <img src="public/logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
+                        </Link>
                     </div>
-                    <div className="w-full sm:w-2/3 bg-gray-800 p-6 rounded-lg shadow-lg border border-white">
-                        <form onSubmit={handleSubmit} className="p-8">
-                            <h2 className="text-2xl font-bold text-center text-neutral-300 mb-6">Crear Cuenta</h2>
-                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="name">Nombre del estudiante</Label>
-                                    <Input
-                                        id='name'
-                                        name='name' 
-                                        type='text'
-                                        placeholder='spollnet'
-                                        value={name}
-                                        onChange={handleInputChange(setName)}
-                                        className={`${errors.name ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
-                                    />
-                                    {errors.name && <p className="text-red-500 font-semibold">{errors.name}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="emailAdress">Correo electrónico</Label>
-                                    <Input
-                                        id='emailAdress'
-                                        name='email'
-                                        type='email'
-                                        placeholder='correo@personal.com'
-                                        value={mail}
-                                        onChange={handleInputChange(setEmail)}
-                                        className={`${errors.email ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
-                                    />
-                                    {errors.email && <p className="text-red-500 font-semibold">{errors.email}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="level">Nivel educativo</Label>
+
+                    <div className="relative bg-gray-800 bg-opacity-75 px-5 lg:px-8  lg:py-8 pt-3 pb-3 rounded-lg shadow-lg max-w-md w-[350px] lg:w-full form-container">
+
+                        <form onSubmit={handleSubmit} className="relative z-10">
+                            <h2 className="text-2xl font-bold text-center text-white mb-6">Crear Cuenta</h2>
+
+                            <div className="relative mb-6">
+                                <input
+                                    id='name'
+                                    name='name'
+                                    type='text'
+                                    value={name}
+                                    onChange={(e) => {
+                                        setName(e.target.value);
+                                        setErrors({ ...errors, name: '' });
+                                    }}
+                                    className={`${errors.name ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-[#E41FAE] peer`}
+                                    placeholder=" "
+                                />
+                                <Label>Nombre</Label>
+                                {errors.name && <p className="text-red-500 text-sm mt-2">{errors.name}</p>}
+                            </div>
+
+                            <div className="relative mb-6">
+                                <input
+                                    id='emailAdress'
+                                    name='email'
+                                    type='email'
+                                    value={mail}
+                                    onChange={(e) => {
+                                        setEmail(e.target.value);
+                                        setErrors({ ...errors, email: '' });
+                                    }}
+                                    className={`${errors.email ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-[#E41FAE] peer`}
+                                    placeholder=" "
+                                />
+                                <Label>Correo electrónico</Label>
+                                {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email}</p>}
+                            </div>
+
+                            <div className="flex gap-4 mb-6">
+                                <div className="flex-1 relative">
                                     <select
                                         id='level'
                                         name='level'
                                         value={level}
-                                        onChange={handleInputChange(setLevel)}
-                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.level ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
+                                        onChange={(e) => {
+                                            setLevel(e.target.value);
+                                            setErrors({ ...errors, level: '' });
+                                        }}
+                                        className={`bg-transparent ${errors.level ? 'border-red-500' : 'border-gray-300'} w-full py-2 text-white border-b-2 focus:outline-none focus:border-[#E41FAE] appearance-none`}
                                     >
-                                        <option value="">Selecciona el nivel</option>
-                                        <option value="Primaria">Primaria</option>
-                                        <option value="Tercer ciclo">Tercer ciclo</option>
-                                        <option value="Bachillerato">Bachillerato</option>
+                                        <option value="" disabled className="bg-gray-800 text-white">Nivel Educativo</option>
+                                        <option value="Primaria" className="bg-gray-800 text-white">Primaria</option>
+                                        <option value="Tercer ciclo" className="bg-gray-800 text-white">Tercer ciclo</option>
+                                        <option value="Bachillerato" className="bg-gray-800 text-white">Bachillerato</option>
                                     </select>
-                                    {errors.level && <p className="text-red-500 font-semibold">{errors.level}</p>}
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </div>
+                                    {errors.level && <p className="text-red-500 text-sm mt-2">{errors.level}</p>}
                                 </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="speciality">Especialidad</Label>
+
+                                <div className="flex-1 relative">
                                     <select
                                         id='speciality'
                                         name='speciality'
                                         value={specialty}
-                                        onChange={handleInputChange(setSpecialty)}
+                                        onChange={(e) => {
+                                            setSpecialty(e.target.value);
+                                            setErrors({ ...errors, specialty: '' });
+                                        }}
                                         disabled={level !== 'Bachillerato'}
-                                        className={`block w-full px-4 py-2 mt-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#E41FAE] focus:border-[#E41FAE] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#E41FAE] dark:focus:border-[#E41FAE] ${errors.specialty ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
+                                        className={`bg-transparent ${errors.specialty ? 'border-red-500' : 'border-gray-300'} w-full py-2 text-white border-b-2 focus:outline-none focus:border-[#E41FAE] appearance-none`}
                                     >
-                                        <option value="">Selecciona tu especialidad</option>
-                                        <option value="Mantenimiento automotriz">Mantenimiento automotriz</option>
-                                        <option value="Desarrollo de software">Desarrollo de software</option>
-                                        <option value="Atencion primaria en salud">Atencion primaria en salud</option>
-                                        <option value="Diseño Gráfico">Diseño Gráfico</option>
-                                        <option value="Electromecanica">Electromecanica</option>
-                                        <option value="Electronica">Electronica</option>
+                                        <option value="" disabled className="bg-gray-800 text-white">Especialidad</option>
+                                        <option value="Mantenimiento automotriz" className="bg-gray-800 text-white">Mantenimiento automotriz</option>
+                                        <option value="Desarrollo de software" className="bg-gray-800 text-white">Desarrollo de software</option>
+                                        <option value="Atencion primaria en salud" className="bg-gray-800 text-white">Atencion primaria en salud</option>
+                                        <option value="Diseño Gráfico" className="bg-gray-800 text-white">Diseño Gráfico</option>
+                                        <option value="Electromecanica" className="bg-gray-800 text-white">Electromecanica</option>
+                                        <option value="Electronica" className="bg-gray-800 text-white">Electronica</option>
                                     </select>
-                                    {errors.specialty && <p className="text-red-500 font-semibold">{errors.specialty}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="identifier">Identificador del estudiante</Label>
-                                    <Input
-                                        id='identifier'
-                                        name='identifier'
-                                        type='text'
-                                        placeholder='00000000'
-                                        value={identifier}
-                                        onChange={handleInputChange(setIdentifier)}
-                                        className={`${errors.identifier ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}
-                                    />
-                                    {errors.identifier && <p className="text-red-500 font-semibold">{errors.identifier}</p>}
-                                </div>
-                                <div className="text-center font-bold relative">
-                                    <Label htmlFor="password">Contraseña</Label>
-                                    <Input
-                                        id='password'
-                                        name='password'
-                                        type='password'
-                                        placeholder='********'
-                                        value={contra}
-                                        onChange={handleInputChange(setPassword)}
-                                        className={`${errors.name ? 'focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500' : 'focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500'} focus:outline-none focus:ring-2 focus:ring-[#E41FAE]`}    
-                                    />
-                                    {errors.password && <p className="text-red-500 font-semibold">{errors.password}</p>}
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </div>
+                                    {errors.specialty && <p className="text-red-500 text-sm mt-2">{errors.specialty}</p>}
                                 </div>
                             </div>
-                            <div className="flex items-center justify-center mt-6">
-                                <RegisterButton text={'Crear cuenta'} />
+
+                            <div className="relative mb-6">
+                                <input
+                                    id='identifier'
+                                    name='identifier'
+                                    type='text'
+                                    value={identifier}
+                                    onChange={(e) => {
+                                        setIdentifier(e.target.value);
+                                        setErrors({ ...errors, identifier: '' });
+                                    }}
+                                    className={`${errors.identifier ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-[#E41FAE] peer`}
+                                    placeholder=" "
+                                />
+                                <Label>Código</Label>
+                                {errors.identifier && <p className="text-red-500 text-sm mt-2">{errors.identifier}</p>}
+                            </div>
+
+                            <div className="relative mb-6">
+                                <input
+                                    id='password'
+                                    name='password'
+                                    type={showPassword ? 'text' : 'password'}  // Toggle input type
+                                    value={contra}
+                                    onChange={(e) => {
+                                        setPassword(e.target.value);
+                                        setErrors({ ...errors, password: '' });
+                                    }}
+                                    className={`${errors.password ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-[#E41FAE] peer`}
+                                    placeholder=" "
+                                />
+                                <Label>Contraseña</Label>
+                                <FontAwesomeIcon
+                                    icon={showPassword ? faEyeSlash : faEye}
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-0 top-2 cursor-pointer text-white"
+                                />
+                                {errors.password && <p className="text-red-500 text-sm mt-2">{errors.password}</p>}
+                            </div>
+                            <RegisterButton text='Crear cuenta'/>
+                            <div className="text-center text-white mt-4">
+                                <p className="text-sm">¿Ya tienes una cuenta?</p>
+                                <a href="/login" className="text-[#e7148c] hover:underline text-sm">Inicia sesión aquí</a>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
-            <Navdown/>
-            <Footer/>
+
+            )}
+
         </>
     );
 };

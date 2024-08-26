@@ -4,7 +4,6 @@ import Navdown from '../../components/student-no-logued/general/navDown'
 import Footer from '../../components/student-no-logued/general/footer'
 import { Input } from '../../components/student-no-logued/forms/input';
 import { Label } from '../../components/student-no-logued/forms/label';
-import { Forgot } from '../../components/student-no-logued/forms/Sign up/forgotPassword';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -185,9 +184,6 @@ const Login = () => {
                             </div>
                             <div className="mt-8 text-center">
                                 <RegisterButton text="Iniciar Sesión" />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <Forgot text="¿Olvidaste tu contraseña?" />
                             </div>
                             <div className="mt-4 text-center">
                                 <p className="text-gray-600">¿Aún no tienes una cuenta? <a href="/Sign-in" className="text-blue-500 hover:underline">Regístrate aquí</a></p>

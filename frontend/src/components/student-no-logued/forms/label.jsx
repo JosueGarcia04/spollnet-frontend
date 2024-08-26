@@ -14,7 +14,7 @@ import React from 'react'
  */
 export const Label = (props) => {
     return (
-        <label className="text-[#E31FAE] font-semibold" htmlFor="completeName"{...props}>{props.children}</label>
+        <label className="absolute left-0 text-white text-sm duration-300 transform -translate-y-6 scale-75 top-2 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" htmlFor="completeName"{...props}>{props.children}</label>
     );
 }
  
