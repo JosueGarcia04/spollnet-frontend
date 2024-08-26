@@ -100,15 +100,15 @@ export const Router = createBrowserRouter([
                 element:<Votacion/>
             },
             {
-                path:"Papel",
+                path:"papeleta",
                 element:<Papel/>
             },
             {
-                path:"informacion",
+                path:"Infocandi",
                 element:<Informacion/>
             },
             {
-                path:"vote",
+                path:"Sectionvote",
                 element:<Vote/>
             },
             {
