@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Loading from '../../../components/extra/Loading';
+import Loading from '../../../components/loading/loading';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../../../components/student-no-logued/general/footer';
 import Navbar from '../../../components/student/navbarSesionStudent';
-import NavDown from '../../../components/student/navDownSesionStudent';
-import ChatBot from '../../../components/extra/Chatbot';
 import Sidebar from '../../../components/student/SideBarSesionStudent';
 import Btnstart from '../../../components/student-no-logued/general/Btnstart';
-import Loading from '../../../components/extra/Loading';
+import Loading from '../../../components/loading/loading';
 import HeroSection from '../../../components/votacion/Herosection';
 import Collections from '../../../components/votacion/Collections';
 import Votingsection from '../../../components/votacion/VotingSection';
@@ -16,6 +14,7 @@ import Finalsection from '../../../components/votacion/finalvote';
 import "../../../pages/by us/general/extra.css";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+import ChatbotComponent from '../../../components/chat/chatbox';
 
 export default function AboutUs() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -55,9 +54,8 @@ export default function AboutUs() {
               
             </div>
             <Votingsection />
-            <ChatBot />
+            <ChatbotComponent />
           </div>
-          <NavDown />
           <Footer />
           <Btnstart />
         </div>
