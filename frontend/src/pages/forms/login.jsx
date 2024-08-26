@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../../components/student-no-logued/general/navBar';
-import Navdown from '../../components/student-no-logued/general/navDown'
-import Footer from '../../components/student-no-logued/general/footer'
-import { Input } from '../../components/student-no-logued/forms/input';
+import { Link, useLocation } from 'react-router-dom';
 import { Label } from '../../components/student-no-logued/forms/label';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Loading from '../../../src/components/loading/loading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
 const Login = () => {
+    const [loading, setLoading] = useState(true);
+    const location = useLocation();
     const [mail, setEmail] = useState('');
     const [contra, setPassword] = useState('');
     const [errors, setErrors] = useState({});
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
-    
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [location]);
+
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
@@ -81,9 +92,7 @@ const Login = () => {
             }
 
             if (response.data.token) {
-                console.log(response.data.token)
-
-
+                console.log(response.data.token);
                 Swal.fire({
                     title: "¡Bien!",
                     text: response.data.msg,
@@ -101,7 +110,7 @@ const Login = () => {
                         } else {
                             navigate('/IndexStudent', { replace: true });
                         }
-                        sessionStorage.setItem("token", token)
+                        sessionStorage.setItem("token", token);
                         sessionStorage.removeItem("decodedToken");
                     } catch (error) {
                         console.error('Error decoding token:', error);
@@ -130,74 +139,65 @@ const Login = () => {
 
     return (
         <>
-        <Navbar/>
-            <div className="min-h-screen bg-black bg-cover bg-center flex items-center justify-center mt-10">
-                <div className="flex flex-col sm:flex-row w-full sm:max-w-7xl p-5">
-                    <div className="w-full sm:w-1/3 flex flex-col justify-center items-center text-center text-white p-8 mb-8 sm:mb-0 sm:ml-8">
-                        <h1 className="text-3xl font-bold mb-4">Bienvenido a SpollNet</h1>
-                        <p className="mb-4">Si no tienes una cuenta por favor regístrate aquí:</p>
-                        <button
-                            onClick={() => window.location.href = '/Sign-in'}
-                            className="px-6 py-3 rounded-full bg-[#E41FAE] text-white font-bold hover:bg-blue-600 transition-colors duration-300"
-                        >
-                            Registro
-                        </button>
+            {loading ? (
+                <Loading />
+            ) : (
+                <div className="bg-[#141414] flex flex-col items-center justify-center py-24 px-0 lg:min-h-screen">
+                    <div className="flex justify-center mb-6">
+                        <Link to={"/"}>
+                            <img src="public/logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
+                        </Link>
                     </div>
-                    <div className="w-full sm:w-2/3 bg-gray-800 bg-opacity-75 p-6 rounded-lg shadow-lg border border-white">
-                        <form onSubmit={handleSubmit} className="p-8">
-                            <h2 className="text-2xl font-bold text-center text-neutral-300 mb-6">Iniciar Sesión</h2>
-                            <div className="mb-4 text-center font-bold">
-                                <Label htmlFor="emailAdress">Correo electrónico</Label>
-                                <div className="relative">
-                                    <Input
-                                        id='emailAdress'
-                                        name='email'
-                                        type='email'
-                                        value={mail}
-                                        onChange={(e) => {
-                                            setEmail(e.target.value);
-                                            setErrors({ ...errors, mail: '' });
-                                        }}
-                                        className={`${errors.mail ? 'border-red-500' : mail ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                                        placeholder="correo@personal.com"
-                                    />
-                                    {errors.mail && <p className="text-red-500 font-semibold">{errors.mail}</p>}
-                                </div>
+                    <div className="relative bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-[350px] lg:w-full form-container">
+                        <form onSubmit={handleSubmit} className="relative z-10">
+                            <h2 className="text-2xl font-bold text-center text-white mb-6">Iniciar Sesión</h2>
+                            <div className="relative mb-6">
+                                <input
+                                    id="emailAdress"
+                                    name="email"
+                                    type="email"
+                                    value={mail}
+                                    onChange={(e) => {
+                                        setEmail(e.target.value);
+                                        setErrors({ ...errors, mail: '' });
+                                    }}
+                                    className={`${errors.mail ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
+                                    placeholder=" "
+                                />
+                                <Label>Correo electrónico</Label>
+                                {errors.mail && <p className="text-red-500 text-sm mt-2">{errors.mail}</p>}
                             </div>
-                            <div className="mb-4 text-center font-bold">
-                                <Label htmlFor="password">Contraseña</Label>
-                                <div className="relative">
-                                    <Input
-                                        id='password'
-                                        name='password'
-                                        type='password' 
-                                        value={contra}
-                                        onChange={(e) => {
-                                            setPassword(e.target.value);
-                                            setErrors({ ...errors, contra: '' });
-                                        }}
-                                        className={`${errors.contra ? 'border-red-500' : contra ? 'border-green-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                                        placeholder="********"
-                                    />
-                                    {errors.contra && <p className="text-red-500 font-semibold">{errors.contra}</p>}
-                                </div>
+                            <div className="relative mb-6">
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type={showPassword ? "text" : "password"}
+                                    value={contra}
+                                    onChange={(e) => {
+                                        setPassword(e.target.value);
+                                        setErrors({ ...errors, contra: '' });
+                                    }}
+                                    className={`${errors.contra ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
+                                    placeholder=" "
+                                />
+                                <Label>Contraseña</Label>
+                                <FontAwesomeIcon
+                                    icon={showPassword ? faEyeSlash : faEye}
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-0 top-2 cursor-pointer text-white"
+                                />
+                                {errors.contra && <p className="text-red-500 text-sm mt-2">{errors.contra}</p>}
                             </div>
-                            <div className="mt-8 text-center">
-                                <RegisterButton text="Iniciar Sesión" />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <p className="text-gray-600">¿Aún no tienes una cuenta? <a href="/Sign-in" className="text-blue-500 hover:underline">Regístrate aquí</a></p>
-                            </div>
+                            <RegisterButton text="Iniciar sesión" />
+                            <p className="mt-6 text-center text-sm text-[#e7148c]">
+                                ¿Aún no tienes una cuenta? <a href="/Sign-in" className="text-white hover:underline">Regístrate aquí</a>
+                            </p>
                         </form>
                     </div>
-                    
                 </div>
-            </div>
-            <Navdown/>
-            <Footer/>
+            )}
         </>
     );
-    
 };
 
 export default Login;
