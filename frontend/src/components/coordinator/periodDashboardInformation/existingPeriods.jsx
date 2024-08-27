@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { faPenToSquare, faCalendarMinus, faClock, faTrashCanArrowUp, faCircleUp } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faCalendarMinus, faClock, faTrashCanArrowUp, faCircleUp, faX, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -11,6 +11,7 @@ export default function ExistingPeriods({ mode }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedPeriod, setSelectedPeriod] = useState(null);
     const [updatedPeriod, setUpdatedPeriod] = useState({ name: '', startDate: '', endDate: '' });
+    const [periodStatus, setPeriodStatus] = useState({});
 
     useEffect(() => {
         const fetchPeriods = async () => {
@@ -198,6 +199,12 @@ export default function ExistingPeriods({ mode }) {
         });
     };
     
+    const togglePeriodStatus = (periodId) => {
+        setPeriodStatus((prevStatus) => ({
+            ...prevStatus,
+            [periodId]: !prevStatus[periodId],
+        }));
+    };
     
     
     return (
@@ -210,7 +217,7 @@ export default function ExistingPeriods({ mode }) {
             <th className="text-left py-3 px-2">Fecha de Inicio</th>
             <th className="text-left py-3 px-2"></th>
             <th className="text-left py-3 px-2">Fecha de Fin</th>
-            <th className="text-left py-3 px-2 rounded-r-lg">Acciones</th>
+            <th className="text-left py-3 px-2 ">Acciones</th>
         </tr>
     </thead>
     <tbody>

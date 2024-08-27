@@ -271,7 +271,7 @@ const SignIn = () => {
                             </div>
 
                             <div className="flex justify-center mb-6">
-                                <RegisterButton />
+                                <RegisterButton text="Crear cuenta" />
                             </div>
 
                             <p className="text-white text-sm text-center">
