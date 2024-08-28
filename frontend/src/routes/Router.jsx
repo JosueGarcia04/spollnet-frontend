@@ -27,6 +27,7 @@ import Votacion from '../pages/student/candidates';
 import Papel from '../pages/by us/general/papeleta';
 import Informacion from '../components/Infocandidatos/Infocandi';
 import Vote from '../pages/by us/general/Sectionvote'
+import Diseño from '../components/student/indexde';
 //newsletter
 import ListDeletedNews from '../components/coordinator/newsDashboard/deletedNews.jsx/listDeletedNews'
 //periods
@@ -46,6 +47,10 @@ export const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Index />
+            },
+            {
+                path:"/diseño",
+                element:<Diseño/>
             },
             {
                 path:"Sign-in",
