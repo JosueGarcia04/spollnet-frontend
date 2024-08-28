@@ -26,7 +26,7 @@ export default function DiscoverMore() {
                                     className="group relative flex h-72 flex-col overflow-hidden rounded-lg bg-black shadow-lg md:h-72 xl:h-96 border-4 border-transparent border-image border-image-slice-1"
                                 >
                                     <img
-                                        src="public/boyone.jpg"
+                                        src="/boyone.jpg"
                                         loading="lazy"
                                         alt="Visualiza las noticias"
                                         className="opacity-55 absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -45,7 +45,7 @@ export default function DiscoverMore() {
                                     className="group relative flex h-72 flex-col overflow-hidden rounded-lg bg-black shadow-lg md:h-72 xl:h-96 border-4 border-transparent border-image border-image-slice-1"
                                 >
                                     <img
-                                        src="public/boytwo.jpg"
+                                        src="/boytwo.jpg"
                                         loading="lazy"
                                         alt="Visualiza los resultados"
                                         className="opacity-55 absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -64,7 +64,7 @@ export default function DiscoverMore() {
                                     className="group relative flex h-72 flex-col overflow-hidden rounded-lg bg-black shadow-lg md:h-72 xl:h-96 border-4 border-transparent border-image border-image-slice-1"
                                 >
                                     <img
-                                        src="public/boythree.jpg"
+                                        src="/boythree.jpg"
                                         loading="lazy"
                                         alt="Postúlate como candidato"
                                         className="opacity-55 absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
