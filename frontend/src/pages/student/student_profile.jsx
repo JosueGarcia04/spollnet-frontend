@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import Swal from 'sweetalert2';
-import { jwtDecode } from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
+    const navigate = useNavigate();
 
     const [userData, setUserData] = useState({
         nombre: '',
@@ -76,6 +78,11 @@ const Profile = () => {
             [name]: value
         }));
     };
+
+    const handleLogout = () => {
+        sessionStorage.removeItem("token");
+        navigate('/login');
+    };
     
 
     return (
@@ -125,6 +132,13 @@ const Profile = () => {
                                                 <div className="col-span-1 md:col-span-2 flex justify-center">
                                                     <RegisterButton text="Guardar cambios" />
                                                 </div>
+                                                    <button
+                                                        type="button"
+                                                        onClick={handleLogout}
+                                                        className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                                                    >
+                                                        Cerrar sesión
+                                                    </button>
                                             </div>
                                         </form>
                                     </div>
