@@ -145,7 +145,7 @@ const Login = () => {
                 <div className="bg-[#141414] flex flex-col items-center justify-center py-24 px-0 lg:min-h-screen">
                     <div className="flex justify-center mb-6">
                         <Link to={"/"}>
-                            <img src="/logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
+                            <img src="/Logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
                         </Link>
                     </div>
                     <div className="relative bg-gray-800 bg-opacity-75 p-8 rounded-lg shadow-lg max-w-md w-[350px] lg:w-full form-container">
