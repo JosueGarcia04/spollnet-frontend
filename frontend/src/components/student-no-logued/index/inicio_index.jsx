@@ -21,7 +21,7 @@ export default function InicioIndex() {
                         <div className="relative flex flex-col items-center">
                             <span className="relative z-10">Tu voto es la llave del camino <span className="text-[#white]">al futuro</span></span>
                             <img
-                                src="public/stylish-underline.png"
+                                src="/stylish-underline.png"
                                 alt="stylish underline"
                                 className="absolute -bottom-3 z-0 hidden md:block"
                             />
@@ -47,16 +47,16 @@ export default function InicioIndex() {
                 </Link>
                 <div className="icons-wrapper">
                     <div className="icon icon1">
-                        <img src="public/icon1.png" alt="Icon 1" />
+                        <img src="/icon1.png" alt="Icon 1" />
                     </div>
                     <div className="icon icon2">
-                        <img src="public/icon3.png" alt="Icon 2" />
+                        <img src="/icon3.png" alt="Icon 2" />
                     </div>
                     <div className="icon icon3">
-                        <img src="public/icon2.png" alt="Icon 3" />
+                        <img src="/icon2.png" alt="Icon 3" />
                     </div>
                     <div className="icon icon4">
-                        <img src="public/icon4.png" alt="Icon 4" />
+                        <img src="/icon4.png" alt="Icon 4" />
                     </div>
                 </div>
             </div>
