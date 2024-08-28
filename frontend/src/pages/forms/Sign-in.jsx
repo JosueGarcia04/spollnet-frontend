@@ -89,7 +89,7 @@ const SignIn = () => {
                 <div className="lg:min-h-screen py-6 bg-[#141414] flex flex-col items-center justify-center">
                     <div className="flex justify-center mb-6">
                         <Link to={"/"}>
-                            <img src="public/logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
+                            <img src="/logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
                         </Link>
                     </div>
 

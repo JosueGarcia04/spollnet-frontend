@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className=" flex flex-wrap items-center justify-between">
           {/* Menú de hamburguesa visible solo en modo escritorio */}
           <Link to={"/main"}>
-            <img src="public/logo-beta5.png" className="w-40 md:w-44  h-10 md:h-11 md:ml-10 " alt="spollnet" />
+            <img src="/logo-beta5.png" className="w-40 md:w-44  h-10 md:h-11 md:ml-10 " alt="spollnet" />
           </Link>
           <div className="flex items-center md:order-2">
             <button
