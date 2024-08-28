@@ -17,7 +17,7 @@ export default function CarnetInfo() {
                             {/* Image */}
                             <div data-aos="fade-up" className="relative order-first w-full sm:order-none lg:w-2/5 z-20">
                                 <img
-                                    src="public/carnet.jpg"
+                                    src="/carnet.jpg"
                                     loading="lazy"
                                     alt="Photo by Andras Vas"
                                     className="lg:h-[350px] xl:h-80 relative h-60 md:h-[370px] bg-white lg:w-full w-full object-cover object-center"
@@ -34,7 +34,7 @@ export default function CarnetInfo() {
                                 </p>
                                 <div data-aos="fade-up" className="flex mb-6 space-x-3">
                                     <div className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
-                                        <img src="public/icons1.png" alt="Seguridad y Privacidad" />
+                                        <img src="/icons1.png" alt="Seguridad y Privacidad" />
                                     </div>
                                     <div className="text-white">
                                         <h4 className="text-md font-semibold">Seguridad y Privacidad</h4>
@@ -42,7 +42,7 @@ export default function CarnetInfo() {
                                 </div>
                                 <div className="flex mb-4 items-start space-x-3">
                                     <div data-aos="fade-up" className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
-                                        <img src="public/icons2.png" alt="Identificación Única" />
+                                        <img src="/icons2.png" alt="Identificación Única" />
                                     </div>
                                     <div className="text-white">
                                         <h4 className="text-md font-semibold">Identificación Única</h4>
@@ -50,7 +50,7 @@ export default function CarnetInfo() {
                                 </div>
                                 <div className="flex items-start space-x-3">
                                     <div data-aos="fade-up" className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">
-                                        <img src="public/icons3.png" alt="Facilidad de Verificación" />
+                                        <img src="/icons3.png" alt="Facilidad de Verificación" />
                                     </div>
                                     <div className="text-white">
                                         <h4 className="text-md font-semibold">Facilidad de Verificación</h4>
