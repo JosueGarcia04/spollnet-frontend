@@ -28,13 +28,18 @@ export const updateProfile = async (req, res) => {
   try {
     const objectId = new mongoose.Types.ObjectId(id);
     const { nombre, email, nivel, especialidad, identificador, password } = req.body;  
-
     let updatedData = { nombre, email, nivel, especialidad, identificador };
-    
-    if (password) {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      updatedData.password = hashedPassword;
+    const user = await Student.findById(objectId);
+    if (!user) {
+      return res.status(404).json({ msg: "Usuario no encontrado" });
     }
+    if (password && password.trim()) {
+      const passwordMatch = await bcrypt.compare(password, user.password);
+      if (!passwordMatch) {
+        updatedData.password = await bcrypt.hash(password, 10);
+      }
+    }
+
     console.log("Datos a actualizar:", updatedData);
     const updatedStudent = await Student.findByIdAndUpdate(
       objectId,
@@ -42,10 +47,6 @@ export const updateProfile = async (req, res) => {
       { new: true }
     ).select("-password");
     
-    if (!updatedStudent) {
-      return res.status(404).json({ msg: "Usuario no encontrado" });
-    }
-
     res.status(200).json(updatedStudent);
   } catch (err) {
     console.error("Error al actualizar el perfil del usuario:", err);

@@ -178,7 +178,9 @@ const ProfileSummary = ({ userData }) => (
 const ProfileField = ({ title, value, name, handleInputChange, type = 'text' }) => (
     <div className="p-4">
         <h3 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#E41FAE] to-[#380B99]">{title}</h3>
+        <label htmlFor={name} className="sr-only">{title}</label>
         <input
+            id={name}
             type={type}
             name={name}
             value={value}

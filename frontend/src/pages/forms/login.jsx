@@ -164,7 +164,7 @@ const Login = () => {
                                     className={`${errors.mail ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
                                     placeholder=" "
                                 />
-                                <Label>Correo electrónico</Label>
+                                <Label htmlFor="email">Correo electrónico</Label>
                                 {errors.mail && <p className="text-red-500 text-sm mt-2">{errors.mail}</p>}
                             </div>
                             <div className="relative mb-6">
@@ -180,7 +180,7 @@ const Login = () => {
                                     className={`${errors.contra ? 'border-red-500' : 'border-gray-300'} w-full py-2 bg-transparent border-b-2 text-white focus:outline-none focus:border-pink-500 peer`}
                                     placeholder=" "
                                 />
-                                <Label>Contraseña</Label>
+                                <Label htmlFor="password">Contraseña</Label>
                                 <FontAwesomeIcon
                                     icon={showPassword ? faEyeSlash : faEye}
                                     onClick={() => setShowPassword(!showPassword)}
