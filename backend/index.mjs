@@ -30,7 +30,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/register", register);
-app.post("/api/login", credentials);
+app.post("/login", credentials);
 app.post('/check-carnet', checkCarnet);
 app.delete('/students/:id/permanent', deleteStudentPermanently);
 app.patch('/students/:id/restore', restoreStudent);

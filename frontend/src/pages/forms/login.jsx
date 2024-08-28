@@ -85,7 +85,7 @@ const Login = () => {
                 });
                 return;
             } else {
-                response = await axios.post('https://spollnet-backend.vercel.app/api/login', {
+                response = await axios.post('https://spollnet-backend.vercel.app/login', {
                     email: mail,
                     password: contra
                 });
