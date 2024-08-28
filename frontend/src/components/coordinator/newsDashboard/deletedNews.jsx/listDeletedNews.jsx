@@ -27,6 +27,24 @@ export default function ListDeletedNews() {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`http://localhost:5000/delete-newsletter/${id}`, { method: 'DELETE' });
+      setDeletedNewsletters(deletedNewsletters.filter(newsletter => newsletter._id !== id));
+    } catch (error) {
+      console.error('Error deleting newsletter:', error);
+    }
+  };
+
+  const handleRestore = async (id) => {
+    try {
+      await fetch(`http://localhost:5000/restore-newsletter/${id}`, { method: 'POST' });
+      setDeletedNewsletters(deletedNewsletters.filter(newsletter => newsletter._id !== id));
+    } catch (error) {
+      console.error('Error restoring newsletter:', error);
+    }
+  };
+
   return (
     <>
       <NavbarMobile />
@@ -37,7 +55,12 @@ export default function ListDeletedNews() {
           </div>
           <div id="content" className="bg-white/10 col-span-12 md:col-span-8 lg:col-span-9 rounded-lg p-4">
             <h2 className="text-xl font-bold mb-4">Lista de noticias Eliminadas</h2>
-            <NewslettersGrid newsletters={deletedNewsletters} mode="deleted" />
+            <NewslettersGrid
+              newsletters={deletedNewsletters}
+              mode="deleted"
+              onDelete={handleDelete}
+              onRestore={handleRestore}
+            />
           </div>
         </div>
       </div>
