@@ -1,15 +1,18 @@
 {
-    "builds": [
-      {
-        "src": "backend/index.mjs",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "backend/index.mjs"
-      }
-    ]
-  }
-  
+  "builds": [
+    {
+      "src": "backend/index.mjs",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/login",
+      "dest": "backend/controllers/forms/login.mjs"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "backend/index.mjs"
+    }
+  ]
+}
