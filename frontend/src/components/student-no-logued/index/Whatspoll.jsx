@@ -5,11 +5,11 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 export default function Whatspoll() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
-    '../../../../public/vot1.jpeg',
-    '../../../../public/vot2.jfif',
-    '../../../../public/vot3.jfif',
-    '../../../../public/vot4.jfif',
-    '../../../../public/vot5.jfif'
+    '/vot1.jpeg',
+    '/vot2.jfif',
+    '/vot3.jfif',
+    '/vot4.jfif',
+    '/vot5.jfif'
   ];
 
   useEffect(() => {

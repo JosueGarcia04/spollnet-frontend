@@ -50,10 +50,10 @@ export default function InicioIndex() {
                         <img src="/icon1.png" alt="Icon 1" />
                     </div>
                     <div className="icon icon2">
-                        <img src="/icon3.png" alt="Icon 2" />
+                        <img src="/icon2.png" alt="Icon 2" />
                     </div>
                     <div className="icon icon3">
-                        <img src="/icon2.png" alt="Icon 3" />
+                        <img src="/icon3.png" alt="Icon 3" />
                     </div>
                     <div className="icon icon4">
                         <img src="/icon4.png" alt="Icon 4" />
