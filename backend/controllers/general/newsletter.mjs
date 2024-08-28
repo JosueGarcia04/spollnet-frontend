@@ -33,4 +33,18 @@ export const deleteNewsletter = async (req, res) => {
     res.status(500).json({ message: 'Error marcando la noticia como eliminada' });
   }
 };
+export const restoreNewsletter = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedNews = await News.findByIdAndUpdate(id, { isDeleted: false }, { new: true });
+    if (!updatedNews) {
+      return res.status(404).json({ message: 'Noticia no encontrada' });
+    }
+    res.status(200).json({ message: 'Noticia restaurada exitosamente' });
+  } catch (error) {
+    console.error('Error al restaurar la noticia:', error);
+    res.status(500).json({ message: 'Error restaurando la noticia' });
+  }
+};
+
 

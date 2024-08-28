@@ -55,4 +55,3 @@ const NewsletterCard = ({ id, title, description, onDelete, onRestore, mode }) =
 };
 
 export default NewsletterCard;
-  

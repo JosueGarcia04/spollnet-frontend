@@ -1,5 +1,5 @@
 import React from 'react';
-import NewsletterCard from './newslettercard'
+import NewsletterCard from './newslettercard';
 
 const NewslettersGrid = ({ newsletters, mode, onDelete, onRestore }) => {
   return (

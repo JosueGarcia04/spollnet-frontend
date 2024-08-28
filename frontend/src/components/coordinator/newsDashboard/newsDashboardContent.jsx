@@ -9,7 +9,7 @@ const NewsDashboardContent = () => {
   useEffect(() => {
     fetchNewsletters();
   }, []);
-
+  
   const fetchNewsletters = async () => {
     try {
       const response = await fetch('http://localhost:5000/get-all-newsletters');

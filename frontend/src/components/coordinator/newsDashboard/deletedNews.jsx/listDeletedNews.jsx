@@ -38,12 +38,17 @@ export default function ListDeletedNews() {
 
   const handleRestore = async (id) => {
     try {
-      await fetch(`http://localhost:5000/restore-newsletter/${id}`, { method: 'POST' });
-      setDeletedNewsletters(deletedNewsletters.filter(newsletter => newsletter._id !== id));
+      const response = await fetch(`http://localhost:5000/restore-newsletter/${id}`, { method: 'PATCH' });
+      if (response.ok) {
+        setDeletedNewsletters(deletedNewsletters.filter(newsletter => newsletter._id !== id));
+      } else {
+        console.error('Error al restaurar la noticia:', await response.text());
+      }
     } catch (error) {
       console.error('Error restoring newsletter:', error);
     }
   };
+  
 
   return (
     <>
