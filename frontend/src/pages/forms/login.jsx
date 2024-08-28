@@ -85,7 +85,7 @@ const Login = () => {
                 });
                 return;
             } else {
-                response = await axios.post('https://spollnet-backend-9y37tjnh4-joshus-projects-7cdf4af5.vercel.app/controllers/forms/login.mjs', {
+                response = await axios.post('/controllers/forms/login.mjs', {
                     email: mail,
                     password: contra
                 });
