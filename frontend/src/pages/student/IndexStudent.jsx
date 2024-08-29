@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
+import NavDownSesionStudent from '../../components/student/navDownSesionStudent'
 import NavbarSesionStudent from "../../components/student/navbarSesionStudent";
 import Footer from "../../components/student-no-logued/general/footer";
 import Countdown from "../../components/student-no-logued/index/countdown/timer";
@@ -69,6 +70,7 @@ const IndexStudent = () => {
                         </div>
                     </div>
                     <Footer />
+                    <NavDownSesionStudent/>
                     <ChatbotComponent/>
                 </div>
             )}
