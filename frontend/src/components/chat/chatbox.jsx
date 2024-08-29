@@ -284,7 +284,7 @@ const ChatbotComponent = () => {
                 className={`fixed lg:bottom-4 md:bottom-5 bottom-20 lg:right-3 right-2 bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors z-50 ${isChatOpen ? 'hidden' : 'block'}`}
             >
                 <img
-                    src={isChatOpen ? '../../../public/bot.png' : '../../../public/bot.png'}
+                    src={isChatOpen ? '/bot.png' : '/bot.png'}
                     alt="Chat Icon"
                     className="h-8 w-8 lg:h-10 lg:w-10"
                 />
@@ -326,7 +326,7 @@ const ChatbotComponent = () => {
                                         {msg.type === 'bot' && (
                                             <div className="relative flex items-start">
                                                 <img
-                                                    src="../../../public/boticon.png"
+                                                    src="/boticon.png"
                                                     alt="Bot Icon"
                                                     className="h-8 w-8 rounded-full absolute top-0 left-0"
                                                 />
@@ -351,7 +351,7 @@ const ChatbotComponent = () => {
                                                     {msg.text}
                                                 </div>
                                                 <img
-                                                    src="../../../public/usericon.png"
+                                                    src="/usericon.png"
                                                     alt="User Icon"
                                                     className="h-8 w-8 rounded-full absolute top-0 right-0"
                                                 />
@@ -385,7 +385,7 @@ const ChatbotComponent = () => {
                                         className="bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] p-2 rounded-md"
                                     >
                                         <img
-                                            src="../../../public/palomita.png"
+                                            src="/palomita.png"
                                             alt="Enviar"
                                             className="h-6 w-6"
                                         />
@@ -470,7 +470,7 @@ const ChatbotComponent = () => {
                             <div className="bg-white rounded-lg p-6 w-11/12 md:w-[400px] lg:w-[500px] relative">
                                 <div className="flex items-start mb-4">
                                     <img
-                                        src="../../../public/boticon.png" 
+                                        src="/boticon.png" 
                                         alt="Spoki"
                                         className="h-12 w-12 rounded-full mr-4"
                                     />
