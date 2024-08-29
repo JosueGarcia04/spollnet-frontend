@@ -18,10 +18,10 @@ export default function DataStudentsCoordinatorDashboard() {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const responseStudents = await fetch('http://localhost:5000/dataStudentInformation'); 
+                const responseStudents = await fetch('https://spollnet-backend.onrender.com/dataStudentInformation'); 
                 const dataStudents = await responseStudents.json();
 
-                const responsePeriods = await fetch('http://localhost:5000/dataPeriodInformation'); 
+                const responsePeriods = await fetch('https://spollnet-backend.onrender.com/dataPeriodInformation'); 
                 if (!responsePeriods.ok) {
                     throw new Error(`HTTP error! status: ${responsePeriods.status}`);
                 }
