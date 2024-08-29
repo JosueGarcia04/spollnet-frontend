@@ -51,7 +51,7 @@ const NavDownSesionStudent = () =>{
           </div>
         </div>
       </Link>
-      <Link to="/student-profile" className="text-white hover:text-gray-400">
+      <Link to="/student_profile" className="text-white hover:text-gray-400">
         <div className="flex items-center">
           <div className="w-12 h-12 flex justify-center items-center">
             <FontAwesomeIcon icon={faCog} className="w-6 h-6 text-white" />
