@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../../../components/student/navbarSesionStudent';
 import NavDown from '../../../components/student/navDownSesionStudent';
 import Sidebar from '../../../components/student/SideBarSesionStudent';
-import Loading from '../../../components/extra/Loading';
 import Start from '../../../components/publicaciones/Startpu';
 import Barra from '../../../components/publicaciones/Barralat';
 import PostBox from '../../../components/publicaciones/Cajaspublic';
 import Filtro from '../../../components/publicaciones/filtrocandi';
+import Loading from '../../../components/loading/loading';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
