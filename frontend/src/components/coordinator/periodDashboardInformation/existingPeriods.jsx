@@ -16,7 +16,7 @@ export default function ExistingPeriods({ mode }) {
     useEffect(() => {
         const fetchPeriods = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/get-periods');
+                const response = await axios.get('https://spollnet-backend.onrender.com/get-periods');
                 setPeriods(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -27,7 +27,7 @@ export default function ExistingPeriods({ mode }) {
 
         const fetchStats = async () => {
             try {
-                const response = await fetch('http://localhost:5000/dataPeriodInformation'); 
+                const response = await fetch('https://spollnet-backend.onrender.com/dataPeriodInformation'); 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -68,7 +68,7 @@ export default function ExistingPeriods({ mode }) {
                 startDate: new Date(updatedPeriod.startDate).toISOString(),
                 endDate: new Date(updatedPeriod.endDate).toISOString(),
             };
-            const response = await axios.put(`http://localhost:5000/update-period/${selectedPeriod._id}`, periodToUpdate);
+            const response = await axios.put(`https://spollnet-backend.onrender.com/update-period/${selectedPeriod._id}`, periodToUpdate);
             setPeriods((prevPeriods) =>
                 prevPeriods.map((period) =>
                     period._id === selectedPeriod._id ? response.data : period
@@ -92,7 +92,7 @@ export default function ExistingPeriods({ mode }) {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await fetch(`http://localhost:5000/delete-period/${periodId}`, {
+                    const response = await fetch(`https://spollnet-backend.onrender.com/delete-period/${periodId}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ export default function ExistingPeriods({ mode }) {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await fetch(`http://localhost:5000/periods/${periodId}/permanentPeriod`, {
+                    const response = await fetch(`https://spollnet-backend.onrender.com/periods/${periodId}/permanentPeriod`, {
                         method: 'DELETE',
                     });
                     if (response.ok) {
@@ -168,7 +168,7 @@ export default function ExistingPeriods({ mode }) {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    const response = await fetch(`http://localhost:5000/periods/${periodId}/restorePeriod`, {
+                    const response = await fetch(`https://spollnet-backend.onrender.com/periods/${periodId}/restorePeriod`, {
                         method: 'PATCH',
                     });
                     if (response.ok) {

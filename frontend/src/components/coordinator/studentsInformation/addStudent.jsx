@@ -35,7 +35,7 @@ export default function AddStudent() {
         data.especialidad = specialty;
     } 
 
-      const response = await axios.post('http://localhost:5000/register', data);
+      const response = await axios.post('https://spollnet-backend.onrender.com/register', data);
       Swal.fire({
         title: "¡Éxito!",
         text: "El estudiante ha sido registrado correctamente.",
