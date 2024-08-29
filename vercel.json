@@ -7,7 +7,7 @@
   ],
   "routes": [
     {
-      "src": "/login",
+      "src": "/api/login",
       "dest": "backend/controllers/forms/login.mjs"
     },
     {
