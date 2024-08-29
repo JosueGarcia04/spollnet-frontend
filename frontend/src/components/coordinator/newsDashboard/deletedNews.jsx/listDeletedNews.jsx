@@ -12,7 +12,7 @@ export default function ListDeletedNews() {
 
   const fetchDeletedNewsletters = async () => {
     try {
-      const response = await fetch('http://localhost:5000/get-all-newsletters');
+      const response = await fetch('https://spollnet-backend.onrender.com/get-all-newsletters');
       const data = await response.json();
       console.log(data); 
       data.forEach(newsletter => {
@@ -29,7 +29,7 @@ export default function ListDeletedNews() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/delete-newsletter/${id}`, { method: 'DELETE' });
+      await fetch(`https://spollnet-backend.onrender.com/delete-newsletter/${id}`, { method: 'DELETE' });
       setDeletedNewsletters(deletedNewsletters.filter(newsletter => newsletter._id !== id));
     } catch (error) {
       console.error('Error deleting newsletter:', error);
@@ -38,7 +38,7 @@ export default function ListDeletedNews() {
 
   const handleRestore = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/restore-newsletter/${id}`, { method: 'PATCH' });
+      const response = await fetch(`https://spollnet-backend.onrender.com/restore-newsletter/${id}`, { method: 'PATCH' });
       if (response.ok) {
         setDeletedNewsletters(deletedNewsletters.filter(newsletter => newsletter._id !== id));
       } else {

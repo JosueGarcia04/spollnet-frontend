@@ -9,7 +9,7 @@ export default function ContentNews() {
 
   const fetchNewsletters = async () => {
     try {
-      const response = await fetch('http://localhost:5000/get-all-newsletters');
+      const response = await fetch('https://spollnet-backend.onrender.com/get-all-newsletters');
       const data = await response.json();
       console.log('Datos de la API:', data);
   
