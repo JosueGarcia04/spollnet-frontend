@@ -36,7 +36,7 @@ const SidebarSesionStudent = ({ isSidebarOpen }) => {
           <FontAwesomeIcon icon={faNewspaper} className="text-[#ffffff] w-5 h-5 mr-2" />
           {(isHovered || isSidebarOpen) && <span className="inline-block">Noticias</span>}
         </Link>
-        <Link to={"/news"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
+        <Link to={"/publica"} className="flex items-center font-bold text-white hover:bg-gray-700 transition duration-150 ease-linear rounded-lg py-3 px-2">
           <FontAwesomeIcon icon={faChalkboard} className="text-[#ffffff] w-5 h-5 mr-2" />
           {(isHovered || isSidebarOpen) && <span className="inline-block">Publicaciones</span>}
         </Link>

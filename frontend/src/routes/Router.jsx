@@ -28,6 +28,7 @@ import Papel from '../pages/by us/general/papeleta';
 import Informacion from '../components/Infocandidatos/Infocandi';
 import Vote from '../pages/by us/general/Sectionvote'
 import Diseño from '../components/student/indexde';
+import Publicaciones from '../pages/by us/general/public';
 //newsletter
 import ListDeletedNews from '../components/coordinator/newsDashboard/deletedNews.jsx/listDeletedNews'
 //periods
@@ -47,6 +48,10 @@ export const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Index />
+            },
+            {
+                path: "publica",
+                element: <Publicaciones />
             },
             {
                 path:"/diseño",

@@ -46,7 +46,7 @@ const PricingSection = () => {
             <div id='votar'></div>
             <h2 data-aos="fade-up" className="mb-4 text-center text-4xl lg:text-5xl font-semibold tracking-tight text-white dark:text-white">
                 Candidatos a la Presidencia Estudiantil
-                <p className='text-5xl md:text-7xl text-[#fcff2e]'>20<span className='text-[#1f35ff]'>24</span></p>
+                <p className='text-5xl md:text-7xl text-[#fcff2e]'>20<span className='text-[#1f35ff]'>25</span></p>
             </h2>
             <div data-aos="fade-up" className="mb-16">
                 <div className="h-1 mx-auto gradient bg-[#e7148c] lg:w-96 w-40 opacity-65 my-0 py-0 rounded-t"></div>
