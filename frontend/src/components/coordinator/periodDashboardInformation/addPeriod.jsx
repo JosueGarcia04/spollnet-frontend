@@ -26,7 +26,7 @@ export default function AddPeriod() {
         name, startDate, endDate,
       };
 
-      const response = await axios.post('http://localhost:5000/add-period', data);
+      const response = await axios.post('https://spollnet-backend.onrender.com/add-period', data);
       Swal.fire({
         title: "¡Éxito!",
         text: "El periodo ha sido registrado correctamente.",
