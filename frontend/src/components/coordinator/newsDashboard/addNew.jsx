@@ -15,7 +15,7 @@ export default function AddNew({ onAddNewsletter }) {
     const newNewsletter = { title: trimmedTitle, description: trimmedDescription };
 
     try {
-      const response = await fetch('http://localhost:5000/add-newsletter', {
+      const response = await fetch('https://spollnet-backend.onrender.com/add-newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
