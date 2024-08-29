@@ -32,7 +32,7 @@ const token = sessionStorage.getItem("token");
             console.log(id);
     
             try {
-                const response = await axios.get(`http://localhost:5000/profile/${id}`);
+                const response = await axios.get(`https://spollnet-backend.onrender.com/profile/${id}`);
                 console.log(response.data);
                 setUserData(response.data);
                 localStorage.removeItem("decodedToken");

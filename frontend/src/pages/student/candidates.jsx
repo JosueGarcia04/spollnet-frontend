@@ -11,7 +11,7 @@ const Votacion = () => {
   useEffect(() => {
     const fetchCandidatos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/get-votes');
+        const response = await axios.get('https://spollnet-backend.onrender.com/get-votes');
         setCandidatos(response.data);
       } catch (error) {
         console.error('Error al obtener los datos de los candidatos', error);
@@ -23,8 +23,8 @@ const Votacion = () => {
 
   const handleVote = async (candidato) => {
     try {
-      await axios.post('http://localhost:5000/votar', { candidato });
-      const response = await axios.get('http://localhost:5000/get-votes');
+      await axios.post('https://spollnet-backend.onrender.com/votar', { candidato });
+      const response = await axios.get('https://spollnet-backend.onrender.com/get-votes');
       setCandidatos(response.data);
     } catch (error) {
       console.error('Error al registrar el voto', error);

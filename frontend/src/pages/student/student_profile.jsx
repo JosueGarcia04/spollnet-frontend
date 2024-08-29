@@ -33,7 +33,7 @@ const Profile = () => {
             console.log(id);
     
             try {
-                const response = await axios.get(`http://localhost:5000/profile/${id}`);
+                const response = await axios.get(`https://spollnet-backend.onrender.com/profile/${id}`);
                 console.log(response.data);
                 setUserData(response.data);
             } catch (error) {
@@ -54,7 +54,7 @@ const Profile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:5000/profile/${id}`, userData);
+            const response = await axios.put(`https://spollnet-backend.onrender.com/profile/${id}`, userData);
             setUserData(response.data);
             Swal.fire({
                 title: '¡Éxito!',
