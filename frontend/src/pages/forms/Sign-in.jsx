@@ -53,7 +53,7 @@ const SignIn = () => {
                 studentData.especialidad = specialty;
             }
 
-            await axios.post('http://localhost:5000/register', studentData);
+            await axios.post('https://spollnet-backend.onrender.com/register', studentData);
             Swal.fire({
                 title: "¡Bien!",
                 text: "El usuario ha sido registrado correctamente.",

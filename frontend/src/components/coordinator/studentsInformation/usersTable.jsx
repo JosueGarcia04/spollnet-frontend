@@ -13,7 +13,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch('http://localhost:5000/students');
+        const response = await fetch('https://spollnet-backend.onrender.com/students');
         if (!response.ok) {
           throw new Error('Error fetching students');
         }
@@ -26,7 +26,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
 
     const fetchCounts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/dataStudentInformation');
+        const response = await fetch('https://spollnet-backend.onrender.com/dataStudentInformation');
         if (!response.ok) {
           throw new Error('Error fetching counts');
         }
@@ -60,7 +60,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
   const handleSaveChanges = async () => {
     console.log('Datos a enviar:', updatedStudent);  
     try {
-      const response = await fetch(`http://localhost:5000/students/${selectedStudent._id}`, {
+      const response = await fetch(`https://spollnet-backend.onrender.com/students/${selectedStudent._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:5000/students/${studentId}`, {
+          const response = await fetch(`https://spollnet-backend.onrender.com/students/${studentId}`, {
             method: 'DELETE',
           });
           if (response.ok) {
@@ -141,7 +141,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:5000/students/${studentId}/permanent`, {
+          const response = await fetch(`https://spollnet-backend.onrender.com/students/${studentId}/permanent`, {
             method: 'DELETE',
           });
           if (response.ok) {
@@ -182,7 +182,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:5000/students/${studentId}/ban`, {
+          const response = await fetch(`https://spollnet-backend.onrender.com/students/${studentId}/ban`, {
             method: 'PATCH',
           });
           if (response.ok) {
@@ -215,7 +215,7 @@ export default function UsersTableCoordinatorDashboard({ mode }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:5000/students/${studentId}/restore`, {
+          const response = await fetch(`https://spollnet-backend.onrender.com/students/${studentId}/restore`, {
             method: 'PATCH',
           });
           if (response.ok) {
