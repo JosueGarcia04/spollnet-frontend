@@ -85,7 +85,7 @@ const Login = () => {
                 });
                 return;
             } else {
-                response = await axios.post('https://spollnet-backend.onrender.com/login', {
+                response = await axios.post('login', {
                     email: mail,
                     password: contra
                 });
