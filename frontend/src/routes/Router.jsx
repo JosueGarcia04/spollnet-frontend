@@ -30,8 +30,8 @@ import Vote from '../pages/by us/general/Sectionvote'
 import Publica from '../pages/by us/general/public'
 //newsletter
 import ListDeletedNews from '../components/coordinator/newsDashboard/deletedNews.jsx/listDeletedNews'
-//diseño
-import Editor from '../components/student/indexde';
+// //diseño
+// import Editor from '../components/student/indexde';
 //periods
 import ListDeletedPeriods from '../pages/coordinator/periods/deleted&finally/listDeletedPeriods';
 import ListFinallyPeriods from '../pages/coordinator/periods/deleted&finally/listFinallyPeriods';
@@ -70,10 +70,10 @@ export const Router = createBrowserRouter([
                 path:"news",
                 element:<News/>
             },
-            {
-                path: "indexde",
-                element:<Editor/>
-            },
+            // {
+            //     path: "indexde",
+            //     element:<Editor/>
+            // },
             {
                 path: "public",
                 element: <Publica />
