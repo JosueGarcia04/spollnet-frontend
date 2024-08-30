@@ -142,7 +142,7 @@ const Login = () => {
             {loading ? (
                 <Loading />
             ) : (
-                <div className="bg-[#141414] flex flex-col items-center justify-center py-24 px-0 lg:min-h-screen">
+                <div className="min-h-screen bg-[#141414] flex flex-col items-center justify-center py-24 px-0 lg:min-h-screen">
                     <div className="flex justify-center mb-6">
                         <Link to={"/"}>
                             <img src="/Logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
