@@ -24,7 +24,7 @@ const SolutionSection = () => {
 
     return (
         <section className="mt-12 lg:mt-10 md:ml-16">
-            <div className="bg-[url('public/foto.jpg')] text-white -skew-y-1">
+            <div className="bg-[url('/foto.jpg')] text-white -skew-y-1">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] mix-blend-multiply"></div>
                 <div className="container mx-auto skew-y-1">
                     <div className="flex flex-col items-center py-10 text-center lg:py-0">

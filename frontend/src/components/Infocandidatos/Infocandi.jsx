@@ -63,7 +63,7 @@ const EleccionesSlider = () => {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
             style={{
-              backgroundImage: 'url(public/foto.jpg)',
+              backgroundImage: 'url(/foto.jpg)',
             }}
           ></div>
 

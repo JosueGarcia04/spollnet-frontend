@@ -6,7 +6,7 @@ export default function valor_index() {
             <div
                 data-aos="fade-up"
                 className="bg-cover bg-center grid grid-cols-1 md:grid-cols-3 items-center justify-center rounded-[45px] gap-[40px] py-10 px-14  lg:py-10  lg:px-10 mt-5 lg:mt-[-150px] text-black md:p-[45px] max-w-6xl mx-auto"
-                style={{ backgroundImage: 'url(public/foto.jpg)' }}
+                style={{ backgroundImage: 'url(/foto.jpg)' }}
             ><div className="absolute inset-0 rounded-[45px] bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] mix-blend-multiply"></div>
                 <div className="flex justify-center items-center relative">
                     <div className="flex-1">

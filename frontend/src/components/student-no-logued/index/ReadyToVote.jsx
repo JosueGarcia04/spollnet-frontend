@@ -7,7 +7,7 @@ export default function ReadyToVote() {
         <div>
             <div
 
-                className="bg-[#ffffff] bg-[url('public/foto.jpg')] bg-cover bg-center bg-fixed relative flex flex-col md:flex-row justify-center md:justify-around items-center h-auto md:h-[16.4rem]"
+                className="bg-[#ffffff] bg-[url('/foto.jpg')] bg-cover bg-center bg-fixed relative flex flex-col md:flex-row justify-center md:justify-around items-center h-auto md:h-[16.4rem]"
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] mix-blend-multiply"></div>
                 <div className="lg:flex lg:justify-center items-center md:flex">

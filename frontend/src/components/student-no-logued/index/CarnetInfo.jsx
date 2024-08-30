@@ -9,7 +9,7 @@ export default function CarnetInfo() {
                         <div
                             data-aos="fade-up"
                             className="flex flex-col lg:flex-row md:flex-row lg:overflow-hidden rounded-lg bg-cover bg-center lg:shadow-lg lg:absolute lg:inset-x-0 lg:w-3/4 lg:-translate-y-0 lg:mx-auto sm:flex-col justify-center items-center"
-                            style={{ backgroundImage: 'url(public/foto.jpg)' }}
+                            style={{ backgroundImage: 'url(/foto.jpg)' }}
                         >
                             {/* Gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] mix-blend-multiply z-10"></div>

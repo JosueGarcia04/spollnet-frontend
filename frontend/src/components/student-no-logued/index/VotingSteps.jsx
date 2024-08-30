@@ -40,7 +40,7 @@ export default function VotingSteps() {
                                     <span className="step-number absolute text-6xl font-bold text-white">1</span>
                                 </div>
                                 <div className="card-back flex flex-col text-white p-4 rounded-lg shadow-lg bg-cover bg-center" style={{
-                                    backgroundImage: 'url(public/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
+                                    backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
                                     backgroundBlendMode: 'overlay'
                                 }}>
                                     <h3 className="text-xl  font-semibold">Paso 1: Registro</h3>
@@ -62,7 +62,7 @@ export default function VotingSteps() {
                                     <span className="step-number absolute text-6xl font-bold text-white">2</span>
                                 </div>
                                 <div className="card-back flex flex-col p-4 text-white rounded-lg shadow-lg bg-cover bg-center" style={{
-                                    backgroundImage: 'url(public/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
+                                    backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
                                     backgroundBlendMode: 'overlay'
                                 }}>
                                     <h3 className="text-xl t font-semibold">Paso 2: Selección</h3>
@@ -85,7 +85,7 @@ export default function VotingSteps() {
                                     <span className="step-number absolute text-6xl font-bold text-white">3</span>
                                 </div>
                                 <div className="card-back flex flex-col p-4 rounded-lg text-white shadow-lg bg-cover bg-center" style={{
-                                    backgroundImage: 'url(public/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
+                                    backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
                                     backgroundBlendMode: 'overlay'
                                 }}>
                                     <h3 className="text-xl font-semibold">Paso 3: Votación</h3>
@@ -107,7 +107,7 @@ export default function VotingSteps() {
                                     <span className="step-number absolute text-6xl font-bold text-white">4</span>
                                 </div>
                                 <div className="card-back flex text-white flex-col p-4 rounded-lg shadow-lg bg-cover bg-center" style={{
-                                    backgroundImage: 'url(public/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
+                                    backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
                                     backgroundBlendMode: 'overlay'
                                 }}>
                                     <h3 className="text-xl font-semibold">Paso 4: Resultados</h3>
