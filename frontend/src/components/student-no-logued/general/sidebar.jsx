@@ -57,9 +57,9 @@ const Sidebar = () => {
           </Link>
         </Popover>
         <Popover text="Notificaciones">
-          <div>
+          <Link to={"/indexde"}>
             <FontAwesomeIcon icon={faBell} className="text-[#ffffff] w-7 h-7" />
-          </div>
+          </Link>
         </Popover>
       </div>
     </div>
