@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as fabric from 'fabric';
-import FloatingActionButton from './actionBTN';
+import FloatingActionButton from './actionbtn';
 import EditorControls from '../../pages/paint/Editcontrols';
 import Header from '../../pages/paint/Header';
 
