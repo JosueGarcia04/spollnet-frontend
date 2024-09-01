@@ -70,7 +70,7 @@ const Login = () => {
                     icon: "success"
                 }).then(() => {
                     localStorage.setItem('token', response.data.token);
-                    navigate('/main', { replace: true });
+                    navigate('/mainCoordinator', { replace: true });
                 });
                 return;
             } else if (mail === 'consejo2024@gmail.com' && contra === 'conseJo2024#') {
@@ -104,7 +104,7 @@ const Login = () => {
                         const token = response.data.token;
                         const decodedToken = jwtDecode(response.data.token);
                         if (decodedToken.role === 'coordinador') {
-                            navigate('/main', { replace: true });
+                            navigate('/mainCoordinator', { replace: true });
                         } else if (decodedToken.role === 'consejal') {
                             navigate('/council', { replace: true });
                         } else {

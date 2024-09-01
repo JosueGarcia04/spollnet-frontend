@@ -17,7 +17,7 @@ const Navbar = () => {
       <nav className="bg-[#141414] fixed top-0 left-0 w-full z-50 py-3.5  px-3 md:px-2 border-b-2 border-[#ffffff]">
         <div className=" flex flex-wrap items-center justify-between">
           {/* Menú de hamburguesa visible solo en modo escritorio */}
-          <Link to={"/main"}>
+          <Link to={"/mainCoordinator"}>
             <img src="/Logo-beta5.png" className="w-40 md:w-44  h-10 md:h-11 md:ml-10 " alt="spollnet" />
           </Link>
           <div className="flex items-center md:order-2">
@@ -76,7 +76,7 @@ const Navbar = () => {
               <p className="text-gray-400">coordinador123@correo.com</p>
             </div>
           </div>
-          <Link to={"/main"} className={`flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md ${location.pathname === '/' ? 'bg-gray-700' : ''}`}>
+          <Link to={"/mainCoordinator"} className={`flex items-center py-3 px-4 hover:bg-gray-700 transition duration-150 ease-linear rounded-md ${location.pathname === '/' ? 'bg-gray-700' : ''}`}>
             <FontAwesomeIcon icon={faHouse} className="text-[#ffffff] w-5 h-5 mr-2" />
             <span className="md:inline-block">Inicio</span>
             <span className="ml-auto text-[#E41FAE] font-bold">&#62;</span>

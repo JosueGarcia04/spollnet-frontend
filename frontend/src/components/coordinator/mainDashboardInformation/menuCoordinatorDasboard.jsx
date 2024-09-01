@@ -34,7 +34,7 @@ export default function MenuCoordinatorDashboard() {
   return (
     <div className="flex flex-col items-center space-y-8 p-10 text-white">
       <Popover text="Inicio">
-        <Link to="/main" className="transition duration-150 ease-linear rounded-lg group">
+        <Link to="/mainCoordinator" className="transition duration-150 ease-linear rounded-lg group">
           <FontAwesomeIcon icon={faHouse} className="text-white w-7 h-7" />
         </Link>
       </Popover>

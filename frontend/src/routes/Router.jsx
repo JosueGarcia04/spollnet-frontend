@@ -9,7 +9,7 @@ import { Root } from '../pages/Root'
 import NotFound from '../pages/not found/404'
 import News from '../pages/by us/general/news'
 //coordinador
-import Coordinator from '../pages/coordinator/dashboard/main'
+import Coordinator from '../pages/coordinator/dashboard/mainCoordinator'
 import StudentTable from '../pages/coordinator/students/studentsDashboard';
 import PeriodsOfVotesDashboard from '../pages/coordinator/periods/periodsOfVotesDashboard';
 import NewsDashboard from '../pages/coordinator/newsDashboard/newsDashboard';
@@ -79,7 +79,7 @@ export const Router = createBrowserRouter([
                 element: <Publica />
             },
             {
-                path:"main",
+                path:"mainCoordinator",
                 element:<Coordinator/>
             },
             {
