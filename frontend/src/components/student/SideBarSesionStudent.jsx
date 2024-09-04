@@ -57,9 +57,9 @@ const SidebarSesionStudent = () => {
           </Link>
         </Popover>
         <Popover text="Notificaciones">
-          <div>
+        <Link to={"/candidates"}>
             <FontAwesomeIcon icon={faBell} className="text-[#ffffff] w-7 h-7" />
-          </div>
+          </Link>
         </Popover>
         <Popover text="Configuración">
           <Link to={"/student_profile"}>

@@ -46,8 +46,8 @@ const Login = () => {
 
     const validations = () => {
         const errors = {};
-        if (!mail) errors.mail = 'Completa el campo de correo electrónico';
-        if (!contra) errors.contra = 'Completa el campo de contraseña';
+        if (!mail) errors.mail = 'Campos vacio';
+        if (!contra) errors.contra = 'Campos vacio';
         return errors;
     };
 
@@ -106,7 +106,7 @@ const Login = () => {
                         if (decodedToken.role === 'coordinador') {
                             navigate('/mainCoordinator', { replace: true });
                         } else if (decodedToken.role === 'consejal') {
-                            navigate('/council', { replace: true });
+                            navigate('/IndexConsejo', { replace: true });
                         } else {
                             navigate('/IndexStudent', { replace: true });
                         }
