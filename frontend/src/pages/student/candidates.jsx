@@ -15,7 +15,7 @@ const Votacion = () => {
         setCandidatos(response.data);
       } catch (error) {
         console.error('Error al obtener los datos de los candidatos', error);
-      }
+      } 
     };
 
     fetchCandidatos();
