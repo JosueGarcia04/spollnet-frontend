@@ -42,7 +42,7 @@ const SidebarSesionStudent = () => {
           </Link>
         </Popover>
         <Popover text="Publicaciones">
-          <Link to={"/news"}>
+          <Link to={"/public"}>
             <FontAwesomeIcon icon={faChalkboard} className="text-[#ffffff] w-7 h-7" />
           </Link>
         </Popover>

@@ -37,8 +37,7 @@ const Startpu = () => {
                 onClick={toggleModal}
                 className="text-white flex items-center space-x-2 bg-gradient-to-r from-[#e7148c] to-[#6e1d5c]  hover:bg-[#d0137c] px-4 py-2 rounded-lg"
               >
-                <span className='text-lg font-semibold'>Crear</span>
-                <img src='public/crear.png' className='w-7' alt="Crear" />
+                <span className='text-lg font-semibold'>Crear Publicación</span>
               </button>
             </li>
           </ul>

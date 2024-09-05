@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Emitir from '../index/buttonVoteIndex';
+import Emitir from '../index/buttonVoteIndex';  
 
 export default function InicioIndex() {
     return (
