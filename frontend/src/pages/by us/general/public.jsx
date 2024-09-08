@@ -53,9 +53,6 @@ const Publica = () => {
             <Barra />
 
             <div className="flex-1 md:ml-16 lg:mr-96 md:mr-[280px] py-12 flex flex-col justify-center items-center gap-6">
-              {/* Título de la sección de publicaciones */}
-              <h1 className="text-3xl font-bold mb-6 text-center">Publicaciones de Candidatos</h1>
-
               <Filtro onFilterChange={handleFilterChange} />
 
               {filteredPosts.map(post => (

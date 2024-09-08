@@ -47,11 +47,11 @@ const SidebarSesionStudent = () => {
           </Link>
         </Popover>
         <Popover text="Candidatos">
-          <Link to={"#"}>
+          <Link to={"/Infocandi"}>
             <FontAwesomeIcon icon={faUsers} className="text-[#ffffff] w-7 h-7" />
           </Link>
         </Popover>
-        <Popover text="Estadísticas">
+        <Popover text="Resultados">
           <Link to={"#"}>
             <FontAwesomeIcon icon={faChartBar} className="text-[#ffffff] w-7 h-7" />
           </Link>
