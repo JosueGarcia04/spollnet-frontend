@@ -37,7 +37,6 @@ import ListDeletedPeriods from '../pages/coordinator/periods/deleted&finally/lis
 import ListFinallyPeriods from '../pages/coordinator/periods/deleted&finally/listFinallyPeriods';
 //consejo
 import IndexConsejo from '../pages/consejo/IndexConsejo';
-import Publish from '../pages/consejo/publis';
 import Solicitudes from '../pages/consejo/solicitudes';
 
 
@@ -125,11 +124,7 @@ export const Router = createBrowserRouter([
             {
                 path:"listDeletedNews",
                 element:<ListDeletedNews/>
-            },
-            {
-                path:"publis",
-                element:<Publish/>
-            },
+            },  
             {
                 path:"solicitudes",
                 element:<Solicitudes/>
