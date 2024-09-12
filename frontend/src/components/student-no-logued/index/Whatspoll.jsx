@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export default function Whatspoll() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -9,14 +7,13 @@ export default function Whatspoll() {
     '/vot2.jfif',
     '/vot3.jfif',
     '/vot4.jfif',
-    '/vot5.jfif'
+    '/vot5.jfif',
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -44,7 +41,6 @@ export default function Whatspoll() {
               ></path>
               <path
                 d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
-                id="Path-4"
                 opacity="0.3"
               ></path>
             </g>
@@ -59,14 +55,14 @@ export default function Whatspoll() {
       <div id="target-div"></div>
       <div className="lg:py-20 py-14 lg:pt-24 lg:pb-52 dark:bg-[#141414]" id="features">
         <div className="">
-          <div className="max-w-screen-xl lg:px-4 lg:py-6 px-5 mx-auto space-y-12 lg:space-y-20 ">
+          <div className="max-w-screen-xl lg:px-4 lg:py-6 px-5 mx-auto space-y-12 lg:space-y-20">
             <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
               <div className="text-gray-500 sm:text-lg dark:text-gray-400">
                 <h2 data-aos="fade-up" className="mb-4 text-center text-4xl lg:text-5xl font-semibold tracking-tightdark:text-[#e7148c] text-white">
-                  ¿Qué es Spollnet?
+                  ¿Quienes somos?
                 </h2>
                 <div data-aos="fade-up" className="w-full mb-4">
-                  <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-40  opacity-65 my-0 py-0 rounded-t"></div>
+                  <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-40 opacity-65 my-0 py-0 rounded-t"></div>
                 </div>
                 <p data-aos="fade-up" className="mb-8 lg:mt-5 font-light text-slate-300 lg:text-xl">
                   Spollnet es un sistema de votación estudiantil que garantiza seguridad, accesibilidad y resultados en tiempo real. Facilita elecciones justas y transparentes.
@@ -92,30 +88,25 @@ export default function Whatspoll() {
                     <span className="text-base font-medium leading-tight text-white">Resultados en Tiempo Real</span>
                   </li>
                 </ul>
-                <p data-aos="fade-up" className="mb-8  font-light text-slate-300 lg:text-xl">
-                  Spollnet es flexible y personalizable, facilitando la participación activa de los estudiantes en sus procesos democráticos.
+                <p data-aos="fade-up" className="mb-8 font-light text-slate-300 lg:text-xl">
+                  Spollnet facilita la participación activa de los estudiantes en sus procesos democráticos.
                 </p>
               </div>
-              <div className="relative lg:max-w-lg lg:w-full">
-                  <button
-                    onClick={() => setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1))}
-                    className="absolute z-20 left-0 top-1/2 transform -translate-y-1/2 bg-[#000000] text-white  rounded-full focus:outline-none"
-                  >
-                    <FaChevronLeft size={24} />
-                  </button>
-                  <img className="relative z-10 w-full rounded-lg" src={images[currentIndex]} alt={`Imagen ${currentIndex + 1}`} />
-                  <div>
-                    <div className="absolute bottom-0 right-0 max-w-full h-[260px] md:h-[370px] lg:h-[400px] xl:h-[400px] rounded-xl bg-gray-200 dark:bg-gradient-to-r from-[#e7148c] to-[#3e021b] rounded-tl-lg rounded-br-lg transform lg:translate-y-[30px] translate-y-[20px] md:translate-y-[30px] sm:w-3/4 md:w-2/3 w-[70vw] lg:w-5/6"></div>
-                  </div>
-                  <button
-                    onClick={() => setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)}
-                    className="absolute z-20 right-0 top-1/2 transform -translate-y-1/2 bg-[#000000] text-white  rounded-full focus:outline-none"
-                  >
-                    <FaChevronRight size={24} />
-                  </button>
-                </div>
+              <div className="relative lg:max-w-lg lg:w-full lg:ml-20">
+                <button
+                  onClick={() => setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1))}
+                  className="absolute z-20 left-0 top-1/2 transform -translate-y-1/2 bg-[#000000] text-white rounded-full focus:outline-none"
+                >
+                </button>
+                <img className="relative z-10 w-full rounded-lg" src={images[currentIndex]} alt={`Imagen ${currentIndex + 1}`} />
+                
+                <button
+                  onClick={() => setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)}
+                  className="absolute z-20 right-0 top-1/2 transform -translate-y-1/2 bg-[#000000] text-white rounded-full focus:outline-none"
+                >
+                </button>
+              </div>
             </div>
-
           </div>
         </div>
       </div>

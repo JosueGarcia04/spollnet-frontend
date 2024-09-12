@@ -10,7 +10,7 @@ const Footer = () => {
         </div>
         <div className="text-center md:text-left md:ml-6">
           <p className="text-white font-bold text-sm md:text-base">
-            Sistema de votaciones Colegio Don Bosco - Crea J 2024
+            Sistema de Votaciones Estudiantil - Crea J 2024
           </p>
           <span className="text-[#e7148c] text-sm md:text-lg font-bold mt-2 block">
             Todos los derechos reservados.

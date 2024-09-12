@@ -11,19 +11,14 @@ export default function InicioIndex() {
                             <span className="text-white inline-block mr-3">Bienvenidos</span>
                             <span className="text-[#e7148c] inline-block mr-3"> | </span>
                             <div className="rotating-words font-semibold">
-                                <p className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#e7148c] to-[#3e021b]">Alumnos</p>
+                                <p className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#e7148c] to-[#3e021b]">Estudiantes</p>
                                 <p className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#e7148c] to-[#3e021b]">SpollNet</p>
                             </div>
                         </h1>
                     </div>
                     <div className="text-3xl md:text-4xl lg:text-4xl xl:text-6xl lg:mb-2 mt-4 font-bold text-center lg:text-left px-3.5">
                         <div className="relative flex flex-col items-center">
-                            <span className="relative z-10">Tu voto es la llave del camino <span className="text-[#white]">al futuro</span></span>
-                            <img
-                                src="/stylish-underline.png"
-                                alt="stylish underline"
-                                className="absolute -bottom-3 z-0 hidden md:block"
-                            />
+                            <span className="relative z-10">Tu voto es la clave del camino del progreso</span>
                         </div>
                     </div>
                     <div className="part2 mb-5">

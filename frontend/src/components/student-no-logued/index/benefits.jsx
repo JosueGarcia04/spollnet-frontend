@@ -17,12 +17,6 @@ export default function Benefits() {
                                 <div data-aos="fade-up" className="w-full mb-4">
                                     <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-40 opacity-65 my-0 py-0 rounded-t"></div>
                                 </div>
-                                <p
-                                    data-aos="fade-up"
-                                    className="mx-auto max-w-screen-md text-center font-light text-slate-300 lg:text-xl md:text-lg"
-                                >
-                                    Descubre las ventajas de participar en votaciones en línea y cómo te benefician a ti y a toda la comunidad estudiantil.
-                                </p>
                             </div>
 
                             <div className="grid gap-8 sm:grid-cols-2 md:gap-12 xl:grid-cols-3 xl:gap-16">
@@ -46,7 +40,7 @@ export default function Benefits() {
                                             data-aos="fade-up"
                                             className="mb-2 text-gray-500"
                                         >
-                                            Vota desde cualquier lugar y en cualquier momento.
+                                            Puedes votar desde cualquier dispositivo con acceso a internet.
                                         </p>
                                     </div>
                                 </div>
@@ -96,7 +90,7 @@ export default function Benefits() {
                                             data-aos="fade-up"
                                             className="mb-2 text-gray-500"
                                         >
-                                            Conoce los resultados al instante, sin esperar días para el conteo de votos.
+                                            ¡Conoce los resultados de un periodo de votación en tiempo real!
                                         </p>
                                     </div>
                                 </div>
@@ -146,7 +140,7 @@ export default function Benefits() {
                                             data-aos="fade-up"
                                             className="mb-2 text-gray-500"
                                         >
-                                            Todos los estudiantes con discapacidades, puedan votar.
+                                            Accesible para cualquier estudiante.
                                         </p>
                                     </div>
                                 </div>

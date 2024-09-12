@@ -12,7 +12,7 @@ export default function VotingSteps() {
                                     data-aos="fade-up"
                                     className="md:text-center text-white text-center lg:text-start text-4xl lg:text-5xl font-semibold tracking-tight  dark:text-white"
                                 >
-                                    Como puedes votar
+                                    ¿Como puedes votar?
                                 </h2>
                                 <div data-aos="fade-up" className="w-full mt-4">
                                     <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-40  opacity-65 my-0 py-0 rounded-t"></div>
@@ -22,7 +22,7 @@ export default function VotingSteps() {
                                 data-aos="fade-up"
                                 className="max-w-screen-sm font-light mt-5 lg:mt-0 text-center lg:text-start text-lg text-slate-300 lg:text-xl md:block"
                             >
-                                "Nuestro sistema garantiza la seguridad y confidencialidad de tu voto. Aprende cómo puedes participar de manera segura."
+                                Spollnet garantiza la seguridad y confidencialidad de tu voto. Aprende cómo puedes participar en el proceso democrático.
                             </p>
                         </div>
                     </div>
@@ -43,8 +43,8 @@ export default function VotingSteps() {
                                     backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
                                     backgroundBlendMode: 'overlay'
                                 }}>
-                                    <h3 className="text-xl  font-semibold">Paso 1: Registro</h3>
-                                    <p className="mt-2 text-base  text-center">Crea una cuenta o inicia sesión para acceder al sistema de votación.</p>
+                                    <h3 className="text-xl  font-semibold">Paso 1: Ingresa al sistema</h3>
+                                    <p className="mt-2 text-base  text-center">Crea una cuenta si aún no la tienes o inicia sesión para acceder al sistema de votación.</p>
                                 </div>
 
                             </label>
@@ -66,7 +66,7 @@ export default function VotingSteps() {
                                     backgroundBlendMode: 'overlay'
                                 }}>
                                     <h3 className="text-xl t font-semibold">Paso 2: Selección</h3>
-                                    <p className="mt-2 text-base  text-center">Visualiza la informacion de los candidatos y elige el candidato de tu preferencia para poder emitir tu voto.</p>
+                                    <p className="mt-2 text-base  text-center">Visualiza la informacion de los candidatos y vota por el candidato de tu preferencia.</p>
                                 </div>
 
 

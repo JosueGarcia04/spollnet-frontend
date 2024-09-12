@@ -83,8 +83,8 @@ const EleccionesSlider = () => {
         </section>
       </div>
       <div data-aos="fade-up" className="relative md:ml-16 flex flex-col  items-center pt-10 pb-10  text-white ">
-        <h1 className="md:text-5xl text-3xl font-extrabold mb-3 text-center text-[#ffffff]">Elecciones CDB 2025</h1>
-        <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-32 mb-10 opacity-65  my-0 py-0 rounded-t"></div>
+      <h1 className="md:text-5xl text-3xl font-extrabold mb-3 text-center text-[#ffffff]">Información sobre candidatos</h1>
+      <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-32 mb-10 opacity-65  my-0 py-0 rounded-t"></div>
         <div className="relative flex items-center w-full max-w-6xl px-2 sm:px-4">
           <button
             onClick={handlePrev}
@@ -97,7 +97,7 @@ const EleccionesSlider = () => {
               {currentPersonas.concat(overflowPersonas).map((persona, index) => (
                 <div
                   key={index}
-                  className="flex flex-col text-center items-center w-40 sm:w-56 md:w-72 lg:w-80 xl:w-96 p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6 border-2 border-[#4b4b4b] rounded-lg bg-black shadow-xl hover:shadow-2xl transform transition-transform duration-300 hover:scale-105"
+                  className="flex flex-col text-center items-center w-40 sm:w-56 md:w-72 lg:w-80 xl:w-96 p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6 border-2 border-[#4b4b4b] rounded-lg bg-black"
                   onClick={() => setSelectedPersona(persona.nombre)}
                 >
                   <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 bg-gray-700 rounded-lg overflow-hidden flex items-center justify-center mb-2 sm:mb-3">
