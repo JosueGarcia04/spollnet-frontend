@@ -40,7 +40,7 @@ export default function Benefits() {
                                             data-aos="fade-up"
                                             className="mb-2 text-gray-500"
                                         >
-                                            Puedes votar desde cualquier dispositivo con acceso a internet.
+                                           Sistema facil de usar, ¡sin complicaciones!
                                         </p>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@ export default function Benefits() {
                                             data-aos="fade-up"
                                             className="mb-2 text-gray-500"
                                         >
-                                            Accesible para cualquier estudiante.
+                                             Puedes votar desde cualquier dispositivo con acceso a internet.
                                         </p>
                                     </div>
                                 </div>

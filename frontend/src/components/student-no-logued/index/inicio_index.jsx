@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Emitir from '../index/buttonVoteIndex';  
 
 export default function InicioIndex() {
     return (
@@ -18,18 +17,15 @@ export default function InicioIndex() {
                     </div>
                     <div className="text-3xl md:text-4xl lg:text-4xl xl:text-6xl lg:mb-2 mt-4 font-bold text-center lg:text-left px-3.5">
                         <div className="relative flex flex-col items-center">
-                            <span className="relative z-10">Tu voto es la clave del camino del progreso</span>
+                            <span className="relative z-10">Tu voto cuenta, construye el futuro que deseas.</span>
                         </div>
                     </div>
                     <div className="part2 mb-5">
-                        <p className="text-sm lg:text-left md:text-base text-center font-normal xl:text-lg mt-5 mb-0 lg:pr-14 lg:pl-3.5 pl-3.5 leading-loose">
-                            Participa en las elecciones del Colegio Don Bosco eligiendo a tus candidatos preferidos.
-                            Tu voto es fundamental para elegir a los líderes estudiantiles del futuro.
-                        </p>
+                    <p className="text-sm lg:text-left md:text-base text-center font-normal xl:text-lg mt-10 mb-0 lg:pr-14 lg:pl-3.5 pl-3.5 leading-loose">
+                        Sé parte del cambio en las elecciones del Colegio Don Bosco, apoyando a los candidatos que representan tus valores. 
+                        Tu participación es esencial para formar a los líderes estudiantiles del mañana.
+                    </p>
                     </div>
-                </div>
-                <div className="flex justify-center ">
-                    <Emitir />
                 </div>
             </div>
             <div className="relative justify-center items-center mt-5 lg:mt-24 lg:ml-0 hidden lg:flex lg:justify-center lg:items-center">

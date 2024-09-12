@@ -19,7 +19,7 @@ export default function ReadyToVote() {
                             data-aos="fade-up"
                             className="text-white leading-relaxed mb-7 text-center text-3xl md:text-3xl"
                         >
-                            <strong>¿Estás listo? </strong> para hacer <strong>tu voto realidad.</strong>
+                            <strong>¿Estás preparado?</strong> El futuro está en tus manos. <strong>Haz tu voto contar.</strong>
                         </p>
                         <Link to="/login" >
                         <button
@@ -37,7 +37,7 @@ export default function ReadyToVote() {
                         <img
                             src="/aguilita.png"
                             alt="WooCommerce"
-                            className="w-full max-w-[300px] mt-10 lg:mt-0 md:mt-0 md:max-w-[350px] object-cover rounded-lg"
+                            className="w-full max-w-[300px] mt-10 lg:mt-0 md:mt-0 md:max-w-[300px] object-cover rounded-lg"
                         />
                     </div>
                 </div>

@@ -27,10 +27,10 @@ export default function CarnetInfo() {
                             {/* Content */}
                             <div data-aos="fade-up" className="relative flex w-full flex-col md:items-start lg:items-start p-4 sm:w-full mx-auto lg:px-14 lg:w-3/5 z-20">
                                 <h2 className="mb-4 text-2xl md:text-start font-bold text-white md:text-3xl lg:text-4xl">
-                                    Tu carnet es fundamental
+                                    Tu carnet, pieza fundamental.
                                 </h2>
                                 <p data-aos="fade-up" className="mb-6 lg:text-start max-w-md lg:text-[16px] text-white">
-                                    El carnet estudiantil es fundamental para garantizar la autenticidad y seguridad en el proceso de votación estudiantil virtual.
+                                    Garantiza la autenticidad y seguridad en el proceso de votación estudiantil virtual.
                                 </p>
                                 <div data-aos="fade-up" className="flex mb-6 space-x-3">
                                     <div className="flex-shrink-0 h-7 w-7 text-blue-500 rounded-full flex items-center justify-center">

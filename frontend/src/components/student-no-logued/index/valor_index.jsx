@@ -29,7 +29,7 @@ export default function valor_index() {
                             data-aos="fade-up"
                             className="lg:text-base text-base md:text-sm  text-white mt-3 text-center font-semibold"
                         >
-                            Proceso claro y accesible, mostrando cómo se gestionan y cuentan los votos.
+                            Proceso claro y accesible, gestión de votos
                         </p>
                     </div>
                 </div>
