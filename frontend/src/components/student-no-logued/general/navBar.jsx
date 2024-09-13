@@ -17,7 +17,7 @@ const Navbar = () => {
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement({
         pageLanguage: 'es',
-        includedLanguages: 'en,fr,de',
+        includedLanguages: 'en,fr,de,es',
         layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     };
@@ -46,6 +46,7 @@ const Navbar = () => {
         border-radius: 5px;
         display: flex;
         align-items: center;
+        justify-content: center;
         color: #ffffff;
       }
       .goog-te-gadget-simple .goog-te-menu-value {
@@ -83,7 +84,7 @@ const Navbar = () => {
           </Link>
           <div className="flex items-center md:order-2">
             <div className="block md:ml-4">
-              <div id="google_translate_element"></div>
+              <div id="google_translate_element" className="translate-element"></div>
             </div>
           </div>
           <div className="hidden md:flex md:items-center md:space-x-4 md:ml-auto md:mr-20">
@@ -110,7 +111,7 @@ const Navbar = () => {
       )}
       <div className={`fixed top-0 right-0 h-full w-4/5 sm:w-3/4 transform transition-transform z-50 ${isOpen ? 'translate-x-0' : 'translate-x-full'} bg-[#0e0e0e] ease-in-out duration-500 md:hidden rounded-l-3xl border-l-2 border-[#e7148c]`}>
         <div className="flex justify-end p-4">
-          <div id="google_translate_element"></div>
+          <div id="google_translate_element" className="translate-element"></div>
         </div>
       </div>
     </>
