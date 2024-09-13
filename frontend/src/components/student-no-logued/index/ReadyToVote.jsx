@@ -26,7 +26,7 @@ export default function ReadyToVote() {
                             className="transform duration-300 hover:scale-105 md:0 lg:mt-0 text-xl inline-flex items-center justify-center whitespace-nowrap font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-white dark:focus-visible:ring-slate-300 dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black px-4 py-2 text-black shadow-xl md:w-[7.5rem] select-none hover:opacity-90 hover:bg-primary h-[2.9375rem]  rounded-full border border-white w-[13rem]"
                             type="button"
                         >
-                            Vota ya
+                            Realiza tu voto
                         </button>
                         </Link>
                     </div>

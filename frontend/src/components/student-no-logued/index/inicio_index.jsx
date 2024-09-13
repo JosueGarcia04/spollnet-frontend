@@ -10,7 +10,7 @@ export default function InicioIndex() {
                             <span className="text-white inline-block mr-3">Bienvenidos</span>
                             <span className="text-[#e7148c] inline-block mr-3"> | </span>
                             <div className="rotating-words font-semibold">
-                                <p className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#e7148c] to-[#3e021b]">Estudiantes</p>
+                                <p className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#e7148c] to-[#3e021b]">Alumnos</p>
                                 <p className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#e7148c] to-[#3e021b]">SpollNet</p>
                             </div>
                         </h1>
