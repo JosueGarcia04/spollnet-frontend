@@ -27,6 +27,53 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .goog-te-banner-frame { display: none !important; }
+      .goog-te-menu-frame { display: none !important; }
+      body { top: 0px !important; }
+
+      .goog-te-gadget {
+        font-family: Arial, sans-serif;
+        color: #ffffff !important;
+      }
+      .goog-te-gadget-simple {
+        background-color: #141414;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+      }
+      .goog-te-gadget-simple .goog-te-menu-value {
+        color: #ffffff;
+      }
+      .goog-te-gadget-simple .goog-te-menu-value:before {
+        content: 'Seleccionar idioma';
+        color: #ffffff;
+        margin-right: 5px;
+      }
+      .goog-te-gadget-simple .goog-te-menu-value span {
+        display: none;
+      }
+      .goog-te-gadget-simple .goog-te-icon {
+        width: 10px;
+        height: 10px;
+        margin-left: 5px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 15.5l8-8H4z"/></svg>');
+        background-size: contain;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <>
       <nav className="bg-[#141414] fixed top-0 left-0 w-full z-50 py-3.5 px-3 md:px-2 border-b-2 border-[#ffffff]">
@@ -35,7 +82,7 @@ const Navbar = () => {
             <img src="/Logo-beta5.png" className="w-40 md:w-44 h-10 md:h-11 md:ml-10" alt="spollnet" />
           </Link>
           <div className="flex items-center md:order-2">
-            <div className="hidden md:block md:ml-4">
+            <div className="block md:ml-4">
               <div id="google_translate_element"></div>
             </div>
           </div>
