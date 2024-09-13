@@ -33,43 +33,63 @@ const Navbar = () => {
       .goog-te-banner-frame { display: none !important; }
       .goog-te-menu-frame { display: none !important; }
       body { top: 0px !important; }
-
+  
       .goog-te-gadget {
-        font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif !important;
         color: #ffffff !important;
       }
       .goog-te-gadget-simple {
-        background-color: #141414;
-        border: none;
-        padding: 10px;
-        font-size: 14px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffffff;
+        background-color: #141414 !important;
+        border: none !important;
+        padding: 10px !important;
+        font-size: 14px !important;
+        border-radius: 5px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #ffffff !important;
       }
       .goog-te-gadget-simple .goog-te-menu-value {
-        color: #ffffff;
+        color: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
       }
       .goog-te-gadget-simple .goog-te-menu-value:before {
-        content: 'Seleccionar idioma';
-        color: #ffffff;
-        margin-right: 5px;
+        content: 'Seleccionar idioma' !important;
+        color: #ffffff !important;
+        margin-right: 5px !important;
       }
       .goog-te-gadget-simple .goog-te-menu-value span {
-        display: none;
+        display: none !important;
+      }
+      .goog-te-gadget-simple .goog-logo-link {
+        display: none !important;
       }
       .goog-te-gadget-simple .goog-te-icon {
-        width: 10px;
-        height: 10px;
-        margin-left: 5px;
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 15.5l8-8H4z"/></svg>');
-        background-size: contain;
+        width: 10px !important;
+        height: 10px !important;
+        margin-left: 5px !important;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 15.5l8-8H4z"/></svg>') !important;
+        background-size: contain !important;
+      }
+  
+      /* Personalización del menú desplegable */
+      .goog-te-menu {
+        background-color: #000000 !important;
+        border-radius: 10px !important;
+      }
+      .goog-te-menu a:hover {
+        background-color: #6e1d5c !important;
+      }
+      .goog-te-menu-value span {
+        color: #ffffff !important;
+      }
+      .goog-te-menu-value {
+        color: #e7148c !important;
       }
     `;
     document.head.appendChild(style);
-
+  
     return () => {
       document.head.removeChild(style);
     };
