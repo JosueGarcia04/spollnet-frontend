@@ -19,7 +19,7 @@ export default function Whatspoll() {
 
   return (
     <div>
-      <div className="relative -mt-16">
+      <div className="relative ">
         <svg
           data-aos="fade-up"
           data-aos-duration="1500"
@@ -55,7 +55,7 @@ export default function Whatspoll() {
       <div id="target-div"></div>
       <div className="lg:py-20 py-14 lg:pt-24 lg:pb-52 dark:bg-[#141414]" id="features">
         <div className="">
-          <div className="max-w-screen-xl lg:px-4 lg:py-6 px-5 mx-auto space-y-12 lg:space-y-20">
+          <div className="max-w-screen-xl lg:px-10 lg:py-4 px-5 mx-auto space-y-12 lg:space-y-20">
             <div className="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
               <div className="text-gray-500 sm:text-lg dark:text-gray-400">
                 <h2 data-aos="fade-up" className="mb-4 text-center text-4xl lg:text-5xl font-semibold tracking-tightdark:text-[#e7148c] text-white">
