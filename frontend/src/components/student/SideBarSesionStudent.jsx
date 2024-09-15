@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faChartBar, faChalkboard, faBell, faUsers, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faNewspaper, faChartBar, faChalkboard, faUsers, faCog } from '@fortawesome/free-solid-svg-icons';
 
 const Popover = ({ text, children }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,11 +54,6 @@ const SidebarSesionStudent = () => {
         <Popover text="Resultados">
           <Link to={"#"}>
             <FontAwesomeIcon icon={faChartBar} className="text-[#ffffff] w-7 h-7" />
-          </Link>
-        </Popover>
-        <Popover text="Notificaciones">
-        <Link to={"/candidates"}>
-            <FontAwesomeIcon icon={faBell} className="text-[#ffffff] w-7 h-7" />
           </Link>
         </Popover>
         <Popover text="Configuración">

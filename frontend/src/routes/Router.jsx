@@ -13,7 +13,6 @@ import Coordinator from '../pages/coordinator/dashboard/mainCoordinator'
 import StudentTable from '../pages/coordinator/students/studentsDashboard';
 import PeriodsOfVotesDashboard from '../pages/coordinator/periods/periodsOfVotesDashboard';
 import NewsDashboard from '../pages/coordinator/newsDashboard/newsDashboard';
-import NotificationDashboard from '../pages/coordinator/notifications/notificationsDashboard';
 import MainStatistic from '../pages/coordinator/statistics/mainStatistic';
 //student
 import SignIn from '../pages/forms/Sign-in'
@@ -100,10 +99,6 @@ export const Router = createBrowserRouter([
             {
                 path:"newsDashboard",
                 element:<NewsDashboard/>
-            },
-            {
-                path:"notificationsDashboard",
-                element:<NotificationDashboard/>
             },
             {
                 path:"candidates",

@@ -33,14 +33,6 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-          <div className="hidden md:flex md:items-center md:space-x-4 md:ml-auto md:mr-10">
-          <Link
-              to="#"
-              className="bg-gradient-to-r from-[#e7148c] to-[#6e1d5c] text-white hover:bg-gradient-to-r hover:from-[#e7148c] hover:to-[#6e1d5c] focus:ring-4 focus:outline-none focus:ring-[#E41FAE]/50 font-medium rounded-lg text-base px-5 py-2 text-center transition-all duration-300 ease-in-out"
-            >
-              Ver notificaciones
-            </Link>
-          </div>
         </div>
       </nav>
 
