@@ -40,7 +40,7 @@ export default function NewsInformationDashboard() {
 
     const renderStats = (stats) => {
         return stats.map((stat) => (
-            <div key={stat.name} className="bg-black/60 p-6 rounded-lg">
+            <div key={stat.name} className="bg-black p-6 rounded-lg">
                 <div className="flex flex-row space-x-4 items-center">
                     <div id="stats-1">
                         <FontAwesomeIcon icon={stat.icon} className='w-10 h-10 text-white' />
