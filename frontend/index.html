@@ -1,13 +1,40 @@
+¡Nuevo! Combinaciones de teclas … Las combinaciones de teclas de Drive se han actualizado para que puedas navegar escribiendo las primeras letras
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/faviconLogo.png" />
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spollnet</title>
+    <title id="page-title">Spollnet</title>
+    <style>
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #000000; 
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: #ffffff; 
+        border-radius: 6px; 
+        border: 1px solid #f1f1f1; 
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ffffff; 
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Script to ensure the title is not translated
+      document.addEventListener('DOMContentLoaded', () => {
+        const titleElement = document.getElementById('page-title');
+        titleElement.setAttribute('translate', 'no');
+      });
+    </script>
   </body>
 </html>
