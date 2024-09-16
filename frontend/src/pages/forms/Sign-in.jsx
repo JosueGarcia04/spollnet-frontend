@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link, useLocation } from 'react-router-dom';
+import Navbar from '../../components/student-no-logued/general/navBar';
 import Label from '../../components/student-no-logued/forms/label';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -87,9 +88,10 @@ const SignIn = () => {
                 <Loading />
             ) : (
                 <div className="min-h-screen py-6 bg-[#141414] flex flex-col items-center justify-center">
+                    <Navbar/>
                     <div className="flex justify-center mb-6">
                         <Link to={"/"}>
-                            <img src="/Logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
+                            <img src="/Logo-beta5.png" alt="Logo" className="mt-20 h-14 lg:h-16" />
                         </Link>
                     </div>
 

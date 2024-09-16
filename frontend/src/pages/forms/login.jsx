@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Label } from '../../components/student-no-logued/forms/label';
+import Navbar from '../../components/student-no-logued/general/navBar';
+import Label from '../../components/student-no-logued/forms/label';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -143,6 +144,7 @@ const Login = () => {
                 <Loading />
             ) : (
                 <div className="min-h-screen bg-[#141414] flex flex-col items-center justify-center py-24 px-0 lg:min-h-screen">
+                    <Navbar/>
                     <div className="flex justify-center mb-6">
                         <Link to={"/"}>
                             <img src="/Logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
