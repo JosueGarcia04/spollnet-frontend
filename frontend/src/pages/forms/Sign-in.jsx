@@ -86,7 +86,7 @@ const SignIn = () => {
             {loading ? (
                 <Loading />
             ) : (
-                <div className="lg:min-h-screen py-6 bg-[#141414] flex flex-col items-center justify-center">
+                <div className="min-h-screen py-6 bg-[#141414] flex flex-col items-center justify-center">
                     <div className="flex justify-center mb-6">
                         <Link to={"/"}>
                             <img src="/Logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
@@ -276,7 +276,7 @@ const SignIn = () => {
 
                             <p className="text-white text-sm text-center">
                                 ¿Ya tienes una cuenta?{" "}
-                                <Link to="/login" className="font-bold text-[#E41FAE] hover:underline">
+                                <Link to={"/login"} className="font-bold text-[#E41FAE] hover:underline">
                                     Iniciar sesión
                                 </Link>
                             </p>

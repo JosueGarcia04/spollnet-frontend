@@ -188,10 +188,14 @@ const Login = () => {
                                 />
                                 {errors.contra && <p className="text-red-500 text-sm mt-2">{errors.contra}</p>}
                             </div>
-                            <RegisterButton text="Iniciar sesión" />
+
+                            <div className="flex justify-center mb-6">
+                                <RegisterButton text="Iniciar sesión" />
+                            </div>
+
                             <p className="text-white text-sm text-center">
                                 ¿Aún no tienes cuenta?{" "}
-                                <Link to="/Sign-in" className="font-bold text-[#E41FAE] hover:underline">
+                                <Link to={"/Sign-in"} className="font-bold text-[#E41FAE] hover:underline">
                                     Regístrate
                                 </Link>
                             </p>

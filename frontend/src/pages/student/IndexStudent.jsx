@@ -18,11 +18,6 @@ import 'tailwindcss/tailwind.css';
 import 'flowbite';
 
 const IndexStudent = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-    const toggleSidebar = () => {
-      setIsSidebarOpen(prev => !prev);
-    };
     const [loading, setLoading] = useState(true);
     const location = useLocation();
 
@@ -55,9 +50,9 @@ const IndexStudent = () => {
                 <Loading />
             ) : (
                 <div>
-                     <NavbarSesionStudent toggleSidebar={toggleSidebar} />
+                     <NavbarSesionStudent/>
                     <div className="bg-black md:flex">
-                    <SidebarSesionStudent isSidebarOpen={isSidebarOpen} />
+                    <SidebarSesionStudent/>
                         <div className="content flex-1 ml-0 md:ml-16 relative top-0">
                             <div className="text-white text-center mt-5">
                                 <Countdown />
@@ -69,8 +64,8 @@ const IndexStudent = () => {
 
                         </div>
                     </div>
-                    <Footer />
                     <NavDownSesionStudent/>
+                    <Footer />
                     <ChatbotComponent/>
                 </div>
             )}

@@ -41,7 +41,7 @@ export const useValidations = () => {
         if (!password.trim()) {
             errors.password = 'Campo obligatorio';
         } else if (password && !validatePassword(password)) {
-            errors.password = 'Contraseña no válida';
+            errors.password = 'Debe contener 8 dígitos exactos, una mayuscula y un caracter especial';
         }
 
         if (!level.trim()) {

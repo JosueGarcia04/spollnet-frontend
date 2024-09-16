@@ -19,7 +19,6 @@ export default function DiscoverMore() {
                             <div className="grid gap-4 md:grid-cols-1 md:gap-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-8">
                                 <Link
                                     data-aos="fade-up"
-                                    to="/Sign-in"
                                     className="group relative flex h-72 flex-col overflow-hidden rounded-lg bg-black shadow-lg md:h-72 xl:h-96 border-4 border-transparent border-image border-image-slice-1"
                                 >
                                     <img
@@ -37,7 +36,6 @@ export default function DiscoverMore() {
 
                                 <Link
                                     data-aos="fade-up"
-                                    to="/Sign-in"
                                     className="group relative flex h-72 flex-col overflow-hidden rounded-lg bg-black shadow-lg md:h-72 xl:h-96 border-4 border-transparent border-image border-image-slice-1"
                                 >
                                     <img
@@ -55,7 +53,6 @@ export default function DiscoverMore() {
 
                                 <Link
                                     data-aos="fade-up"
-                                    to="/Sign-in"
                                     className="group relative flex h-72 flex-col overflow-hidden rounded-lg bg-black shadow-lg md:h-72 xl:h-96 border-4 border-transparent border-image border-image-slice-1"
                                 >
                                     <img

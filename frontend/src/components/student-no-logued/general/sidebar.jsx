@@ -47,12 +47,12 @@ const Sidebar = () => {
           </Link>
         </Popover>
         <Popover text="Candidatos">
-          <Link to={"#"}>
+          <Link to={"/Sign-in"}>
             <FontAwesomeIcon icon={faUsers} className="text-[#ffffff] w-7 h-7" />
           </Link>
         </Popover>
         <Popover text="Noticias">
-          <Link to={"/news"}>
+          <Link to={"/Sign-in"}>
             <FontAwesomeIcon icon={faNewspaper} className="text-[#ffffff] w-7 h-7" />
           </Link>
         </Popover>

@@ -1,11 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import SidebarSesionStudent from '../../components/student/SideBarSesionStudent';
+import NavDownSesionStudent from '../../components/student/navDownSesionStudent';
+import NavbarSesionStudent from '../../components/student/navbarSesionStudent';
+import Footer from '../../components/student-no-logued/general/footer'
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
+import Loading from '../../components/loading/loading';
 import Swal from 'sweetalert2';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 import {jwtDecode} from 'jwt-decode';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Profile = () => {
+    const [loading, setLoading] = useState(true);
+    const location = useLocation();
+
+    useEffect(() => {
+        AOS.init();
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [location]);
+
+    useEffect(() => {
+        if (!loading) {
+            const resetCarousel = () => {
+                const carousel = document.querySelector('[data-carousel="slide"]');
+                if (carousel) {
+                    const items = carousel.querySelectorAll('[data-carousel-item]');
+                    items.forEach(item => item.classList.add('hidden'));
+                    items[0]?.classList.remove('hidden');
+                }
+            };
+            resetCarousel();
+        }
+    }, [loading]);
+
     const navigate = useNavigate();
 
     const [userData, setUserData] = useState({
@@ -87,8 +120,14 @@ const Profile = () => {
 
     return (
         <>
+         {loading ? (
+                <Loading />
+            ) : (
+                <div>
             <div className="bg-black min-h-screen p-4 flex">
-                <div className="max-w-7xl mx-auto mt-5 flex flex-col md:flex-row flex-grow w-full">
+                <NavbarSesionStudent/>
+                <div className="max-w-7xl mx-auto mt-10 flex flex-col md:flex-row flex-grow w-full">
+                    <SidebarSesionStudent/>
                     <div className="w-full md:w-3/4 md:ml-4 flex-grow">
                         <div className="h-full flex flex-col justify-center">
                             <div className="p-8 md:p-12 rounded-lg shadow-md text-white h-full flex flex-col">
@@ -99,7 +138,7 @@ const Profile = () => {
                                     <div className="mt-6 flex flex-col items-center">
                                         <ProfileSummary userData={userData} />
                                     </div>
-                                    <div className="mt-6 flex-grow">
+                                    <div>
                                         <form onSubmit={handleSubmit}>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                                 <ProfileField
@@ -109,36 +148,43 @@ const Profile = () => {
                                                     type="email"
                                                     handleInputChange={handleInputChange}
                                                 />
-                                                <ProfileField
-                                                    title="Carnet"
-                                                    value={userData.identificador}
-                                                    name="carnet"
-                                                    handleInputChange={handleInputChange}
-                                                />
-                                                <ProfileField
-                                                    title="Especialidad"
-                                                    value={userData.especialidad}
-                                                    name="especialidad"
-                                                    handleInputChange={handleInputChange}
-                                                />
-                                                <ProfileField
-                                                    title="Nivel educativo"
-                                                    value={userData.nivel}
-                                                    name="nivel"
-                                                    handleInputChange={handleInputChange}
-                                                />
                                             </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-8">
+                                            <ProfileField
+                                                title="Contraseña Actual"
+                                                value={userData.currentPassword}
+                                                name="currentPassword"
+                                                type="password"
+                                                handleInputChange={handleInputChange}
+                                            />
+                                            <ProfileField
+                                                title="Nueva Contraseña"
+                                                value={userData.newPassword}
+                                                name="newPassword"
+                                                type="password"
+                                                handleInputChange={handleInputChange}
+                                            />
+                                            </div>
+                                            <ProfileField
+                                                title="Confirmar Nueva Contraseña"
+                                                value={userData.confirmNewPassword}
+                                                name="confirmNewPassword"
+                                                type="password"
+                                                handleInputChange={handleInputChange}
+                                            />
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-8">
                                                 <div className="col-span-1 md:col-span-2 flex justify-center">
                                                     <RegisterButton text="Guardar cambios" />
                                                 </div>
-                                                    <button
+                                                <div className='col-span-1 md:col-span-2 flex justify-center'>
+                                                <button 
                                                         type="button"
                                                         onClick={handleLogout}
-                                                        className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                                                        className="w-full bg-gradient-to-r from-[#e73414] to-[#681a1a] text-white py-2 rounded-full hover:bg-[#E41FAE] transition-colors duration-300"
                                                     >
                                                         Cerrar sesión
                                                     </button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -148,6 +194,10 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+            <NavDownSesionStudent/>
+            <Footer/>
+            </div>
+        )}
         </>
     );
 };
