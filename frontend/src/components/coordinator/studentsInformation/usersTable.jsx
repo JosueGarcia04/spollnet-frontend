@@ -302,13 +302,13 @@
                   <tr key={student._id} className="border-b-2 border-gray-500">
                     <td className="py-3 px-4 font-bold">
                       <div className="inline-flex items-center space-x-3">
-                        <span>{student.nombre}</span>
+                        <span className='text-white'>{student.nombre}</span>
                       </div>
                     </td>
-                    <td className="py-3 px-4">{student.email}</td>
-                    <td className="py-3 px-4">{student.identificador}</td>
-                    <td className="py-3 px-4">{student.nivel}</td>
-                    <td className="py-3 px-4">{student.especialidad}</td>
+                    <td className="py-3 px-4 text-white ">{student.email}</td>
+                    <td className="py-3 px-4 text-white">{student.identificador}</td>
+                    <td className="py-3 px-4 text-white">{student.nivel}</td>
+                    <td className="py-3 px-4 text-white">{student.especialidad}</td>
                     <td className="py-3 px-4">
                       <div className="space-x-3">
                         {!student.isDeleted && !student.isBanned && (

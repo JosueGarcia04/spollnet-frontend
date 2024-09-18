@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import NavbarTranslate from '../../components/student-no-logued/general/navBarTranslate';
 import Label from '../../components/student-no-logued/forms/label';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
+import Footer from '../../components/student-no-logued/general/footer';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import Loading from '../../../src/components/loading/loading';
@@ -205,6 +206,7 @@ const Login = () => {
                     </div>
                 </div>
             )}
+            <Footer/>
         </>
     );
 };

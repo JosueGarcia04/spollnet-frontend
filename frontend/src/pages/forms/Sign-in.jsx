@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import NavbarTranslate from '../../components/student-no-logued/general/navBarTranslate';
 import Label from '../../components/student-no-logued/forms/label';
 import RegisterButton from '../../components/student-no-logued/forms/Sign up/registerButton';
+import Footer from '../../components/student-no-logued/general/footer'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
@@ -286,6 +287,7 @@ const SignIn = () => {
                     </div>
                 </div>
             )}
+            <Footer/>
         </>
     );
 };

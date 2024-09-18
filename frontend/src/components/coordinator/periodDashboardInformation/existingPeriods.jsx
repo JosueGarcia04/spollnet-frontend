@@ -213,11 +213,11 @@ export default function ExistingPeriods({ mode }) {
             <table className="w-full whitespace-nowrap">
     <thead className="bg-black/60">
         <tr>
-            <th className="text-left py-3 px-2 rounded-l-lg">Nombre</th>
-            <th className="text-left py-3 px-2">Fecha de Inicio</th>
-            <th className="text-left py-3 px-2"></th>
-            <th className="text-left py-3 px-2">Fecha de Fin</th>
-            <th className="text-left py-3 px-2 ">Acciones</th>
+            <th className="text-left py-3 px-2 text-white rounded-l-lg">Nombre</th>
+            <th className="text-left py-3 px-2 text-white">Fecha de Inicio</th>
+            <th className="text-left py-3 px-2 text-white"></th>
+            <th className="text-left py-3 px-2 text-white">Fecha de Fin</th>
+            <th className="text-left py-3 px-2 text-white">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -233,14 +233,14 @@ export default function ExistingPeriods({ mode }) {
                     <tr key={period._id} className="border-b border-gray-700">
                         <td className="py-3 px-2 font-bold">
                             <div className="inline-flex space-x-3 items-center">
-                                <span>{period.name || "N/A"}</span>
+                                <span className='text-white'>{period.name || "N/A"}</span>
                             </div>
                         </td>
-                        <td className="py-3 px-2">
+                        <td className="py-3 px-2 text-white">
                             {startDate ? startDate.toISOString().split("T")[0] : "N/A"}
                         </td>
                         <td className="py-3 px-2"></td>
-                        <td className="py-3 px-2">
+                        <td className="py-3 px-2 text-white">
                             {endDate ? endDate.toISOString().split("T")[0] : "N/A"}
                         </td>
                         <td className="py-3 px-2">
