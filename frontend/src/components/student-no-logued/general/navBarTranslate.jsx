@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
 export default function NavbarTranslate() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -184,9 +182,7 @@ export default function NavbarTranslate() {
     <>
       <nav className="bg-[#141414] fixed top-0 left-0 w-full z-50 py-3.5 px-3 md:px-2 border-b-2 border-[#ffffff]">
         <div className="flex flex-wrap items-center justify-between">
-          <Link to={"/"}>
             <img src="/Logo-beta5.png" className="w-40 md:w-44 h-10 md:h-11 md:ml-10" alt="spollnet" />
-          </Link>
           <div className="flex items-center md:order-2">
             <div className="block">
               <div id="google_translate_element" className="translate-element"></div>

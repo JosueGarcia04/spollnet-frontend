@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NavbarMobile from '../../../../components/student-no-logued/general/navDown';
+import NavbarTranslate from '../../../student-no-logued/general/navBarTranslate';
 import MenuCoordinatorDashboard from "../../mainDashboardInformation/menuCoordinatorDasboard";
 import NewslettersGrid from "../newslettergrid";
 
@@ -52,7 +52,7 @@ export default function ListDeletedNews() {
 
   return (
     <>
-      <NavbarMobile />
+      <NavbarTranslate />
       <div className="antialiased bg-black w-full min-h-screen text-slate-300 relative py-7">
         <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
           <div id="menu" className="bg-white/10 col-span-12 md:col-span-4 lg:col-span-3 rounded-lg p-2 hidden md:block">
