@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import RegisterButton from '../../../components/student-no-logued/forms/Sign up/registerButton';
-import { Label } from '../../../components/student-no-logued/forms/label';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useValidations } from '../../../hooks/forms/forms'
@@ -67,7 +66,7 @@ export default function AddStudent() {
                 <form onSubmit={handleSubmit} className="p-10 rounded-lg">
                     <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                         <div className="text-center font-bold">
-                            <Label htmlFor="name">Nombre completo</Label>
+                            <label>Nombre</label>
                             <div className="relative">
                                 <input
                                     id='name'
@@ -75,13 +74,13 @@ export default function AddStudent() {
                                     type='text'
                                     value={name}
                                     onChange={handleInputChange(setName)}
-                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.name ? 'border-red-500' : name ? 'border-green-500' : 'border-white'}`}
+                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-white font-bold border ${errors.name ? 'border-red-500' : name ? 'border-green-500' : 'border-white'}`}
                                 />
                                 {errors.name && <p className="text-red-500">{errors.name}</p>}
                             </div>
                         </div>
                         <div className="text-center font-bold">
-                            <Label htmlFor="email">Correo electrónico</Label>
+                            <label>Correo electrónico</label>
                             <div className="relative">
                                 <input
                                     id='email'
@@ -89,20 +88,20 @@ export default function AddStudent() {
                                     type='email'
                                     value={email}
                                     onChange={handleInputChange(setEmail)}
-                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.email ? 'border-red-500' : email ? 'border-green-500' : 'border-white'}`}
+                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-white font-bold border ${errors.email ? 'border-red-500' : email ? 'border-green-500' : 'border-white'}`}
                                 />
                                 {errors.email && <p className="text-red-500">{errors.email}</p>}
                             </div>
                         </div>
                         <div className="text-center font-bold">
-                            <Label htmlFor="level">Nivel educativo</Label>
+                            <label>Nivel edicativo</label>
                             <div className="relative">
                                 <select
                                     id='level'
                                     name='level'
                                     value={level}
                                     onChange={handleInputChange(setLevel)}
-                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.level ? 'border-red-500' : level ? 'border-green-500' : 'border-white'}`}
+                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-white font-bold border ${errors.level ? 'border-red-500' : level ? 'border-green-500' : 'border-white'}`}
                                 >
                                     <option value="">Seleccione un nivel educativo</option>
                                     <option value="Primaria">Primaria</option>
@@ -113,7 +112,7 @@ export default function AddStudent() {
                             </div>
                         </div>
                         <div className="text-center font-bold">
-                            <Label htmlFor="specialty">Especialidad</Label>
+                            <label>Especialidad</label>
                             <div className="relative">
                                 <select
                                     id='specialty'
@@ -121,7 +120,7 @@ export default function AddStudent() {
                                     value={specialty}
                                     onChange={handleInputChange(setSpecialty)}
                                     disabled={level !== 'Bachillerato'}
-                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.specialty ? 'border-red-500' : specialty ? 'border-green-500' : 'border-white'}`}
+                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-white font-bold border ${errors.specialty ? 'border-red-500' : specialty ? 'border-green-500' : 'border-white'}`}
                                 >
                                     <option value="">Seleccione una especialidad</option>
                                     <option value="Mantenimiento automotriz">Mantenimiento automotriz</option>
@@ -135,7 +134,7 @@ export default function AddStudent() {
                             </div>
                         </div>
                         <div className="text-center font-bold">
-                            <Label htmlFor="identifier">Carnet</Label>
+                            <label>Identificador del estudiante</label>
                             <div className="relative">
                                 <input
                                     id='identifier'
@@ -143,13 +142,13 @@ export default function AddStudent() {
                                     type='text'
                                     value={identifier}
                                     onChange={handleInputChange(setIdentifier)}
-                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.identifier ? 'border-red-500' : identifier ? 'border-green-500' : 'border-white'}`}
+                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-white font-bold border ${errors.identifier ? 'border-red-500' : identifier ? 'border-green-500' : 'border-white'}`}
                                 />
                                 {errors.identifier && <p className="text-red-500">{errors.identifier}</p>}
                             </div>
                         </div>
                         <div className="text-center font-bold">
-                            <Label htmlFor="password">Contraseña</Label>
+                            <label>Contraseña</label>
                             <div className="relative">
                                 <input
                                     id='password'
@@ -157,14 +156,14 @@ export default function AddStudent() {
                                     type='password'
                                     value={password}
                                     onChange={handleInputChange(setPassword)}
-                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-[#380B99] font-bold border ${errors.password ? 'border-red-500' : password ? 'border-green-500' : 'border-white'}`}
+                                    className={`w-full px-4 py-2 mt-2 rounded-md bg-black text-white font-bold border ${errors.password ? 'border-red-500' : password ? 'border-green-500' : 'border-white'}`}
                                 />
                                 {errors.password && <p className="text-red-500">{errors.password}</p>}
                             </div>
                         </div>
                     </div>
                     <div className="mt-8 text-center">
-                        <RegisterButton text="Registrarse"/>
+                        <RegisterButton text="Añadir estudiante"/>
                     </div>
                 </form>
         </div>

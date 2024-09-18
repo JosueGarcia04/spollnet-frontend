@@ -57,7 +57,7 @@ export const useValidations = () => {
         if (!identifier.trim()) {
             errors.identifier = 'Campo obligatorio';
         } else if (!validateCarnet(identifier)) {
-            errors.identifier = 'El carnet no es válido';
+            errors.identifier = 'carnet: 2010****-2024****';
         }
 
         return errors;
