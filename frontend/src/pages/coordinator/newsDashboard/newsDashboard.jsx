@@ -3,6 +3,7 @@ import React from 'react';
 import Footer from '../../../components/student-no-logued/general/footer';
 import NavbarTranslate from '../../../components/student-no-logued/general/navBarTranslate';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
+import NavDownCoordinator from '../../../components/coordinator/mainDashboardInformation/navDownCoordinator';
 //data
 import NewsDashboardContent from '../../../components/coordinator/newsDashboard/newsDashboardContent';
 import NewsInformationDashboard from '../../../components/coordinator/newsDashboard/newsInformation';
@@ -26,6 +27,7 @@ export const NewsDashboard = () =>{
             </div>
         </div>
         </div>
+        <NavDownCoordinator/>
         <Footer/>
         </>
     );

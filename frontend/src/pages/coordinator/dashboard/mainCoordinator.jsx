@@ -3,7 +3,7 @@ import Footer from '../../../components/student-no-logued/general/footer';
 import NavbarTranslate from '../../../components/student-no-logued/general/navBarTranslate';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import DataCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/dataCoordinatorDashboard';
-
+import NavDownCoordinator from '../../../components/coordinator/mainDashboardInformation/navDownCoordinator';
 export const Coordinator = () => {
   return (
     <>
@@ -21,6 +21,7 @@ export const Coordinator = () => {
           </div>
         </div>
       </div>
+      <NavDownCoordinator/>
       <Footer/>
     </>
   );

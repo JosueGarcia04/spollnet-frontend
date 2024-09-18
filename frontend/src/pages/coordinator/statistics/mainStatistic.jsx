@@ -2,6 +2,7 @@ import React from 'react';
 import NavbarTranslate from '../../../components/student-no-logued/general/navBarTranslate';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import Footer from '../../../components/student-no-logued/general/footer';
+import NavDownCoordinator from '../../../components/coordinator/mainDashboardInformation/navDownCoordinator';
 import { SimplePieChart } from '../../../components/coordinator/StatisticsGraphics/principalChartsDashboard/simplePieChart';
 
 export default function MainStatistic() {
@@ -22,6 +23,7 @@ export default function MainStatistic() {
                         </div>
                     </div>
                 </div>
+                <NavDownCoordinator/>
                 <Footer />
             </div>
         </>

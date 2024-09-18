@@ -3,6 +3,7 @@ import React from 'react';
 import Footer from '../../../components/student-no-logued/general/footer'
 import NavbarTranslate from '../../../components/student-no-logued/general/navBarTranslate';
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
+import NavDownCoordinator from '../../../components/coordinator/mainDashboardInformation/navDownCoordinator';
 // Data components
 import AddStudent from '../../../components/coordinator/studentsInformation/addStudent';
 import DataStudentsInformation from '../../../components/coordinator/studentsInformation/dataStudentsInformation';
@@ -27,7 +28,8 @@ export const StudentTable = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <NavDownCoordinator/>
+      <Footer/> 
     </>
   );
 };

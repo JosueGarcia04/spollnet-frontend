@@ -7,6 +7,7 @@ import AddPeriod from '../../../components/coordinator/periodDashboardInformatio
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import NavbarTranslate from '../../../components/student-no-logued/general/navBarTranslate';
 import Footer from '../../../components/student-no-logued/general/footer'
+import NavDownCoordinator from '../../../components/coordinator/mainDashboardInformation/navDownCoordinator';
 
 export const PeriodsOfVotesDashboard = () => {
 
@@ -28,6 +29,7 @@ export const PeriodsOfVotesDashboard = () => {
                 </div>
             </div>
         </div>
+        <NavDownCoordinator/>
         <Footer/>
         </>
     );
