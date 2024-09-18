@@ -236,11 +236,11 @@ export default function ExistingPeriods({ mode }) {
                                 <span className='text-white'>{period.name || "N/A"}</span>
                             </div>
                         </td>
-                        <td className="py-3 px-2 text-white">
+                        <td className="py-3 px-2 text-white">Empieza: {""}
                             {startDate ? startDate.toISOString().split("T")[0] : "N/A"}
                         </td>
                         <td className="py-3 px-2"></td>
-                        <td className="py-3 px-2 text-white">
+                        <td className="py-3 px-2 text-white">Termina: {""}
                             {endDate ? endDate.toISOString().split("T")[0] : "N/A"}
                         </td>
                         <td className="py-3 px-2">
@@ -275,7 +275,7 @@ export default function ExistingPeriods({ mode }) {
             })
         ) : (
             <tr>
-                <td colSpan="5" className="py-3 px-2 text-center">
+                <td colSpan="5" className="py-3 px-2 text-center text-white">
                     No hay periodos disponibles.
                 </td>
             </tr>
