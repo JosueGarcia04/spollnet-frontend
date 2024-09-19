@@ -39,10 +39,10 @@ const FeaturesSection = () => {
     return (
         <div data-aos="fade-up" className="relative py-0 md:ml-16 lg:-mt-16 md:-mt-10 -mt-8 z-20">
             <div className="lg:max-w-4xl xl:max-w-6xl md:max-w-2xl mx-auto grid gap-3 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 px-0">
-                <FeatureCard icon="public/votacion.png" title="Estudiantes Inscritos" description="400" />
-                <FeatureCard icon="public/periodo.png" title="Periodo Habilitado" description="20" />
-                <FeatureCard icon="public/votos.png" title="Votos Acumulados" description="239" />
-                <FeatureCard icon="public/candidato.png" title="Candidatos Inscritos" description="3" />
+                <FeatureCard icon="/votacion.png" title="Estudiantes Inscritos" description="400" />
+                <FeatureCard icon="/periodo.png" title="Periodo Habilitado" description="20" />
+                <FeatureCard icon="/votos.png" title="Votos Acumulados" description="239" />
+                <FeatureCard icon="/candidato.png" title="Candidatos Inscritos" description="3" />
             </div>
         </div>
     );

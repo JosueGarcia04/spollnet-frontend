@@ -7,7 +7,7 @@ const FeatureSection = () => {
         <div data-aos="fade-up" className="flex justify-center lg:order-last mb-8 lg:mb-0">
           <img
             className="lg:w-full w-96 rounded-lg"
-            src="public/voteline.jpg"
+            src="/voteline.jpg"
             alt="feature image 2"
           />
         </div>

@@ -14,7 +14,7 @@ export const VerifyAccount = () => {
       <div className="bg-black min-h-screen flex flex-col items-center justify-center text-center text-white">
         <h2 className="mb-12 text-center text-5xl font-extrabold text-[#E31FAE]">Verifica tu cuenta</h2>
         <Link to="/">
-          <img src="public/logo2.png" className="w-80" alt="spollnet" />
+          <img src="/logo2.png" className="w-80" alt="spollnet" />
         </Link>
         <p className="mb-4 text-pink-400">¡Revisa tu correo! Hemos enviado un código de verificación.</p>
         <form className="flex flex-col items-center" onSubmit={handleSubmit}>

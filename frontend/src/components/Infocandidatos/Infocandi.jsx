@@ -17,7 +17,7 @@ const candidatosInfo = {
     especialidad: 'Electromecánica',
     motivación: 'Formar parte activa en la contribución a la casa salesiana.',
     objetivos: 'Dar un año lleno de gloria a todos los estudiantes y la comunidad educativa.',
-    imagen: 'public/Aguila-prueba.png'  // Agregar la imagen del candidato aquí
+    imagen: '/Aguila-prueba.png'  // Agregar la imagen del candidato aquí
   }
   // Puedes agregar más candidatos con su información extendida aquí
 };
@@ -28,12 +28,12 @@ const EleccionesSlider = () => {
   const [selectedPersona, setSelectedPersona] = useState(null);
 
   const personas = [
-    { nombre: 'Luis German Dueñas Bernal', imagen: 'public/Aguila-prueba.png' },
-    { nombre: 'Juan', imagen: 'public/boyini.jpg' },
-    { nombre: 'Pato lucas', imagen: 'public/boyone.jpg' },
-    { nombre: 'terreneito', imagen: 'public/boythree.jpg' },
-    { nombre: 'Mickey mause', imagen: 'public/boytwo.jpg' },
-    { nombre: 'Colocho', imagen: 'public/boyvot.jpg' },
+    { nombre: 'candidato 1', imagen: '/Aguila-prueba.png' },
+    { nombre: 'candidato 1', imagen: '/boyini.jpg' },
+    { nombre: 'candidato 2', imagen: '/boyone.jpg' },
+    { nombre: 'candidato 2', imagen: '/boythree.jpg' },
+    { nombre: 'candidato 3', imagen: '/boytwo.jpg' },
+    { nombre: 'candidato 3', imagen: '/boyvot.jpg' },
   ];
 
   const slidesToShow = 2; // Número de imágenes a mostrar por vez
@@ -75,7 +75,7 @@ const EleccionesSlider = () => {
             </p>
 
             <img
-              src="public/banner2.png"
+              src="/banner2.png"
               alt="Banner"
               className="mb-8 lg:mb-3 lg:h-auto lg:w-[800px] w-full h-40 md:w-full md:h-52 max-w-lg sm:max-w-sm md:max-w-md lg:max-w-lg"
             />

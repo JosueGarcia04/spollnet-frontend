@@ -205,7 +205,7 @@ const Banner = () => {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <div onClick={openModal} className="md:ml-16 relative bg-gradient-to-r cursor-pointer from-[#ffce48] to-[#00296b] p-8 rounded-lg shadow-lg overflow-hidden lg:min-h-[30vh] flex items-center" style={{ backgroundImage: 'url(public/banners.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div onClick={openModal} className="md:ml-16 relative bg-gradient-to-r cursor-pointer from-[#ffce48] to-[#00296b] p-8 rounded-lg shadow-lg overflow-hidden lg:min-h-[30vh] flex items-center" style={{ backgroundImage: 'url(/banners.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="absolute inset-0 bg-gradient-to-r from-[#ffce48] to-[#00296b] opacity-60"></div> {/* Gradiente superpuesto */}
       <div className="relative w-full flex items-center justify-center text-center">
         <div className="space-y-0 sm:space-y-0 md:space-y-0 lg:space-y-0">

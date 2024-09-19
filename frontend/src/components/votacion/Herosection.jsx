@@ -25,7 +25,7 @@ export default function HeroSection() {
         </p>
 
         <img 
-          src="public/banner.png"
+          src="/banner.png"
           alt="Banner"
           className="mb-8 lg:mb-3 lg:h-auto lg:w-[680px] w-full h-40 md:w-full md:h-52 max-w-lg sm:max-w-sm md:max-w-md lg:max-w-lg"
         />

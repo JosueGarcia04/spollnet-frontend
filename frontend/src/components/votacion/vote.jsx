@@ -16,21 +16,21 @@ const PricingSection = () => {
             party: "DSW",
             description: "Liderazgo e inclusión para un mejor futuro",
             imgSrc: "/candi1.jpg",
-            partyImgSrc: "public/partido3.png"  // Add path to party image
+            partyImgSrc: "/partido3.png"  // Add path to party image
         },
         {
             name: "Diego López",
             party: "MANTO",
             description: "Justicia y transparencia en cada acción",
             imgSrc: "/candi2.jpg",
-            partyImgSrc: "public/partido1.png"  // Add path to party image
+            partyImgSrc: "/partido1.png"  // Add path to party image
         },
         {
             name: "Juan Pérez",
             party: "ECA",
             description: "Desarrollo y eficiencia para todos",
             imgSrc: "/candi3.jpg",
-            partyImgSrc: "public/partido2.png"  // Add path to party image
+            partyImgSrc: "/partido2.png"  // Add path to party image
         }
     ];
 

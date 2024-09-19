@@ -47,7 +47,7 @@ const VotacionesSpollNet = () => {
             {loading ? (
                 <Loading />
             ) : (
-                <div  className="bg-[url('public/fondo3.png')] bg-cover bg-center bg-no-repeat bg-fixed min-h-screen flex items-center justify-center">
+                <div  className="bg-[url('/fondo3.png')] bg-cover bg-center bg-no-repeat bg-fixed min-h-screen flex items-center justify-center">
                     {/* Alerta */}
                     <div
                         id="confirmationModal"
@@ -99,13 +99,13 @@ const VotacionesSpollNet = () => {
                                     </div>
                                 )}
                                 <img
-                                    src="public/partido3.png"
+                                    src="/partido3.png"
                                     alt="Jose Rendors"
                                     className="mx-auto mb-4 h-26 w-28 object-cover"
                                 />
                                 <h2 className="text-2xl font-bold text-gray-700">LIN</h2>
                                 <img
-                                    src="public/candi1.jpg"
+                                    src="/candi1.jpg"
                                     alt="Amilcar Guevara"
                                     className="mx-auto mb-4 h-24 w-24 object-cover rounded-full"
                                 />
@@ -124,13 +124,13 @@ const VotacionesSpollNet = () => {
                                     </div>
                                 )}
                                 <img
-                                    src="public/partido1.png"
+                                    src="/partido1.png"
                                     alt="Jose Rendors"
                                     className="mx-auto mb-4 h-26 w-28 object-cover"
                                 />
                                 <h2 className="text-2xl font-bold text-gray-700">JTC</h2>
                                 <img
-                                    src="public/candi2.jpg"
+                                    src="/candi2.jpg"
                                     alt="Josue Adrian"
                                     className="mx-auto mb-4 h-24 w-24 object-cover rounded-full"
                                 />
@@ -149,13 +149,13 @@ const VotacionesSpollNet = () => {
                                     </div>
                                 )}
                                 <img
-                                    src="public/partido2.png"
+                                    src="/partido2.png"
                                     alt="Jose Rendors"
                                     className="mx-auto mb-4 h-26 w-28 object-cover"
                                 />
                                 <h2 className="text-2xl font-bold text-gray-700">DENC</h2>
                                 <img
-                                    src="public/candi3.jpg"
+                                    src="/candi3.jpg"
                                     alt="Xavi Cruz"
                                     className="mx-auto mb-4 h-24 w-24 object-cover rounded-full"
                                 />
