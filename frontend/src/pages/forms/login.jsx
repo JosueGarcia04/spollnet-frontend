@@ -65,7 +65,12 @@ const Login = () => {
         try {
             let response;
             if (mail === 'coordinador123@gmail.com' && contra === 'coorDinadOr2024#') {
-                response = { data: { msg: 'Inicio de sesión de coordinador exitoso', token: 'sample_token' } };
+                response = {
+                    data: {
+                        msg: 'Inicio de sesión de coordinador exitoso',
+                        token: "coordinador"
+                    } 
+                };
                 Swal.fire({
                     title: "¡Bien!",
                     text: response.data.msg,
@@ -76,7 +81,7 @@ const Login = () => {
                 });
                 return;
             } else if (mail === 'consejo2024@gmail.com' && contra === 'conseJo2024#') {
-                response = { data: { msg: 'Inicio de sesión de consejal exitoso', token: 'sample_token' } };
+                response = { data: { msg: 'Inicio de sesión de consejal exitoso' } };
                 Swal.fire({
                     title: "¡Bien!",
                     text: response.data.msg,
@@ -91,6 +96,8 @@ const Login = () => {
                     email: mail,
                     password: contra
                 });
+
+                 localStorage.setItem("token", response.data.token)
             }
 
             if (response.data.token) {
@@ -104,7 +111,8 @@ const Login = () => {
 
                     try {
                         const token = response.data.token;
-                        const decodedToken = jwtDecode(response.data.token);
+                        console.log("qkjsnkqwndkwnekdnwejknfkerkfnerfjknerjknfk", token)
+                        const decodedToken = jwtDecode(token);
                         if (decodedToken.role === 'coordinador') {
                             navigate('/mainCoordinator', { replace: true });
                         } else if (decodedToken.role === 'consejal') {
@@ -145,7 +153,7 @@ const Login = () => {
                 <Loading />
             ) : (
                 <div className="min-h-screen bg-[#141414] flex flex-col items-center justify-center py-24 px-0 lg:min-h-screen">
-                    <NavbarTranslate/>
+                    <NavbarTranslate />
                     <div className="flex justify-center mb-6">
                         <Link to={"/"}>
                             <img src="/Logo-beta5.png" alt="Logo" className="h-14 lg:h-16" />
@@ -206,7 +214,7 @@ const Login = () => {
                     </div>
                 </div>
             )}
-            <Footer/>
+            <Footer />
         </>
     );
 };

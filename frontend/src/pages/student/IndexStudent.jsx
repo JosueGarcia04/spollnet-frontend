@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom';
-import NavDownSesionStudent from '../../components/student/navDownSesionStudent'
+import { useLocation, useNavigate } from 'react-router-dom';
+import NavDownSesionStudent from '../../components/student/navDownSesionStudent';
 import NavbarSesionStudent from "../../components/student/navbarSesionStudent";
 import Footer from "../../components/student-no-logued/general/footer";
 import Countdown from "../../components/student-no-logued/index/countdown/timer";
@@ -16,10 +16,12 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import 'tailwindcss/tailwind.css';
 import 'flowbite';
+import {jwtDecode} from 'jwt-decode';
 
 const IndexStudent = () => {
     const [loading, setLoading] = useState(true);
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         AOS.init();
@@ -29,6 +31,26 @@ const IndexStudent = () => {
 
         return () => clearTimeout(timer);
     }, [location]);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token'); 
+        if (token) {
+            try {
+                const decodedToken = jwtDecode(token);
+                // Verifica si el token ha expirado
+                if (decodedToken.exp * 1000 < Date.now()) {
+                    localStorage.removeItem('token'); 
+                    navigate('/login');
+                }
+            } catch (error) {
+                console.error('Error decoding token:', error);
+                localStorage.removeItem('token'); 
+                navigate('/login'); 
+            }
+        } else {
+            navigate('/login');
+        }
+    }, [navigate]);
 
     useEffect(() => {
         if (!loading) {
@@ -50,9 +72,9 @@ const IndexStudent = () => {
                 <Loading />
             ) : (
                 <div>
-                     <NavbarSesionStudent/>
+                    <NavbarSesionStudent/>
                     <div className="bg-black md:flex">
-                    <SidebarSesionStudent/>
+                        <SidebarSesionStudent/>
                         <div className="content flex-1 ml-0 md:ml-16 relative top-0">
                             <div className="text-white text-center mt-5">
                                 <Countdown />
@@ -61,7 +83,6 @@ const IndexStudent = () => {
                             <Parte2 />
                             <Parte3 />
                             <Parte4 />
-
                         </div>
                     </div>
                     <NavDownSesionStudent/>

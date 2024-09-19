@@ -7,6 +7,7 @@ import { Index } from '../pages/by us/no logued/Index'
 import { Root } from '../pages/Root'
 //general
 import NotFound from '../pages/not found/404'
+import ProtectedRoute from '../components/protect-route';
 import News from '../pages/by us/general/news'
 //coordinador
 import Coordinator from '../pages/coordinator/dashboard/mainCoordinator'
@@ -74,75 +75,75 @@ export const Router = createBrowserRouter([
             // },
             {
                 path: "public",
-                element: <Publica />
+                element: <ProtectedRoute component={Publica} allowedRoles={['student']} />
             },
             {
-                path:"mainCoordinator",
-                element:<Coordinator/>
+                path: "mainCoordinator",
+                element: <ProtectedRoute component={Coordinator} allowedRoles={['coordinador']} />
             },
             {
-                path:"studentsTable",
-                element:<StudentTable/>
+                path: "studentsTable",
+                element: <ProtectedRoute component={StudentTable} allowedRoles={['coordinador']} />
             },
             {
                 path:"listDeletedStudents",
-                element:<ListDeletedStudents/>
+                element: <ProtectedRoute component={ListDeletedStudents} allowedRoles={['coordinador']} />
             },
             {
                 path:"listBannedStudents",
-                element:<ListBannedStudents/>
+                element: <ProtectedRoute component={ListBannedStudents} allowedRoles={['coordinador']} />
             },
             {
                 path:"periodsOfVotesDashboard",
-                element:<PeriodsOfVotesDashboard/>
+                element: <ProtectedRoute component={PeriodsOfVotesDashboard} allowedRoles={['coordinador']} />
             },
             {
                 path:"newsDashboard",
-                element:<NewsDashboard/>
+                element: <ProtectedRoute component={NewsDashboard} allowedRoles={['coordinador']} />
             },
             {
                 path:"candidates",
-                element:<Votacion/>
+                element: <ProtectedRoute component={Votacion} allowedRoles={['student']} />
             },
             {
                 path:"papeleta",
-                element:<Papel/>
+                element: <ProtectedRoute component={Papel} allowedRoles={['student']} />
             },
             {
                 path:"Infocandi",
-                element:<Informacion/>
+                element: <ProtectedRoute component={Informacion} allowedRoles={['student']} />
             },
             {
                 path:"Sectionvote",
-                element:<Vote/>
+                element: <ProtectedRoute component={Vote} allowedRoles={['student']} />
             },
             {
                 path:"listDeletedNews",
-                element:<ListDeletedNews/>
+                element: <ProtectedRoute component={ListDeletedNews} allowedRoles={['coordinador']} />
             },  
             {
                 path:"solicitudes",
-                element:<Solicitudes/>
+                element: <ProtectedRoute component={Solicitudes} allowedRoles={['consejal']} />
             },
             {
                 path:"IndexStudent",
-                element:<IndexStudent/>
+                element: <ProtectedRoute component={IndexStudent} allowedRoles={['student']} />
             },
             {
                 path:"IndexConsejo",
-                element:<IndexConsejo/>
+                element: <ProtectedRoute component={IndexConsejo} allowedRoles={['consejal']} />
             },
             {
                 path:"listDeletedPeriods",
-                element:<ListDeletedPeriods/>
+                element: <ProtectedRoute component={ListDeletedPeriods} allowedRoles={['coordinador']} />
             },
             {
                 path: "listFinallyPeriods",
-                element: <ListFinallyPeriods/>
+                element: <ProtectedRoute component={ListFinallyPeriods} allowedRoles={['coordinador']} />
             },
             {
                 path:"mainStatistic",
-                element:<MainStatistic/>
+                element: <ProtectedRoute component={MainStatistic} allowedRoles={['coordinador']} />
             },
             {
                 path: "*",

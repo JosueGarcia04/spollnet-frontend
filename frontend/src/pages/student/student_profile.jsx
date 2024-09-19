@@ -113,7 +113,8 @@ const Profile = () => {
     };
 
     const handleLogout = () => {
-        sessionStorage.removeItem("token");
+        // sessionStorage.removeItem("token");
+        localStorage.clear();
         navigate('/login');
     };
     

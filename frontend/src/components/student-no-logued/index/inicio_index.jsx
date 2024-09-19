@@ -32,9 +32,7 @@ export default function InicioIndex() {
                 <div className="absolute inset-0">
                     <div className="lava-lamp"></div>
                 </div>
-                <Link to={"/"}>
                     <img src="/Aguila-prueba.png" className="w-20 md:w-full h-auto relative" alt="spollnet" />
-                </Link>
                 <div className="icons-wrapper">
                     <div className="icon icon1">
                         <img src="/icon1.png" alt="Icon 1" />

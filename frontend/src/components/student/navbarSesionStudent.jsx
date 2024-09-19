@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function NavbarSesionStudent() {
+
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState({
     nombre: '',
     email: '',
@@ -28,6 +32,10 @@ const token = sessionStorage.getItem("token");
     }
     
     useEffect(() => {
+
+      const token = localStorage.getItem("token");
+      if (!token) return navigate("/login")
+
         const fetchProfileData = async () => {
             console.log(id);
     
