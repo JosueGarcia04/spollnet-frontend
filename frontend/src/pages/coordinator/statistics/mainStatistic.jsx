@@ -3,7 +3,7 @@ import NavbarTranslate from '../../../components/student-no-logued/general/navBa
 import MenuCoordinatorDashboard from '../../../components/coordinator/mainDashboardInformation/menuCoordinatorDasboard';
 import Footer from '../../../components/student-no-logued/general/footer';
 import NavDownCoordinator from '../../../components/coordinator/mainDashboardInformation/navDownCoordinator';
-import { SimplePieChart } from '../../../components/coordinator/StatisticsGraphics/principalChartsDashboard/simplePieChart';
+// import { SimplePieChart } from '../../../components/coordinator/StatisticsGraphics/principalChartsDashboard/simplePieChart';
 
 export default function MainStatistic() {
     return (
@@ -19,7 +19,7 @@ export default function MainStatistic() {
                             <MenuCoordinatorDashboard />
                         </div>
                         <div id="content" className="bg-white/10 col-span-full md:col-span-full lg:col-span-full rounded-lg p-4 overflow-x-hidden md:ml-20">
-                            <SimplePieChart />
+                            {/* <SimplePieChart /> */}
                         </div>
                     </div>
                 </div>
