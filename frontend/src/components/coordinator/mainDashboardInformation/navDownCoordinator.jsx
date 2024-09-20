@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faDoorOpen, faNewspaper, faChartSimple, faCalendarCheck, faUsers} from '@fortawesome/free-solid-svg-icons'
 
@@ -26,6 +26,10 @@ const NavDownCoordinator = () =>{
     };
   }, []);
 
+  const handleLogout = () => {
+    navigate('/login');
+  };
+
 
   return(
     <>
@@ -44,7 +48,7 @@ const NavDownCoordinator = () =>{
           </div>
         </div>
       </Link>
-      <Link to={"/IndexStudent"} className="text-white hover:text-gray-400">
+      <Link onClick={handleLogout}className="text-white hover:text-gray-400">
         <div className="flex items-center">
           <div className="rounded-full bg-[#e7148c] w-12 h-12 flex justify-center items-center">
             <FontAwesomeIcon icon={faDoorOpen} className="w-6 h-6 text-white" />

@@ -20,7 +20,7 @@
 //         canvas.loadFromJSON(JSON.parse(savedState), canvas.renderAll.bind(canvas));
 //       }
 
-//       const saveCanvasState = () => {
+//       const saveCanvasState = () => {    
 //         const state = canvas.toJSON();
 //         localStorage.setItem('canvasState', JSON.stringify(state));
 //       };
