@@ -9,13 +9,16 @@ import Parte1 from '../../components/student-no-logued/index/inicio_index';
 import Parte2 from '../../components/student-no-logued/index/Whatspoll';
 import Parte3 from '../../components/student-no-logued/index/valor_index';
 import Parte4 from '../../components/student-no-logued/index/VotingSteps';
+import Parte5 from '../../components/student-no-logued/index/benefits';
+import Parte6 from '../../components/student-no-logued/index/CarnetInfo';
+import Parte7 from '../../components/student-no-logued/index/DiscoverMore';
+import Parte8 from '../../components/student-no-logued/index/ReadyToVote';
 import Loading from '../../components/loading/loading';
 import ChatbotComponent from '../../components/chat/chatbox';
 import '../../pages/by us/general/extra.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import 'tailwindcss/tailwind.css';
-import 'flowbite';
 import {jwtDecode} from 'jwt-decode';
 
 const IndexStudent = () => {
@@ -28,7 +31,7 @@ const IndexStudent = () => {
         const timer = setTimeout(() => {
             setLoading(false);
         }, 1000);
-
+        
         return () => clearTimeout(timer);
     }, [location]);
 
@@ -83,6 +86,10 @@ const IndexStudent = () => {
                             <Parte2 />
                             <Parte3 />
                             <Parte4 />
+                            <Parte5/>
+                            <Parte6/>
+                            <Parte7/>
+                            <Parte8/>
                         </div>
                     </div>
                     <NavDownSesionStudent/>

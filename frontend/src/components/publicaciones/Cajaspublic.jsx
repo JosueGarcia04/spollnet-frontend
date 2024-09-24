@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaHeart, FaComment, FaPaperPlane } from 'react-icons/fa';
-import Modal from 'react-modal';
 
 // Style for the modal
 const customStyles = {

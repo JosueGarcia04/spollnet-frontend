@@ -20,7 +20,6 @@ import "../../../pages/by us/general/extra.css";
 import 'aos/dist/aos.css'; 
 import AOS from 'aos'; 
 import 'tailwindcss/tailwind.css';
-import 'flowbite';
 
 export const Index = () => {
   const [loading, setLoading] = useState(true);
