@@ -7,7 +7,6 @@ import Countdown from "../../components/student-no-logued/index/countdown/timer"
 import SidebarSesionStudent from "../../components/student/SideBarSesionStudent";
 import Parte1 from '../../components/student-no-logued/index/inicio_index';
 import Parte2 from '../../components/student-no-logued/index/Whatspoll';
-import Parte3 from '../../components/student-no-logued/index/valor_index';
 import Parte4 from '../../components/student-no-logued/index/VotingSteps';
 import Parte5 from '../../components/student-no-logued/index/benefits';
 import Parte6 from '../../components/student-no-logued/index/CarnetInfo';
@@ -84,8 +83,7 @@ const IndexStudent = () => {
                             </div>
                             <Parte1 />
                             <Parte2 />
-                            <Parte3 />
-                            <Parte4 />
+                            <Parte4 />  
                             <Parte5/>
                             <Parte6/>
                             <Parte7/>

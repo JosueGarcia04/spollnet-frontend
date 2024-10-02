@@ -1,84 +1,3 @@
-@keyframes roll1 {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  10%, 30% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  40% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-}
-
-@keyframes roll2 {
-  0%, 30% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  40%, 60% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  70% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-}
-
-@keyframes roll3 {
-  0%, 60% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  70%, 90% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-}
-
-.rotating-words {
-  position: relative;
-  height: 0.9em;
-  display: inline-block;
-
-}
-
-.rotating-words p {
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  white-space: nowrap;
-  color: #e7148c;
-  text-align: center;
-}
-
-.rotating-words p:nth-child(1) {
-  animation: roll1 10s linear infinite;
-}
-
-.rotating-words p:nth-child(2) {
-  animation: roll2 10s linear infinite;
-}
-
-.rotating-words p:nth-child(3) {
-  animation: roll3 10s linear infinite;
-}
-
-.text-gradient {
-  background: #e7148c;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-
 .lava-lamp {
 position: absolute;
 top: 0;
@@ -159,26 +78,6 @@ left: 150%;
 }
 }
 
-
-.features-box {
-padding: 1rem;
-
-width: 24rem;
-height: 16rem;
-border-radius: 0.5rem;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
--webkit-transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Para Safari */
-transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-}
-
-.features-box:hover {
-transform: scale(1.05);
-box-shadow: 0 12px 30px rgba(255, 255, 255, 0.3);
-filter: brightness(1.2);
-}
-
-
-
 .card-container {
 perspective: 1000px;
 }
@@ -219,7 +118,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Box shadow when flipped */
+box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
 border: 2px solid white;
 }
 

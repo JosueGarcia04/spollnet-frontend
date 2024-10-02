@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function DiscoverMore() {
     return (
-        <div className="lg:py-0 py-14 lg:pt-60 bg-[#141414] lg:pb-20">
+        <div className="lg:py-0 py-14 lg:pt-60 bg-black lg:pb-20">
             <div>
                 <div className="max-w-screen-xl lg:px-4 lg:py-1 px-10 mx-auto space-y-12 lg:space-y-20">
                     <div className="py-6 sm:py-8 lg:py-12">

@@ -12,7 +12,7 @@ export default function Benefits() {
                                     data-aos="fade-up"
                                     className="mb-4 text-white text-center text-4xl lg:text-5xl font-semibold tracking-tight"
                                 >
-                                    Beneficios
+                                    ¿Por qué Spollnet?
                                 </h2>
                                 <div data-aos="fade-up" className="w-full mb-4">
                                     <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-40 opacity-65 my-0 py-0 rounded-t"></div>

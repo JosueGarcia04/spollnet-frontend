@@ -2,123 +2,112 @@ import React from 'react';
 
 export default function VotingSteps() {
     return (
-        <div className="max-w-screen-xl pt-14 pb-5 px-4 mx-auto space-y-12 lg:space-y-20">
-            <div className="py-6 sm:py-8 lg:py-12">
-                <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                    <div className="mb-4 flex items-center justify-between md:justify-center gap-8 sm:mb-8 md:mb-12">
-                        <div className="lg:flex items-center lg:gap-12">
-                            <div>
-                                <h2
-                                    data-aos="fade-up"
-                                    className="md:text-center text-white text-center lg:text-start text-4xl lg:text-5xl font-semibold tracking-tight  dark:text-white"
-                                >
-                                    ¿Como puedes votar?
-                                </h2>
-                                <div data-aos="fade-up" className="w-full mt-4">
-                                    <div className="h-1 mx-auto gradient bg-[#e7148c] md:w-64 w-40  opacity-65 my-0 py-0 rounded-t"></div>
-                                </div>
-                            </div>
-                            <p
-                                data-aos="fade-up"
-                                className="max-w-screen-sm font-light mt-5 lg:mt-0 text-center lg:text-start text-lg text-slate-300 lg:text-xl md:block"
-                            >
-                                Spollnet garantiza la seguridad y confidencialidad de tu voto. Aprende cómo puedes participar en el proceso democrático.
-                            </p>
+        <>
+        <section class="max-w-5xl mx-auto py-10">
+            <div>
+                <div class="flex flex-row px-4 lg:px-0">
+                    <div class="hidden md:flex flex-col items-center">
+                        <div class="w-32 py-5 border dark:border-[#e7148c] rounded mr-4 flex flex-col items-center justify-center">
+                        <div class="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600">Paso 1</div>
+                        </div>
+                        <div class="h-full border-l-4 border-transparent">
+                        <div class="border-l-4 mr-4 h-full border-gray-300 border-dashed"></div>
                         </div>
                     </div>
-
-                    <div className="grid grid-cols gap-4 lg:grid-cols-3 md:grid-cols-2 md:gap-6 xl:gap-8">
-                        <div data-aos="fade-up" className="card-container group relative h-48 md:h-80">
-                            <input type="checkbox" id="card-1" className="hidden card-checkbox" />
-                            <label htmlFor="card-1" className="card">
-                                <div className="card-front rounded-lg flex items-center justify-center">
-                                    <img
-                                        src="/boyini.jpg"
-                                        alt="Inicia sesión o regístrate"
-                                        className="h-full opacity-45 w-full object-cover object-center rounded-lg shadow-lg transition duration-200 group-hover:scale-110"
-                                    />
-                                    <span className="step-number absolute text-6xl font-bold text-white">1</span>
-                                </div>
-                                <div className="card-back flex flex-col text-white p-4 rounded-lg shadow-lg bg-cover bg-center" style={{
-                                    backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
-                                    backgroundBlendMode: 'overlay'
-                                }}>
-                                    <h3 className="text-xl  font-semibold">Paso 1: Ingresa al sistema</h3>
-                                    <p className="mt-2 text-base  text-center">Crea una cuenta si aún no la tienes o inicia sesión para acceder al sistema de votación.</p>
-                                </div>
-
-                            </label>
+                    <div class="flex-auto border rounded dark:border-[#e7148c]">
+                        <div class="flex md:flex-row flex-col items-center">
+                        <div class="flex-auto">
+                            <div class="md:hidden text-sm font-normal pt-3 pl-3 text-white"><span class="font-black">Paso 1</span></div>
+                            <div class="font-bold p-3 text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600"> Ingresa a Spollnet</div>
+                            <div class="px-3 pb-6 font-light text-slate-300 lg:text-xl">Crea una cuenta si aún no la tienes o inicia sesión para acceder al sistema de votación.</div>
                         </div>
-
-                        <div data-aos="fade-up" className="card-container group relative h-48 lg:col-span-2 md:h-80">
-                            <input type="checkbox" id="card-2" className="hidden card-checkbox" />
-                            <label htmlFor="card-2" className="card">
-                                <div className="card-front rounded-lg flex items-center justify-center">
-                                    <img
-                                        src="/boypre.jpg"
-                                        alt="Selecciona tu candidato"
-                                        className="h-full opacity-45 w-full object-cover object-center rounded-lg shadow-lg transition duration-200 group-hover:scale-105"
-                                    />
-                                    <span className="step-number absolute text-6xl font-bold text-white">2</span>
-                                </div>
-                                <div className="card-back flex flex-col p-4 text-white rounded-lg shadow-lg bg-cover bg-center" style={{
-                                    backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
-                                    backgroundBlendMode: 'overlay'
-                                }}>
-                                    <h3 className="text-xl t font-semibold">Paso 2: Selección</h3>
-                                    <p className="mt-2 text-base  text-center">Visualiza la informacion de los candidatos y vota por el candidato de tu preferencia.</p>
-                                </div>
-
-
-                            </label>
                         </div>
-
-                        <div data-aos="fade-up" className="card-container group relative h-48 lg:col-span-2 md:h-80">
-                            <input type="checkbox" id="card-3" className="hidden card-checkbox" />
-                            <label htmlFor="card-3" className="card">
-                                <div className="card-front rounded-lg flex items-center justify-center">
-                                    <img
-                                        src="/boyvi.jpg"
-                                        alt="Emite tu voto"
-                                        className="h-full opacity-45 w-full object-cover object-center rounded-lg shadow-lg transition duration-200 group-hover:scale-105"
-                                    />
-                                    <span className="step-number absolute text-6xl font-bold text-white">3</span>
-                                </div>
-                                <div className="card-back flex flex-col p-4 rounded-lg text-white shadow-lg bg-cover bg-center" style={{
-                                    backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
-                                    backgroundBlendMode: 'overlay'
-                                }}>
-                                    <h3 className="text-xl font-semibold">Paso 3: Votación</h3>
-                                    <p className="mt-2 text-base  text-center">Confirma tu elección y emite tu voto de manera segura.</p>
-                                </div>
-
-                            </label>
-                        </div>
-
-                        <div data-aos="fade-up" className="card-container group relative h-48 md:h-80">
-                            <input type="checkbox" id="card-4" className="hidden card-checkbox" />
-                            <label htmlFor="card-4" className="card">
-                                <div className="card-front rounded-lg flex items-center justify-center">
-                                    <img
-                                        src="/boyvot.jpg"
-                                        alt="Ver resultados"
-                                        className="h-full opacity-45 w-full object-cover object-center rounded-lg shadow-lg transition duration-200 group-hover:scale-110"
-                                    />
-                                    <span className="step-number absolute text-6xl font-bold text-white">4</span>
-                                </div>
-                                <div className="card-back flex text-white flex-col p-4 rounded-lg shadow-lg bg-cover bg-center" style={{
-                                    backgroundImage: 'url(/foto.jpg), linear-gradient(to right, #e7148c, #6e1d5c)',
-                                    backgroundBlendMode: 'overlay'
-                                }}>
-                                    <h3 className="text-xl font-semibold">Paso 4: Resultados</h3>
-                                    <p className="mt-2 text-base text-center">Consulta los resultados finales y descubre el ganador.</p>
-                                </div>
-
-                            </label>
-                        </div>
+                    </div>
+                </div>
+            <div class="flex items-start flex-row">
+                <div class="border-t-4 border-r-4 border-transparent">
+                    <div class="w-16 ml-16 h-16 border-l-4 border-gray-300 border-dashed border-b-4 rounded-bl-full"></div>
+                </div>
+                <div class="border-t-4 border-transparent flex-auto">
+                    <div class="h-16 border-b-4 border-gray-300 border-dashed"></div>
+                </div>
+                <div class="w-16 mt-16 mr-16 h-16 border-r-4 border-gray-300 border-dashed border-t-4 rounded-tr-full"></div>
+            </div>
+            <div class="flex flex-row-reverse px-4 lg:px-0">
+                <div class="hidden md:flex flex-col items-center">
+                    <div class="w-32 py-5 border dark:border-[#e7148c] rounded ml-4 flex flex-col items-center justify-center">
+                        <div class="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600">Paso 2</div>
+                    </div>
+                    <div class="h-full border-r-4 border-transparent">
+                        <div class="border-l-4 ml-4 h-full border-gray-300 border-dashed"></div>
+                    </div>
+                </div>
+                <div class="flex-auto border rounded dark:border-[#e7148c]">
+                    <div class="flex md:flex-row flex-col items-center">
+                        <div class="flex-auto">
+                    <div class="md:hidden text-sm font-normal pt-3 pl-3 text-white"><span class="font-black">Paso 2</span></div>
+                        <div class="font-bold p-3 text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600">Vizualización de la Información</div>
+                        <div class="px-3 pb-6  font-light text-slate-300 lg:text-xl">Visualiza la información de los partidos y de los candidatos ingresados en el sistema.</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-start flex-row-reverse">
+                <div class="border-t-4 border-l-4 border-transparent">
+                    <div class="w-16 mr-16 h-16 border-r-4 border-gray-300 border-dashed border-b-4 rounded-br-full"></div>
+                </div>
+                <div class="border-t-4 border-transparent flex-auto">
+                    <div class="h-16 border-b-4 border-gray-300 border-dashed"></div>
+                </div>
+                <div class="w-16 mt-16 ml-16 h-16 border-l-4 border-gray-300 border-dashed border-t-4 rounded-tl-full"></div>
+            </div>
+            <div class="flex flex-row px-4 lg:px-0">
+                <div class="hidden md:flex flex-col items-center">
+                    <div class="w-32 py-5 border dark:border-[#e7148c] rounded mr-4 flex flex-col items-center justify-center">
+                        <div class="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600">Paso 3</div>
+                    </div>
+                    <div class="h-full border-l-4 border-transparent">
+                        <div class="border-l-4 mr-4 h-full border-gray-300 border-dashed"></div>
+                    </div>
+                </div>
+                <div class="flex-auto border rounded dark:border-[#e7148c]">
+                    <div class="flex md:flex-row flex-col items-center">
+                    <div class="flex-auto">
+                        <div class="md:hidden text-sm font-normal pt-3 pl-3 text-white"><span class="font-black">Paso 3</span></div>
+                        <div class="font-bold p-3 text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600">Votación</div>
+                        <div class="px-3 pb-6  font-light text-slate-300 lg:text-xl">Confirma tu identidad y realiza tu voto por la candidatura que prefieres.</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-start flex-row">
+                <div class="border-t-4 border-r-4 border-transparent">
+                    <div class="w-16 ml-16 h-16 border-l-4 border-gray-300 border-dashed border-b-4 rounded-bl-full"></div>
+                </div>
+                <div class="border-t-4 border-transparent flex-auto">
+                    <div class="h-16 border-b-4 border-gray-300 border-dashed"></div>
+                </div>
+                <div class="w-16 mt-16 mr-16 h-16 border-r-4 border-gray-300 border-dashed border-t-4 rounded-tr-full"></div>
+            </div>
+            <div class="flex flex-row-reverse px-4 lg:px-0">
+                <div class="hidden md:flex flex-col items-center">
+                    <div class="w-32 py-5 border dark:border-[#e7148c] rounded ml-4 flex flex-col items-center justify-center">
+                    <div class="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600">Paso 4</div>
+                    </div>
+                </div>
+                <div class="flex-auto border rounded dark:border-[#e7148c]">
+                    <div class="flex md:flex-row flex-col items-center">
+                    <div class="flex-auto">
+                        <div class="md:hidden text-sm font-normal pt-3 pl-3 text-white"><span class="font-black">Paso 4</span></div>
+                        <div class="font-bold p-3 text-3xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600">Resultados</div>
+                        <div class="px-3 pb-6  font-light text-slate-300 lg:text-xl">Consulta los resultados finales de manera rápida y descubre quién es el ganador.</div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
+        </section>
+    );
+        </>
     );
 }
